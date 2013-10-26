@@ -9,7 +9,7 @@ class Config
         $this->vars = array();
     }
  
-    //Con set vamos guardando nuestras variables.
+ 
     public function set($name, $value)
     {
         if(!isset($this->vars[$name]))
@@ -18,7 +18,6 @@ class Config
         }
     }
  
-    //Con get('nombre_de_la_variable') recuperamos un valor.
     public function get($name)
     {
         if(isset($this->vars[$name]))
@@ -40,15 +39,3 @@ class Config
         return $this->vars;
     }
 }
-/*
- Uso:
- 
- $config = Config::singleton();
- $config->set('nombre', 'Federico');
- echo $config->get('nombre');
- 
- $config2 = Config::singleton();
- echo $config2->get('nombre');
- 
-*/
-?>

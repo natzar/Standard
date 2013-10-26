@@ -8,7 +8,7 @@ class SPDO extends PDO
 		$config = Config::singleton();
 		parent::__construct('mysql:host=' . $config->get('dbhost') . ';dbname=' . $config->get('dbname'),
 $config->get('dbuser'), $config->get('dbpass'));
-parent::exec("SET CHARACTER SET utf8");
+parent::exec("SET NAMES utf8");
 try  
             {  
                 $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  

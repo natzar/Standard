@@ -38,8 +38,9 @@ $config = Config::singleton();
 	$config->set('controllersFolder', 'controllers/');
 	$config->set('modelsFolder', 'models/');
 	$config->set('viewsFolder', 'views/');
-  	$config->set('setupFolder', 'setups/');
-	 
+  	$config->set('setupFolder', $PATH.'/setups/');
+  	$config->set('languagesFolder', $PATH.'/language/');
+  		 
 	$config->set('dbhost', 'localhost');
 	$config->set('dbname', 'iguana');
 	$config->set('dbuser', 'root');

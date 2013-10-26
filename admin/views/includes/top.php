@@ -72,12 +72,7 @@
             <ul class="nav nav-list">
               
 
-		
-<? foreach($menu as $item): ?>
-			   <li><a href="show/table/<?= $item[0] ?>"><i class="icon-book"></i>    <?= $item[1] ?></a></li>
-			<? endforeach;?>
-
-         
+<li>MENU NOT CONFIGURED</li>
 
           </ul>
 
