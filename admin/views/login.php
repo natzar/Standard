@@ -3,7 +3,7 @@
 	<head>
 		<title><?= $base_title ?> | Backoffice</title>
 		<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
-	   		<link href="<?= $base_url ?>/views/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	   		<link href="<?= $base_url ?>admin/views/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
 	</head>
 	<body style="text-align:center;background:#fefefe;"> 
@@ -13,7 +13,7 @@
 <div style="width:300px;">
 	<div style="text-align:left;">
 		<center><h3><?= $base_title ?></h3>
-	<form class="well" action="<?= $base_url ?>login/login" method="post">
+	<form class="well" action="<?= $base_url ?>admin/login/login" method="post">
 
 	<label><strong>Usuario</strong></label>
 	<input class="span3" style="height:auto;" type="text" name="user"><BR>

@@ -3,9 +3,9 @@
 $config = Config::singleton();
 
 	$config->set('lang','esp');
-	$config->set('base_title','magma');
-$config->set('base_url','//localhost/alphas/admin/');
-$config->set('base_url_data','//localhost/alphas/admin/data/');
+	$config->set('base_title','Iguana');
+	$config->set('base_url','//localhost/alphas/96MicroFramework/');
+	$config->set('base_url_data','//localhost/alphas/96MicroFramework/data/');
 	$config->set('db_prefix','');
 	$config->set('tabla_default','items');
     $config->set('validUser','test');
@@ -33,12 +33,12 @@ $config->set('base_url_data','//localhost/alphas/admin/data/');
 	$config->set('path',$PATH); 
 	
 	$config->set('setup_dir',$PATH.'/setup/');
-	$config->set('data_dir',$PATH.'/../data/');
+	$config->set('data_dir',$PATH.'/data/');
 
 	$config->set('controllersFolder', 'controllers/');
 	$config->set('modelsFolder', 'models/');
 	$config->set('viewsFolder', 'views/');
-  
+  	$config->set('setupFolder', 'setups/');
 	 
 	$config->set('dbhost', 'localhost');
 	$config->set('dbname', 'iguana');

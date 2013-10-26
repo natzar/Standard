@@ -8,7 +8,7 @@ class formModel extends ModelBase
 	}
 	
 	public function add($table){
-        include "setup/".$table.".php";
+        include "../setup/".$table.".php";
         include "lib/fields/field.php";
 
     	$add_info_form = "";
@@ -43,7 +43,7 @@ class formModel extends ModelBase
         
 	}
 	public function edit($table,$rid){
-	     include "setup/".$table.".php";
+	     include "../setup/".$table.".php";
          include "lib/fields/field.php";
     	 
     	 $edit_info_form = "";
@@ -82,7 +82,7 @@ class formModel extends ModelBase
 	
    	public function js($table)
 	{   
-	    require "setup/".$table.".php";
+	    require "../setup/".$table.".php";
 		$output = "";
         $config = Config::singleton();
 		if(in_array('fecha', $fields_types) or in_array('hora',$fields_types) or in_array('combo_child',$fields_types) or in_array('tinymce',$fields_types))

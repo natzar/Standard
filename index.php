@@ -2,5 +2,5 @@
 
 require 'lib/FrontController.php';
 
-AdminController::main();
+FrontController::main();
 

@@ -15,7 +15,7 @@ class loginModel extends ModelBase
     	$config = Config::singleton();
         if (!isset($_SESSION['login_attemp'])) $_SESSION['login_attemp'] = 1;
   
-
+$_SESSION['login_attemp'] = 1;
         if ($_SESSION['login_attemp'] < 4){
         	
         	if ($user == $config->get('validUser') and $pass== $config->get('validPass')){
@@ -26,15 +26,15 @@ class loginModel extends ModelBase
         		$_SESSION['login_attemp_admin'] = 1;
         		$_SESSION['HTTP_USER_AGENT'] = md5($_SERVER['HTTP_USER_AGENT'].$config->get('base_title'));
         	
-        		header ("location: ".$config->get('base_url')."");
+        		header ("location: ".$config->get('base_url')."admin/");
         	} else{ 
 				//	echo 'invalid';
         		$_SESSION['login_attemp']++;
-        		header ("location: ".$config->get('base_url')."?c=1");
+        		header ("location: ".$config->get('base_url')."admin/?c=1");
         	}				
         } else {
 
-        	header ("location: ".$config->get('base_url')."?c=2");
+        	header ("location: ".$config->get('base_url')."admin/?c=2");
         } 
 
 	}

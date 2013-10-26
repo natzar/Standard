@@ -9,7 +9,7 @@ class formController extends ControllerBase
         $table = get_param('a');
         $rid = get_param('i');
         $op = get_param('m');
-        require "setup/".$table.".php";
+        require "../setup/".$table.".php";
         if ($rid == '') $rid =-1;    			
         $form_html = "";
         $raw = ($rid != -1) ? $form->getFormValues($table,$rid) : '';
@@ -66,7 +66,7 @@ class formController extends ControllerBase
         $form->add($table);
         $lastId = getLastId($table);
       
-        include "setup/".$table.".php";
+        include "../setup/".$table.".php";
         include "lib/fields/field.php";
         
         $combo = new combo($fields[1],$fields_labels[1],$fields_types[1],$lastId);

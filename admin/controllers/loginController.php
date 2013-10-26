@@ -3,7 +3,7 @@ class loginController extends ControllerBase
 {
 
     public function index(){
-      
+      print_r($_SESSION);
 		$this->view->show("login.php", array(),false);
 		
     }
@@ -13,6 +13,7 @@ class loginController extends ControllerBase
     	require 'models/loginModel.php';
     	$loginModel = new loginModel();
     	
+
     	$loginModel->login(get_param('user'),get_param('pass'));
 	}
  
