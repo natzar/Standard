@@ -3,6 +3,7 @@
 $config = Config::singleton();
 
 	$config->set('lang','esp');
+	$config->set('available_langs',array('esp');
 	$config->set('base_title','Iguana');
 	$config->set('base_url','//localhost/alphas/96MicroFramework/');
 	$config->set('base_url_data','//localhost/alphas/96MicroFramework/data/');
