@@ -38,7 +38,7 @@ class View
 		$PERPAGE = isset($_GET['perpage']) ? $_GET['perpage'] : 40;
  	
  		$LANG = $_SESSION['lang'];
- 		
+ 		$SEO_TITLE = $config->get('base_title');
 		$SEO_DESCRIPTION = $config->get('seo_description');
 		
 		if(is_array($vars))

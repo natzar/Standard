@@ -65,15 +65,10 @@ class FrontController
 		// URL redireccion
 		
 		if(get_param('p') != -1) $controllerName = get_param('p')."Controller";
-		else {
-			
-			 $controllerName = "homeController";
-			
-		}
+		else 	 $controllerName = "homeController";
  
 		if(get_param('m') != -1) $actionName = get_param('m');
-		else 
-			$actionName = 'index';
+		else $actionName = 'index';
 			
 			
 		
@@ -98,12 +93,22 @@ class FrontController
 	    $controllerPath = $config->get('controllersFolder') . $controllerName . '.php';
     
 		if(is_file($controllerPath)) require $controllerPath;
-		else  die('El controlador '.$controllerPath.' no existe - 404 not found');
+		else {
+			require_once($config->get('controllersFolder').'errorsController.php');
+			$controller = new errorsController();
+    		$controller->e404();
+    		return false;
+		}  
 		      
 		if (is_callable(array($controllerName, $actionName)) == false){
+			require_once($config->get('controllersFolder').'errorsController.php');
+			$controller = new errorsController();
+			if ($controllerName =='homeController' and $actionName=='index')
+	    		$controller->e0();
 			trigger_error ($controllerName . '->' . $actionName . '` no existe', E_USER_NOTICE);
 			return false;
 		}
+		
 		
 		$controller = new $controllerName();
     	$controller->$actionName(); 

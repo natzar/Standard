@@ -82,7 +82,7 @@ function gett(){
 function json_from_array($array){
 	$json = new Services_JSON();
 	$aux = $json->encode($array);
-	echo $aux;
+	return $aux;
 }
 
 function generar_cadena_random($long){ 

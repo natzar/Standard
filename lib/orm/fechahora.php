@@ -1,6 +1,6 @@
 <?
 
-final class fecha extends field{
+final class fechahora extends field{
 
 	function view(){
 		if ($this->value != '')
