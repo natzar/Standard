@@ -3,8 +3,8 @@ class deleteModel extends ModelBase
 {
 	
     public function deleteRow($table,$id){
-        include "setup/".$table.".php";
-        include "lib/fields/field.php";
+       include $this->config->get('setupFolder') .$table.".php";
+        include_once "../lib/orm/field.php";
     	$config = Config::singleton();
         if (in_array('file_img',$fields) or in_array('file',$fields)){	
             

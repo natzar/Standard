@@ -4,12 +4,13 @@ ini_set('display_errors', '1');
 include "functions.php";
 include "ModelBase.php";
 include "ControllerBase.php";
-include_once "lib/orm/field.php";
+include_once "orm/field.php";
 
 mb_internal_encoding("UTF-8");
 header ('Content-type: text/html; charset=utf-8');
 //register_shutdown_function('shutdown');
 
+/*
 function shutdown()
 {
   if(!is_null($e = error_get_last()))
@@ -18,15 +19,7 @@ function shutdown()
     include dirname(__FILE__)."/../controllers/sendfeedback.php";
   }
 }
-
-foreach (scandir(dirname(__FILE__).'/orm/') as $filename) {
-    $path = dirname(__FILE__) . '/orm/' . $filename;
-    if (is_file($path) and $filename != 'field.php') {
-        include_once $path;
-//        echo 'including '.$path.'<br>';
-    }
-}
-
+*/
 
 
 
@@ -40,8 +33,8 @@ class FrontController
 		require 'config.php'; //Archivo con configuraciones.
    	
       	$PATH = dirname(__FILE__);
-		$ADMIN = get_param('admin');
-		$path_project = $ADMIN == 1? 'admin/' : 'public/';
+
+
 
 		
 		$USER_LANG = isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) : 'es';
@@ -94,7 +87,7 @@ class FrontController
 		
 		// controlador->metodo
 		
-			$path_project =		$path_project.$config->get('controllersFolder');
+		$path_project =	'public/'.$config->get('controllersFolder');
 		$controllerPath = $path_project . $controllerName . '.php';
     
 		if(is_file($controllerPath)) require $controllerPath;
@@ -106,7 +99,7 @@ class FrontController
 		}  
 		      
 		if (is_callable(array($controllerName, $actionName)) == false){
-			require_once($config->get('controllersFolder').'errorsController.php');
+			require_once($path_project.'errorsController.php');
 			$controller = new errorsController();
 			if ($controllerName =='homeController' and $actionName=='index')
 	    		$controller->e0();

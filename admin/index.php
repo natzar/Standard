@@ -5,8 +5,7 @@ ini_set('display_errors', '1');
 include "../lib/functions.php";
 include "../lib/ControllerBase.php";
 include "../lib/ModelBase.php";
-include_once "../lib/orm/field.php";
-
+include "../lib/orm/field.php";
 
 foreach (scandir(dirname(__FILE__).'/../lib/orm/') as $filename) {
     $path = dirname(__FILE__) . '/../lib/orm/' . $filename;
@@ -25,7 +24,7 @@ class AdminController
         mb_internal_encoding("UTF-8");
 		require '../lib/Config.php'; //de configuracion
 		require '../lib/SPDO.php'; //PDO con singleton
-		require '../lib/View.php'; //Mini motor de plantillas
+		require '../lib/ViewAdmin.php'; //Mini motor de plantillas
               
 		require '../config.php'; //Archivo con configuraciones.
  

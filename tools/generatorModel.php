@@ -303,14 +303,14 @@ class '.$tabla.'Model extends ModelBase
 ';
 
 $path = dirname(__FILE__);
-$aux = fopen($path.'/../controllers/'.$tabla.'Controller.php','w');
+$aux = fopen($path.'/../public/controllers/'.$tabla.'Controller.php','w');
 	fwrite($aux,$resultx);
 	fclose($aux);
-	$aux = fopen($path.'/../models/'.$tabla.'Model.php','w');
+	$aux = fopen($path.'/../public/models/'.$tabla.'Model.php','w');
 	fwrite($aux,$result_Models);
 	fclose($aux);
 
-$aux = fopen($path.'/../views/forms/'.$tabla.'Form.php','w');
+$aux = fopen($path.'/../public/views/forms/'.$tabla.'Form.php','w');
 	fwrite($aux,$form_html);
 	fclose($aux);
 /*

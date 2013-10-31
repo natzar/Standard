@@ -14,8 +14,8 @@ class View
 	{
 
 		$config = Config::singleton();
- 		
-		$path = 'public/'.$config->get('viewsFolder') . $name;
+
+		$path ='../admin/'.$config->get('viewsFolder') . $name;
 		
 		if (file_exists($path) == false) {
 			trigger_error ('Template `' . $path . '` does not exist.', E_USER_NOTICE);
@@ -39,19 +39,17 @@ class View
 		$PERPAGE = isset($_GET['perpage']) ? $_GET['perpage'] : 40;
  	
  		$LANG = $_SESSION['lang'];
- 		$SEO_TITLE = $config->get('base_title');
-		$SEO_DESCRIPTION = $config->get('seo_description');
-		
+
 		if(is_array($vars))
            foreach ($vars as $key => $value)           
                 	$$key = $value;
 
 
     	if ($show_top_footer) 
-    		include 'public/'.$config->get('viewsFolder')."includes/top.php";      	   	
+    		include '../admin/'.$config->get('viewsFolder')."includes/top.php";      	   	
     	include($path);
     	if ($show_top_footer) 
-    		include 'public/'.$config->get('viewsFolder')."includes/footer.php";
+    		include '../admin/'.$config->get('viewsFolder')."includes/footer.php";
 		
 	}
 }

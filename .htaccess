@@ -15,9 +15,9 @@ RewriteCond %{REQUEST_FILENAME} !-d
 # Rewrite all other URLs to index.php/URL
 
 
-RewriteRule ^admin/?([a-zA-Z_]*)?/?([a-zA-Z]*)?/?([a-zA-Z0-9_-]*)?/?([a-zA-Z0-9-]*)?/?([a-zA-Z0-9-]*)?/?([a-zA-Z0-9-]*)?/?$ admin/index.php?p=$1&m=$2&a=$3&i=$4&z=$5&w=$6&admin=1 [NC,L]
+RewriteRule ^admin/?([a-zA-Z_]*)?/?([a-zA-Z]*)?/?([a-zA-Z0-9_-]*)?/?([a-zA-Z0-9-]*)?/?([a-zA-Z0-9-]*)?/?([a-zA-Z0-9-]*)?/?$ admin/index.php?p=$1&m=$2&a=$3&i=$4&z=$5&w=$6 [NC,L]
 
-#RewriteRule ^([a-zA-Z_]*)/?([a-zA-Z]*)?/?([a-zA-Z0-9_-]*)?/?([a-zA-Z0-9-]*)?/?([a-zA-Z0-9-]*)?/?([a-zA-Z0-9-]*)?/?$ index.php?p=$1&m=$2&a=$3&i=$4&z=$5&w=$6&admin=0 [NC,L]
+#RewriteRule ^([a-zA-Z_]*)/?([a-zA-Z]*)?/?([a-zA-Z0-9_-]*)?/?([a-zA-Z0-9-]*)?/?([a-zA-Z0-9-]*)?/?([a-zA-Z0-9-]*)?/?$ index.php?p=$1&m=$2&a=$3&i=$4&z=$5&w=$6[NC,L]
 
 
 #Activate compression

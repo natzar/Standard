@@ -8,8 +8,8 @@ class formModel extends ModelBase
 	}
 	
 	public function add($table){
-        include "../setup/".$table.".php";
-        include "lib/fields/field.php";
+        include $this->config->get('setupFolder') .$table.".php";
+        include_once "../lib/orm/field.php";
 
     	$add_info_form = "";
 
@@ -18,7 +18,7 @@ class formModel extends ModelBase
     		if ($fields[$i] != $table.'Id')	{
 	    		$retrieved = '';
     			if ($fields_types[$i] != 'file_img' and $fields_types[$i] != 'file_file'){
-    				$retrieved = gett($fields[$i]);
+    				$retrieved = get_param($fields[$i]);
     			} else $retrieved = -1;
     			
     			if (!class_exists($fields_types[$i])) die ("La clase ".$fields_types[$i]." no existe");
@@ -43,17 +43,17 @@ class formModel extends ModelBase
         
 	}
 	public function edit($table,$rid){
-	     include "../setup/".$table.".php";
-         include "lib/fields/field.php";
+	     include $this->config->get('setupFolder') .$table.".php";
+         include_once "../lib/orm/field.php";
     	 
     	 $edit_info_form = "";
         
         	for ($i=0;$i< count($fields) ;$i++){
         		
-        		if ($fields[$i] != 'id'  )	{					
+        		if ($fields[$i] != $table.'Id'  )	{					
         			$retrieved = '';		
-        			if ($fields_types[$i] != 'file_img' and $fields_types[$i] != 'file_file' and gett($fields[$i]) != -1){
-        				$retrieved = gett($fields[$i]);
+        			if ($fields_types[$i] != 'file_img' and $fields_types[$i] != 'file_file' and get_param($fields[$i]) != -1){
+        				$retrieved = get_param($fields[$i]);
         			}
 
         			
@@ -69,7 +69,7 @@ class formModel extends ModelBase
 
         			
         	$info = substr($edit_info_form,0,strlen($edit_info_form) - 1);
-       		$consulta = $this->db->prepare("UPDATE ".$table." set  $info   where id='".$rid."'");
+       		$consulta = $this->db->prepare("UPDATE ".$table." set  $info   where ".$table."Id='".$rid."'");
       	//	echo "UPDATE ".$table." set  $info   where id='".$rid."'";
             $consulta->execute();
       
@@ -82,7 +82,7 @@ class formModel extends ModelBase
 	
    	public function js($table)
 	{   
-	    require "../setup/".$table.".php";
+	    require $this->config->get('setupFolder') .$table.".php";
 		$output = "";
         $config = Config::singleton();
 		if(in_array('fecha', $fields_types) or in_array('hora',$fields_types) or in_array('combo_child',$fields_types) or in_array('tinymce',$fields_types))
@@ -110,7 +110,7 @@ class formModel extends ModelBase
 
         extended_valid_elements : "iframe[src|width|height|name|align]",
     plugins : "paste,safari,pagebreak,style,layer,table,save,advhr,imagemanager,advlink,iespell,insertdatetime,preview,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,inlinepopups",
-        content_css: "'.$config->get('base_url').'admin/views/css/tinymce_content.css"
+        content_css: "'.$this->config->get('base_url').'admin/views/css/tinymce_content.css"
         
     });';
 				for ($i=0;$i< count($fields);$i++){

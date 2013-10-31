@@ -10,7 +10,7 @@ $config = Config::singleton();
 	$config->set('base_url_data','//localhost/alphas/96MicroFramework/data/');
 	$config->set('db_prefix','');
 	
-	$config->set('tabla_default','items');
+	$config->set('tabla_default','clientes');
     
     $config->set('validUser','test');
     $config->set('validPass','test');
@@ -42,7 +42,7 @@ $config = Config::singleton();
 	$config->set('controllersFolder', 'controllers/');
 	$config->set('modelsFolder', 'models/');
 	$config->set('viewsFolder', 'views/');
-  	$config->set('setupFolder', $PATH.'/setups/');
+  	$config->set('setupFolder', $PATH.'/setup/');
   	$config->set('languagesFolder', $PATH.'/language/');
   		 
 	$config->set('dbhost', 'localhost');

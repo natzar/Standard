@@ -15,7 +15,7 @@ class loginModel extends ModelBase
     	$config = Config::singleton();
         if (!isset($_SESSION['login_attemp'])) $_SESSION['login_attemp'] = 1;
   
-$_SESSION['login_attemp'] = 1;
+		// Uncheck security $_SESSION['login_attemp'] = 1;
         if ($_SESSION['login_attemp'] < 4){
         	
         	if ($user == $config->get('validUser') and $pass== $config->get('validPass')){

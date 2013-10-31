@@ -71,9 +71,7 @@
           <div class="well-small sidebar-nav" style="padding:1px">
             <ul class="nav nav-list">
               
-
-<li>MENU NOT CONFIGURED</li>
-
+<? include "menu.php"; ?>
           </ul>
 
           </div><!--/.well -->

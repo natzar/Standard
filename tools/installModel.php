@@ -5,9 +5,9 @@ class installModel extends ModelBase
 {
 	
     public function makeSetups($table){
-
+		echo 'Setups for '.$table.'<br>';
         $config = Config::singleton();
-        if (!isset($table)) die("no table selected");
+        if (!isset($table) or $table =='') die("no table selected");
         $prefix = $table; //$config->get('db_prefix');
         $dbname = $config->get('dbname');
    
@@ -17,7 +17,8 @@ class installModel extends ModelBase
         while ($row = $consulta->fetch(PDO::FETCH_NUM)) {
 
         	$tabla = $row[0];
-        	if ($prefix == '' or strstr($tabla,$prefix)){
+        	echo '<h2>'.$tabla.'</h2>';
+        	if ($prefix == 'all' or strstr($tabla,$prefix)){
 
 			$recordset = $this->db->prepare("DESCRIBE $tabla");
 			$recordset->execute();
@@ -27,7 +28,7 @@ class installModel extends ModelBase
 			foreach ($xxx as $field) {
 				echo "<br>";
 				$nom = $field['Field'];
-				echo "nom : "; echo $nom; 	echo "<br>";
+				
 				$feature = explode("(",$field['Type']);
 				switch ($feature[0]) {
 					case "varchar":
@@ -61,13 +62,18 @@ class installModel extends ModelBase
 if (strstr($name,"img")) $type = 'file_img';
 if (strstr($name,"file")) $type = 'file_file';
         			if ($name != $tabla."Id") $types .=  '"'.$type.'",';
+        			
+        			echo "FIELD: "; 
+        			echo $nom;
+        			echo " - ".$type;
+        			echo "<br>";
         	}
     		$campos_a_mostrar = substr($campos_a_mostrar,0,strlen($campos_a_mostrar)-1);
     		$types = substr($types,0,strlen($types)-1);
     		$labels = $campos_a_mostrar;
     
     
-    		$aux = fopen('setup/'.$tabla.'.php','w');
+    		$aux = fopen($config->get('setupFolder').$tabla.'.php','w');
     		$resultx =  '<?
         
         $table_label = "'.$tabla.'";
@@ -83,6 +89,7 @@ if (strstr($name,"file")) $type = 'file_file';
         		fwrite($aux,$resultx);
         		fclose($aux);
         	}
+        	echo '<hr>';
         }
         
 
