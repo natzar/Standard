@@ -15,7 +15,7 @@ class installModel extends ModelBase
         while ($row = $consulta->fetch(PDO::FETCH_NUM)) {
 
         	$tabla = $row[0];
-        	if ($prefix == '' or strstr($tabla,$prefix)){
+        	if ($prefix == 'all' or strstr($tabla,$prefix)){
 
 			$recordset = $this->db->prepare("DESCRIBE $tabla");
 			$recordset->execute();
@@ -62,7 +62,7 @@ class installModel extends ModelBase
     		$labels = $campos_a_mostrar;
     
     
-    		$aux = fopen('setup/'.$tabla.'.php','w');
+    		$aux = fopen($config->get('setupFolder').$tabla.'.php','w');
     		$resultx =  '<?
         
         $table_label = "'.$tabla.'";
