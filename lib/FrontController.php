@@ -40,6 +40,9 @@ class FrontController
 		require 'config.php'; //Archivo con configuraciones.
    	
       	$PATH = dirname(__FILE__);
+		$ADMIN = get_param('admin');
+		$path_project = $ADMIN == 1? 'admin/' : 'public/';
+
 		
 		$USER_LANG = isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) : 'es';
 		if (!isset($_SESSION['lang'])){
@@ -90,11 +93,13 @@ class FrontController
 		}    	
 		
 		// controlador->metodo
-	    $controllerPath = $config->get('controllersFolder') . $controllerName . '.php';
+		
+			$path_project =		$path_project.$config->get('controllersFolder');
+		$controllerPath = $path_project . $controllerName . '.php';
     
 		if(is_file($controllerPath)) require $controllerPath;
 		else {
-			require_once($config->get('controllersFolder').'errorsController.php');
+			require_once($path_project.'errorsController.php');
 			$controller = new errorsController();
     		$controller->e404();
     		return false;

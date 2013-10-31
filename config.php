@@ -5,7 +5,7 @@ $config = Config::singleton();
 	
 	$config->set('lang','esp');
 	$config->set('available_langs',array('esp'));
-	$config->set('base_title','Iguana');
+	$config->set('base_title','L.U.I.S.');
 	$config->set('base_url','//localhost/alphas/96MicroFramework/');
 	$config->set('base_url_data','//localhost/alphas/96MicroFramework/data/');
 	$config->set('db_prefix','');
@@ -39,9 +39,9 @@ $config = Config::singleton();
 	$config->set('setup_dir',$PATH.'/setup/');
 	$config->set('data_dir',$PATH.'/data/');
 
-	$config->set('controllersFolder', 'public/controllers/');
-	$config->set('modelsFolder', 'public/models/');
-	$config->set('viewsFolder', 'public/views/');
+	$config->set('controllersFolder', 'controllers/');
+	$config->set('modelsFolder', 'models/');
+	$config->set('viewsFolder', 'views/');
   	$config->set('setupFolder', $PATH.'/setups/');
   	$config->set('languagesFolder', $PATH.'/language/');
   		 

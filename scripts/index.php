@@ -20,10 +20,10 @@ function recurse_copy($src,$dst) {
     closedir($dir); 
 } 
 
-include "../core/lib/Config.php";
+include "../lib/Config.php";
 include "../config.php";
 
-include dirname(__FILE__)."/../core/lib/ModelBase.php";
+include dirname(__FILE__)."/../lib/ModelBase.php";
 
 	$script =	$_GET['p'];
 	$method =	$_GET['m'];
