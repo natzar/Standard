@@ -3,7 +3,7 @@ class loginController extends ControllerBase
 {
 
     public function index(){
-      print_r($_SESSION);
+      
 		$this->view->show("login.php", array(),false);
 		
     }

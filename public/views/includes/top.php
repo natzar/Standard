@@ -22,9 +22,10 @@
 
 	<!-- CSS -->
 <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Montserrat:700|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="public/views/assets/css/gridism.css">	
 	<link rel="stylesheet" href="public/views/assets/css/normalize.css">	
+	<link rel="stylesheet" href="public/views/assets/css/gridism.css">	
 
+	<link rel="stylesheet" href="public/views/assets/css/forms.css" media="screen" >	
 	<link rel="stylesheet" href="public/views/assets/css/style.css" media="screen" >	
    
 	<!-- Work hard, and be nice  -->
@@ -44,7 +45,7 @@
         
         </style>
   </head>
-  <body>
+  <body class="">
 
   <? include "top-content.php"; ?>
 
