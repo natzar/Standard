@@ -14,8 +14,9 @@ echo 'hello '.$params;
         
         
         while ($row = $consulta->fetch(PDO::FETCH_NUM)) {
-
         	$tabla = $row[0];
+			echo '<hr><h2>Creating Models and Controllers '.$tabla.'<br>';
+
 
         	if ($prefix == '' or $tabla == $prefix){
 				$recordset = $this->db->prepare("DESCRIBE $tabla");
@@ -41,23 +42,23 @@ echo 'hello '.$params;
 class '.$tabla.'Controller extends ControllerBase
 {
 		public function index(){
-			require "models/'.$tabla.'Model.php"; 	
+			require "public/models/'.$tabla.'Model.php"; 	
 			$'.$tabla.' = new '.$tabla.'Model();			
 			$data = Array(
-				  "items" => $'.$tabla.'->getAll()
+				  "items" => $'.$tabla.'->GET(array("table" => "'.$tabla.'"))
 		          );         
-			$this->view->show("'.$tabla.'.php", $data);
+			$this->view->show("templates/table.php", $data);
 		}
 		
 		public function detail(){
-			require "models/'.$tabla.'Model.php"; 	
+			require "public/models/'.$tabla.'Model.php"; 	
 			$'.$tabla.' = new '.$tabla.'Model();	
 			$params = gett();
 			$id = $params["a"];		
 			$data = Array(
 				  "items" => $'.$tabla.'->getBy'.$tabla.'Id($id)
 		          );         
-			$this->view->show("'.$tabla.'Detail.php", $data);
+			$this->view->show("templates/detail.php", $data);
 		}
 		
 ';
@@ -81,12 +82,12 @@ endif;
 
 		public function '.$strip.'(){
 			$params = gett();
-			require "models/'.$tabla.'Model.php"; 	
+			require "public/models/'.$tabla.'Model.php"; 	
 			$'.$tabla.' = new '.$tabla.'Model();
 			$data = Array(
 				  "items" => $'.$tabla.'->getBy'.ucfirst($p).'($'.'params["a"])
 			      );	          
-			$this->view->show("'.$tabla.ucfirst($strip).'.php", $data);
+			$this->view->show("related-table.php", $data);
 		}		
 ';
 			
@@ -96,7 +97,7 @@ endif;
 		$resultx.='
 		
 		public function add(){
-			require "models/'.$tabla.'Model.php";          
+			require "public/models/'.$tabla.'Model.php";          
 			$'.$tabla.' = new '.$tabla.'Model();
 			$params = gett();
 			$params[\'table\'] = "'.$tabla.'";
@@ -106,7 +107,7 @@ endif;
 		}
 		
 		public function edit(){
-			require "models/'.$tabla.'Model.php";          
+			require "public/models/'.$tabla.'Model.php";          
 			$'.$tabla.' = new '.$tabla.'Model();
 			$params = gett();
 			$params = gett();
@@ -116,7 +117,7 @@ endif;
 		}
 		
 		public function delete(){
-			require "models/'.$tabla.'Model.php";          
+			require "public/models/'.$tabla.'Model.php";          
 			$'.$tabla.' = new '.$tabla.'Model();
 			$params = gett();
 			if ($'.$tabla.'->delete($params)) echo 1;
@@ -125,7 +126,7 @@ endif;
 		
 		public function search(){
 			$params = gett();
-			require "models/'.$tabla.'Model.php"; 	
+			require "public/models/'.$tabla.'Model.php"; 	
 			$'.$tabla.' = new '.$tabla.'Model();
 	
 			$json = new Services_JSON();	
@@ -189,54 +190,46 @@ class '.$tabla.'Model extends ModelBase
 {
 
 		public function getAll(){
-			$aux = $this->cache->get("'.$tabla.'_All");
-			if ($aux == null){
+
+
 				$consulta = $this->db->prepare("SELECT * FROM '.$tabla.' '.implode (" ",$joins).'");
 				$consulta->execute();
 				$aux2 = $consulta->fetchAll();
-				$this->cache->set("'.$tabla.'_All",$aux2,600);
+
 				return $aux2;
-			} 
-			return $aux;
 		}
 		
 		public function getFieldValueById($field,$id){
-			$aux = $this->cache->get("'.$tabla.'_'.$field.'_$'.'id");
-			if ($aux == null){
+
+
 				$consulta = $this->db->prepare("SELECT $field FROM '.$tabla.' '.implode (" ",$joins).' where '.$tabla.'.'.$tabla.'Id =\'".$id."\' limit 1");
 				$consulta->execute();
 				$c = $consulta->fetch();
 				$aux2 = $c[$field];
-				$this->cache->set("'.$tabla.'_".$field."_".$id,$aux2,600);
+
 				return $aux2;
-			}
-			return $aux;
 		}
 		
 		public function getByField($field,$val){
-			$aux = $this->cache->get("'.$tabla.'_".$field."_$'.'val");
-			if ($aux == null){
+
+
 				$consulta = $this->db->prepare("SELECT * FROM '.$tabla.' '.implode (" ",$joins).' where '.$tabla.'.".$field." =\'".$val."\' ");
 				$consulta->execute();
 				$aux2 = $consulta->fetchAll();
 				$this->cache->set("'.$tabla.'_".$field."_".$val,$aux2,600);
 				return $aux2;
-			}
-			return $aux;
 		}
 	
 
 
 		public function getBy'.ucFirst($tabla).'Id($'.'id){
-			$aux = $this->cache->get("'.$tabla.'_Id_$'.'id");
-			if ($aux == null){
+
+
 				$consulta = $this->db->prepare("SELECT * FROM '.$tabla.' '.implode (" ",$joins).' WHERE '.$tabla.'.'.$tabla.'Id=\'$'.'id\' limit 1");
 				$consulta->execute();
 				$aux2 =  $consulta->fetch();
-				$this->cache->set("'.$tabla.'_Id_$id",$aux2,600);
+
 				return $aux2;
-			}
-			return $aux;
 
 		}
 ';
@@ -247,15 +240,13 @@ class '.$tabla.'Model extends ModelBase
 				$result_Models .= '
 
 		public function getBy'.ucFirst($p).'($'.'id){
-			$aux = $this->cache->get("'.$tabla.'_'.ucFirst($p).'_$'.'id");
-			if ($aux == null){
+
+
 				$consulta = $this->db->prepare("SELECT * FROM '.$tabla.' '.implode (" ",$joins).' WHERE '.$tabla.'.'.$p.'=\'$'.'id\' ");
 				$consulta->execute();
 				$aux2 =  $consulta->fetchAll();
-				$this->cache->set("'.$tabla.'_'.ucFirst($p).'_$'.'id'.'",$aux2,600);
+
 				return $aux2;
-			}
-			return $aux;
 		}
 
 ';

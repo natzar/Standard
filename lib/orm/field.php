@@ -32,12 +32,3 @@ abstract class field{
 	
 }
 
-
-
-foreach (scandir(dirname(__FILE__)) as $filename) {
-    $path = dirname(__FILE__)  . $filename;
-    if (is_file($path) and $filename != 'field.php') {
-        include_once $path;
-        echo 'including '.$path.'<br>';
-    }
-}

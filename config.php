@@ -10,7 +10,7 @@ $config = Config::singleton();
 	$config->set('base_url_data','//localhost/alphas/96MicroFramework/data/');
 	$config->set('db_prefix','');
 	
-	$config->set('tabla_default','clientes');
+	$config->set('tabla_default','productos');
     
     $config->set('validUser','test');
     $config->set('validPass','test');

@@ -5,7 +5,7 @@
 	<!-- Metas -->
     <meta name="title" content="<?= $SEO_TITLE ?> &raquo; <?= $base_title ?>">
     <meta name="description" content="<?= $SEO_DESCRIPTION ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta http-equiv="content-language" content="es" />
 	<meta name="country" content="es" />
@@ -21,13 +21,12 @@
     <script src="http://code.jquery.com/jquery.js"></script>
 
 	<!-- CSS -->
-	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
-    <link href="//www.96levels.com/views/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    <link href="views/css/metro-bootstrap.css" rel="stylesheet" media="screen">  
+<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Montserrat:700|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="public/views/assets/css/gridism.css">	
+	<link rel="stylesheet" href="public/views/assets/css/normalize.css">	
 
-    <link href="//www.96levels.com/views/css/bootstrap-glyphicons.css" rel="stylesheet" media="screen">  
-    <link href="//www.96levels.com/views/css/iwant.css" rel="stylesheet" media="screen">
-        
+	<link rel="stylesheet" href="public/views/assets/css/style.css" media="screen" >	
+   
 	<!-- Work hard, and be nice  -->
 	<meta name="twitter:card" content="summary">
 	<meta name="twitter:site" content="@">
@@ -37,12 +36,12 @@
 	<meta property="og:image" content="" />
 	<meta property="latitude" content="41.395876" />
 	<meta property="longitude" content="2.1603099999999813" />
-	<meta property="og:url" content="http://www.iguana.io/item/20/scoopy-50" />
-	<meta property="og:site_name" content="Iguana.io" />
+	<meta property="og:url" content="" />
+	<meta property="og:site_name" content="<?= $base_title ?>" />
 	
 	
     <style>
-        * {font-family: 'Lato', sans-serif !important;}
+        
         </style>
   </head>
   <body>

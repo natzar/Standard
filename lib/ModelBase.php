@@ -1,5 +1,13 @@
 <?php
 
+foreach (scandir(dirname(__FILE__).'/orm/') as $filename) {
+    $path = dirname(__FILE__) .'/orm/' . $filename;
+    if (is_file($path) and $filename != 'field.php') {
+        require_once $path;
+     // echo 'including '.$path.'<br>';
+    } 
+}
+
 
         
 abstract class ModelBase
@@ -15,9 +23,10 @@ abstract class ModelBase
 
 	}
 	
-	public function GET($params){   
-        include "setup/".$params['table'].".php";
-        
+	public function GET($params){  
+	
+        include $this->config->get('setupFolder').$params['table'].".php";
+        $table = $params['table'];
         
         $order = (get_param('sorder') != -1) ? get_param('sorder') : $default_order; 
              
@@ -27,7 +36,7 @@ abstract class ModelBase
         
 		while ($r = $consulta->fetch()):
             $row_array = array();
-            $row_array['id'] = $r['id'];
+            $row_array[$table.'Id'] = $r[$table.'Id'];
             for ($i = 0; $i < count($fields);$i++): 
 	               if (!isset($fields_to_show) or in_array($fields[$i],$fields_to_show) or empty($fields_to_show)   ): 
 						if (!class_exists($fields_types[$i])) 

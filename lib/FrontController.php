@@ -2,9 +2,10 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 include "functions.php";
+include_once "orm/field.php";
 include "ModelBase.php";
 include "ControllerBase.php";
-include_once "orm/field.php";
+
 
 mb_internal_encoding("UTF-8");
 header ('Content-type: text/html; charset=utf-8');
@@ -61,7 +62,7 @@ class FrontController
 		// URL redireccion
 		
 		if(get_param('p') != -1) $controllerName = get_param('p')."Controller";
-		else 	 $controllerName = "homeController";
+		else 	 $controllerName = $config->get('tabla_default')."Controller";
  
 		if(get_param('m') != -1) $actionName = get_param('m');
 		else $actionName = 'index';
