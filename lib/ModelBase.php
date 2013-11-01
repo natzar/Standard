@@ -1,5 +1,5 @@
 <?php
-
+include_once dirname(__FILE__)."/orm/field.php";
 foreach (scandir(dirname(__FILE__).'/orm/') as $filename) {
     $path = dirname(__FILE__) .'/orm/' . $filename;
     if (is_file($path) and $filename != 'field.php') {

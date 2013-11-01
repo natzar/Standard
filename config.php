@@ -12,11 +12,13 @@ $config = Config::singleton();
 	
 	$config->set('tabla_default','productos');
     
+    $config->set('private_urls',array(array("profile" => "action")));
+    
     $config->set('validUser','test');
     $config->set('validPass','test');
 
 	/* Toggles */
-	$config->set('developer_mode',1);
+	$config->set('developer_mode',0);
 	$config->set('combo_add',0);
 	$config->set('delete_permission',1);
 

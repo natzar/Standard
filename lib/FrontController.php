@@ -2,26 +2,13 @@
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
 include "functions.php";
-include_once "orm/field.php";
+
 include "ModelBase.php";
 include "ControllerBase.php";
 
 
 mb_internal_encoding("UTF-8");
 header ('Content-type: text/html; charset=utf-8');
-//register_shutdown_function('shutdown');
-
-/*
-function shutdown()
-{
-  if(!is_null($e = error_get_last()))
-  {
-    $TODO = var_export($e, true);
-    include dirname(__FILE__)."/../controllers/sendfeedback.php";
-  }
-}
-*/
-
 
 
 class FrontController
@@ -62,7 +49,7 @@ class FrontController
 		// URL redireccion
 		
 		if(get_param('p') != -1) $controllerName = get_param('p')."Controller";
-		else 	 $controllerName = $config->get('tabla_default')."Controller";
+		else 	 $controllerName = "homeController";
  
 		if(get_param('m') != -1) $actionName = get_param('m');
 		else $actionName = 'index';
@@ -71,11 +58,8 @@ class FrontController
 		
 
 
-		$private = array(
-			array("profileController" => 'index')
-					
-		);
-		// si no estamos logeados no podemos acceder a los private[]
+		$private = $config->get('private_urls');
+				// si no estamos logeados no podemos acceder a los private[]
 		if (!$LOGGED_IN and in_array(array($controllerName => $actionName), $private)){
     		$controllerName = 'searchController';
 			$actionName = 'index';
@@ -108,7 +92,7 @@ class FrontController
 			return false;
 		}
 		
-		
+
 		$controller = new $controllerName();
     	$controller->$actionName(); 
 	}

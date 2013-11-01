@@ -140,7 +140,6 @@ endif;
 $aux = explode(",",$campos_a_mostrar);
 
 $cadena_insert = $cadena_update = $form = "";
-$form_html = "<div class='inside'><h2>Título</h2><form class='form' action='".$tabla."/edit' method='POST' enctype='multipart/form-data'>";
 foreach($aux as $i){
 	if ($i != -1)
 	$cadena_insert .= "'\".$"."params['$i'].\"',";
@@ -150,6 +149,10 @@ foreach($aux as $i){
 	$cadena_update .= $i." = '\".$"."params['$i'].\"',";
 }
 
+/* FORM ADD */
+$form_html = "<form class='form' name='".$tabla."-add' action='".$tabla."/add' method='POST' enctype='multipart/form-data'>";
+
+
 foreach($aux as $i){
 	if ($i != -1)
 
@@ -157,15 +160,41 @@ foreach($aux as $i){
 	$form_html.= "
 
 
-<div class='control-group'><label class='control-label'>";
+<label>";
     					$form_html .= $i;
     					$form_html .= "</label>
 
-<div class='controls'>";		
-	$form_html .= "<input type='text' name='".$i."' value='<?= $"."items['".$i."'] ?>'></div></div>";
+";		
+	$form_html .= "<input type='text' name='".$i."' value=''>";
 
 }
-$form_html .= '<input type="hidden" name="id" value="<?= $'.'items["id"]; ?>"><input type="button" onclick="validate(this.form);"></form></div>';
+$form_html .= '<input type="button" onclick="validate(this.form);" value="Enviar"></form>';
+
+
+
+/* FORM EDIT */
+
+$form_html2 = "<form class='form' action='".$tabla."/edit' method='POST' enctype='multipart/form-data'>";
+
+foreach($aux as $i){
+	if ($i != -1)
+
+
+	$form_html2.= "
+
+
+<div class='control-group'><label class='control-label'>";
+    					$form_html2 .= $i;
+    					$form_html2 .= "</label>
+
+<div class='controls'>";		
+	$form_html2 .= "<input type='text' name='".$i."' value='<?= $"."items['".$i."'] ?>'></div></div>";
+
+}
+$form_html2 .= '<input type="hidden" name="id" value="<?= $'.'items["id"]; ?>"><input type="button" onclick="validate(this.form);" value="Enviar"></form>';
+
+
+/* MODELS */
 
 $cadena_update = substr($cadena_update,0,-1);
 $cadena_insert = substr($cadena_insert,0,-1);
@@ -301,8 +330,12 @@ $aux = fopen($path.'/../public/controllers/'.$tabla.'Controller.php','w');
 	fwrite($aux,$result_Models);
 	fclose($aux);
 
-$aux = fopen($path.'/../public/views/forms/'.$tabla.'Form.php','w');
+$aux = fopen($path.'/../public/views/forms/add-'.$tabla.'.php','w');
 	fwrite($aux,$form_html);
+	fclose($aux);
+	
+	$aux = fopen($path.'/../public/views/forms/edit-'.$tabla.'.php','w');
+	fwrite($aux,$form_html2);
 	fclose($aux);
 /*
 echo ($resultx);

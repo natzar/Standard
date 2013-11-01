@@ -114,7 +114,7 @@ if (strstr($name,"file")) $type = 'file_file';
         	$tabla = $row[0];
 echo '<br>------ '.$tabla.'<br>';
         	if ($prefix == '' or strstr($tabla,$prefix)){
-				include "setup/$tabla.php";
+				include $config->get('setupFolder').$tabla.".php";
 				$num_entry = 0;
 				while ($num_entry < $num_recs ){
 				$types = '';

@@ -54,7 +54,7 @@
             </p>
             <ul class="nav">
 
-              <li><a href="<?= $base_url ?>../">Ir a la página</a></li>
+              <li><a href="<?= $base_url ?>">Ir a la página</a></li>
             <li><a href="login/logout">Cerrar Sesión</a></li>
             </ul>
           </div><!--/.nav-collapse -->

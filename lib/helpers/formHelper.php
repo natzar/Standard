@@ -3,8 +3,8 @@
 class formHelper {
 
 	function build($table){
-
-    	require "setup/".$table.".php";
+$config = Config::singleton();
+    	require $config->get("setupFolder").$table.".php";
       //  if ($rid == '') $rid =-1;    			
         $form_html = "";
       //  $raw = ($rid != -1) ? $form->getFormValues($table,$rid) : '';

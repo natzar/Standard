@@ -1,5 +1,5 @@
 <?php
-
+		include "helpers/formHelper.php";
 class View
 {
 	var $notification;
@@ -41,7 +41,8 @@ class View
  		$LANG = $_SESSION['lang'];
  		$SEO_TITLE = $config->get('base_title');
 		$SEO_DESCRIPTION = $config->get('seo_description');
-		
+
+		$formHelper = new formHelper();
 		if(is_array($vars))
            foreach ($vars as $key => $value)           
                 	$$key = $value;

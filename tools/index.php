@@ -26,7 +26,7 @@ if (isset($_GET['action'])):
 		$install->makesetups($TABLE);
 		break;
 		case 'filldb':
-		$install->filldb();
+		$install->filldb(30);
 		break;
 		case 'makemodels':
 
