@@ -38,15 +38,11 @@
 <script src="views/js/libs/raphael-2.1.2.min.js"></script>
 <script src="views/js/plugins/morris/morris.min.js"></script>
 
-<script src="views/js/demos/charts/morris/area.js"></script>
-<script src="views/js/demos/charts/morris/donut.js"></script>
 
 <script src="views/js/plugins/sparkline/jquery.sparkline.min.js"></script>
 
 <script src="views/js/plugins/fullcalendar/fullcalendar.min.js"></script>
-<script src="views/js/demos/calendar.js"></script>
 
-<script src="views/js/demos/dashboard.js"></script>
 
 
 <!--

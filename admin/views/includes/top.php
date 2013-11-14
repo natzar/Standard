@@ -14,7 +14,7 @@
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	 
-	   	<link href="views/css/main.css" rel="stylesheet" type="text/css" />
+
 
 
 
@@ -30,7 +30,7 @@
 	
 	<link rel="stylesheet" href="views/css/App.css" type="text/css" />
 
-	<link rel="stylesheet" href="views/css/custom.css" type="text/css" />	
+
 
 
 
