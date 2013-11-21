@@ -5,12 +5,12 @@ $config = Config::singleton();
 	
 	$config->set('lang','esp');
 	$config->set('available_langs',array('esp'));
-	$config->set('base_title','L.U.I.S.');
-	$config->set('base_url','//localhost/alphas/96MicroFramework/');
-	$config->set('base_url_data','//localhost/alphas/96MicroFramework/data/');
+	$config->set('base_title','Pekeninos');
+	$config->set('base_url','//'.$_SERVER['SERVER_NAME'].'/alphas/pekeninos/');
+	$config->set('base_url_data','//'.$_SERVER['SERVER_NAME'].'/alphas/pekeninos/data/');
 	$config->set('db_prefix','');
 	
-	$config->set('tabla_default','productos');
+	$config->set('tabla_default','blog');
     
     $config->set('private_urls',array(array("profile" => "action")));
     
@@ -24,10 +24,10 @@ $config = Config::singleton();
 
 
 
-	$config->set('big_h',0);// 0 for no resize
-	$config->set('big_w',0); // 0 for no resize
-	$config->set('img_content_w',503);
-	$config->set('img_content_h',0);
+	$config->set('big_h',400);// 0 for no resize
+	$config->set('big_w',558); // 0 for no resize
+	$config->set('img_content_w',400);
+	$config->set('img_content_h',300);
 	$config->set('thumb_h',180);
 	$config->set('thumb_w',260);
 	
@@ -48,7 +48,7 @@ $config = Config::singleton();
   	$config->set('languagesFolder', $PATH.'/language/');
   		 
 	$config->set('dbhost', 'localhost');
-	$config->set('dbname', 'luis');
+	$config->set('dbname', 'pekeninos');
 	$config->set('dbuser', 'root');
-	$config->set('dbpass', 'tryagain');
+	$config->set('dbpass', '');
 

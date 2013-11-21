@@ -1,10 +1,3 @@
-<div id="content-header">
-			<h1><?= ucfirst($table_label)?></h1>
-		</div> <!-- #content-header -->	
-
-
-		<div id="content-container">
-		
 <? if (isset($HOOK_TOP)) echo $HOOK_TOP; ?>
 <? if (isset($_GET['i']) and $_GET['i'] == 'success'): ?>
 	<div class="alert alert-success">
@@ -14,45 +7,28 @@
 <? endif; ?>
 
 
-
+<h2><?= ucfirst($table_label)?></h2>
 
 <a class="btn btn-success" style="float:left;clear:both;"  href="form/build/<?= $table ?>"><i class="icon-plus"></i> <?=ADDNEW?></a><input class="" placeholder="<?= SEARCH ?>" style="float:left;margin-left:14px" type="text" class="search_pagination" value="">
 
 
 
-
-
-									
+<div>
 <? if (count($items) > 0): ?>
-<div class="table-responsive">
-
-
-							<div id="DataTables_Table_0_wrapper" class="dataTables_wrapper"  role="grid">
-    <table class="table table-striped table-bordered table-hover table-highlight table-checkable " data-provide="datatable" data-display-rows="10" data-info="true" data-search="true" data-length-change="true" data-paginate="true" id="DataTables_Table_0" aria-describedby="DataTables_Table_0_info" data-table="<?= $table ?>" >
+    <table class='table table-striped tablaMain' data-table="<?= $table ?>" id='tabla_0'  border="0" >
         <thead>
             <tr>
-<th class="checkbox-column">
-												<input type="checkbox" class="icheck-input">
-											</th>
+
          	<?	foreach ($items_head as $item): ?>
-            	<th data-filterable="true" data-sortable="true" data-direction="desc" ><?= ucfirst($item) ?>	</th>		 
+            	<th nowrap><?= ucfirst($item) ?>	</th>		 
             <? endforeach; ?>
             <th class="nover" nowrap=nowrap width="60"><?=ACTIONS ?></th></tr>
         </thead>
         <tbody>
-      
-									<tbody>
-										<tr>
-											
-											
-											
             <? $itemsTotal =count($items);
                 for($i=0;$i<$itemsTotal;$i++):   ?>
                    <tr id="recordsArray_<?= $items[$i][$table.'Id']?>">
-                   
-<td class="checkbox-column">
-												<input type="checkbox" class="icheck-input">
-											</td>
+
                 <?    $row = $items[$i]; 
                 $j = 0;
                 		foreach ($row as  $cell): 
@@ -73,8 +49,6 @@
             <? endfor; ?>
 	   </tbody>
     </table>
-    </div>
-    
 </div>		
 <? else: ?>
 
