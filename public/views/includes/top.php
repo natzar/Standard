@@ -6,7 +6,9 @@
     <meta name="title" content="<?= $SEO_TITLE ?> &raquo; <?= $base_title ?>">
     <meta name="description" content="<?= $SEO_DESCRIPTION ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
 	<meta http-equiv="content-language" content="es" />
 	<meta name="country" content="es" />
     <meta name="robots" content="index,follow" />
@@ -21,12 +23,14 @@
     <script src="http://code.jquery.com/jquery.js"></script>
 
 	<!-- CSS -->
-<link href='http://fonts.googleapis.com/css?family=Source+Code+Pro|Montserrat:700|Open+Sans:300italic,400italic,700italic,400,300,700' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Yesteryear' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,700,600,300' rel='stylesheet' type='text/css'>
+
 	<link rel="stylesheet" href="public/views/assets/css/normalize.css">	
-	<link rel="stylesheet" href="public/views/assets/css/gridism.css">	
+<!-- 	<link rel="stylesheet" href="public/views/assets/css/gridism.css">	 -->
 
 	<link rel="stylesheet" href="public/views/assets/css/forms.css" media="screen" >	
-	<link rel="stylesheet" href="public/views/assets/css/style.css" media="screen" >	
+<!-- 	<link rel="stylesheet" href="public/views/assets/css/style.css" media="screen" > -->	
    
 	<!-- Work hard, and be nice  -->
 	<meta name="twitter:card" content="summary">
@@ -40,10 +44,12 @@
 	<meta property="og:url" content="" />
 	<meta property="og:site_name" content="<?= $base_title ?>" />
 	
-	
-    <style>
-        
-        </style>
+    <link rel="stylesheet" type="text/css" media="all" href="public/views/metrovibes-parent/style.css" />
+    <link rel="stylesheet" type="text/css" media="all" href="public/views/assets/css/style.css" />
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+
+
   </head>
   <body class="">
 
