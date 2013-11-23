@@ -42,9 +42,9 @@ if (isset($_GET['action'])):
 	
 ?>
 		
-		<a href="?action=makesetups">1. MakeSetups</a><br>
-	<a href="?action=makemodels" class="btn">2. Make Models, Controllers, Forms and Views</a><br>
-		<a href="?action=filldb">3. MakeSetups</a><br>
+		<a href="index.php?action=makesetups">1. MakeSetups</a> | <a href="index.php?action=makesetups&table=all">All table<br>
+	<a href="index.php?action=makemodels" class="btn">2. Make Models, Controllers, Forms and Views</a><br>
+		<a href="index.php?action=filldb">3. Fill db</a><br>
 <?		
 	
 endif;

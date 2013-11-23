@@ -37,7 +37,7 @@
 	<?php flush(); ?>
 	<body>
 	<div id="overlay" style="display:none;">Please wait ...</div>
-  <div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar  navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -68,13 +68,18 @@
     <div class="span2">
           <div class="well-small sidebar-nav" style="padding:1px">
             <ul class="nav nav-list">
-	<li class="nav-header">BLOG</li>
-<li><a href="show/table/blog">Artículos</a></li>
-<li><a href="show/table/categorys">Categorias</a></li>
 
-	<li class="nav-header">CONTENIDOS</li>
-<li><a href="show/table/juegos">Juegos</a></li>
-<li><a href="show/table/juegoscategorys">Categorias Juegos</a></li>
+	<li class="nav-header">BLOG</li>
+<li><a href="show/table/blogcategorys">Categorias</a></li>
+<li><a href="show/table/blog">Artículos</a></li>
+
+
+<li class="nav-header">CONTENIDOS</li>
+
+<li><a href="show/table/contenidossubcategorys">Subcategorias</a></li>	
+<li><a href="show/table/contenidos">Contenidos</a></li>
+<li><a href="show/table/personajes">Personajes</a></li>
+
 
 
 

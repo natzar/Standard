@@ -16,12 +16,13 @@ final class literal extends field{
 	}
 		
 	function exec_add () {
-
-return addslashes(htmlentities(utf8_decode($this->value)));
+		if ($this->value == -1) return '';
+return addslashes(htmlentities($this->value));
 
 	}
 	function exec_edit () {
-return addslashes(htmlentities(utf8_decode($this->value)));
+			if ($this->value == -1) return '';
+	return addslashes(htmlentities($this->value));
 	}
 
 }

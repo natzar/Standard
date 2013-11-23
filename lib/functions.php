@@ -320,6 +320,8 @@ function generar_nombre_archivo($filename){
 
 $punto_pos = strrpos ( $filename, ".");
 $soloname = substr($filename,0,$punto_pos );
+if (isset($_POST['title'])) $soloname = $_POST['title'];
+if (isset($_POST['contenidossubcategorias'])) $soloname = $_POST['contenidossubcategorias'];
 $soloname = clean_filename($soloname);
 $ext = substr($filename,$punto_pos + 1, strlen($filename) - $punto_pos);
 $new_code = generar_cadena_random(7);
