@@ -10,3 +10,9 @@ color:lightblue;
 }
 
 .text-copyright{font-size: 11px}
+
+.gl_col_4 .gallery-item, .gl_col_4 .gallery-item img{
+
+opacity: 100;
+overflow: hidden
+}
