@@ -9,20 +9,27 @@ class blogController extends ControllerBase
 {
 		public function index(){
 			require "public/models/blogModel.php"; 	
+			require "public/models/personajesModel.php"; 	
+			$personajes = new personajesModel();
 			$blog = new blogModel();			
 			$data = Array(
-				  "items" => $blog->getAll()
+				  "items" => $blog->getAll(),
+				  "personajes" => $personajes->getAll()
 		          );         
 			$this->view->show("blog.php", $data);
 		}
 		
 		public function post(){
 			require "public/models/blogModel.php"; 	
+			require "public/models/personajesModel.php"; 	
+			$personajes = new personajesModel();
 			$blog = new blogModel();	
+			
 			$params = gett();
 			$id = $params["a"];		
 			$data = Array(
-				  "items" => array($blog->getByblogId($id))
+				  "items" => $blog->getByblogId($id),
+				  "personajes" => $personajes->getAll()
 		          );         
 			$this->view->show("blogDetail.php", $data);
 		}
@@ -32,10 +39,18 @@ class blogController extends ControllerBase
 		public function category(){
 			$params = gett();
 			require "public/models/blogModel.php"; 	
+			require "public/models/personajesModel.php"; 	
+			$personajes = new personajesModel();
 			$blog = new blogModel();
+			$items = $blog->getByBlogcategorysId($params["a"]);
+			$CATEGORY_TITLE = count($items) > 0 ? $items[0]['categorys'] : '';
 			$data = Array(
-				  "items" => $blog->getByCategorysId($params["a"])
+				  "items" => $items,
+				  "personajes" => $personajes->getAll(),
+				  "CATEGORY_TITLE" => $CATEGORY_TITLE
 			      );	          
+			      
+
 			$this->view->show("blog.php", $data);
 		}		
 

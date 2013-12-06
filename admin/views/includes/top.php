@@ -37,7 +37,7 @@
 	<?php flush(); ?>
 	<body>
 	<div id="overlay" style="display:none;">Please wait ...</div>
-  <div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="navbar  navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
@@ -68,6 +68,10 @@
     <div class="span2">
           <div class="well-small sidebar-nav" style="padding:1px">
             <ul class="nav nav-list">
+
+	<li class="nav-header">BLOG</li>
+<li><a href="show/table/blogcategorys">Categorias</a></li>
+<li><a href="show/table/blog">Artículos</a></li>
 	<li class="nav-header">CLIENTES</li>
 <li><a href="show/table/clientes">Todos los clientes</a></li>
 <li><a href="show/table/pedidos">Pedidos</a></li>
@@ -77,9 +81,14 @@
 <li><a href="show/table/proveedores">Proveedores</a></li>
 <li><a href="show/table/productos">Productos</a></li>
 <li><a href="show/table/tipoproductos">Tipos de productos</a></li>
+<li class="nav-header">CONTENIDOS</li>
 
+<li><a href="show/table/contenidossubcategorys">Subcategorias</a></li>	
+<li><a href="show/table/contenidos">Contenidos</a></li>
+<li><a href="show/table/personajes">Personajes</a></li>
 	<li class="nav-header">EMAILS</li>
 <li><a href="newsletter/index">Nuevo Email</a></li>
+
 
 
 
