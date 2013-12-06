@@ -8,7 +8,7 @@ class deleteModel extends ModelBase
     	$config = Config::singleton();
         if (in_array('file_img',$fields) or in_array('file',$fields)){	
             
-            $consulta = $this->db->prepare("SELECT * from ".$table." where id='".$id."' limit 1");
+            $consulta = $this->db->prepare("SELECT * from ".$table." where ".$table."Id='".$id."' limit 1");
             $consulta->execute();
             $row2 = $consulta->fetch();
             
@@ -27,7 +27,7 @@ class deleteModel extends ModelBase
     		}	
 		}		
 		
-		$consulta = $this->db->prepare("DELETE FROM ".$table." where id = '".$id."'");
+		$consulta = $this->db->prepare("DELETE FROM ".$table." where ".$table."Id = '".$id."'");
         $consulta->execute();
         return true;
     }
@@ -36,12 +36,12 @@ class deleteModel extends ModelBase
 	{   
     	$config = Config::singleton();   
               
-		$consulta = $this->db->prepare("SELECT $field FROM $table where id='$id' limit 1");
+		$consulta = $this->db->prepare("SELECT $field FROM $table where ".$table."Id='$id' limit 1");
 		$consulta->execute();
 		$r = $consulta->fetch();
         @unlink($config->get('data_dir')."img/".$r[$f]);					
 
-       	$consulta = $this->db->prepare("UPDATE $table set $field='' where id='$id'");
+       	$consulta = $this->db->prepare("UPDATE $table set $field='' where ".$table."Id='$id'");
         $consulta->execute();
         return true;
 
