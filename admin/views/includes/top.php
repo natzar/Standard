@@ -68,13 +68,18 @@
     <div class="span2">
           <div class="well-small sidebar-nav" style="padding:1px">
             <ul class="nav nav-list">
-	<li class="nav-header">BLOG</li>
-<li><a href="show/table/blog">Artículos</a></li>
-<li><a href="show/table/categorys">Categorias</a></li>
+	<li class="nav-header">CLIENTES</li>
+<li><a href="show/table/clientes">Todos los clientes</a></li>
+<li><a href="show/table/pedidos">Pedidos</a></li>
 
-	<li class="nav-header">CONTENIDOS</li>
-<li><a href="show/table/juegos">Juegos</a></li>
-<li><a href="show/table/juegoscategorys">Categorias Juegos</a></li>
+
+	<li class="nav-header">PROVEEDORES</li>
+<li><a href="show/table/proveedores">Proveedores</a></li>
+<li><a href="show/table/productos">Productos</a></li>
+<li><a href="show/table/tipoproductos">Tipos de productos</a></li>
+
+	<li class="nav-header">EMAILS</li>
+<li><a href="newsletter/index">Nuevo Email</a></li>
 
 
 

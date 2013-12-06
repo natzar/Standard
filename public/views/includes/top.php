@@ -27,10 +27,9 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,700,600,300' rel='stylesheet' type='text/css'>
 
 	<link rel="stylesheet" href="public/views/assets/css/normalize.css">	
-<!-- 	<link rel="stylesheet" href="public/views/assets/css/gridism.css">	 -->
-
+	<link rel="stylesheet" href="public/views/assets/css/gridism.css">	
 	<link rel="stylesheet" href="public/views/assets/css/forms.css" media="screen" >	
-<!-- 	<link rel="stylesheet" href="public/views/assets/css/style.css" media="screen" > -->	
+
    
 	<!-- Work hard, and be nice  -->
 	<meta name="twitter:card" content="summary">
@@ -44,7 +43,7 @@
 	<meta property="og:url" content="" />
 	<meta property="og:site_name" content="<?= $base_title ?>" />
 	
-    <link rel="stylesheet" type="text/css" media="all" href="public/views/metrovibes-parent/style.css" />
+
     <link rel="stylesheet" type="text/css" media="all" href="public/views/assets/css/style.css" />
 	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
 	<style type="text/css">.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
