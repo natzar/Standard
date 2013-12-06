@@ -19,7 +19,7 @@ class deleteController extends ControllerBase
         require 'models/deleteModel.php';
     	$deleteModel = new deleteModel();
 	    $table = $_GET['table'];
-    	$id = gett('rid');
+    	$id = $_GET['rid'];
     	$deleteModel->deleteRow($table,$id);
 		echo '1';		
 	}
