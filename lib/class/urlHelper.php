@@ -15,11 +15,11 @@ class urlHelper {
 		
 		$this->db = SPDO::singleton();
 		$this->db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-		$c=$this->db->prepare("SELECT id FROM ".$p." where slug='".$m."' limit 1");
+		$c=$this->db->prepare("SELECT ".$p."Id FROM ".$p." where slug='".$m."' limit 1");
 
 		$c->execute();
 		$aux = $c->fetch();
-		if (!empty($aux['id'])) return $aux['id'];
+		if (!empty($aux[$p.'Id'])) return $aux[$p.'Id'];
 		else return -1;
 	}	
 	
@@ -56,66 +56,6 @@ class urlHelper {
 		
 	}
 	
-	public function title($friendly){
-			$config = Config::singleton();
-			$URLS = $config->get('URLS');
-			foreach($URLS as $url):
-				if ($url[0] == $friendly) return $url[1];
-			endforeach;
-			include_once "models/accountsModel.php";
-			$accounts = new accountsModel();
-			if (isset($_SESSION['accountId'])){
-				$couple = $accounts->getAccountDetails($_SESSION['accountId']);
-				return $couple['name_a'].' & '.$couple['name_b'];
-			} else {
-return $URLS['home'][1];
-			}
-
-	}    
-	
-		public function description($friendly){
-			$config = Config::singleton();
-			$URLS = $config->get('URLS');
-			foreach($URLS as $url):
-				if ($url[0] == $friendly) return $url[4];
-			endforeach;
-			
-/*			COMENTO ESTA PARTE, ES LO MISMO QUE EN TITULO por si quieres incluir nombre de la pareja en 					description.
-
-			include_once "models/accountsModel.php";
-			$accounts = new accountsModel();
-			if (isset($_SESSION['accountId'])){
-				$couple = $accounts->getAccountDetails($_SESSION['accountId']);
-				return $couple['name_a'].' & '.$couple['name_b'];
-			} else {
-				return $URLS['home'][1];
-			}
-*/
-
-	}   
-	
-
-	public function getHoneymoonLink($accountsId){
-		include_once "models/accountsModel.php";
-		$accounts = new accountsModel();
-		$config = Config::singleton();
-		$URLS = $config->get('URLS');
-		$publicHoneymoonUrl = $URLS['honeymoon-public'][0];
-		$couple = $accounts->getAccountDetails($accountsId);
-		$couple_name = $couple['name_a']." ".$couple['name_b'];
-		return 	$config->get('base_url').$publicHoneymoonUrl."/".$accountsId."/".generate_seo_link($couple_name);
-	}
-	
-	public function getThanksLink($accountsId){
-		include_once "models/accountsModel.php";
-		$accounts = new accountsModel();
-		$config = Config::singleton();
-		$URLS = $config->get('URLS');
-		$publicHoneymoonUrl = $URLS['honeymoon-public'][0];
-		$couple = $accounts->getAccountDetails($accountsId);
-		$couple_name = $couple['name_a']." ".$couple['name_b'];
-		return 	$config->get('base_url').$publicHoneymoonUrl."/".$accountsId."/".generate_seo_link($couple_name)."/gracias";
-	}
 
 }
 

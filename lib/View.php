@@ -39,7 +39,7 @@ class View
 		$PERPAGE = isset($_GET['perpage']) ? $_GET['perpage'] : 40;
  	
  		$LANG = $_SESSION['lang'];
- 		$SEO_TITLE = $config->get('base_title');
+ 		$SEO_TITLE = $config->get('seo_title');
 		$SEO_DESCRIPTION = $config->get('seo_description');
 		
 		include "public/models/sidedataModel.php";
