@@ -5,8 +5,10 @@
 		<meta name="title" content="BackOffice">
 	    <meta name="author" content="Php Ninja">
 		<meta name="description" content="BackOffice">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta charset='utf-8'>
+	    
 
-		<meta charset="utf-8">
 		<base href="<?= $base_url ?>admin/" content="<?= $base_url ?>admin/">
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,40 +70,16 @@
     <div class="span2">
           <div class="well-small sidebar-nav" style="padding:1px">
             <ul class="nav nav-list">
-
-	<li class="nav-header">BLOG</li>
-<li><a href="show/table/blogcategorys">Categorias</a></li>
-<li><a href="show/table/blog">Artículos</a></li>
-	<li class="nav-header">CLIENTES</li>
-<li><a href="show/table/clientes">Todos los clientes</a></li>
-<li><a href="show/table/pedidos">Pedidos</a></li>
-
-
-	<li class="nav-header">PROVEEDORES</li>
-<li><a href="show/table/proveedores">Proveedores</a></li>
-<li><a href="show/table/productos">Productos</a></li>
-<li><a href="show/table/tipoproductos">Tipos de productos</a></li>
-<li class="nav-header">CONTENIDOS</li>
-
-<li><a href="show/table/contenidossubcategorys">Subcategorias</a></li>	
-<li><a href="show/table/contenidos">Contenidos</a></li>
-<li><a href="show/table/personajes">Personajes</a></li>
-	<li class="nav-header">EMAILS</li>
-<li><a href="newsletter/index">Nuevo Email</a></li>
-
-
-
-
-						 
-		
-
-			
-         
-
+				<? include "menu.php"; ?>          
           </ul>
          
 
           </div><!--/.well -->
+               
+         <div id="errors" class="alert alert-info" style="margin-top:100px">
+         
+         </div>
+               
         </div><!--/span-->
 	
 		<div  id="main" class="span10" >
