@@ -12,10 +12,14 @@ final  class tinymce extends field{
 	}
 		
 	function exec_add () {
-		return addslashes($this->value);		
+//		return	mysql_real_escape_string($this->value);
+		if ($this->value == -1) return '';
+		return ($this->value);		
 	}
 	function exec_edit () {
-			return addslashes($this->value);
+//			return	mysql_real_escape_string($this->value);
+		if ($this->value == -1) return '';
+			return ($this->value);
 	}
 
 }

@@ -29,11 +29,15 @@ final class combo_child extends field{
 
 	function giveme($tabla,$campo,$valor_en_indice){
 
-        $consulta = $this->db->prepare("SELECT * from ".$tabla." where id='$valor_en_indice' limit 1" );
+        $consulta = $this->db->prepare("SELECT * from ".$tabla." where ".$tabla."Id='$valor_en_indice' limit 1" );
         $consulta->execute();
-      	$fetch = $consulta->fetch(PDO::FETCH_NUM);
+      	$row = $consulta->fetch(PDO::FETCH_NUM);
 
-		return $fetch[1];
+
+		if (is_string($row[1]) and $row[1] != '' and $row[1] != '0' and intval($row[1]) == 0 and substr($row[1],-3) != 'jpg' ) return $row[1];
+		else if (is_string($row[2]) and $row[2] != '' and $row[2] != '0' and intval($row[2]) == 0 and substr($row[2],-3) != 'jpg') return $row[2];
+		else if (is_string($row[3]) and $row[3] != '' and $row[3] != '0' and intval($row[3]) == 0 and substr($row[3],-3) != 'jpg' ) return $row[3];
+		else return  $row[4];
 	
 	}
 	
@@ -49,7 +53,13 @@ function bake_combo($tabla,$select_name,$id_selected){
 	while ($row = $consulta->fetch(PDO::FETCH_NUM)){
 		$output .= "<option value=\"".$row[0]."\"";
 		if ($row[0] == $id_selected) $output .= " selected";
-		$output .=" parent='".$row[1]."' class='combo_child'>".$row[2]."</option>";
+		$output .=" parent='".$row[1]."' class='combo_child'>";
+		
+			if (is_string($row[1]) and $row[1] != '' and $row[1] != '0' and intval($row[1]) == 0 and substr($row[1],-3) != 'jpg') $output .= $row[1]."</option>";
+		else if (is_string($row[2]) and $row[2] != '' and $row[2] != '0' and intval($row[2]) == 0 and substr($row[2],-3) != 'jpg') $output .= $row[2]."</option>";
+		else if (is_string($row[3]) and $row[3] != '' and $row[3] != '0' and intval($row[3]) == 0 and substr($row[3],-3) != 'jpg') $output .= $row[3]."</option>";
+		else $output .= $row[4]."</option>";
+		
 	}
 	
 	$output .= "</select>";
