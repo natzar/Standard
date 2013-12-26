@@ -45,20 +45,21 @@ class formModel extends ModelBase
 	public function edit($table,$rid){
 	     include $this->config->get('setupFolder') .$table.".php";
          include_once "../lib/orm/field.php";
-    	 
+
     	 $edit_info_form = "";
         
         	for ($i=0;$i< count($fields) ;$i++){
         		
         		if ($fields[$i] != $table.'Id'  )	{					
         			$retrieved = '';		
-        				if ($fields_types[$i] != 'file_img' and $fields_types[$i] != 'file_img_multi' and $fields_types[$i] != 'file_file' and get_param($fields[$i]) != -1){
+        			if (!strstr($fields_types[$i],'file_') and  get_param($fields[$i]) != -1){
         				$retrieved = get_param($fields[$i]);
         			}
 
+        			if ($retrieved == -1 ) $retrieved = '';
         			
         			if (!class_exists($fields_types[$i])) die ("La clase ".$fields_types[$i]." no existe");
-        			if (($fields_types[$i] == 'file_img' and $_FILES[$fields[$i]]['name'] != "" or $fields_types[$i] == 'file_file' and $_FILES[$fields[$i]]['name'] != "" or $fields_types[$i] == 'file_img_multi' and  $_FILES[$fields[$i]]['name'][0] != '') or ($fields_types[$i] != 'file_img' and $fields_types[$i] != 'file_img_multi' and $fields_types[$i] != 'file_file')){
+        			if ( strstr($fields_types[$i],'file_') and $_FILES[$fields[$i]]['name'] != "" or !strstr($fields_types[$i],'file_') ){
         				
         				$field_aux = new $fields_types[$i]($fields[$i],$fields_labels[$i],$fields_types[$i],$retrieved,$table,$rid);
         				$edit_info_form .= " ".$table.".".$fields[$i]." = '".$field_aux->exec_edit()."',";
