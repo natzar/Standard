@@ -2,6 +2,10 @@
 session_start();
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
+
+
+date_default_timezone_set('Europe/Paris'); 
+
 include "../lib/functions.php";
 include "../lib/ControllerBase.php";
 include "../lib/orm/field.php";
@@ -15,7 +19,7 @@ class AdminController
 	static function main()
 	{
  
-        mb_internal_encoding("UTF-8");
+
 		require '../lib/Config.php'; //de configuracion
 		require '../lib/SPDO.php'; //PDO con singleton
 		require '../lib/ViewAdmin.php'; //Mini motor de plantillas
