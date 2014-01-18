@@ -155,7 +155,7 @@ document.getElementById('overlay').style.display='block';
 
 function DeleteRegistro(div_id,id_registro,cat,tabla){
 
-	if(confirm("Are you sure?") != false){
+	if(confirm("¿Seguro que quieres eliminarlo?") != false){
 	$('#'+div_id).remove();
 //	document.getElementById(div_id).style.display = 'none';	
 		ajax=objetoAjax();

@@ -29,7 +29,7 @@ class formModel extends ModelBase
     	$info = substr($add_info_form,0,strlen($add_info_form) - 1);
     	$consulta = $this->db->prepare("INSERT INTO ".$table." (".implode(",",$fields).") VALUES ($info)");
         $consulta->execute();
-//        die( "INSERT INTO ".$table." (".implode(",",$fields).") VALUES ($info)");
+     //   die( "INSERT INTO ".$table." (".implode(",",$fields).") VALUES ($info)");
        
     	
 	}
@@ -159,7 +159,7 @@ class formModel extends ModelBase
 						break;
 						case 'url':
 						$output .=" if((!validateURL(z.".$fields[$i].".value)) && (z.".$fields[$i].".value != \"\")){
-									alert('URL must begin at http:// ');
+									alert('URL debe empezar por http:// ');
 									z.".$fields[$i].".style.background='#ffff66';
 									z.".$fields[$i].".focus();
 									return false;
@@ -180,9 +180,9 @@ class formModel extends ModelBase
 		}
 
 		function updateOrder(){
-
+echo '0';
 			$tabla = $_POST['tabla'];
-			$action 				= ($_POST['action']); 
+			$action 				= $_POST['action']; 
 			$updateRecordsArray 	= $_POST['recordsArray'];
 			$field = $_POST['field'];
 			$id = $_POST['id'];
@@ -194,13 +194,14 @@ class formModel extends ModelBase
 						$consulta = $this->db->prepare("UPDATE ".$tabla." SET orden = " . $listingCounter . " WHERE ".$field."='".$id."' and id = " . $recordIDValue);		
 						$consulta->execute();
 				}else{
-						$consulta = $this->db->prepare("UPDATE ".$tabla." SET orden = " . $listingCounter . " WHERE  id = " . $recordIDValue);		
+						$consulta = $this->db->prepare("UPDATE ".$tabla." SET orden = " . $listingCounter . " WHERE  ".$tabla."Id = " . $recordIDValue);		
 						$consulta->execute();
 					}					
 					$listingCounter = $listingCounter + 1;	
 				}
 				echo $listingCounter;
 			}
+			echo 0;
 
 }
 
