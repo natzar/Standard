@@ -1,13 +1,17 @@
 <?php
 error_reporting(E_ALL);
 ini_set('display_errors', '1');
+mb_internal_encoding("UTF-8");
+date_default_timezone_set('Europe/Madrid'); 
+setlocale (LC_ALL, 'es_ES.ISO8859-1'); 
+setlocale(LC_TIME, 'spanish'); 
+
 include "functions.php";
 
 include "ModelBase.php";
 include "ControllerBase.php";
 
 
-mb_internal_encoding("UTF-8");
 header ('Content-type: text/html; charset=utf-8');
 
 
