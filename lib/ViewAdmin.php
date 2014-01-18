@@ -36,8 +36,8 @@ class View
 		$LOGIN_ADMIN = isset($_SESSION['initiated_admin']) and $_SESSION['initiated_admin'] ? true : false;
 		$LOGIN = isset($_SESSION['initiated_admin']) and $_SESSION['initiated_admin'] ? true : false;
 		$OFFSET = isset($_GET['offset']) ? $_GET['offset'] : 0;
-		$PERPAGE = isset($_GET['perpage']) ? $_GET['perpage'] : 40;
- 	
+		$PERPAGE = isset($_GET['perpage']) ? $_GET['perpage'] : 18;
+ 		$PARAMS = gett();
  		$LANG = $_SESSION['lang'];
 
 		if(is_array($vars))

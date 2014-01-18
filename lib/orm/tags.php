@@ -1,9 +1,12 @@
 <?
 
+
 final class tags extends field{
 	protected $db;
 	function view(){
+	if ($this->value != -1)
 		return $this->value;
+	else return '';
 	}
 	function bake_field (){
 				
@@ -33,7 +36,7 @@ final class tags extends field{
 							arsort($PUNTS);
 										
 					$output .= "<input class=\"input span6\" type=\"text\" cols=\"120\" name=\"".$this->fieldname."\" id=\"".$this->fieldname."\" value=\"".$this->value."\">"; 
-												$output .= "(Separats per comes i sense espais)";
+												$output .= "(Separados por comas y sin espacios)";
 							$output .= "<br>";
 							$y = 0;
 							foreach($PUNTS as $key => $value){
@@ -54,7 +57,8 @@ final class tags extends field{
 		
 	function exec_add () {
 		if (substr($this->value,strlen($this->value)-1,strlen($this->value)) == ',') $this->value = substr($this->value,0,strlen($this->value)-1);
-		echo  addslashes(stripslashes($this->value));
+
+		//echo  addslashes(stripslashes($this->value));
 		return addslashes(stripslashes($this->value)); 
 	}
 	function exec_edit () {

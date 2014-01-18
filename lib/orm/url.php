@@ -3,7 +3,7 @@
 final class url extends field{
 
 	function view(){
-	if (empty($this->value)) return '';
+	if (empty($this->value) or $this->value == -1) return '';
 		return "<a href='".$this->value."' target='_blank'>URL</a>";
 	}
 	function bake_field (){

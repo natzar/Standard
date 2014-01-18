@@ -73,7 +73,7 @@ function gett(){
 		}	
 		
 		if (!isset($params['offset'])) $params['offset'] = 0;
-		if (!isset($params['perpage'])) $params['perpage'] = 40;
+		if (!isset($params['perpage'])) $params['perpage'] = 18;
    return $params;
 
 }
@@ -96,7 +96,7 @@ function generar_cadena_random($long){
 	for($i=0;$i<$long;$i++) {
 	$cad .= substr($str,rand(0,36),1);
 	}
-	return date("ymdHis").$cad;
+	return $cad;
 
 }
 
@@ -309,7 +309,7 @@ imagegif($dimg,$dest,100);
 function clean_filename($aux){
 	$aux =  preg_replace('[^a-zA-Z0-9._- ]', '', $aux);
 	$aux =  str_replace(' ', '', $aux);
-
+	$aux = removeAccents($aux);
 	if (trim($aux) == '') return -1;
 	else return trim($aux);
 
@@ -318,6 +318,18 @@ function clean_filename($aux){
 
 function generar_nombre_archivo($filename){
 
+// NEW ONE, without saving filename just time stamp
+
+
+$punto_pos = strrpos ( $filename, ".");
+$soloname = substr($filename,0,$punto_pos );
+$ext = substr($filename,$punto_pos + 1, strlen($filename) - $punto_pos);
+$new_code = generar_cadena_random(7);
+return Date("YmdHis")."_".$new_code.".".$ext;
+
+
+
+// OLD ONE, saving filename
 $punto_pos = strrpos ( $filename, ".");
 $soloname = substr($filename,0,$punto_pos );
 if (isset($_POST['title'])) $soloname = $_POST['title'];

@@ -48,7 +48,7 @@ final class combo extends field{
 	
 
 function bake_combo($tabla,$select_name,$id_selected){
-	    $consulta = $this->db->prepare("SELECT * from $tabla ORDER BY 2 ASC" );
+	    $consulta = $this->db->prepare("SELECT * from $tabla ORDER BY 2,3 ASC" );
     	$consulta->execute();
         
 		$output = "<select class='form-control ' name=\"".$select_name."\" id=\"".$select_name."\" >";
@@ -65,7 +65,7 @@ function bake_combo($tabla,$select_name,$id_selected){
 		else if (is_string($row[3]) and $row[3] != '' and $row[3] != '0' and intval($row[3]) == 0 and substr($row[3],-3) != 'jpg') $output .= $row[3]."</option>";
 		else $output .= $row[4]."</option>";
 	}
-	
+	$output .='<option value="">Sin especificar</option>';
 	$output .= "</select>";
 
 	return $output;
