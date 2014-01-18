@@ -17,7 +17,7 @@ class formController extends ControllerBase
 				
 	
     	for ($i=0;$i< count($fields);$i++){
-    			if ($fields[$i] != 'id'){	
+    			if ($fields[$i] != $table.'Id'){	
     					$form_html.= "<div class='control-group'><label class='control-label'>";
     					$form_html .= ucfirst($fields_labels[$i]);
     					$form_html .= "</label><div class='controls'>";		
@@ -58,6 +58,46 @@ class formController extends ControllerBase
 			header("location: ".$_SESSION['return_url']);
 
  	} 
+ 	
+ 	function search(){
+
+    	require 'models/formModel.php'; 	
+   		$form = new formModel();
+        $table = get_param('a');
+        $rid = get_param('i');
+        $op = get_param('m');
+        require "../setup/".$table.".php";
+        if ($rid == '') $rid =-1;    			
+        $form_html = "";
+        		
+		
+    	for ($i=0;$i< count($fields);$i++){
+    			if ($fields[$i] != $table.'Id' and strstr($fields_types[$i],"combo")){	
+    					$form_html.= "<div class='control-group'><label class='control-label'>";
+    					$form_html .= ucfirst($fields_labels[$i]);
+    					$form_html .= "</label><div class='controls'>";		
+    					if (!class_exists($fields_types[$i])) die ("La clase ".$fields_types[$i]." no existe");
+    					$VALUE =  '';
+    					$field_aux = new $fields_types[$i]($fields[$i],$fields_labels[$i],$fields_types[$i],$VALUE,$table,$rid);
+    					$form_html .= $field_aux->bake_field();								
+    					$form_html .= "</div></div>";
+    			}		
+    	}
+		
+		$data = Array(/* "table_label" => $table_label, */
+		          "title" => "BackOffice | $table",
+		          "form" => $form_html,
+		          "HOOK_JS" => $form->js($table),
+		      	  "table" => $table,
+		      	  "op" => '',
+		      	  "rid" => $rid,
+		      	  "table_label" => $table_label
+		          
+		          );
+		          
+		$this->view->show("search-form.php", $data);
+    }
+
 
     public function addToCombo(){
         $table = get_param('a');

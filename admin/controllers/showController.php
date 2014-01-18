@@ -22,7 +22,30 @@ class showController extends ControllerBase
 		 $this->view->show("show.php", $data);	
     }
     
-       
+       	public function search(){
+	
+		$params = gett();
+        include "models/showModel.php";
+        $items = new showModel();
+		$table = $params['table'];		
+		$config = Config::singleton();
+	    
+     //	$_SESSION['return_url'] =  $_SERVER['REQUEST_URI'] ;
+		
+		$data = Array(/* "table_label" => $table_label, */
+		          "title" => "BackOffice | $table",
+		          "items_head" => $items->getItemsHead($table),
+		          "items" => 		$items->search($params),
+		          "HOOK_JS" => $items->js($table),
+                  "table" => $table,
+					"table_label" =>$items->getTableAttribute($table,'table_label'),
+					"notification" => get_param('i') != -1 ? 'Se ha guardado correctamente' : ''
+		      		          
+		          );
+		          
+		
+				 $this->view->show("show.php", $data);
+	}
 	 public function detail(){
     	$config = Config::singleton();
 	    require 'models/showModel.php';

@@ -47,6 +47,47 @@ class showModel extends ModelBase
         return $array_return;
 
 	}
+
+
+    public function search($params){
+    
+        include "../setup/".$params['table'].".php";
+        
+        $order = (get_param('sorder') != -1) ? get_param('sorder') : $default_order; 
+        $table = $table_aux = $params['table'];     
+      	
+		if (isset($group_by) and !empty($group_by)) $table_aux.= ' GROUP BY '.$group_by.' ';  
+		
+		$where = array();
+        for ($i = 0; $i < count($fields);$i++): 
+			if (isset($_POST[$fields[$i]]) and $_POST[$fields[$i]] != -1)
+				$where[] = $fields[$i].' = "'. $_POST[$fields[$i]].'"';       
+        endfor;
+		if (count($where)< 1) return Array();
+
+        $consulta = $this->db->prepare('SELECT * FROM '.$table_aux.' WHERE '.implode (' AND ',$where).'  order by '.$order);
+        $consulta->execute();
+        $array_return = array();
+        
+		while ($r = $consulta->fetch()):
+            $row_array = array();
+            $row_array[$table.'Id'] = $r[$table.'Id'];
+            for ($i = 0; $i < count($fields);$i++): 
+	               if (!isset($fields_to_show) or in_array($fields[$i],$fields_to_show) or empty($fields_to_show)   ): 
+						if (!class_exists($fields_types[$i])) 
+						    die ("La clase ".$fields_types[$i]." no existe");
+				        $field_aux = new $fields_types[$i]($fields[$i],$fields_labels[$i],$fields_types[$i],$r[$fields[$i]],$table,$row_array[$table.'Id']);
+				    	$row_array[] =$field_aux->view();
+				    endif; 
+             endfor; 
+             $array_return[] = $row_array;
+
+        endwhile;
+        return $array_return;
+        
+    }
+   
+   
     public function getAll($table){
     
         include "../setup/".$table.".php";
@@ -54,8 +95,11 @@ class showModel extends ModelBase
         
         $order = (get_param('sorder') != -1) ? get_param('sorder') : $default_order; 
         $table_aux = $table;
+        $params = gett();
+      
+      
 		if (isset($group_by) and !empty($group_by)) $table_aux.= ' GROUP BY '.$group_by.' ';  
-        $consulta = $this->db->prepare('SELECT * FROM '.$table_aux.' order by '.$order);
+        $consulta = $this->db->prepare('SELECT * FROM '.$table_aux.' order by '.$order.' limit '.$params['offset'].','.$params['perpage']);
         $consulta->execute();
         $array_return = array();
         
@@ -93,6 +137,8 @@ $output .='$(".tablaMain tbody > tr > td").click(function(){
 				location.href= x;
 			});';
 			*/
+			
+			if (isset($table_order_on) and $table_order_on){
 			$output .='$(".tablaMain tbody > tr").mouseover(function(){
 				$(this).css("cursor","hand");
 				$(this).css("cursor","pointer");	
@@ -118,12 +164,13 @@ $output .='$(".tablaMain tbody > tr > td").click(function(){
 					});
 					}
 
-				});
+				});';
+			
 				
 				
 
-			});';
-
+			$output .= '});';
+}
 
 			$output .="});"; // End $(document).ready();
 

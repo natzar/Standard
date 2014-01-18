@@ -9,11 +9,14 @@
 
 <h2><?= ucfirst($table_label)?></h2>
 
-<a class="btn btn-success" style="float:left;clear:both;"  href="form/build/<?= $table ?>"><i class="icon-plus"></i> <?=ADDNEW?></a><input class="" placeholder="<?= SEARCH ?>" style="float:left;margin-left:14px" type="text" class="search_pagination" value="">
+<a class="btn btn-success" style="display:inline-block"  href="form/build/<?= $table ?>"><i class="icon-plus"></i> <?=ADDNEW?></a>
+
+<a class="btn btn-primary" style="display:inline-block;"  href="form/search/<?= $table ?>"><i class="icon-search"></i> <?=SEARCH?></a>
 
 
 
-<div>
+
+<div style="clear:both;">
 <? if (count($items) > 0): ?>
     <table class='table table-striped tablaMain' data-table="<?= $table ?>" id='tabla_0'  border="0" >
         <thead>
@@ -49,6 +52,17 @@
             <? endfor; ?>
 	   </tbody>
     </table>
+    
+     <hr>
+    <?
+    if ($OFFSET > 0): ?>
+    	<a  href="?<?= $_SERVER['QUERY_STRING'] ?>&offset=<?= $OFFSET - $PERPAGE ?>"><< Página Anterior</a> |
+    <? endif; ?>
+    <? if (count($items) == 18 ): ?>
+    	<a  href="?<?= $_SERVER['QUERY_STRING'] ?>&offset=<?= $OFFSET + $PERPAGE ?>">Página Siguiente >></a>
+    	<? endif; ?>
+<br><br>
+
 </div>		
 <? else: ?>
 
