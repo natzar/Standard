@@ -36,16 +36,17 @@ class View
 		$LOGIN_ADMIN = isset($_SESSION['initiated_admin']) and $_SESSION['initiated_admin'] ? true : false;
 		$LOGIN = isset($_SESSION['initiated_admin']) and $_SESSION['initiated_admin'] ? true : false;
 		$OFFSET = isset($_GET['offset']) ? $_GET['offset'] : 0;
-		$PERPAGE = isset($_GET['perpage']) ? $_GET['perpage'] : 40;
- 	
+		$PERPAGE = isset($_GET['perpage']) ? $_GET['perpage'] : 18;
+ 		$PARAMS = gett();
  		$LANG = $_SESSION['lang'];
  		$SEO_TITLE = $config->get('seo_title');
 		$SEO_DESCRIPTION = $config->get('seo_description');
-		
+		$SEO_KEYWORDS = $config->get('seo_keywords');
+//		$SEO_IMAGE = -1;
 		include "public/models/sidedataModel.php";
 		$SIDEDATA = new sidedataModel();
 		$SIDEDATA = $SIDEDATA->load();
-		
+
 		$formHelper = new formHelper();
 		if(is_array($vars))
            foreach ($vars as $key => $value)           
