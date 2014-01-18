@@ -4,9 +4,16 @@
     <title> <?= $SEO_TITLE ?> &raquo; <?= $base_title ?></title>
 	<!-- Metas -->
     <meta name="title" content="<?= $SEO_TITLE ?> &raquo; <?= $base_title ?>">
-    <meta name="description" content="<?= $SEO_DESCRIPTION ?>">
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="description" content='<?= ($SEO_DESCRIPTION )?>'>
+    <meta name="author" content="96 Levels">
+    <meta name="keywords" content="<?= $SEO_KEYWORDS ?>">
+<meta name="Language" content="Spanish">
+<meta name="Revisit" content="2 days">
+<meta name="Distribution" content="Global">
+<meta name="Robots" content="All">
+
+<!-- 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"> -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<meta http-equiv="content-language" content="es" />
@@ -23,8 +30,8 @@
     <script src="http://code.jquery.com/jquery.js"></script>
 
 	<!-- CSS -->
-	<link href='http://fonts.googleapis.com/css?family=Yesteryear' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,400,700,600,300' rel='stylesheet' type='text/css'>
+	
+    <link href='http://fonts.googleapis.com/css?family=Yesteryear:400,700,600,300' rel='stylesheet' type='text/css'>
 
 	<link rel="stylesheet" href="public/views/assets/css/normalize.css">	
 	<link rel="stylesheet" href="public/views/assets/css/gridism.css">	
