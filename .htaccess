@@ -5,6 +5,9 @@ DirectoryIndex index.html index.php
 # Turn on URL rewriting
 RewriteEngine On
 
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+
 # Installation directory
 RewriteBase /alphas/96MicroFramework/
 
