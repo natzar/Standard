@@ -78,7 +78,20 @@ class formModel extends ModelBase
 
 
 	
+	public function import($table,$content){
+		require $this->config->get('setupFolder') .$table.".php";
+		$content = nl2br(trim($content));
+		
+		$content = explode("<br />",$content);
+		
+		$formated_c = "('".implode("'),('",$content)."')";	
+		$formated_c =	str_replace(",('')","",$formated_c);
+		//echo $formated_c;
+		$c = $this->db->prepare("INSERT INTO ".$table." (".$fields[0].") VALUES ".$formated_c);
+		$c->execute();
+		
 	
+	}
 	
 	
    	public function js($table)

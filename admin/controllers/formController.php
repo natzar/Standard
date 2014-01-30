@@ -59,6 +59,56 @@ class formController extends ControllerBase
 
  	} 
  	
+ 	function import(){
+ 		require 'models/formModel.php'; 	
+
+        $table = get_param('a');
+        $rid = get_param('i');
+        $op = get_param('m');
+        require "../setup/".$table.".php";
+ 	$form_html = '<textarea width="100%" rows="10" name="import_content"></textarea><br><small>Registros separados por líneas</small>';
+ 	$data = Array(/* "table_label" => $table_label, */
+		          "title" => "BackOffice | $table",
+		          "form" => $form_html,
+		      	  "table" => $table,
+		      	  "HOOK_JS" => '',
+		      	  "op" => '',
+		      	  "rid" => $rid,
+		      	  "table_label" => $table_label
+		          
+		          );
+		          
+		$this->view->show("import.php", $data);
+ 	
+ 	}
+ 	
+ 	function do_import(){
+ 		
+ 		$con = get_param('import_content');
+ 	  	require 'models/formModel.php';
+        	$form = new formModel();
+        	$rid = get_param('rid');
+        	$table = get_param('table');
+        	
+        	$form->import($table,$con);
+        	
+        	$data = Array(
+		          "title" => "BackOffice | $table",
+		          
+		      	  "table" => $table,
+		      	  "HOOK_JS" => '',
+		      	  "op" => '',
+		      	  "form" => "Importado correctamente",
+		      	  "rid" => $rid,
+		      	  "table_label" => 'Importar '.$table
+		          
+		          );
+		          
+
+        	$this->view->show("import.php", $data);
+        	
+ 	}
+ 	
  	function search(){
 
     	require 'models/formModel.php'; 	
@@ -72,7 +122,7 @@ class formController extends ControllerBase
         		
 		
     	for ($i=0;$i< count($fields);$i++){
-    			if ($fields[$i] != $table.'Id' and strstr($fields_types[$i],"combo")){	
+    			if ($fields[$i] != $table.'Id' and strstr($fields_types[$i],"combo") or $fields_types[$i] == 'literal' or $fields_types[$i] == 'text'){	
     					$form_html.= "<div class='control-group'><label class='control-label'>";
     					$form_html .= ucfirst($fields_labels[$i]);
     					$form_html .= "</label><div class='controls'>";		
