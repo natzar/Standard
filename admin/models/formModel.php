@@ -65,9 +65,7 @@ class formModel extends ModelBase
         				$edit_info_form .= " ".$table.".".$fields[$i]." = '".$field_aux->exec_edit()."',";
         			}
         		}
-        		//echo($fields_types[$i]);
         	}
-
         			
         	$info = substr($edit_info_form,0,strlen($edit_info_form) - 1);
        		$consulta = $this->db->prepare("UPDATE ".$table." set  $info   where ".$table."Id='".$rid."'");
@@ -130,7 +128,6 @@ class formModel extends ModelBase
 				for ($i=0;$i< count($fields);$i++){
 						if ($fields_types[$i] == 'fecha')
 							$output .='$(function() {	$("#'.$fields[$i].'").datepicker(); });';
-							
 						if ($fields_types[$i] == 'hora'){
 							$output .= "$('#".$fields[$i]."').timepicker({
 									hourGrid: 4,

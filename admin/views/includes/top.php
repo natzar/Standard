@@ -18,7 +18,7 @@
 	   	<link href="views/css/main.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="views/vendor/jQuery-ui-1.8.16/themes/base/jquery.ui.all.css">
 	 	<script src="views/js/jquery.js"></script>	
-
+		<script src="views/js/dataTable.js"></script>		
 		<script src="views/vendor/jQuery-ui-1.8.16/minified/jquery.ui.core.min.js"></script>
 		<script src="views/vendor/jQuery-ui-1.8.16/minified/jquery.ui.widget.min.js"></script>
 		<script src="views/vendor/jQuery-ui-1.8.16/minified/jquery.ui.mouse.min.js"></script>

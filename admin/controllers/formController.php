@@ -50,7 +50,6 @@ class formController extends ControllerBase
         	$form = new formModel();
         	$rid = get_param('rid');
         	$table = get_param('table');
-
       		if ($rid == -1) $form->add($table);
 			else $form->edit($table,$rid);
 

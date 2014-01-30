@@ -5,6 +5,7 @@
 		</div>
 	</div>
 		   	<script src="views/vendor/bootstrap/js/bootstrap.js"></script>
+		   	<script src="views/js/DT_init.js"></script>	
 	<script>
 		var loc = unescape(document.location.href);
 
