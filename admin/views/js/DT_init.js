@@ -268,7 +268,7 @@ jQuery.extend( jQuery.fn.dataTableExt.oSort, {
 
 /* Table initialisation */
 $(document).ready(function() {
-	$('#tablaMain').dataTable( {
+	$('.tablaMain').dataTable( {
 		"sDom": "<'row'<'span6'f><'span6'>r>t<'row'<'span6'i><'span6'p>>",
 "bLengthChange": false,
 "iDisplayLength": 1000,

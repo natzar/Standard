@@ -6,8 +6,8 @@ $config = Config::singleton();
 	$config->set('lang','esp');
 	$config->set('available_langs',array('esp'));
 	$config->set('base_title','Pekeninos');
-	$config->set('base_url','//'.$_SERVER['SERVER_NAME'].'/alphas/pekeninos/');
-	$config->set('base_url_data','//'.$_SERVER['SERVER_NAME'].'/alphas/pekeninos/data/');
+	$config->set('base_url','//'.$_SERVER['SERVER_NAME'].'/alphas/96MicroFramework/');
+	$config->set('base_url_data','//'.$_SERVER['SERVER_NAME'].'/alphas/96MicroFramework/data/');
 	$config->set('db_prefix','');
 	
 	$config->set('tabla_default','blog');

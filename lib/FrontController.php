@@ -31,7 +31,7 @@ class FrontController
 		
 		$USER_LANG = isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) : 'es';
 		if (!isset($_SESSION['lang'])){
-			if ($USER_LANG == 'ca') $USER_LANG = 'es';
+			if ($USER_LANG == 'ca') $USER_LANG = 'esp';
 			if (in_array($USER_LANG,$config->get('available_langs'))) $_SESSION['lang'] = $USER_LANG;
 			else $_SESSION['lang'] = $config->get('lang');
 			}
