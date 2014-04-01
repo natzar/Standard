@@ -2,11 +2,13 @@ Options +FollowSymLinks
 DirectoryIndex index.html index.php
 #php_value session.use_trans_sid 0
 
+#RewriteCond %{HTTP_HOST} !^www\.
+#RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+
+
 # Turn on URL rewriting
 RewriteEngine On
 
-RewriteCond %{HTTP_HOST} !^www\.
-RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
 
 # Installation directory
 RewriteBase /alphas/96MicroFramework/

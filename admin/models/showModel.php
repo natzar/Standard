@@ -61,7 +61,10 @@ class showModel extends ModelBase
 		$where = array();
         for ($i = 0; $i < count($fields);$i++): 
 			if (isset($_POST[$fields[$i]]) and $_POST[$fields[$i]] != -1)
-				$where[] = $fields[$i].' = "'. $_POST[$fields[$i]].'"';       
+				if ($fields_types[$i] == 'literal' or $fields_types[$i] == 'text')
+				$where[] = $fields[$i].' LIKE "%'. $_POST[$fields[$i]].'%"';       
+				else
+					$where[] = $fields[$i].' = "'. $_POST[$fields[$i]].'"';       
         endfor;
 		if (count($where)< 1) return Array();
 
