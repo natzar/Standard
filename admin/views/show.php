@@ -12,8 +12,10 @@
 <a class="btn btn-success" style="display:inline-block"  href="form/build/<?= $table ?>"><i class="icon-plus"></i> <?=ADDNEW?></a>
 
 <a class="btn btn-primary" style="display:inline-block;"  href="form/search/<?= $table ?>"><i class="icon-search"></i> <?=SEARCH?></a>
+<!--
 
 <a class="btn btn-warning" style="display:inline-block;"  href="form/import/<?= $table ?>"><i class="icon-search"></i> Importar</a>
+-->
 
 
 
@@ -23,9 +25,9 @@
     <table class='table table-striped tablaMain' data-table="<?= $table ?>" id='tabla_0'  border="0" >
         <thead>
             <tr>
-<th><input type="checkbox"></th>
+<!-- <th><input type="checkbox"></th> -->
          	<?	foreach ($items_head as $item): ?>
-            	<th nowrap><?= ucfirst($item) ?>	</th>		 
+            	<th nowrap><?= ucfirst(strip_tags(preg_replace("/<h2>(.*)<\/h2>/","",$item))) ?>	</th>		 
             <? endforeach; ?>
             <th class="nover" nowrap=nowrap width="60"><?=ACTIONS ?></th></tr>
         </thead>
@@ -33,7 +35,7 @@
             <? $itemsTotal =count($items);
                 for($i=0;$i<$itemsTotal;$i++):   ?>
                    <tr id="recordsArray_<?= $items[$i][$table.'Id']?>">
-<td><input type="checkbox"></td>
+<!-- <td><input type="checkbox"></td> -->
                 <?    $row = $items[$i]; 
                 $j = 0;
                 		foreach ($row as  $cell): 

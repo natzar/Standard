@@ -3,14 +3,21 @@
 $config = Config::singleton();
 	$config->set('version',1);
 	
-	$config->set('lang','esp');
-	$config->set('available_langs',array('esp'));
-	$config->set('base_title','Pekeninos');
-	$config->set('base_url','//'.$_SERVER['SERVER_NAME'].'/alphas/96MicroFramework/');
-	$config->set('base_url_data','//'.$_SERVER['SERVER_NAME'].'/alphas/96MicroFramework/data/');
+	$config->set('lang','es');
+	$config->set('available_langs',array('es','en','zh','ca'));
+	$config->set('base_title','Qione');
+	/* SEO */
+	$config->set('seo_title','Home');
+	$config->set('seo_description','');	
+	$config->set('seo_keywords','');
+	$config->set('base_url','//'.$_SERVER['SERVER_NAME'].'/qione/');
+	$config->set('base_url_data','//'.$_SERVER['SERVER_NAME'].'/qione/data/');
+
+	$config->set('base_email','contacto@phpninja.info');
+	
 	$config->set('db_prefix','');
 	
-	$config->set('tabla_default','blog');
+	$config->set('tabla_default','pages');
     
     $config->set('private_urls',array(array("profile" => "action")));
     
@@ -24,10 +31,10 @@ $config = Config::singleton();
 
 
 
-	$config->set('big_h',400);// 0 for no resize
-	$config->set('big_w',558); // 0 for no resize
-	$config->set('img_content_w',400);
-	$config->set('img_content_h',300);
+	$config->set('big_h',580);// 0 for no resize
+	$config->set('big_w',960); // 0 for no resize
+	$config->set('img_content_w',600);
+	$config->set('img_content_h',480);
 	$config->set('thumb_h',180);
 	$config->set('thumb_w',260);
 	
@@ -45,7 +52,7 @@ $config = Config::singleton();
 	$config->set('modelsFolder', 'models/');
 	$config->set('viewsFolder', 'views/');
   	$config->set('setupFolder', $PATH.'/setup/');
-  	$config->set('languagesFolder', $PATH.'/language/');
+  	$config->set('languagesFolder', $PATH.'/public/language/');
   		 
 	$config->set('dbhost', 'localhost');
 	$config->set('dbname', 'pekeninos');

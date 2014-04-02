@@ -28,8 +28,9 @@ class formModel extends ModelBase
     	}
     	$info = substr($add_info_form,0,strlen($add_info_form) - 1);
     	$consulta = $this->db->prepare("INSERT INTO ".$table." (".implode(",",$fields).") VALUES ($info)");
+
         $consulta->execute();
-     //   die( "INSERT INTO ".$table." (".implode(",",$fields).") VALUES ($info)");
+        //die( "INSERT INTO ".$table." (".implode(",",$fields).") VALUES ($info)");     
        
     	
 	}
@@ -100,7 +101,7 @@ class formModel extends ModelBase
 		if(in_array('fecha', $fields_types) or in_array('hora',$fields_types) or in_array('combo_child',$fields_types) or in_array('tinymce',$fields_types))
 		
 				$output.= 'tinyMCE.init({
-
+   		document_base_url: "'.$config->get('base_url').'",
         mode : "textareas", 
         editor_selector : "mceEditor",
         theme: "advanced",
@@ -108,10 +109,11 @@ class formModel extends ModelBase
    force_br_newlines : true,
    force_p_newlines : false,
         relative_urls : false,
+ absolute_paths: true,
         width: "100%",
         height: "350px",
         theme_advanced_resizing : true,
-        theme_advanced_buttons1 : "insertimage,separator,bold,italic,underline,separator,justifyleft,justifycenter,justifyright, justifyfull,separator,undo,redo,link,unlink,separator,fullscreen,code",
+        theme_advanced_buttons1 : "insertimage,separator,forecolor,color,bold,italic,underline,color,fontcolor,separator,bullist,separator,justifyleft,justifycenter,justifyright, justifyfull,separator,undo,redo,link,unlink,separator,fullscreen,code",
  		theme_advanced_blockformats : "h2,h3,p",
 		theme_advanced_buttons2 : "",
         theme_advanced_buttons3 : "",
@@ -120,11 +122,14 @@ class formModel extends ModelBase
         theme_advanced_toolbar_align : "left",
         theme_advanced_statusbar_location : "bottom",
 
-        extended_valid_elements : "iframe[src|width|height|name|align]",
+        extended_valid_elements : "div[class]",
     plugins : "paste,safari,pagebreak,style,layer,table,save,advhr,imagemanager,advlink,iespell,insertdatetime,preview,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,inlinepopups",
-        content_css: "'.$this->config->get('base_url').'admin/views/css/tinymce_content.css"
+  content_css: "'.$this->config->get('base_url').'public/views/assets/css/tinymce_content.css"
+
         
-    });';
+    });'; /* $this->config->get('base_url').'public/views/assets/css/style.css", */
+
+/*    content_css: "'.$this->config->get('base_url').'admin/views/css/tinymce_content.css" */
 				for ($i=0;$i< count($fields);$i++){
 						if ($fields_types[$i] == 'fecha')
 							$output .='$(function() {	$("#'.$fields[$i].'").datepicker(); });';

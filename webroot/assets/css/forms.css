@@ -1,0 +1,14 @@
+label{
+clear:both;display: block;
+text-transform: capitalize;
+font-weight: bold;
+margin-bottom:10px
+}
+form {
+
+
+}
+textarea,input,select{clear:both;display: block;width:350px;margin-bottom:10px;clear:both;padding:3px;border-radius:4px;border:1px solid #e7e7e7;}
+input[type="text"]{}
+input[type="checkbox"]{clear:none;display: inline;margin:0px;padding:0px;width: auto}
+input[type="submit"]{margin-top: 15px;border:none;border-radius:4px;padding:3px;}

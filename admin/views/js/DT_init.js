@@ -271,6 +271,13 @@ $(document).ready(function() {
 	$('.tablaMain').dataTable( {
 		"sDom": "<'row'<'span6'f><'span6'>r>t<'row'<'span6'i><'span6'p>>",
 "bLengthChange": false,
+"bSmart": false,
+"bPaginate": false,
+"bSearch": false,
+"bSearchable":false,
+"oSearch": false,
+"bFilter": false,
+"bInfo": false,
 "iDisplayLength": 1000,
   "aaSorting": [[ 3, "asc" ]]
 

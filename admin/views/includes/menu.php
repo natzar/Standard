@@ -1,23 +1,18 @@
-<!--
-
-	<li class="nav-header">CAMPAÑAS</li>
-<li><a href="show/table/campanas">Campañas</a></li>
--->
-
-
-
-	<li class="nav-header">BLOG</li>
-<li><a href="show/table/blogcategorys">Categorias</a></li>
-<li><a href="show/table/blog">Posts</a></li>
 
 
 <li class="nav-header">CONTENIDOS</li>
-<li><a href="show/table/contenidoscategorys">Secciones</a></li>	
-<li><a href="show/table/contenidossubcategorys">Categorias</a></li>	
-<li><a href="show/table/contenidos">Juegos y Actividades</a></li>
-<li><a href="show/table/personajes">Personajes</a></li>
+<li><a href="show/table/pages">Todas las Páginas</a></li>	
+<li><a href="show/table/proyectos">Proyectos</a></li>	
+<li><a href="show/table/servicios">Servicios</a></li>	
+<li><a href="show/table/demandas">Demandas</a></li>	
+<li class="nav-header">OTROS</li>
+
+<li><a href="show/table/slider">Home Slider</a></li>	
 
 
+	<li class="nav-header">BLOG</li>					
+<li><a href="show/table/blog">Blog</a></li>
+<li><a href="show/table/blogcategorys">Categorías</a></li>
+<!-- <li><a href="show/table/blogcategorys">Categorias</a></li> -->
 
 
-						

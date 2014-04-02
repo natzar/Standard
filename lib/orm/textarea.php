@@ -14,11 +14,13 @@ final  class textarea extends field{
 						
 	}
 		
-	function exec_add () {
+	function exec_add () {	
+		if ($this->value == '-1') return '';
 		return $this->value;		
 	}
 	function exec_edit () {
-			return $this->value;
+		if ($this->value == '-1') return '';
+		return $this->value;
 	}
 
 }

@@ -13,13 +13,16 @@ final  class tinymce extends field{
 		
 	function exec_add () {
 //		return	mysql_real_escape_string($this->value);
+		
 		if ($this->value == -1) return '';
-		return ($this->value);		
+		return addslashes($this->value);
+		return (htmlentities($this->value));		
 	}
 	function exec_edit () {
 //			return	mysql_real_escape_string($this->value);
 		if ($this->value == -1) return '';
-			return ($this->value);
+				return addslashes($this->value);
+			return htmlentities($this->value);
 	}
 
 }

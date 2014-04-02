@@ -10,7 +10,7 @@ class View
 
 	
  
-	public function show($name, $vars = array(),$show_top_footer = true)
+	public function show($name = 'pagina.php', $vars = array(),$show_top_footer = true)
 	{
 
 		$config = Config::singleton();
@@ -40,7 +40,7 @@ class View
  		$PARAMS = gett();
  		$LANG = $_SESSION['lang'];
  		$SEO_TITLE = $config->get('seo_title');
-		$SEO_DESCRIPTION = $config->get('seo_description');
+		$SEO_DESCRIPTION = strip_tags($config->get('seo_description'));
 		$SEO_KEYWORDS = $config->get('seo_keywords');
 //		$SEO_IMAGE = -1;
 		include "public/models/sidedataModel.php";

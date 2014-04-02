@@ -96,6 +96,8 @@
     padding-right: 0px;
   }
 
+	.sec,.prim{height:auto !important}
+
   /* Sometimes, you just want to be different on small screens */
   .center-on-mobiles {
     text-align: center !important;
@@ -103,6 +105,8 @@
   .hide-on-mobiles {
     display: none !important;
   }
+#menu, #menu > *{height: auto !important;line-height: 20px !important};
+  
 }
 
 /* Expand the wrap a bit further on larger screens */

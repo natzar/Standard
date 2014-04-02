@@ -101,7 +101,7 @@ class showModel extends ModelBase
         $params = gett();
       
       
-		if (isset($group_by) and !empty($group_by)) $table_aux.= ' GROUP BY '.$group_by.' ';  
+		if (isset($group_by) and !empty($group_by)) $order .= ' GROUP BY '.$group_by.' ';  
         $consulta = $this->db->prepare('SELECT * FROM '.$table_aux.' order by '.$order.' limit '.$params['offset'].','.$params['perpage']);
         $consulta->execute();
         $array_return = array();

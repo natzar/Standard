@@ -13,10 +13,12 @@ final class text extends field{
 	}
 		
 	function exec_add () {
+			if ($this->value == '-1') return '';
 			return addslashes(stripslashes($this->value));
 
 	}
 	function exec_edit () {
+		if ($this->value == '-1') return '';
 		if ($this->value != "")
 				return addslashes(stripslashes($this->value));
 		return '';

@@ -1,5 +1,6 @@
 <?
 
+
 function cleanInput($input) {
 
   $search = array(
@@ -117,6 +118,8 @@ function float_to_sql($valor){
 }
 function generate_seo_link($input,$replace = '-',$remove_words = true,$words_array = array())
 {
+
+if (preg_match("/\p{Han}+/u", $input)) return $input;
 	//make it lowercase, remove punctuation, remove multiple/leading/ending spaces
 	$input = removeAccents($input);
 	$return = trim(preg_replace('/[^a-zA-Z0-9\s]/','',strtolower($input)));

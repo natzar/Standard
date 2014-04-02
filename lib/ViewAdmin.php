@@ -22,12 +22,11 @@ class View
 			return false;
 		}
 		
-		if (isset($_SESSION['lang']) and $_SESSION['lang'] != '')
-			include_once $config->get('languagesFolder').$_SESSION['lang'].'.php';
-		else{ 
-			include_once $config->get('languagesFolder').$config->get('lang').'.php';
-			$_SESSION['lang'] = $config->get('lang');
-		}
+		
+	
+			include_once $config->get('languagesFolder').'es.php';
+			//$_SESSION['lang'] = $config->get('lang');
+	
 		
         $vars['page'] = $name;
 		$vars['base_url'] = $config->get('base_url');
@@ -38,7 +37,7 @@ class View
 		$OFFSET = isset($_GET['offset']) ? $_GET['offset'] : 0;
 		$PERPAGE = isset($_GET['perpage']) ? $_GET['perpage'] : 18;
  		$PARAMS = gett();
- 		$LANG = $_SESSION['lang'];
+ 		$LANG = 'es';
 
 		if(is_array($vars))
            foreach ($vars as $key => $value)           

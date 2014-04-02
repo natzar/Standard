@@ -27,7 +27,7 @@ class AdminController
 		require '../config.php'; //Archivo con configuraciones.
  
 		/* Language */
-        require $config->get('languagesFolder').$config->get('lang').'.php';
+        require $config->get('languagesFolder').'es.php';
 	    if (!isset($_SERVER['return_url'])) $_SERVER['return_url'] ='';
         $PATH = dirname(__FILE__);
 

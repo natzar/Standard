@@ -1,4 +1,5 @@
 <?php
+include_once dirname(__FILE__)."/class/php_fast_cache.php";
 include_once dirname(__FILE__)."/orm/field.php";
 foreach (scandir(dirname(__FILE__).'/orm/') as $filename) {
     $path = dirname(__FILE__) .'/orm/' . $filename;
@@ -20,6 +21,7 @@ abstract class ModelBase
 		$this->db = SPDO::singleton();
 		$this->db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 		$this->config = Config::singleton();
+		$this->cache = new phpFastCache();
 
 	}
 	
