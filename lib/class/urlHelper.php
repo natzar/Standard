@@ -19,8 +19,8 @@ class urlHelper {
 
 		$c->execute();
 		$aux = $c->fetch();
-		if (!empty($aux[$p.'Id'])) return $aux[$p.'Id'];
-		else return -1;
+		if (!empty($aux[$p.'Id']) and $aux[$p.'Id'] != '' ) return $aux[$p.'Id'];
+		return -1;
 	}	
 	
 	

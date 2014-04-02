@@ -31,7 +31,6 @@ class FrontController
 		
 		$USER_LANG = isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) : 'es';
 		if (!isset($_SESSION['lang'])){
-			if ($USER_LANG == 'ca') $USER_LANG = 'es';
 			if (in_array($USER_LANG,$config->get('available_langs'))) $_SESSION['lang'] = $USER_LANG;
 			else $_SESSION['lang'] = $config->get('lang');
 			}
@@ -53,14 +52,17 @@ class FrontController
 		// URL redireccion
 		
 		if(get_param('p') != -1) $controllerName = get_param('p')."Controller";
-		else 	 $controllerName = "homeController";
+		else 	 $controllerName = "pageController";
  
 		if(get_param('m') != -1) $actionName = get_param('m');
 		else $actionName = 'index';
 			
 			
 		
-
+		if ($controllerName == 'pageController' and $actionName == 'single' and (get_param('a') == '' or get_param('a') == -1)) {
+			$controllerName = 'pageController';
+			$actionName ='home';
+		}
 
 		$private = $config->get('private_urls');
 				// si no estamos logeados no podemos acceder a los private[]
@@ -87,11 +89,11 @@ class FrontController
     		return false;
 		}  
 		      
-		if (is_callable(array($controllerName, $actionName)) == false){
+		if (!is_callable(array($controllerName, $actionName))){
 			require_once($path_project.'errorsController.php');
 			$controller = new errorsController();
-			if ($controllerName =='homeController' and $actionName=='index')
-	    		$controller->e0();
+			
+	    		$controller->e404();
 			trigger_error ($controllerName . '->' . $actionName . '` no existe', E_USER_NOTICE);
 			return false;
 		}
