@@ -4,18 +4,19 @@ final class file_file extends field{
 
 
 	function view(){
-			return "<a href='".$this->config->get('http_files_dir').$this->value."'>".$this->config->get('http_files_dir').$this->value."</a>";
+			return "<a href='".$this->config->get('base_url_data')."file/".$this->value."'>".$this->config->get('base_url_data')."file/".$this->value."</a>";
 	}
 	function bake_field (){
     	$output = "";
 		if ($this->value != -1){
  			$output .= "<b>Documento cargado:</b> ";
-			$output .= "<div id='".$this->fieldname."'><a  href=\"".$this->config->get('http_files_dir').$this->value."\" target=\"_blank\">".$this->value."</a><a  href=\"javascript:DeleteFile('".$this->fieldname."',".$this->rid.",'".$this->fieldname."','".$this->table."');\"><img src='".$this->config->get('base_http')."lib/img/close.jpg'></a></div>"; }else{ $output .= "ninguno";
+			$output .= "<div id='".$this->fieldname."'><a  href=\"".$this->config->get('base_url_data')."file/".$this->value."\" target=\"_blank\">".$this->value."</a><a  href=\"javascript:DeleteFile('".$this->fieldname."',".$this->rid.",'".$this->fieldname."','".$this->table."');\"><img src='".$this->config->get('base_http')."lib/img/close.jpg'></a></div>"; }else{ $output .= "ninguno";
 			$output .= "<BR>";
 		}
 							
 		$output .= "<input type=\"file\" name=\"".$this->fieldname."\">";
-			return $output;					
+			return $output;	
+		echo($data_dir);				
 	}
 		
 	function exec_add () {
@@ -25,10 +26,10 @@ final class file_file extends field{
 					$consulta->execute();
 					$row2 = $consulta->fetch();
 					if ($row2[$this->fieldname] != ""){
-						@unlink($this->config->get('files_dir').$row2[$this->fieldname]);
+						@unlink($this->config->get('data_dir')."file/".$row2[$this->fieldname]);
 					}
 					$filename_new = generar_nombre_archivo($_FILES[$this->fieldname]['name']);
-					copy($_FILES[$this->fieldname]['tmp_name'], $this->config->get('files_dir').$filename_new);
+					copy($_FILES[$this->fieldname]['tmp_name'], $this->config->get('data_dir')."file/".$filename_new);
 					
 					return $filename_new;
 					}
@@ -41,10 +42,10 @@ final class file_file extends field{
 						
 						$row2 = $consulta->fetch();
 						if ($this->value != ""){
-							unlink($this->config->get('files_dir').$row2[$this->fieldname]);
+							unlink($this->config->get('data_dir')."file/".$row2[$this->fieldname]);
 						}
 						$filename_new = generar_nombre_archivo($_FILES[$this->fieldname]['name']);
-						copy($_FILES[$this->fieldname]['tmp_name'], $this->config->get('files_dir').$filename_new);
+						copy($_FILES[$this->fieldname]['tmp_name'], $this->config->get('data_dir')."file/".$filename_new);
 					
 						return $filename_new;
 					
