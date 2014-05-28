@@ -9,7 +9,8 @@
 
 <h2><?= ucfirst($table_label)?></h2>
 
-<a class="btn btn-success" style="display:inline-block"  href="form/build/<?= $table ?>"><i class="icon-plus"></i> <?=ADDNEW?></a>
+<a class="btn btn-success" style="float:left;clear:both;"  href="form/build/<?= $table ?>"><i class="icon-plus"></i> <?=ADDNEW?></a>
+<input type="search" class="light-table-filter" data-table="order-table"  placeholder="<?= SEARCH ?>" style="float:left;margin-left:14px"  id="search_pagination" value="">
 
 <a class="btn btn-primary" style="display:inline-block;"  href="form/search/<?= $table ?>"><i class="icon-search"></i> <?=SEARCH?></a>
 <!--
@@ -22,7 +23,7 @@
 
 <div style="clear:both;">
 <? if (count($items) > 0): ?>
-    <table class='table table-striped tablaMain' data-table="<?= $table ?>" id='tabla_0'  border="0" >
+    <table class='table table-striped tablaMain order-table' data-table="<?= $table ?>" id='tabla_0'  border="0" >
         <thead>
             <tr>
 <!-- <th><input type="checkbox"></th> -->
@@ -75,3 +76,45 @@
 <? endif; ?>
 
 <? if(!empty($HOOK_FOOTER)) echo $HOOK_FOOTER; ?>
+
+<script>
+(function(document) {
+	'use strict';
+
+	var LightTableFilter = (function(Arr) {
+
+		var _input;
+
+		function _onInputEvent(e) {
+			_input = e.target;
+			var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+			Arr.forEach.call(tables, function(table) {
+				Arr.forEach.call(table.tBodies, function(tbody) {
+					Arr.forEach.call(tbody.rows, _filter);
+				});
+			});
+		}
+
+		function _filter(row) {
+			var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+			row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+		}
+
+		return {
+			init: function() {
+				var inputs = document.getElementsByClassName('light-table-filter');
+				Arr.forEach.call(inputs, function(input) {
+					input.oninput = _onInputEvent;
+				});
+			}
+		};
+	})(Array.prototype);
+
+	document.addEventListener('readystatechange', function() {
+		if (document.readyState === 'complete') {
+			LightTableFilter.init();
+		}
+	});
+
+})(document);
+</script>
