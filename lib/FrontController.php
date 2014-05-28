@@ -7,9 +7,8 @@ setlocale (LC_ALL, 'es_ES.ISO8859-1');
 setlocale(LC_TIME, 'spanish'); 
 
 include "functions.php";
-
-include "ModelBase.php";
 include "ControllerBase.php";
+include "ModelBase.php";
 
 
 header ('Content-type: text/html; charset=utf-8');
@@ -19,16 +18,18 @@ class FrontController
 {
 	static function main()
 	{
+ 
+        mb_internal_encoding("UTF-8");
 		require 'lib/Config.php'; //de configuracion
 		require 'lib/SPDO.php'; //PDO con singleton
 		require 'lib/View.php'; //Mini motor de plantillas         
 		require 'config.php'; //Archivo con configuraciones.
-   	
-      	$PATH = dirname(__FILE__);
-
-
-
-		
+ 
+    
+        /* Language */
+        
+      if (!isset($_SERVER['return_url'])) $_SERVER['return_url'] ='';
+       $PATH = dirname(__FILE__);
 		$USER_LANG = isset($_SERVER['HTTP_ACCEPT_LANGUAGE']) ? substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2) : 'es';
 		if (!isset($_SESSION['lang'])){
 			if (in_array($USER_LANG,$config->get('available_langs'))) $_SESSION['lang'] = $USER_LANG;
@@ -78,7 +79,7 @@ class FrontController
 		
 		// controlador->metodo
 		
-		$path_project =	'public/'.$config->get('controllersFolder');
+		$path_project =	'app/'.$config->get('controllersFolder');
 		$controllerPath = $path_project . $controllerName . '.php';
     
 		if(is_file($controllerPath)) require $controllerPath;

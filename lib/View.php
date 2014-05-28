@@ -43,7 +43,7 @@ class View
 		$SEO_DESCRIPTION = strip_tags($config->get('seo_description'));
 		$SEO_KEYWORDS = $config->get('seo_keywords');
 //		$SEO_IMAGE = -1;
-		include "public/models/sidedataModel.php";
+		include "app/models/sidedataModel.php";
 		$SIDEDATA = new sidedataModel();
 		$SIDEDATA = $SIDEDATA->load();
 
@@ -54,10 +54,10 @@ class View
 
 
     	if ($show_top_footer) 
-    		include 'public/'.$config->get('viewsFolder')."includes/top.php";      	   	
+    		include 'app/'.$config->get('viewsFolder')."includes/top.php";      	   	
     	include($path);
     	if ($show_top_footer) 
-    		include 'public/'.$config->get('viewsFolder')."includes/footer.php";
+    		include 'app/'.$config->get('viewsFolder')."includes/footer.php";
 		
 	}
 }
