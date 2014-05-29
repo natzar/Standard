@@ -15,7 +15,7 @@ class View
 
 		$config = Config::singleton();
  		
-		$path = 'public/'.$config->get('viewsFolder') . $name;
+		$path = 'app/'.$config->get('viewsFolder') . $name;
 		
 		if (file_exists($path) == false) {
 			trigger_error ('Template `' . $path . '` does not exist.', E_USER_NOTICE);

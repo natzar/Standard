@@ -52,7 +52,7 @@ $config = Config::singleton();
 	$config->set('modelsFolder', 'models/');
 	$config->set('viewsFolder', 'views/');
   	$config->set('setupFolder', $PATH.'/setup/');
-  	$config->set('languagesFolder', $PATH.'/public/language/');
+  	$config->set('languagesFolder', $PATH.'/app/language/');
   		 
 	$config->set('dbhost', 'localhost');
 	$config->set('dbname', 'pekeninos');

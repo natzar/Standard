@@ -95,7 +95,7 @@ class FrontController
 			$controller = new errorsController();
 			
 	    		$controller->e404();
-			trigger_error ($controllerName . '->' . $actionName . '` no existe', E_USER_NOTICE);
+			//trigger_error ($controllerName . '->' . $actionName . '` no existe', E_USER_NOTICE);
 			return false;
 		}
 		
