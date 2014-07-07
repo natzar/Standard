@@ -17,6 +17,8 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
 # Router. Rewrite to ?p=X&m=Y&a=Z&i=W (/X/Y/Z/W)
+RewriteRule ^robots.txt$ public/robots.txt
+RewriteRule ^humans.txt$ public/humans.txt
 RewriteRule ^([a-zA-Z_]*)/?([a-zA-Z]*)?/?([a-zA-Z0-9_-]*)?/?([a-zA-Z0-9-]*)?/?([a-zA-Z0-9-]*)?/?([a-zA-Z0-9-]*)?/?$ index.php?p=$1&m=$2&a=$3&i=$4&z=$5&w=$6
 
 #Activate compression

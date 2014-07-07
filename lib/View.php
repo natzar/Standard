@@ -33,6 +33,14 @@ class View
 		$vars['base_url'] = $config->get('base_url');
 		$vars['base_title'] =  $config->get('base_title');
 		
+		
+		$LOGIN_ADMIN = isset($_SESSION['initiated_admin']) and $_SESSION['initiated_admin'] ? true : false;
+		$LOGIN = isset($_SESSION['initiated_admin']) and $_SESSION['initiated_admin'] ? true : false;
+		$OFFSET = isset($_GET['offset']) ? $_GET['offset'] : 0;
+		$PERPAGE = isset($_GET['perpage']) ? $_GET['perpage'] : 18;
+ 		$PARAMS = gett();
+ 		$LANG = 'es';
+ 		
 		$LOGIN_ADMIN = isset($_SESSION['initiated_admin']) and $_SESSION['initiated_admin'] ? true : false;
 		$LOGIN = isset($_SESSION['initiated_admin']) and $_SESSION['initiated_admin'] ? true : false;
 		$OFFSET = isset($_GET['offset']) ? $_GET['offset'] : 0;
