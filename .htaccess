@@ -1,14 +1,13 @@
 Options +FollowSymLinks
-DirectoryIndex index.html index.php
+DirectoryIndex index.php
 #php_value session.use_trans_sid 0
 
+# Redirect non www. to www.yourdomain.com
 #RewriteCond %{HTTP_HOST} !^www\.
 #RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
 
-
 # Turn on URL rewriting
 RewriteEngine On
-
 
 # Installation directory
 RewriteBase /alphas/96MicroFramework/
@@ -17,11 +16,8 @@ RewriteBase /alphas/96MicroFramework/
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-# Rewrite all other URLs to index.php/URL
+# Router. Rewrite to ?p=X&m=Y&a=Z&i=W (/X/Y/Z/W)
 RewriteRule ^([a-zA-Z_]*)/?([a-zA-Z]*)?/?([a-zA-Z0-9_-]*)?/?([a-zA-Z0-9-]*)?/?([a-zA-Z0-9-]*)?/?([a-zA-Z0-9-]*)?/?$ index.php?p=$1&m=$2&a=$3&i=$4&z=$5&w=$6
-
-
-
 
 #Activate compression
 AddOutputFilterByType DEFLATE text/html text/css application/x-javascript text/plain text/javascript application/javascript application/json

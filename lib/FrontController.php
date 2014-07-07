@@ -50,6 +50,19 @@ class FrontController
 		$fingerprint = md5($_SERVER['HTTP_USER_AGENT']."GYH");
 		$LOGGED_IN = isset($_SESSION['initiated']) and $_SESSION['initiated'] > 0;		
 
+
+		 $fingerprint = md5($_SERVER['HTTP_USER_AGENT'].$config->get('base_title'));
+    	if (!isset($_SESSION['initiated_admin']) or !$_SESSION['initiated_admin'] or !isset($_SESSION['HTTP_USER_AGENT']) or  $_SESSION['HTTP_USER_AGENT'] != $fingerprint ){
+			
+			require( $config->get('controllersFolder') .'loginController.php');
+    		$controller = new loginController();
+    		if ($controllerName != 'loginController'){
+    		$controller->index();
+			} else { 
+    		$controller->login();
+				
+			}
+			
 		// URL redireccion
 		
 		if(get_param('p') != -1) $controllerName = get_param('p')."Controller";
