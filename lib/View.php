@@ -13,23 +13,20 @@ class View
 	}
 
 	public function setPath($newPath){
-		$this->path = $newPath;
+		if(is_dir($newPath)){
+			$this->path = $newPath;
+			return true;
+		}else{
+			return false;
+		}
 	}
 	
 	public function show($name = 'pagina.php', $vars = array(),$show_top_footer = true)
-	{
-
-		$template = $this->path.$name;
-		
-		if (file_exists($template) == false) {
-			trigger_error ('Template `' . $path . '` does not exist.', E_USER_NOTICE);
-			return false;
-		}
-		
-		include_once $this->config->get('languagesFolder').$_SESSION['lang'].'.php';
-	
+	{	
  		$LANG = $_SESSION['lang'];
  		$config = $this->config;
+ 		include_once $this->config->get('languagesFolder').$_SESSION['lang'].'.php';
+ 		
  		/* SEO */
  		$SEO_TITLE = $this->config->get('seo_title');
 		$SEO_DESCRIPTION = strip_tags($this->config->get('seo_description'));
@@ -50,6 +47,13 @@ class View
 
 	/* TEMPLATE
 	***********************/	
+		$template = $this->path.$name;
+		
+		if (file_exists($template) == false) {
+			trigger_error ('Template `' . $template . '` does not exist.', E_USER_NOTICE);
+			return false;
+		}
+		
 		if ($show_top_footer and file_exists($this->path.'layout/top.php')){
 			include $this->path.'layout/top.php';
 		} elseif ($show_top_footer) {

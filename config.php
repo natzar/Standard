@@ -6,7 +6,7 @@
 	/* Basic */
 	$PATH = dirname(__FILE__);
 	$config = Config::singleton();
-	$config->set('version',1);
+	$config->set('version',2);
 	$config->set('base_email','contacto@phpninja.info');
 	$config->set('base_title','Qione');
 	$config->set('path',$PATH); 
@@ -18,9 +18,9 @@
 	$config->set('seo_title','Home');
 	$config->set('seo_description','');	
 	$config->set('seo_keywords','');
-	$config->set('seo_image','//'.$_SERVER['SERVER_NAME'].'/public/img/fb_image.jpg');
-	$config->set('base_url','//'.$_SERVER['SERVER_NAME'].'/96MicroFramework/public/');
-	$config->set('base_url_data','//'.$_SERVER['SERVER_NAME'].'/public/data/');
+	$config->set('seo_image','//'.$_SERVER['SERVER_NAME'].'/alphas/96MicroFramework/public/img/fb_image.jpg');
+	$config->set('base_url','//'.$_SERVER['SERVER_NAME'].'/alphas/96MicroFramework/');
+	$config->set('base_url_data','//'.$_SERVER['SERVER_NAME'].'/alphas/96MicroFramework/public/data/');
 
 	/* PATHS */
 	$config->set('setup_dir',$PATH.'/setup/');

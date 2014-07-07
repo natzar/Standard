@@ -62,7 +62,7 @@ class FrontController
 		if(is_file($controllerPath)) require $controllerPath;
 		
 		if (!is_callable(array($controllerName, $actionName))){
-			require_once($path_project.'errorsController.php');
+			require_once($config->get('controllersFolder').'errorsController.php');
 			$controller = new errorsController();
 	    	$controller->e404();
 			return false;

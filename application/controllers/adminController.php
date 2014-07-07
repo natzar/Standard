@@ -1,33 +1,26 @@
 <?
 
-class adminController extends ControllerBase{
+ class adminController extends ControllerBase{
 
-	public function adminController(){
-		$this->view->setPath('application/views/admin/');	
-	}
+
 	/* 	Admin Login
 	---------------------------------------*/
-	
-	public function index(){
-		
-		$fingerprint = md5($_SERVER['HTTP_USER_AGENT'].$config->get('base_title'));
+	public function adminController(){
+		parent::__construct();
+	 	$this->view->setPath('application/views/admin/');			
+	 	$fingerprint = md5($_SERVER['HTTP_USER_AGENT'].$this->config->get('base_title'));
     	if (!isset($_SESSION['initiated_admin']) or !$_SESSION['initiated_admin'] or !isset($_SESSION['HTTP_USER_AGENT']) or  $_SESSION['HTTP_USER_AGENT'] != $fingerprint ){
-			
-			require( $config->get('controllersFolder') .'loginController.php');
-    		$controller = new loginController();
-    		if ($controllerName != 'loginController'){
-    		$controller->index();
-			} else { 
-    		$controller->login();
-				
-			}
+			$this->login();
 		}
 		return false;
 	}
+	public function index(){
+		$this->login();	
+	}
 	public function login(){
-      
-		$this->view->show("admin/login.php", array(),false);
-		
+	
+		$this->view->show("login.php", array(),false);
+
     }
 	 
 	public function do_login()
@@ -51,7 +44,7 @@ class adminController extends ControllerBase{
 	
 	 public function table(){
     	$config = Config::singleton();
-	    require 'models/showModel.php';
+	    require $config->get('modelsFolder').'showModel.php';
 		$items = new showModel();
      	$table = get_param('a') != -1 ? get_param('a') : $config->get('tabla_default');
 		$_SESSION['return_url'] =  $_SERVER['REQUEST_URI'] ;

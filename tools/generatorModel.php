@@ -42,7 +42,7 @@ echo 'hello '.$params;
 class '.$tabla.'Controller extends ControllerBase
 {
 		public function index(){
-			require "public/models/'.$tabla.'Model.php"; 	
+			require "application/models/'.$tabla.'Model.php"; 	
 			$'.$tabla.' = new '.$tabla.'Model();			
 			$data = Array(
 				  "items" => $'.$tabla.'->GET(array("table" => "'.$tabla.'"))
@@ -51,7 +51,7 @@ class '.$tabla.'Controller extends ControllerBase
 		}
 		
 		public function detail(){
-			require "public/models/'.$tabla.'Model.php"; 	
+			require "application/models/'.$tabla.'Model.php"; 	
 			$'.$tabla.' = new '.$tabla.'Model();	
 			$params = gett();
 			$id = $params["a"];		
@@ -82,7 +82,7 @@ endif;
 
 		public function '.$strip.'(){
 			$params = gett();
-			require "public/models/'.$tabla.'Model.php"; 	
+			require "application/models/'.$tabla.'Model.php"; 	
 			$'.$tabla.' = new '.$tabla.'Model();
 			$data = Array(
 				  "items" => $'.$tabla.'->getBy'.ucfirst($p).'($'.'params["a"])
@@ -97,7 +97,7 @@ endif;
 		$resultx.='
 		
 		public function add(){
-			require "public/models/'.$tabla.'Model.php";          
+			require "application/models/'.$tabla.'Model.php";          
 			$'.$tabla.' = new '.$tabla.'Model();
 			$params = gett();
 			$params[\'table\'] = "'.$tabla.'";
@@ -107,7 +107,7 @@ endif;
 		}
 		
 		public function edit(){
-			require "public/models/'.$tabla.'Model.php";          
+			require "application/models/'.$tabla.'Model.php";          
 			$'.$tabla.' = new '.$tabla.'Model();
 			$params = gett();
 			$params = gett();
@@ -117,7 +117,7 @@ endif;
 		}
 		
 		public function delete(){
-			require "public/models/'.$tabla.'Model.php";          
+			require "application/models/'.$tabla.'Model.php";          
 			$'.$tabla.' = new '.$tabla.'Model();
 			$params = gett();
 			if ($'.$tabla.'->delete($params)) echo 1;
@@ -126,7 +126,7 @@ endif;
 		
 		public function search(){
 			$params = gett();
-			require "public/models/'.$tabla.'Model.php"; 	
+			require "application/models/'.$tabla.'Model.php"; 	
 			$'.$tabla.' = new '.$tabla.'Model();
 	
 			$json = new Services_JSON();	
@@ -322,19 +322,21 @@ class '.$tabla.'Model extends ModelBase
 }
 ';
 
+
 $path = dirname(__FILE__);
-$aux = fopen($path.'/../public/controllers/'.$tabla.'Controller.php','w');
+mkdir($path.'/../application/views/forms/');
+$aux = fopen($path.'/../application/controllers/'.$tabla.'Controller.php','w');
 	fwrite($aux,$resultx);
 	fclose($aux);
-	$aux = fopen($path.'/../public/models/'.$tabla.'Model.php','w');
+	$aux = fopen($path.'/../application/models/'.$tabla.'Model.php','w');
 	fwrite($aux,$result_Models);
 	fclose($aux);
 
-$aux = fopen($path.'/../public/views/forms/add-'.$tabla.'.php','w');
+$aux = fopen($path.'/../application/views/forms/add-'.$tabla.'.php','w');
 	fwrite($aux,$form_html);
 	fclose($aux);
 	
-	$aux = fopen($path.'/../public/views/forms/edit-'.$tabla.'.php','w');
+	$aux = fopen($path.'/../application/views/forms/edit-'.$tabla.'.php','w');
 	fwrite($aux,$form_html2);
 	fclose($aux);
 /*
