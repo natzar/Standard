@@ -3,37 +3,37 @@
 	<head>
 		<title><?= $base_title ?> | BackOffice </title>
 		<meta name="title" content="BackOffice">
-	    <meta name="author" content="Php Ninja">
-		<meta name="description" content="BackOffice">
+	    <meta name="author" content="96Levels">
+		<meta name="description" content=" <?= $base_title ?>  BackOffice">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta charset='utf-8'>
 	    
 
-		<base href="<?= $base_url ?>admin/" content="<?= $base_url ?>admin/">
+		<base href="<?= $base_url ?>" content="<?= $base_url ?>admin/">
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	   	<link href="views/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-	   	<link href="views/vendor/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+	   	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	   	<link href="vendor/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
 	 
-	   	<link href="views/css/main.css" rel="stylesheet" type="text/css" />
-		<link rel="stylesheet" href="views/vendor/jQuery-ui-1.8.16/themes/base/jquery.ui.all.css">
-	 	<script src="views/js/jquery.js"></script>	
-		<script src="views/js/dataTable.js"></script>		
-		<script src="views/vendor/jQuery-ui-1.8.16/minified/jquery.ui.core.min.js"></script>
-		<script src="views/vendor/jQuery-ui-1.8.16/minified/jquery.ui.widget.min.js"></script>
-		<script src="views/vendor/jQuery-ui-1.8.16/minified/jquery.ui.mouse.min.js"></script>
-		<script src="views/vendor/jQuery-ui-1.8.16/minified/jquery.ui.datepicker.min.js"></script>
-		<script src="views/vendor/jQuery-ui-1.8.16/minified/jquery.ui.sortable.min.js"></script>
-		<script src="views/vendor/jQuery-ui-1.8.16/i18n/jquery.ui.datepicker-es.js"></script>
-		<script src="views/vendor/jQuery-ui-1.8.16/jquery.timepicker.js"></script>
+	   	<link href="css/main.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="vendor/jQuery-ui-1.8.16/themes/base/jquery.ui.all.css">
+	 	<script src="js/jquery.js"></script>	
+		<script src="js/dataTable.js"></script>		
+		<script src="vendor/jQuery-ui-1.8.16/minified/jquery.ui.core.min.js"></script>
+		<script src="vendor/jQuery-ui-1.8.16/minified/jquery.ui.widget.min.js"></script>
+		<script src="vendor/jQuery-ui-1.8.16/minified/jquery.ui.mouse.min.js"></script>
+		<script src="vendor/jQuery-ui-1.8.16/minified/jquery.ui.datepicker.min.js"></script>
+		<script src="vendor/jQuery-ui-1.8.16/minified/jquery.ui.sortable.min.js"></script>
+		<script src="vendor/jQuery-ui-1.8.16/i18n/jquery.ui.datepicker-es.js"></script>
+		<script src="vendor/jQuery-ui-1.8.16/jquery.timepicker.js"></script>
 		
-	<script type="text/javascript" src="views/vendor/tiny_mce2/tiny_mce_src.js"></script>
+	<script type="text/javascript" src="vendor/tiny_mce2/tiny_mce_src.js"></script>
 
 		<script>
 		var BASE_URL = '<?= $base_url ?>admin/';
 		</SCRIPT>
-		<script type="text/javascript" src="views/js/functions.js"></script>
-		<script src="views/js/pagination3.js"></script>
+		<script type="text/javascript" src="js/functions.js"></script>
+		<script src="js/pagination3.js"></script>
 		<style>#accordion2 li{list-style: none;}</style>
 	</head>
 	<?php flush(); ?>

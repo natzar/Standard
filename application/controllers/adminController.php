@@ -2,13 +2,31 @@
 
 class adminController extends ControllerBase{
 
+	public function adminController(){
+		$this->view->setPath('application/views/admin/');	
+	}
 	/* 	Admin Login
 	---------------------------------------*/
 	
-
+	public function index(){
+		
+		$fingerprint = md5($_SERVER['HTTP_USER_AGENT'].$config->get('base_title'));
+    	if (!isset($_SESSION['initiated_admin']) or !$_SESSION['initiated_admin'] or !isset($_SESSION['HTTP_USER_AGENT']) or  $_SESSION['HTTP_USER_AGENT'] != $fingerprint ){
+			
+			require( $config->get('controllersFolder') .'loginController.php');
+    		$controller = new loginController();
+    		if ($controllerName != 'loginController'){
+    		$controller->index();
+			} else { 
+    		$controller->login();
+				
+			}
+		}
+		return false;
+	}
 	public function login(){
       
-		$this->view->show("login.php", array(),false);
+		$this->view->show("admin/login.php", array(),false);
 		
     }
 	 

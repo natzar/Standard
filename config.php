@@ -1,7 +1,11 @@
 <?
-    $PATH = dirname(__FILE__);
-	$config = Config::singleton();
+/*    
+    Configuration File for 96MicroFramework
+    
+*/
 	/* Basic */
+	$PATH = dirname(__FILE__);
+	$config = Config::singleton();
 	$config->set('version',1);
 	$config->set('base_email','contacto@phpninja.info');
 	$config->set('base_title','Qione');
@@ -14,8 +18,9 @@
 	$config->set('seo_title','Home');
 	$config->set('seo_description','');	
 	$config->set('seo_keywords','');
-	$config->set('base_url','//'.$_SERVER['SERVER_NAME'].'/qione/');
-	$config->set('base_url_data','//'.$_SERVER['SERVER_NAME'].'/qione/data/');
+	$config->set('seo_image','//'.$_SERVER['SERVER_NAME'].'/public/img/fb_image.jpg');
+	$config->set('base_url','//'.$_SERVER['SERVER_NAME'].'/96MicroFramework/public/');
+	$config->set('base_url_data','//'.$_SERVER['SERVER_NAME'].'/public/data/');
 
 	/* PATHS */
 	$config->set('setup_dir',$PATH.'/setup/');
@@ -28,14 +33,14 @@
   		 
 	/* DB */
 	$config->set('dbhost', 'localhost');
-	$config->set('dbname', 'pekeninos');
+	$config->set('dbname', 'test');
 	$config->set('dbuser', 'root');
 	$config->set('dbpass', '');
 	$config->set('db_prefix','');
-	$config->set('tabla_default','pages');
+	$config->set('tabla_default','clientes');
     
     /* Login & Private Urls */
-    $config->set('private_urls',array(array("profile" => "action")));
+    $config->set('private',array("admin"));
 	/* Admin */
     $config->set('validUser','test');
     $config->set('validPass','test');

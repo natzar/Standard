@@ -1,6 +1,6 @@
 <?php
 
-include "class/urlHelper.php";
+include "vendor/urlHelper.php";
 
 abstract class ControllerBase {
  

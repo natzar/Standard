@@ -1,71 +1,68 @@
 <?php
-		include "helpers/formHelper.php";
+
 class View
 {
 	var $notification;
-
-	function __construct()
-	{
+	var $path;
+	var $config;
+	
+	function __construct(){
+		$this->config = Config::singleton();
+		$path = $this->config->get('viewsFolder');
+		$this->setPath($path);
 	}
 
+	public function setPath($newPath){
+		$this->path = $newPath;
+	}
 	
- 
 	public function show($name = 'pagina.php', $vars = array(),$show_top_footer = true)
 	{
 
-		$config = Config::singleton();
- 		
-		$path = 'app/'.$config->get('viewsFolder') . $name;
+		$template = $this->path.$name;
 		
-		if (file_exists($path) == false) {
+		if (file_exists($template) == false) {
 			trigger_error ('Template `' . $path . '` does not exist.', E_USER_NOTICE);
 			return false;
 		}
 		
-		if (isset($_SESSION['lang']) and $_SESSION['lang'] != '')
-			include_once $config->get('languagesFolder').$_SESSION['lang'].'.php';
-		else{ 
-			include_once $config->get('languagesFolder').$config->get('lang').'.php';
-			$_SESSION['lang'] = $config->get('lang');
-		}
-		
-        $vars['page'] = $name;
-		$vars['base_url'] = $config->get('base_url');
-		$vars['base_title'] =  $config->get('base_title');
-		
-		
-		$LOGIN_ADMIN = isset($_SESSION['initiated_admin']) and $_SESSION['initiated_admin'] ? true : false;
-		$LOGIN = isset($_SESSION['initiated_admin']) and $_SESSION['initiated_admin'] ? true : false;
-		$OFFSET = isset($_GET['offset']) ? $_GET['offset'] : 0;
-		$PERPAGE = isset($_GET['perpage']) ? $_GET['perpage'] : 18;
- 		$PARAMS = gett();
- 		$LANG = 'es';
- 		
-		$LOGIN_ADMIN = isset($_SESSION['initiated_admin']) and $_SESSION['initiated_admin'] ? true : false;
-		$LOGIN = isset($_SESSION['initiated_admin']) and $_SESSION['initiated_admin'] ? true : false;
-		$OFFSET = isset($_GET['offset']) ? $_GET['offset'] : 0;
-		$PERPAGE = isset($_GET['perpage']) ? $_GET['perpage'] : 18;
- 		$PARAMS = gett();
+		include_once $this->config->get('languagesFolder').$_SESSION['lang'].'.php';
+	
  		$LANG = $_SESSION['lang'];
- 		$SEO_TITLE = $config->get('seo_title');
-		$SEO_DESCRIPTION = strip_tags($config->get('seo_description'));
-		$SEO_KEYWORDS = $config->get('seo_keywords');
-//		$SEO_IMAGE = -1;
-		include "app/models/sidedataModel.php";
-		$SIDEDATA = new sidedataModel();
-		$SIDEDATA = $SIDEDATA->load();
+ 		$config = $this->config;
+ 		/* SEO */
+ 		$SEO_TITLE = $this->config->get('seo_title');
+		$SEO_DESCRIPTION = strip_tags($this->config->get('seo_description'));
+		$SEO_KEYWORDS = $this->config->get('seo_keywords');
+		$SEO_IMAGE = $this->config->get('seo_image');
 
-		$formHelper = new formHelper();
+		$page = $name;
+		$base_url = $this->config->get('base_url');
+		$base_title =  $this->config->get('base_title');
+
 		if(is_array($vars))
            foreach ($vars as $key => $value)           
                 	$$key = $value;
+                	
+        include "application/models/sidedataModel.php";
+		$SIDEDATA = new sidedataModel();
+		$SIDEDATA = $SIDEDATA->load();
 
+	/* TEMPLATE
+	***********************/	
+		if ($show_top_footer and file_exists($this->path.'layout/top.php')){
+			include $this->path.'layout/top.php';
+		} elseif ($show_top_footer) {
+			include $this->config->get('viewsFolder').'layout/top.php';
+		}
 
-    	if ($show_top_footer) 
-    		include 'app/'.$config->get('viewsFolder')."includes/top.php";      	   	
-    	include($path);
-    	if ($show_top_footer) 
-    		include 'app/'.$config->get('viewsFolder')."includes/footer.php";
+    	include($template);
+    	
+    	if ($show_top_footer and file_exists($this->path.'layout/footer.php')){
+			include $this->path.'layout/footer.php';
+		} elseif ($show_top_footer) {
+			include $this->config->get('viewsFolder').'layout/footer.php';
+		}
 		
 	}
 }
