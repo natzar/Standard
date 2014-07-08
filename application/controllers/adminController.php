@@ -225,7 +225,7 @@ $_SESSION['return_url'] =  $_SERVER['REQUEST_URI'] ;
         $table = get_param('a');
         $rid = get_param('i');
         $op = get_param('m');
-        require "../../setup/".$table.".php";
+        require "setup/".$table.".php";
  	$form_html = '<textarea width="100%" rows="10" name="import_content"></textarea><br><small>Registros separados por líneas</small>';
  	$data = Array(/* "table_label" => $table_label, */
 		          "title" => "BackOffice | $table",
@@ -316,7 +316,7 @@ $_SESSION['return_url'] =  $_SERVER['REQUEST_URI'] ;
         $form->add($table);
         $lastId = getLastId($table);
       
-        include "../../setup/".$table.".php";
+        include "setup/".$table.".php";
         include "lib/fields/field.php";
         
         $combo = new combo($fields[1],$fields_labels[1],$fields_types[1],$lastId);
@@ -349,8 +349,8 @@ $_SESSION['return_url'] =  $_SERVER['REQUEST_URI'] ;
 	/* Delete Rows and Files
 	---------------------------------------*/
 	public function deleteFile(){
-        require 'application/models/deleteModel.php';
-    	$deleteModel = new deleteModel();
+        require 'application/models/formModel.php';
+    	$deleteModel = new formModel();
    	   $table = $_GET['table'];
         $field = $_GET['f'];
         $id = $_GET['rid'];
@@ -361,11 +361,11 @@ $_SESSION['return_url'] =  $_SERVER['REQUEST_URI'] ;
 	 
 	public function deleteRow()
 	{
-            	
-        require 'application/models/deleteModel.php';
-    	$deleteModel = new deleteModel();
-	    $table = $_GET['table'];
-    	$id = $_GET['rid'];
+		$params = gett();	
+        require 'application/models/formModel.php';
+    	$deleteModel = new formModel();
+	    $table = $params['table'];
+    	$id = $params['rid'];
     	$deleteModel->deleteRow($table,$id);
 		echo '1';		
 	}

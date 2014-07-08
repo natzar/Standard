@@ -1,4 +1,4 @@
-<form class='form' id="form21" name="form21" action="form/update" method="POST" enctype="multipart/form-data">
+<form class='form' id="form21" name="form21" action="admin/update" method="POST" enctype="multipart/form-data">
 <div class="row-fluid">
 <h2><?= ucfirst($table_label)?> <small><? if ($rid != -1) echo 'Edit'; else echo 'Add new'; ?></small></h2>
 

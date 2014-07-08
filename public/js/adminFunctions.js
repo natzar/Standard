@@ -159,8 +159,10 @@ function DeleteRegistro(div_id,id_registro,cat,tabla){
 	$('#'+div_id).remove();
 //	document.getElementById(div_id).style.display = 'none';	
 		ajax=objetoAjax();
-		url = BASE_URL + '?p=admin&m=deleteRow&rid='+id_registro+'&table='+tabla+'&f='+div_id;
-		ajax.open("GET", url);
+		url = BASE_URL + 'admin/deleteRow/';
+		ajax.open("POST", url,true);
+		ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		ajax.send('rid='+id_registro+'&table='+tabla+'&f='+div_id);
 		ajax.onreadystatechange=function() {
 			if (ajax.readyState==4) {
 				aux = 0;

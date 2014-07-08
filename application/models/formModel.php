@@ -9,7 +9,7 @@ class formModel extends ModelBase
 	
 	public function add($table){
         include $this->config->get('setupFolder') .$table.".php";
-        include_once "../lib/orm/field.php";
+        include_once "lib/orm/field.php";
 
     	$add_info_form = "";
 
@@ -45,7 +45,7 @@ class formModel extends ModelBase
 	}
 	public function edit($table,$rid){
 	     include $this->config->get('setupFolder') .$table.".php";
-         include_once "../lib/orm/field.php";
+         include_once "lib/orm/field.php";
 
     	 $edit_info_form = "";
         
@@ -254,7 +254,7 @@ echo '0';
 		
     public function deleteRow($table,$id){
        include $this->config->get('setupFolder') .$table.".php";
-        include_once "../lib/orm/field.php";
+        include_once "lib/orm/field.php";
     	$config = Config::singleton();
         if (in_array('file_img',$fields) or in_array('file',$fields)){	
             
