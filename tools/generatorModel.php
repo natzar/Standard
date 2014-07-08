@@ -12,11 +12,7 @@ class generatorModel extends ModelBase
         $consulta = $this->db->prepare('SHOW TABLES FROM '.$dbname);
         $consulta->execute();
 
-        $aux = fopen('../application/views/layout/menu.php','w');
-		$menu = '<a href="<?= $base_url ?>">Home </a> ';
-		fwrite($aux,$menu);
-		fclose($aux);
-	
+ 	
 
 
         
@@ -349,7 +345,7 @@ $aux = fopen($path.'/../application/views/forms/add-'.$tabla.'.php','w');
 
 /* MENU */
 	$aux = fopen($path.'/../application/views/layout/menu.php','a');
-	$menu = ' | <a href="<?= $LANG ?>/'.$tabla.'">'.$tabla.'</a>';
+	$menu = '<li><a href="<?= $LANG ?>/'.$tabla.'">'.$tabla.'</a></li>';
 	fwrite($aux,$menu);
 	fclose($aux);
 	
