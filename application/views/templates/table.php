@@ -3,7 +3,7 @@
 	<? foreach ($items as $item): ?>
 		<tr>
 		<? foreach ($item as $k => $v): ?>
-		<td><a href="./detail">x</a><?= $v ?></td>
+		<td><a href="detail">x</a><?= $v ?></td>
 		<? endforeach; ?>
 		</tr>
 	<? endforeach; ?>
