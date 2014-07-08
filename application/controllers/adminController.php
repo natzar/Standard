@@ -163,14 +163,14 @@ $_SESSION['return_url'] =  $_SERVER['REQUEST_URI'] ;
 	/* Forms creation and Rows Inserting and updating
 	---------------------------------------*/
 	
-	function build(){
+	function form(){
 
     	require 'application/models/formModel.php'; 	
    		$form = new formModel();
         $table = get_param('a');
         $rid = get_param('i');
         $op = get_param('m');
-        require "../../setup/".$table.".php";
+        require "setup/".$table.".php";
         if ($rid == '') $rid =-1;    			
         $form_html = "";
         $raw = ($rid != -1) ? $form->getFormValues($table,$rid) : '';
@@ -276,7 +276,7 @@ $_SESSION['return_url'] =  $_SERVER['REQUEST_URI'] ;
         $table = get_param('a');
         $rid = get_param('i');
         $op = get_param('m');
-        require "../../setup/".$table.".php";
+        require "setup/".$table.".php";
         if ($rid == '') $rid =-1;    			
         $form_html = "";
         		

@@ -9,31 +9,31 @@
 		<meta charset='utf-8'>
 	    
 
-		<base href="<?= $base_url ?>" content="<?= $base_url ?>admin/">
+		<base href="<?= $base_url ?>" content="<?= $base_url ?>">
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	   	<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
-	   	<link href="vendor/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
+	   	<link href="public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	   	<link href="public/vendor/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
 	 
-	   	<link href="css/main.css" rel="stylesheet" type="text/css" />
-		<link rel="stylesheet" href="vendor/jQuery-ui-1.8.16/themes/base/jquery.ui.all.css">
-	 	<script src="js/jquery.js"></script>	
-		<script src="js/dataTable.js"></script>		
-		<script src="vendor/jQuery-ui-1.8.16/minified/jquery.ui.core.min.js"></script>
-		<script src="vendor/jQuery-ui-1.8.16/minified/jquery.ui.widget.min.js"></script>
-		<script src="vendor/jQuery-ui-1.8.16/minified/jquery.ui.mouse.min.js"></script>
-		<script src="vendor/jQuery-ui-1.8.16/minified/jquery.ui.datepicker.min.js"></script>
-		<script src="vendor/jQuery-ui-1.8.16/minified/jquery.ui.sortable.min.js"></script>
-		<script src="vendor/jQuery-ui-1.8.16/i18n/jquery.ui.datepicker-es.js"></script>
-		<script src="vendor/jQuery-ui-1.8.16/jquery.timepicker.js"></script>
+	   	<link href="public/css/admin.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="public/vendor/jQuery-ui-1.8.16/themes/base/jquery.ui.all.css">
+	 	<script src="public/js/jquery.js"></script>	
+		<script src="public/js/dataTable.js"></script>		
+		<script src="public/vendor/jQuery-ui-1.8.16/minified/jquery.ui.core.min.js"></script>
+		<script src="public/vendor/jQuery-ui-1.8.16/minified/jquery.ui.widget.min.js"></script>
+		<script src="public/vendor/jQuery-ui-1.8.16/minified/jquery.ui.mouse.min.js"></script>
+		<script src="public/vendor/jQuery-ui-1.8.16/minified/jquery.ui.datepicker.min.js"></script>
+		<script src="public/vendor/jQuery-ui-1.8.16/minified/jquery.ui.sortable.min.js"></script>
+		<script src="public/vendor/jQuery-ui-1.8.16/i18n/jquery.ui.datepicker-es.js"></script>
+		<script src="public/vendor/jQuery-ui-1.8.16/jquery.timepicker.js"></script>
 		
-	<script type="text/javascript" src="vendor/tiny_mce2/tiny_mce_src.js"></script>
+	<script type="text/javascript" src="public/vendor/tiny_mce2/tiny_mce_src.js"></script>
 
 		<script>
-		var BASE_URL = '<?= $base_url ?>admin/';
+		var BASE_URL = '<?= $base_url ?>';
 		</SCRIPT>
-		<script type="text/javascript" src="js/functions.js"></script>
-		<script src="js/pagination3.js"></script>
+		<script type="text/javascript" src="public/js/adminFunctions.js"></script>
+		<script src="public/js/pagination3.js"></script>
 		<style>#accordion2 li{list-style: none;}</style>
 	</head>
 	<?php flush(); ?>
@@ -47,15 +47,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#"><?= $base_title ?></a>
+          <a class="brand" href="admin"><strong style="color:white"><?= $base_title ?></strong> ADMIN </a>
           <div class="nav-collapse collapse">
             <p class="navbar-text pull-right">
              <i class="icon-user"></i> admin 
             </p>
             <ul class="nav">
 
-              <li><a href="<?= $base_url ?>../">Ir a la página</a></li>
-            <li><a href="login/logout">Cerrar Sesión</a></li>
+              <li><a href="<?= $base_url ?>">Ir a la página</a></li>
+            <li><a href="admin/logout">Cerrar Sesión</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>

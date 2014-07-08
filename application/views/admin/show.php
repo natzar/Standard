@@ -10,10 +10,10 @@
 
 <h2><?= ucfirst($table_label)?></h2>
 
-<a class="btn btn-success" style="float:left;clear:both;"  href="form/build/<?= $table ?>"><i class="icon-plus"></i> <?=ADDNEW?></a>
+<a class="btn btn-success" style="float:left;clear:both;"  href="admin/form/<?= $table ?>"><i class="icon-plus"></i> <?=ADDNEW?></a>
 <input type="search" class="light-table-filter" data-table="order-table"  placeholder="<?= SEARCH ?>" style="float:left;margin-left:14px"  id="search_pagination" value="">
 
-<a class="btn btn-primary" style="display:inline-block;"  href="form/search/<?= $table ?>"><i class="icon-search"></i> <?=SEARCH?></a>
+<a class="btn btn-primary" style="display:inline-block;"  href="admin/search/<?= $table ?>"><i class="icon-search"></i> <?=SEARCH?></a>
 <!--
 
 <a class="btn btn-warning" style="display:inline-block;"  href="form/import/<?= $table ?>"><i class="icon-search"></i> Importar</a>
@@ -50,9 +50,9 @@
                     $j++;
                     endforeach; ?>
                     <td class="actions" align="center" nowrap>
-				<a alt='edit' title='edit' href='form/build/<?= $table ?>/<?= $items[$i][$table.'Id']?>'><img src='views/img/pen_12x12.png'></a> &nbsp;&nbsp;
+				<a alt='edit' title='edit' href='admin/form/<?= $table ?>/<?= $items[$i][$table.'Id']?>'><img src='public/img/admin/pen_12x12.png'></a> &nbsp;&nbsp;
 				<? if ($table != 'home_modules'): ?>
-				<a alt='delete' title='delete' href="javascript: DeleteRegistro('recordsArray_<?= $items[$i][$table.'Id']?>','<?= $items[$i][$table.'Id']?>','','<?= $table ?>');"><img src='views/img/x_11x11.png'></a><? endif; ?></td>
+				<a alt='delete' title='delete' href="javascript: DeleteRegistro('recordsArray_<?= $items[$i][$table.'Id']?>','<?= $items[$i][$table.'Id']?>','','<?= $table ?>');"><img src='public/img/admin/x_11x11.png'></a><? endif; ?></td>
                     </tr>
             
             <? endfor; ?>
