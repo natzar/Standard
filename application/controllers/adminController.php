@@ -7,7 +7,8 @@
 	---------------------------------------*/
 	public function __construct(){
 		parent::__construct();
-	 	$this->view->setPath('application/views/admin/');			
+	 	$this->view->setPath('application/views/admin/');
+	 	$_SESSION['lang'] = $this->config->get('default_lang');			
 	 	$fingerprint = md5($_SERVER['HTTP_USER_AGENT'].$this->config->get('base_title'));
     	if (!isset($_SESSION['initiated_admin']) or !$_SESSION['initiated_admin'] or !isset($_SESSION['HTTP_USER_AGENT']) or  $_SESSION['HTTP_USER_AGENT'] != $fingerprint ){
 			if (get_param('user') != -1)
