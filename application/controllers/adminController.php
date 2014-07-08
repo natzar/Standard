@@ -5,17 +5,20 @@
 
 	/* 	Admin Login
 	---------------------------------------*/
-	public function adminController(){
+	public function __construct(){
 		parent::__construct();
 	 	$this->view->setPath('application/views/admin/');			
 	 	$fingerprint = md5($_SERVER['HTTP_USER_AGENT'].$this->config->get('base_title'));
     	if (!isset($_SESSION['initiated_admin']) or !$_SESSION['initiated_admin'] or !isset($_SESSION['HTTP_USER_AGENT']) or  $_SESSION['HTTP_USER_AGENT'] != $fingerprint ){
-			$this->login();
+			if (get_param('user') != -1)
+				$this->do_login();
+			else $this->login();
+			die();
 		}
-		return false;
+
 	}
 	public function index(){
-		$this->login();	
+		$this->table();
 	}
 	public function login(){
 	
@@ -25,7 +28,8 @@
 	 
 	public function do_login()
 	{
-    	require 'models/loginModel.php';
+
+    	require 'application/models/loginModel.php';
     	$loginModel = new loginModel();
     	
 
@@ -34,7 +38,7 @@
  
 	public function logout()
 	{
-		require 'models/loginModel.php';
+		require 'application/models/loginModel.php';
     	$loginModel = new loginModel();
     	$loginModel->logout();
 	}
@@ -65,7 +69,7 @@
     public function searchResults(){
 	
 		$params = gett();
-        include "models/showModel.php";
+        include "application/models/showModel.php";
         $items = new showModel();
 		$table = $params['table'];		
 		$config = Config::singleton();
@@ -88,7 +92,7 @@
 	}
 	 public function detail(){
     	$config = Config::singleton();
-	    require 'models/showModel.php';
+	    require 'application/models/showModel.php';
 		$items = new showModel();
      	$table = get_param('a');
      	$tableForeignId=get_param('i');		
@@ -113,13 +117,13 @@
     
      public function coursesdetail(){
       $config = Config::singleton();
-      require 'models/showModel.php';
+      require 'application/models/showModel.php';
 		$items = new showModel();
      	$table = 'courses';
      	$coursesId=get_param('a');
 $_SESSION['coursesId'] =  $coursesId ;
 $_SESSION['return_url'] =  $_SERVER['REQUEST_URI'] ;
-    	require 'models/formModel.php'; 	
+    	require 'application/models/formModel.php'; 	
 
 		$form = new formModel();
 
@@ -161,12 +165,12 @@ $_SESSION['return_url'] =  $_SERVER['REQUEST_URI'] ;
 	
 	function build(){
 
-    	require 'models/formModel.php'; 	
+    	require 'application/models/formModel.php'; 	
    		$form = new formModel();
         $table = get_param('a');
         $rid = get_param('i');
         $op = get_param('m');
-        require "../setup/".$table.".php";
+        require "../../setup/".$table.".php";
         if ($rid == '') $rid =-1;    			
         $form_html = "";
         $raw = ($rid != -1) ? $form->getFormValues($table,$rid) : '';
@@ -203,7 +207,7 @@ $_SESSION['return_url'] =  $_SERVER['REQUEST_URI'] ;
 
  	public function update(){
 
- 	        require 'models/formModel.php';
+ 	        require 'application/models/formModel.php';
         	$form = new formModel();
         	$rid = get_param('rid');
         	$table = get_param('table');
@@ -216,12 +220,12 @@ $_SESSION['return_url'] =  $_SERVER['REQUEST_URI'] ;
  	} 
  	
  	function import(){
- 		require 'models/formModel.php'; 	
+ 		require 'application/models/formModel.php'; 	
 
         $table = get_param('a');
         $rid = get_param('i');
         $op = get_param('m');
-        require "../setup/".$table.".php";
+        require "../../setup/".$table.".php";
  	$form_html = '<textarea width="100%" rows="10" name="import_content"></textarea><br><small>Registros separados por líneas</small>';
  	$data = Array(/* "table_label" => $table_label, */
 		          "title" => "BackOffice | $table",
@@ -241,7 +245,7 @@ $_SESSION['return_url'] =  $_SERVER['REQUEST_URI'] ;
  	function do_import(){
  		
  		$con = get_param('import_content');
- 	  	require 'models/formModel.php';
+ 	  	require 'application/models/formModel.php';
         	$form = new formModel();
         	$rid = get_param('rid');
         	$table = get_param('table');
@@ -267,12 +271,12 @@ $_SESSION['return_url'] =  $_SERVER['REQUEST_URI'] ;
  	
  	function search(){
 
-    	require 'models/formModel.php'; 	
+    	require 'application/models/formModel.php'; 	
    		$form = new formModel();
         $table = get_param('a');
         $rid = get_param('i');
         $op = get_param('m');
-        require "../setup/".$table.".php";
+        require "../../setup/".$table.".php";
         if ($rid == '') $rid =-1;    			
         $form_html = "";
         		
@@ -307,12 +311,12 @@ $_SESSION['return_url'] =  $_SERVER['REQUEST_URI'] ;
 
     public function addToCombo(){
         $table = get_param('a');
-        include "models/formModel.php";
+        include "application/models/formModel.php";
         $form = new formModel();
         $form->add($table);
         $lastId = getLastId($table);
       
-        include "../setup/".$table.".php";
+        include "../../setup/".$table.".php";
         include "lib/fields/field.php";
         
         $combo = new combo($fields[1],$fields_labels[1],$fields_types[1],$lastId);
@@ -325,18 +329,18 @@ $_SESSION['return_url'] =  $_SERVER['REQUEST_URI'] ;
     }
 	
 	public function updateOrder(){
-		include "models/formModel.php";
+		include "application/models/formModel.php";
         $form = new formModel();
         $form->updateOrder();
 	}
 	
 	public function updateVisible(){
-		include "models/formModel.php";
+		include "application/models/formModel.php";
         $form = new formModel();
         $form->updateVisible();
 	}
 	public function updateFeatured(){
-		include "models/formModel.php";
+		include "application/models/formModel.php";
         $form = new formModel();
         $form->updateFeatured();
 	}
@@ -345,7 +349,7 @@ $_SESSION['return_url'] =  $_SERVER['REQUEST_URI'] ;
 	/* Delete Rows and Files
 	---------------------------------------*/
 	public function deleteFile(){
-        require 'models/deleteModel.php';
+        require 'application/models/deleteModel.php';
     	$deleteModel = new deleteModel();
    	   $table = $_GET['table'];
         $field = $_GET['f'];
@@ -358,7 +362,7 @@ $_SESSION['return_url'] =  $_SERVER['REQUEST_URI'] ;
 	public function deleteRow()
 	{
             	
-        require 'models/deleteModel.php';
+        require 'application/models/deleteModel.php';
     	$deleteModel = new deleteModel();
 	    $table = $_GET['table'];
     	$id = $_GET['rid'];
@@ -377,7 +381,7 @@ $_SESSION['return_url'] =  $_SERVER['REQUEST_URI'] ;
 	public function sendNewsletter(){
 		$ret = '';
 		if(isset($_POST['emailSubject']) && isset($_POST['emailBody']) && strlen($_POST['emailSubject'])>1 && strlen($_POST['emailBody'])>1 ){
-				include "models/newsletterModel.php";
+				include "application/models/newsletterModel.php";
 				$newsletter = new newsletterModel();
 				$ret = $newsletter->send();		
 		}

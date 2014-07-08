@@ -41,7 +41,7 @@ class View
            foreach ($vars as $key => $value)           
                 	$$key = $value;
                 	
-        include "application/models/sidedataModel.php";
+        include_once "application/models/sidedataModel.php";
 		$SIDEDATA = new sidedataModel();
 		$SIDEDATA = $SIDEDATA->load();
 

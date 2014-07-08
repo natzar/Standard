@@ -3,12 +3,12 @@ class showModel extends ModelBase
 {
 
 	public function getTableAttribute($table,$attribute){
-    	require  "../setup/".$table.".php";
+    	require  "setup/".$table.".php";
 	   return $$attribute;
 	}
 	
 	public function getItemsHead($table){
-    	require  "../setup/".$table.".php";
+    	require  "setup/".$table.".php";
     	$fr = $fields_labels;
 		if ( isset($fields_to_show) and is_array($fields_to_show) and count($fields_to_show)>0){
 			$fr = array();
@@ -21,7 +21,7 @@ class showModel extends ModelBase
 	   return $fr;
 	}
 	public function getAllByField($table,$field,$rid_in_field){
-   		include "../setup/".$table.".php";
+   		include "setup/".$table.".php";
       //  include_once "lib/fields/field.php";
         
         $order = (get_param('sorder') != -1) ? get_param('sorder') : $default_order; 
@@ -51,7 +51,7 @@ class showModel extends ModelBase
 
     public function search($params){
     
-        include "../setup/".$params['table'].".php";
+        include "setup/".$params['table'].".php";
         
         $order = (get_param('sorder') != -1) ? get_param('sorder') : $default_order; 
         $table = $table_aux = $params['table'];     
@@ -93,7 +93,7 @@ class showModel extends ModelBase
    
     public function getAll($table){
     
-        include "../setup/".$table.".php";
+        include "setup/".$table.".php";
        // include_once "lib/fields/field.php";
         
         $order = (get_param('sorder') != -1) ? get_param('sorder') : $default_order; 
@@ -125,7 +125,7 @@ class showModel extends ModelBase
     }
    
     public function js($table){
-        require "../setup/".$table.".php";
+        require "setup/".$table.".php";
             $output= "";
 			$output .="$(document).ready(function(){";
 			//$output .="$('#tablaMain').pagination();";

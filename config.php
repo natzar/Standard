@@ -8,11 +8,11 @@
 	$config = Config::singleton();
 	$config->set('version',2);
 	$config->set('base_email','contacto@phpninja.info');
-	$config->set('base_title','Qione');
+	$config->set('base_title','96 Micro Framework DEMO');
 	$config->set('path',$PATH); 
 	/* Languages */	
 	$config->set('default_lang','es');
-	$config->set('available_langs',array('es','en','zh','ca'));
+	$config->set('available_langs',array('es','en'));
 	
 	/* SEO */
 	$config->set('seo_title','Home');
@@ -46,7 +46,7 @@
     $config->set('validPass','test');
 
 	/* Toggles */
-	$config->set('developer_mode',0);
+	$config->set('developer_mode',1);
 	$config->set('combo_add',0);
 	$config->set('delete_permission',1);
 

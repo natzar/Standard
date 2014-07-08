@@ -1,4 +1,4 @@
-<? include "layout/top.php"; ?>
+
 <? if (isset($HOOK_TOP)) echo $HOOK_TOP; ?>
 <? if (isset($_GET['i']) and $_GET['i'] == 'success'): ?>
 	<div class="alert alert-success">
@@ -119,4 +119,3 @@
 
 })(document);
 </script>
-<? include "layout/footer.php"; ?>

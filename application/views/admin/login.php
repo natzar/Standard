@@ -3,7 +3,8 @@
 	<head>
 		<title><?= $base_title ?> | Backoffice</title>
 		<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
-	   		<link href="<?= $base_url ?>admin/views/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+	<!-- Twitter Bootstrap Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
 	</head>
 	<body style="text-align:center;background:#fefefe;"> 
@@ -13,7 +14,7 @@
 <div style="width:300px;">
 	<div style="text-align:left;">
 		<center><h3><?= $base_title ?></h3>
-	<form class="well" action="<?= $base_url ?>admin/login/login" method="post">
+	<form class="well" action="<?= $base_url ?>admin/do_login" method="post">
 
 	<label><strong>Usuario</strong></label>
 	<input class="span3" style="height:auto;" type="text" name="user"><BR>
@@ -27,6 +28,7 @@
 	</form>
 	</center>
 			</div>
+			<? print_r($_SESSION) ?>
 			
 			<? if (gett('c') == 1) {?>
 					<div class="alert alert-error">

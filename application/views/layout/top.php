@@ -23,24 +23,20 @@
 	<link rel="shortcut icon" href="favicon.ipng">
 	<link rel="icon" type="image/png" href="favicon.png" />     
 
-	<!-- jQuery -->
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	<!-- Twitter Bootstrap Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
 	<!-- CSS -->
-	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="public/views/assets/css/webfonts/stylesheet.css">	
-	<link rel="stylesheet" href="public/views/assets/css/normalize.css">	
-	<link rel="stylesheet" href="public/views/assets/css/gridism.css">	
-	<link rel="stylesheet" href="public/views/assets/css/forms.css" media="screen" >	
-	<link rel="stylesheet" href="public/views/assets/slider/responsiveslides.css">
-	<link href="public/views/assets/css/jquery.bxslider.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="all" href="public/views/assets/css/style.css" />
-
+    <link rel="stylesheet" type="text/css" media="all" href="public/css/style.css" />
+	
+	<!-- jQuery -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 	<script src="public/views/assets/js/clickcount.js"></script>
 	<!-- Work hard, and be nice  -->
 	<meta property="og:url" content="<?= $base_url ?>" />
 	<meta property="og:site_name" content="<?= $base_title ?>" />
+	<meta property="og:image" content="<?= $seo_image ?>" />
   </head>
-  <body class="<?= $PARAMS['a'] ?>">
+  <body class="">
 
   <? include "top-content.php"; ?>

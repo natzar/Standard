@@ -3,7 +3,7 @@ class generatorModel extends ModelBase
 {
 	
     public function generateModels($params){
-echo 'hello '.$params;
+		echo 'hello '.$params;
         $config = Config::singleton();
         
         $prefix = $params; //$config->get('db_prefix');
@@ -11,7 +11,14 @@ echo 'hello '.$params;
    
         $consulta = $this->db->prepare('SHOW TABLES FROM '.$dbname);
         $consulta->execute();
-        
+
+        $aux = fopen('../application/views/layout/menu.php','w');
+		$menu = '<a href="<?= $base_url ?>">Home </a> ';
+		fwrite($aux,$menu);
+		fclose($aux);
+	
+
+
         
         while ($row = $consulta->fetch(PDO::FETCH_NUM)) {
         	$tabla = $row[0];
@@ -324,7 +331,7 @@ class '.$tabla.'Model extends ModelBase
 
 
 $path = dirname(__FILE__);
-mkdir($path.'/../application/views/forms/');
+@mkdir($path.'/../application/views/forms/');
 $aux = fopen($path.'/../application/controllers/'.$tabla.'Controller.php','w');
 	fwrite($aux,$resultx);
 	fclose($aux);
@@ -339,6 +346,16 @@ $aux = fopen($path.'/../application/views/forms/add-'.$tabla.'.php','w');
 	$aux = fopen($path.'/../application/views/forms/edit-'.$tabla.'.php','w');
 	fwrite($aux,$form_html2);
 	fclose($aux);
+
+/* MENU */
+	$aux = fopen($path.'/../application/views/layout/menu.php','a');
+	$menu = ' | <a href="<?= $LANG ?>/'.$tabla.'">'.$tabla.'</a>';
+	fwrite($aux,$menu);
+	fclose($aux);
+	
+
+
+
 /*
 echo ($resultx);
 echo ($result_Models);
