@@ -7,15 +7,13 @@
 		<meta name="description" content=" <?= $base_title ?>  BackOffice">
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta charset='utf-8'>
-	    
-
 		<base href="<?= $base_url ?>" content="<?= $base_url ?>">
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	   	<link href="public/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 	   	<link href="public/vendor/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
 	 
-	   	<link href="public/css/admin.css" rel="stylesheet" type="text/css" />
+	   	<link href="public/css/admin/admin.css" rel="stylesheet" type="text/css" />
 <!-- 		<link rel="stylesheet" href="public/vendor/jQuery-ui-1.8.16/themes/base/jquery.ui.all.css"> -->
 	   	<link href="http://code.jquery.com/ui/1.8.16/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
 	 	<script src="public/js/jquery.js"></script>	
@@ -28,8 +26,8 @@
 		<script src="public/vendor/jQuery-ui-1.8.16/minified/jquery.ui.datepicker.min.js"></script>
 		<script src="public/vendor/jQuery-ui-1.8.16/minified/jquery.ui.sortable.min.js"></script>
 -->
-		<script src="public/vendor/jQuery-ui-1.8.16/i18n/jquery.ui.datepicker-es.js"></script>
-<!-- 		<script src="public/vendor/jQuery-ui-1.8.16/jquery.timepicker.js"></script> -->
+<!--		<script src="public/vendor/jQuery-ui-1.8.16/i18n/jquery.ui.datepicker-es.js"></script>
+ 		<script src="public/vendor/jQuery-ui-1.8.16/jquery.timepicker.js"></script> -->
 		
 		<script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
 
