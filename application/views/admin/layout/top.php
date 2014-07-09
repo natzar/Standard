@@ -16,18 +16,22 @@
 	   	<link href="public/vendor/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css" />
 	 
 	   	<link href="public/css/admin.css" rel="stylesheet" type="text/css" />
-		<link rel="stylesheet" href="public/vendor/jQuery-ui-1.8.16/themes/base/jquery.ui.all.css">
+<!-- 		<link rel="stylesheet" href="public/vendor/jQuery-ui-1.8.16/themes/base/jquery.ui.all.css"> -->
+	   	<link href="http://code.jquery.com/ui/1.8.16/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
 	 	<script src="public/js/jquery.js"></script>	
 		<script src="public/js/dataTable.js"></script>		
+		<script src="http://code.jquery.com/ui/1.8.16/jquery-ui.min.js"></script>
+<!--
 		<script src="public/vendor/jQuery-ui-1.8.16/minified/jquery.ui.core.min.js"></script>
 		<script src="public/vendor/jQuery-ui-1.8.16/minified/jquery.ui.widget.min.js"></script>
 		<script src="public/vendor/jQuery-ui-1.8.16/minified/jquery.ui.mouse.min.js"></script>
 		<script src="public/vendor/jQuery-ui-1.8.16/minified/jquery.ui.datepicker.min.js"></script>
 		<script src="public/vendor/jQuery-ui-1.8.16/minified/jquery.ui.sortable.min.js"></script>
+-->
 		<script src="public/vendor/jQuery-ui-1.8.16/i18n/jquery.ui.datepicker-es.js"></script>
-		<script src="public/vendor/jQuery-ui-1.8.16/jquery.timepicker.js"></script>
+<!-- 		<script src="public/vendor/jQuery-ui-1.8.16/jquery.timepicker.js"></script> -->
 		
-	<script type="text/javascript" src="public/vendor/tiny_mce2/tiny_mce_src.js"></script>
+		<script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
 
 		<script>
 		var BASE_URL = '<?= $base_url ?>';
