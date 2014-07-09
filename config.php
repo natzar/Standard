@@ -7,8 +7,9 @@
 	$PATH = dirname(__FILE__);
 	$config = Config::singleton();
 	$config->set('version',2);
+	$config->set('developer_mode',0);
 	$config->set('base_email','contacto@phpninja.info');
-	$config->set('base_title','96 Micro Framework DEMO');
+	$config->set('base_title','96Levels');
 	$config->set('path',$PATH); 
 	/* Languages */	
 	$config->set('default_lang','es');
@@ -16,11 +17,11 @@
 	
 	/* SEO */
 	$config->set('seo_title','Home');
-	$config->set('seo_description','');	
+	$config->set('seo_description','Servicios IT para Empresas, Startups, Agencias, Estudios y Freelances. Somos un equipo con más de 15 años de experiencia en desarrollo y puesta en marcha de proyectos y servicios digitales.');	
 	$config->set('seo_keywords','');
-	$config->set('seo_image','//'.$_SERVER['SERVER_NAME'].'/alphas/96MicroFramework/public/img/fb_image.jpg');
-	$config->set('base_url','//'.$_SERVER['SERVER_NAME'].'/alphas/96MicroFramework/');
-	$config->set('base_url_data','//'.$_SERVER['SERVER_NAME'].'/alphas/96MicroFramework/public/data/');
+	$config->set('seo_image','//'.$_SERVER['SERVER_NAME'].'/alphas/96levels-standart/public/img/fb_image.jpg');
+	$config->set('base_url','//'.$_SERVER['SERVER_NAME'].'/alphas/96levels-standart/');
+	$config->set('base_url_data','//'.$_SERVER['SERVER_NAME'].'/alphas/96levels-standart/public/data/');
 
 	/* PATHS */
 	$config->set('setup_dir',$PATH.'/setup/');
@@ -33,11 +34,11 @@
   		 
 	/* DB */
 	$config->set('dbhost', 'localhost');
-	$config->set('dbname', 'test');
+	$config->set('dbname', '96levels');
 	$config->set('dbuser', 'root');
 	$config->set('dbpass', '');
 	$config->set('db_prefix','');
-	$config->set('tabla_default','clientes');
+	$config->set('tabla_default','ninja_clientes');
     
     /* Login & Private Urls */
     $config->set('private',array("admin"));
@@ -46,17 +47,16 @@
     $config->set('validPass','test');
 
 	/* Toggles */
-	$config->set('developer_mode',0);
 	$config->set('combo_add',0);
 	$config->set('delete_permission',1);
 
 	/* Images Sizes */
-	$config->set('big_h',580);// 0 for no resize
+	$config->set('big_h',640);// 0 for no resize
 	$config->set('big_w',960); // 0 for no resize
-	$config->set('img_content_w',600);
-	$config->set('img_content_h',480);
-	$config->set('thumb_h',180);
-	$config->set('thumb_w',260);
+	$config->set('img_content_w',480);
+	$config->set('img_content_h',320);
+	$config->set('thumb_h',160);
+	$config->set('thumb_w',240);
 
 
 

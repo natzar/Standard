@@ -1,7 +1,7 @@
 <?
 
 
-class pageController extends ControllerBase{
+class staticpageController extends ControllerBase{
 
 	function index(){
 		$p=	!empty($_GET['a']) ? $_GET['a'] : 'index';

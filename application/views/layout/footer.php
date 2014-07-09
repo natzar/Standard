@@ -17,7 +17,7 @@
 	</script>
 
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-	<script language="javascript" type="text/javascript" src="public/views/assets/js/document.ready.js"></script>
+	<script type="text/javascript" src="public/js/application.js"></script>
 
 	<a href="http://www.96levels.com" style="height:0px;width:0px;overflow:hidden;display:block">Consultoría IT</a>
 
