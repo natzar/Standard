@@ -3,8 +3,25 @@
 
 class staticpageController extends ControllerBase{
 
+	function works(){
+		$p=	!empty($_GET['a']) ? $_GET['a'] : 'index-works';
+		include "application/models/showModel.php";
+		$model = new showModel();
+		$data = $model->getById('ninja_proyectos',$this->urlHelper->translate('ninja_proyectos',$p));
+
+			
+			$this->view->show('portfolio_single.php',array(
+		
+		"SEO_TITLE" => $data['titulo'],
+		"SEO_DESCRIPTION" => $data['descripcion'],
+		"SEO_KEYWORDS" => $data['plataforma'],
+		"PROYECTO" => $data
+		));
+
+
+	}
 	function index(){
-		$p=	!empty($_GET['a']) ? $_GET['a'] : 'index';
+		$p=	!empty($_GET['a']) ? $_GET['a'] : 'index-works';
 		
 		$SEO_TITLE = $p;
 		$SEO_DESCRIPTION ='';
@@ -15,7 +32,7 @@ class staticpageController extends ControllerBase{
 				$SEO_DESCRIPTION = 'Mándanos un diseño en cualquier formato común y recibirás un archivo HTML5 / XHTML / CSS en perfecta calidad, compatible con todos los navegadores. Un desarrollo íntegro que no conseguirás en ningún otro lugar.';
 				$SEO_KEYWORDS ='psd a html, psd to html, convertir diseño grafico html, psd a html css, programador web';
 			break;
-			case 'index':
+			case 'index-works':
 				$SEO_TITLE = "Programador Php, Desarrollo y Programación a Medida";
 				$SEO_DESCRIPTION = 'Desarrollo a medida. Tu socio puntual o tu departamento externo. Un equipo apasionado de personas con amplia experiencia, aquí estamos. ';
 				$SEO_KEYWORDS ='programador php, desarrollo a medida, programación medida, agencia web barcelona, estudio web valencia, estudio web barcelona, programación a medida, html, css, php';
@@ -126,7 +143,7 @@ No hay equipo de desarrollo más eficiente o con más experiencia.';
 
 		
 		endswitch;
-		
+//		$head_footer = $p == 'works' ?false : true;
 		$this->view->show($p.'.php',array(
 		
 		"SEO_TITLE" => $SEO_TITLE,
