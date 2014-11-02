@@ -40,7 +40,7 @@
 	</head>
 	<?php flush(); ?>
 	<body>
-	<div id="overlay" style="display:none;">Please wait ...</div>
+	<div id="overlay" style="display:none;">Espera ...</div>
   <div class="navbar navbar-inverse navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container-fluid">
@@ -66,88 +66,13 @@
 	<div class="container-fluid">
 	<div class="row-fluid">
     <div class="span2 new" style="">
-    	<div class="accordion" id="accordion2">
-				<div class="accordion-group">
-                  <div class="accordion-heading">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#uno">
-                      Configuración
-                    </a>
-	                  </div>
-	                  <div id="uno" class="accordion-body in collapse">
-	                    <div class="accordion-inner">
-	                      <li><a href="show/table/config_meta"><i class=""></i> Configuración</a></li>
-						   <li><a href="show/table/fondos"><i class=""></i> Fondos</a></li>
-						   <li><a href="show/table/img_cabecera"><i class=""></i> Imagenes de Cabecera</a></li>
-						   <li><a href="show/table/pictos"><i class=""></i> Pictos</a></li>
-	                    </div>
-	                  </div>
-	                </div>
-				<div class="accordion-group">
-                  <div class="accordion-heading">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#dos">
-                      Header
-                    </a>
-	                  </div>
-	                  <div id="dos" class="accordion-body collapse">
-	                    <div class="accordion-inner">
-	                      <li><a href="show/table/logo"><i class=""></i> Logo</a></li>
-						   <li><a href="show/table/social_media"><i class=""></i> Social Media</a></li>
-						   <li><a href="show/table/menu"><i class=""></i> Menu Cabecera</a></li>
-	                    </div>
-	                  </div>
-	                </div>
-				<div class="accordion-group">
-                  <div class="accordion-heading">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#tres">
-                      Home
-                    </a>
-	                  </div>
-	                  <div id="tres" class="accordion-body collapse">
-	                    <div class="accordion-inner">
-	                      <li><a href="show/table/config_slider"><i class=""></i> Configuración Slider</a></li>
-						   <li><a href="show/table/slider"><i class=""></i> Slider</a></li>
-						   <li><a href="show/table/destacado"><i class=""></i> Destacado en la Home</a></li>
-	                    </div>
-	                  </div>
-	                </div>
-				<div class="accordion-group">
-                  <div class="accordion-heading">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#cuatro">
-                      Productos
-                    </a>
-	                  </div>
-	                  <div id="cuatro" class="accordion-body collapse">
-	                    <div class="accordion-inner">
-	                      <li><a href="show/table/categoria"><i class=""></i> Categorias Productos</a></li>
-							   <li><a href="show/table/productos"><i class=""></i> Productos</a></li>
-	                    </div>
-	                  </div>
-	                </div>
-					<div class="accordion-group">
-                  <div class="accordion-heading">
-                    <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#cinco">
-                      Contenido Páginas
-                    </a>
-                  </div>
-                  <div id="cinco" class="accordion-body collapse">
-                    <div class="accordion-inner">
-                      	<li><a href="show/table/mundo"><i class=""></i> Mundo Vip Pets</a></li>
-						   <li><a href="show/table/news"><i class=""></i> News</a></li>
-						   <li><a href="show/table/padres"><i class=""></i> Padres</a></li>
-						   <li><a href="show/table/peinados"><i class=""></i> Galeria</a></li>
-						   <li><a href="show/table/personajes"><i class=""></i> Personajes</a></li>
-						   <li><a href="show/table/tutoriales"><i class=""></i> Tutoriales</a></li>
-						   <li><a href="show/table/videos"><i class=""></i> Videos</a></li>
-						   <li><a href="show/table/contacto"><i class=""></i> Contacto</a></li>
-						   <li><a href="show/table/footer"><i class=""></i> Footer</a></li>
-                    </div>
-                  </div>
+    	<? include "menu.php"; ?>
 						   
 						   
 						  
 						   
 			        <!--  icon-chevron-right -->
-</div></div>
-        </div><!--/span-->
+</div>
+        
 	
 		<div  id="main" class="span10" >
