@@ -17,9 +17,9 @@ class installModel extends ModelBase
         while ($row = $consulta->fetch(PDO::FETCH_NUM)) {
 
         	$tabla = $row[0];
-        	echo '<h2>'.$tabla.'</h2>';
-        	if ($prefix == 'all' or strstr($tabla,$prefix)){
 
+        	if ($prefix == 'all' or strstr($tabla,$prefix)){
+        	echo '<h2>'.$tabla.'</h2>';
 			$recordset = $this->db->prepare("DESCRIBE $tabla");
 			$recordset->execute();
 			$campos_a_mostrar = $types = '';
