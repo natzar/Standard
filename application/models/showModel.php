@@ -8,6 +8,12 @@ class showModel extends ModelBase
 	}
 	
 	public function getItemsHead($table){
+		if (!is_file("setup/".$table.".php")){
+			include "tools/installModel.php";
+			$install = new installModel();
+			$install->makeSetups($table);
+			echo 'Created Setup file for '.$table;
+		}
     	require  "setup/".$table.".php";
     	$fr = $fields_labels;
 		if ( isset($fields_to_show) and is_array($fields_to_show) and count($fields_to_show)>0){
@@ -21,8 +27,9 @@ class showModel extends ModelBase
 	   return $fr;
 	}
 	public function getAllByField($table,$field,$rid_in_field){
+		
    		include "setup/".$table.".php";
-      //  include_once "lib/fields/field.php";
+        include_once "lib/orm/field.php";
         
         $order = (get_param('sorder') != -1) ? get_param('sorder') : $default_order; 
              
@@ -60,11 +67,13 @@ class showModel extends ModelBase
 		
 		$where = array();
         for ($i = 0; $i < count($fields);$i++): 
-			if (isset($_POST[$fields[$i]]) and $_POST[$fields[$i]] != -1)
+			if (isset($_POST[$fields[$i]])  and $_POST[$fields[$i]] != -1 or isset($params[$fields[$i]]) and $params[$fields[$i]] != -1){
+				$val = isset($_POST[$fields[$i]]) ? $_POST[$fields[$i]] : $params[$fields[$i]];
 				if ($fields_types[$i] == 'literal' or $fields_types[$i] == 'text')
-				$where[] = $fields[$i].' LIKE "%'. $_POST[$fields[$i]].'%"';       
+				$where[] = $fields[$i].' LIKE "%'. $val.'%"';       
 				else
-					$where[] = $fields[$i].' = "'. $_POST[$fields[$i]].'"';       
+					$where[] = $fields[$i].' = "'. $val.'"';       
+			}
         endfor;
 		if (count($where)< 1) return Array();
 
@@ -94,7 +103,7 @@ class showModel extends ModelBase
     public function getAll($table){
     
         include "setup/".$table.".php";
-       // include_once "lib/fields/field.php";
+        include_once "lib/orm/field.php";
         
         $order = (get_param('sorder') != -1) ? get_param('sorder') : $default_order; 
         $table_aux = $table;
@@ -102,7 +111,7 @@ class showModel extends ModelBase
       
       
 		if (isset($group_by) and !empty($group_by)) $order .= ' GROUP BY '.$group_by.' ';  
-        $consulta = $this->db->prepare('SELECT * FROM '.$table_aux.' order by '.$order.' limit '.$params['offset'].','.$params['perpage']);
+        $consulta = $this->db->prepare('SELECT * FROM '.$table_aux.' order by '.$order);
         $consulta->execute();
         $array_return = array();
         
@@ -124,6 +133,22 @@ class showModel extends ModelBase
         
     }
    
+     public function getById($table,$id){
+    
+        include "setup/".$table.".php";
+        include_once "lib/orm/field.php";
+        
+        $order = (get_param('sorder') != -1) ? get_param('sorder') : $default_order; 
+        $table_aux = $table;
+      
+      
+      
+        $consulta = $this->db->prepare('SELECT * FROM '.$table_aux.' where '.$table.'Id ="'.$id.'" order by '.$order);
+        $consulta->execute();
+        
+        return $consulta->fetch();
+                
+    }
     public function js($table){
         require "setup/".$table.".php";
             $output= "";
@@ -162,7 +187,7 @@ $output .='$(".tablaMain tbody > tr > td").click(function(){
 					}
 					var order = $(this).sortable("serialize") + "&action=updateRecordsListings&tabla="+aux+"&field="+aux_field+"&id="+aux_id;
 					console.log(order);
-					$.post("form/updateOrder", order, function(theResponse){
+					$.post("admin/updateOrder", order, function(theResponse){
 						console.log(theResponse);
 					});
 					}
