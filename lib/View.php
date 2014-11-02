@@ -24,7 +24,7 @@ class View
 	public function show($name = 'pagina.php', $vars = array(),$show_top_footer = true)
 	{	
  		$LANG = $_SESSION['lang'];
- 		$config = $this->config;
+ 		$config = $this->config; 		
  		include_once $this->config->get('languagesFolder').$_SESSION['lang'].'.php';
  		
  		/* SEO */
@@ -33,10 +33,17 @@ class View
 		$SEO_KEYWORDS = $this->config->get('seo_keywords');
 		$SEO_IMAGE = $this->config->get('seo_image');
 
+		/* Pagination */
+		$params = gett();
+		$OFFSET = $params['offset'];
+		$PERPAGE = $params['perpage'];
+		
+		/* Template meta data */
 		$page = $name;
 		$base_url = $this->config->get('base_url');
 		$base_title =  $this->config->get('base_title');
-
+		
+		/* Template Data */
 		if(is_array($vars))
            foreach ($vars as $key => $value)           
                 	$$key = $value;
@@ -50,7 +57,9 @@ class View
 		$template = $this->path.$name;
 		
 		if (file_exists($template) == false) {
-			trigger_error ('Template `' . $template . '` does not exist.', E_USER_NOTICE);
+			require_once($config->get('controllersFolder').'errorsController.php');
+			$controller = new errorsController();
+	    	$controller->e404();
 			return false;
 		}
 		

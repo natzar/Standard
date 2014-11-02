@@ -45,6 +45,8 @@ class FrontController
 		if (get_param('lang') != -1 and in_array(get_param('lang'),$config->get('available_langs'))){
 			$_SESSION['lang'] = get_param('lang');
 		} 
+		
+		include "application/language/".$_SESSION['lang'].".php";
 
 		/* Current User */
 		if (!isset($_SESSION['usersId'])){

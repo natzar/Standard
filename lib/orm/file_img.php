@@ -6,7 +6,7 @@ final class file_img extends field{
 	// get a filename by $filename, returns extension, chars from last appearence of '.'
 		$last = strrpos($filename,'.');
 		$n = strlen($filename) - $last + 1;
-	
+
 		return strtolower(substr($filename,$last + 1,$n)); 
 	}
 
@@ -20,7 +20,7 @@ final class file_img extends field{
 		if ($this->value != "")	{				
 			$output .= "<div id='".$this->fieldname."'>";
 			$output .= "<img  style='width:200px' src=\"".$this->config->get('base_url_data')."img/thumbs/".$this->value."\">";
-			$output .= "&nbsp;&nbsp;<a  href=\"javascript:DeleteFile('".$this->fieldname."','".$this->table."','".$this->rid."','".$this->value."');\"><img src='views/img/close.jpg'></a></div>"; 
+			$output .= "&nbsp;&nbsp;<a  href=\"javascript:DeleteFile('".$this->fieldname."','".$this->table."','".$this->rid."','".$this->value."');\"><img src='public/img/admin/close.jpg'></a></div>"; 
 		}// else $output .= "No hay ninguna imagen cargada.<BR>";					
 		$output.= "<input type=\"file\" accept=\"image/*\" id=\"".$this->fieldname."\" name=\"".$this->fieldname."\">";
 		return $output;
@@ -47,8 +47,8 @@ final class file_img extends field{
 	function exec_edit () {
 			if ($_FILES[$this->fieldname]['name'] != ""){
 					$filename_new = generar_nombre_archivo($_FILES[$this->fieldname]['name']);
-						copy($_FILES[$this->fieldname]['tmp_name'],$this->config->get('data_dir').'img/raw/'.$filename_new);
 					copy($_FILES[$this->fieldname]['tmp_name'],$this->config->get('data_dir').'img/'.$filename_new);
+					copy($this->config->get('data_dir').'img/'.$filename_new,$this->config->get('data_dir').'img/raw/'.$filename_new);
 					
 					// big
 					$this->resize_image($this->get_extension($filename_new),$this->config->get('data_dir').'img/'.$filename_new,$this->config->get('data_dir').'img/'.$filename_new,$this->config->get('big_w'),$this->config->get('big_h')) ;
@@ -78,11 +78,14 @@ function cropImage($nw, $nh, $source, $stype, $dest) {
     $size = getimagesize($source);
     $w = $size[0];
     $h = $size[1];
+
  
+/*
  if ($stype == 'gif' or $stype == 'png'){
 copy($source,$dest);
 	return false;
 }
+*/
 
     switch($stype) {
         case 'gif':
@@ -99,6 +102,8 @@ copy($source,$dest);
         $simg = imagecreatefrompng($source);
         break;
     }
+    $w = imagesx($simg);
+	$h = imagesy($simg);
  
     $dimg = imagecreatetruecolor($nw, $nh);
  
@@ -113,7 +118,7 @@ copy($source,$dest);
         $adjusted_width = $w / $hm;
         $half_width = $adjusted_width / 2;
         $int_width = $half_width - $w_height;
- 
+
         imagecopyresampled($dimg,$simg,-$int_width,0,0,0,$adjusted_width,$nh,$w,$h);
  
     } elseif(($wm <$hm) || ($w == $h)) {

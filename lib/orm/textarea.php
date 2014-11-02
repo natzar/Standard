@@ -7,7 +7,7 @@ final  class textarea extends field{
 		return  substr(strip_tags($this->value),0,100)."...";
 	}
 	function bake_field (){
-		return "<textarea class='span4' id=\"".$this->fieldname."\" name=\"".$this->fieldname."\"  >".$this->value."</textarea>";
+		return "<textarea style='width: 600px;height: 100px;' id=\"".$this->fieldname."\" name=\"".$this->fieldname."\"  >".$this->value."</textarea>";
 		
 	 
 					
