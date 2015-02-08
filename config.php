@@ -19,7 +19,7 @@
 	$config->set('seo_title','Home');
 	$config->set('seo_description','Servicios IT para Empresas, Startups, Agencias, Estudios y Freelances. Somos un equipo con más de 15 años de experiencia en desarrollo y puesta en marcha de proyectos y servicios digitales.');	
 	$config->set('seo_keywords','');
-	$config->set('seo_image','//'.$_SERVER['SERVER_NAME'].'/alphas/96levels-standart/public/img/fb_image.jpg');
+	$config->set('seo_image','//'.$_SERVER['SERVER_NAME'].'/alphas/96levels-standart/public/img/icons/Facebook.png');
 	$config->set('base_url','//'.$_SERVER['SERVER_NAME'].'/alphas/96levels-standart/');
 	$config->set('base_url_data','//'.$_SERVER['SERVER_NAME'].'/alphas/96levels-standart/public/data/');
 
@@ -39,6 +39,7 @@
 	$config->set('dbpass', '');
 	$config->set('db_prefix','');
 	$config->set('tabla_default','ninja_clientes');
+    $config->set('db_support',true);
     
     /* Login & Private Urls */
     $config->set('private',array("admin"));

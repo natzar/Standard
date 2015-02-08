@@ -10,6 +10,7 @@ include "functions.php";
 include "ControllerBase.php";
 include "ModelBase.php";
 
+
 header ('Content-type: text/html; charset=utf-8');
 
 
@@ -70,6 +71,7 @@ class FrontController
 			return false;
 		}
 		
+	
 		/* New Controller -> action */
 		$controller = new $controllerName();
     	$controller->$actionName(); 

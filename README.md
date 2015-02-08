@@ -1,4 +1,4 @@
-96MicroFramework
+Standart 2 
 ================
 
 Version 2.0
@@ -9,7 +9,8 @@ PHP Micro Framework. MVC Pattern + CRUD solution. Perfect for Creative projects 
 Readme Version 0.1
 ------------------
 
-Previously known as "php ninja backoffice"
+Previously known as "php ninja backoffice", 96MicroFramework.
+
 
 # Php Ninja BackOffice 
 
