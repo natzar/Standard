@@ -15,11 +15,19 @@
 	var BASE_URL = '<?= $base_url ?>';
 	var LANG = '<?= $_SESSION['lang'] ?>';
 	</script>
-
+	
+	<!-- jQuery -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+	
+	<!-- If there is no engineer in team, comment and add bootstrap as local dependency -->
 	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	
+	<!-- Custom Js -->
 	<script type="text/javascript" src="public/js/application.js"></script>
 
-	<a href="http://www.96levels.com" style="height:0px;width:0px;overflow:hidden;display:block">Consultoría IT</a>
+	<!-- GOOGLE ANALYTICS -->
+	<script type="text/javascript">
 
+	</script>
   </body>
 </html>
