@@ -8,12 +8,13 @@
 <? endif; ?>
 
 
-<h2><?= ucfirst($table_label)?></h2>
+<br>
 
-<a class="btn btn-success" style="float:left;clear:both;"  href="admin/form/<?= $table ?>"><i class="icon-plus"></i> <?=ADDNEW?></a>
-<input type="search" class="light-table-filter" data-table="order-table"  placeholder="<?= SEARCH ?>" style="float:left;margin-left:14px"  id="search_pagination" value="">
+<a class="button btn-success" style="float:left;clear:both;"  href="admin/form/<?= $table ?>"><i class="icon-plus"></i> <?=ADDNEW?></a>
+<a class="button button [secondary success alert]" style="display:inline-block;"  href="admin/search/<?= $table ?>"><i class="icon-search"></i> <?=SEARCH?></a>
 
-<a class="btn btn-primary" style="display:inline-block;"  href="admin/search/<?= $table ?>"><i class="icon-search"></i> <?=SEARCH?></a>
+
+
 <!--
 
 <a class="btn btn-warning" style="display:inline-block;"  href="form/import/<?= $table ?>"><i class="icon-search"></i> Importar</a>
@@ -24,6 +25,7 @@
 
 <div style="clear:both;">
 <? if (count($items) > 0): ?>
+<input type="search" class="light-table-filter" data-table="order-table"  placeholder="Filtrar" id="search_pagination" style="width:200px;max-width:200px display:inline-block;" value=""><br>
     <table class='table table-striped tablaMain order-table' data-table="<?= $table ?>" id='tabla_0'  border="0" >
         <thead>
             <tr>

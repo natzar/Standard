@@ -1,4 +1,3 @@
-
 <html>
 	<head>
 		<title><?= $base_title ?> | Backoffice</title>
@@ -6,8 +5,21 @@
 	<!-- Twitter Bootstrap Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 
+<script language="javascript" type="text/javascript" src="http://www.phpninja.info/labs/resize-jquery-plugin/jquery.js"></script>
+		<script language="javascript" type="text/javascript" src="http://www.phpninja.info/labs/resize-jquery-plugin/smartBackgroundResize-1.0-jquery-plugin.js"></script>
+
+
+<script type="text/javascript"> 
+			$(document).ready(function(){
+				$('#background').smartBackgroundResize({
+					image: 'http://www.streetartutopia.com/wp-content/uploads/2011/11/street_art_blu_15-friedrichshain-berlin.jpeg' // relative or absolute path to background image file				
+				});
+			});
+		</script>
+		
 	</head>
 	<body style="text-align:center;background:#fefefe;"> 
+<div id="background"></div>
 	<div class="container">
 	<BR><BR><br><br>
 	<center>
@@ -17,18 +29,18 @@
 	<form class="well" action="<?= $base_url ?>admin/do_login" method="post">
 
 	<label><strong>Usuario</strong></label>
-	<input class="span3" style="height:auto;" type="text" name="user"><BR>
+	<input class="input span2 form-control" style="height:auto;" type="text" name="user"><BR>
 
 	<label><strong>Contraseña</strong></label>
-	<input type="hidden" name="token" value="">
-	<input type="password" style="height:auto;" name="pass"><BR>
-	<input type="submit" class="btn" value="Entrar">
+	<input type="hidden" name="token" class="" value="">
+	<input type="password" class="input span2 form-control" name="pass"><BR>
+	<input type="submit" class="btn btn-success" value="Entrar">
 
 
 	</form>
 	</center>
 			</div>
-			<? print_r($_SESSION) ?>
+			
 			
 			<? if (gett('c') == 1) {?>
 					<div class="alert alert-error">

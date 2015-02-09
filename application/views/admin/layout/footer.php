@@ -1,3 +1,5 @@
+	</div>
+</div>
 <? if ($config->get('developer_mode')==1): 
 		echo '<div class="well">';
 		echo 'Developer_mode: ON<hr>';
@@ -11,10 +13,13 @@
 		<footer>
 		
 			</footer>
-		</div>
-	</div>
-		   	<script src="public/vendor/bootstrap/js/bootstrap.js"></script>
-		   	<script src="public/js/DT_init.js"></script>	
+	
+<!-- 		   	<script src="public/vendor/bootstrap/js/bootstrap.js"></script> -->
+<script src="public/vendor/foundation-5.4.5/js/foundation.min.js"></script>
+    <script>
+      $(document).foundation();
+    </script>
+		
 	<script>
 		var loc = unescape(document.location.href);
 
@@ -23,16 +28,6 @@
 		var obj = $("a[href='"+cadena+"']");
 		obj.parent().addClass("active");
 
-
-	/*
-	if (window.chrome){
-			$('#errors').html("OK Chrome detectado");
-			
-		}else{
-		
-			$('#errors').html("Mejor si usas Chrome <a href='//google.com/chrome'>Descárgalo</a>");
-		}
-*/
 	<? 	echo $HOOK_JS; ?>		</script>
 	
 	</body>

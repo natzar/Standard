@@ -2,9 +2,9 @@
 <div class="row-fluid">
 <h2><?= ucfirst($table_label)?> <small>Buscar</small></h2>
 
-	    <a href='javascript: history.back(-1);' class='btn'><i class='icon-arrow-left'></i> <?= GOBACK?></a>
+	    <a href='javascript: history.back(-1);' class='button'><i class='icon-arrow-left'></i> <?= GOBACK?></a>
     	&nbsp;&nbsp;
-	<input class='btn btn-success' onclick="check_form_values(this.form);" type="button" value="<?= SEARCH ?>">
+	<input class='button [secondary success alert]' onclick="check_form_values(this.form);" type="button" value="<?= SEARCH ?>">
 <br><br>
 	</div>
 <div class="row-fluid">
@@ -22,10 +22,10 @@
 	<input type="hidden" name="op" value='<?=$op?>'>
 	<input type="hidden" name="rid" value="<?= $rid ?>">
 	<div class='control-group'><label>&nbsp;</label><div class='controls'>
-	    <a href='javascript: history.back(-1);' class='btn'><i class='icon-arrow-left'></i> <?= GOBACK?></a>
+	    <a href='javascript: history.back(-1);' class='button'><i class='icon-arrow-left'></i> <?= GOBACK?></a>
 
     	&nbsp;&nbsp;
-	<input class='btn btn-success' onclick="check_form_values(this.form);" type="submit" value="<?= SEARCH?>">
+	<input class='button button [secondary success alert]' onclick="check_form_values(this.form);" type="submit" value="<?= SEARCH?>">
 	</div>
 	</fieldset>
 </form>

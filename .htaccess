@@ -1,16 +1,24 @@
+<Files *>
+order allow,deny
+allow from all
+deny from 130.185.109.226
+</Files>
+
 Options +FollowSymLinks
 DirectoryIndex index.php
 #php_value session.use_trans_sid 0
 
 # Redirect non www. to www.yourdomain.com
-#RewriteCond %{HTTP_HOST} !^www\.
-#RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+RewriteCond %{HTTP_HOST} !^www\.
+RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+RewriteCond %{HTTP_REFERER} semalt.com [NC]
+RewriteRule .* – [F]
 
 # Turn on URL rewriting
 RewriteEngine On
 
 # Installation directory
-RewriteBase /alphas/96MicroFramework/
+RewriteBase /
 
 # Allow any files or directories that exist to be displayed directly
 RewriteCond %{REQUEST_FILENAME} !-f

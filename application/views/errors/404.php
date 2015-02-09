@@ -7,3 +7,4 @@
 <a href="<?= $base_url?>">Home Page</a>
 <br><br>
 </center>
+</div>

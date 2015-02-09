@@ -4,3 +4,6 @@
 <h2>NOT FOUND</h2>
 <a href="<?= $base_url?>">Index</a>
 </center>
+</div>
+</div>
+</div>

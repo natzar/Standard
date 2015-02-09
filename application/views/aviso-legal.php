@@ -1,12 +1,13 @@
-	<div class="container mt">
-	<div class="row">
+<div class="page-wrapper big-padding">
+	<div class="container ">
+	<div class="row marketing">
 	
 	
-			<div class="col-lg-8 col-lg-offset-2 col-md-12">
+			<div class="col-lg-12">
 
-    <h1>Aviso Legal y política de privacidad</h1>
+    <h2 class="post-title">Aviso Legal y política de privacidad</h1>
 			 
- <h3>1. Datos identificativos de la empresa </h3> <br><p>
+ <h4>1. Datos identificativos de la empresa </h4> <br><p>
 En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad <br>
 de la Información y Comercio Electrónico, a continuación se exponen los datos identificativos <br>
 de la empresa. <br>
@@ -20,7 +21,7 @@ DIRECCIÓN DE CORREO ELECTRÓNICO: hello (at) 96levels.com<br>
  <br>
 
 
-<h3>2. Propiedad intelectual e industrial</h3>  <br>
+<h4>2. Propiedad intelectual e industrial</h4>  <br>
 <p>
 Todos los derechos sobre la propiedad industrial e intelectual del sitio web 
 www.96levels.com incluyendo los elementos contenidos en las mismas (por tanto: textos, 
@@ -33,7 +34,7 @@ pública de los mismos, total o parcial, sin la debida autorización expresa d
 todos los derechos citados, 96 Levels. Asimismo están protegidos por la ley los 
 nombres comerciales, emblemas, marcas, etc.., de cualquier tipo de contenidos de nuestra 
 sitio web. <br><br>
-<h3>3. Protección de datos de carácter personal  </h3><br><p>
+<h4>3. Protección de datos de carácter personal  </h4><br><p>
 En el marco del cumplimiento de la legislación vigente, recogida en la Ley Orgánica 15/1999, 
 de 13 de diciembre, sobre protección de Datos de Carácter Personal (LOPD), cuyo objeto es 
 garantizar y proteger, en lo que concierne al tratamiento de los datos personales, las 
@@ -42,7 +43,7 @@ intimidad personal, 96 Levels informa a los usuarios de que:
 96 Levels ha adoptado las medidas técnicas y organizativas conforme a lo dispuesto 
 en la normativa vigente. <br>
 96 Levels únicamente obtiene y conserva información sobre el número de visitas de 
-las distintas páginas de este sitio web y no se hace uso de "cookies" ni mecanismos similares. 
+las distintas páginas de este sitio web a través de las cookies de GOOGLE ANALYTICs.
 Tal información es plenamente anónima puesto que de ningún modo puede asociarse a un 
 usuario identificado con nombres y apellidos, domicilio, etc. Estos datos son utilizados para 
 listados estadísticos que sirven para conocer los gustos del usuario y su tipología de cara a 
@@ -57,7 +58,7 @@ El usuario podrá, en todo momento, ejercitar los derechos reconocidos en la LO
 rectificación, cancelación y oposición. El ejercicio de estos derechos puede realizarlo el propio 
 usuario desde cualquiera de las páginas del web site, desde cualquiera de los correos que 
 reciba. <br><br>
-<h3>4. Varios  </h3><br><p>
+<h4>4. Varios  </h4><br><p>
 A.- 96 Levels podrá modificar, sin previo aviso, la información contenida en su sitio 
 web, así como su configuración y presentación. <br>
 B.- 96 Levels se compromete a través de este medio a NO REALIZAR PUBLICIDAD 
@@ -95,4 +96,6 @@ contenidos, enlaces (links) e hipertexto incluidos en el sitio web www.96levels.
  </p>
  </div>
 
-</div></div>
+</div>
+</div>
+</div>

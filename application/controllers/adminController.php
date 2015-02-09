@@ -19,7 +19,7 @@
 
 	}
 	public function index(){
-		$this->table();
+		$this->dashboard();
 	}
 	public function login(){
 	
@@ -47,6 +47,24 @@
 	/* 	Showing data
 	---------------------------------------*/
 	
+	public function dashboard(){
+		include "application/models/showModel.php";
+		$show = new showModel();
+		
+		include "lib/vendor/Google-Analytics-API-PHP-master/examples/basics.php";
+		print_r($visits);
+		$data = array(
+			"emails_sent" => count($show->search(array("table" => "ninja_automatic_links","enviado" => "1"))),
+			"visits" => $visits["totalsForAllResults"]["ga:visits"],
+			"leads" => "X",
+			"presupuestos" => count($show->search(array("table" => "ninja_presupuestos"))),
+			"ventas" => count($show->search(array("table" => "ninja_facturas")))
+		
+		);
+		$this->view->show("dashboard.php",$data);
+	
+	}
+	
 	 public function table(){
     	$config = Config::singleton();
 	    require $config->get('modelsFolder').'showModel.php';
@@ -66,6 +84,29 @@
 		
 		 $this->view->show("show.php", $data);	
     }
+    
+    
+    public function grid(){
+    	$config = Config::singleton();
+	    require $config->get('modelsFolder').'showModel.php';
+		$items = new showModel();
+     	$table = get_param('a') != -1 ? get_param('a') : $config->get('tabla_default');
+		$_SESSION['return_url'] =  $_SERVER['REQUEST_URI'] ;
+		$data = Array(/* "table_label" => $table_label, */
+		          "title" => "BackOffice | $table",
+		          "items_head" => $items->getItemsHead($table),
+		          "items" => $items->getAll($table),
+		          "HOOK_JS" => $items->js($table),
+                  "table" => $table,
+					"table_label" =>$items->getTableAttribute($table,'table_label'),
+					"notification" => get_param('i') != -1 ? 'Se ha guardado correctamente' : ''
+		      		          
+		          );
+		
+		 $this->view->show("grid.php", $data);	
+    }
+    
+    
     
     public function searchResults(){
 	
@@ -388,6 +429,12 @@ $_SESSION['return_url'] =  $_SERVER['REQUEST_URI'] ;
 		}
 				$this->view->show('newsletter_ok.php',array("HOOK_JS" => "","content" => $ret));
 	
+	}
+	
+	/* Presupuestos
+		---------------------------------------*/
+	public function presupuesto(){
+		$this->view->show('presupuesto.php',array());
 	}
 
 }

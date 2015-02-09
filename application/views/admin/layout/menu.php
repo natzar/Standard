@@ -4,12 +4,11 @@ Default MENU
 included from admin/layout/top.php
 
  -->
-<ul class="list-group">
-<li class="nav-header">CONTENIDOS</li>
+
 <li class="list-group"><a href="admin/table/ninja_clientes">Clientes</a></li>	
 <li class="list-group"><a href="admin/table/ninja_proyectos">Proyectos</a></li>	
 <li class="list-group"><a href="admin/table/ninja_tipoproyectos">Tipo de proyectos</a></li>	
-</ul>
+
 <!--
 
 Accordion Style
