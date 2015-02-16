@@ -9,7 +9,7 @@
 	$config->set('version',2);
 	$config->set('developer_mode',0);
 	$config->set('base_email','contacto@phpninja.info');
-	$config->set('base_title','96Levels');
+	$config->set('base_title','Standart 1.0');
 	$config->set('path',$PATH); 
 	/* Languages */	
 	$config->set('default_lang','es');
@@ -20,7 +20,7 @@
 	$config->set('seo_description','Servicios IT para Empresas, Startups, Agencias, Estudios y Freelances. Somos un equipo con más de 15 años de experiencia en desarrollo y puesta en marcha de proyectos y servicios digitales.');	
 	$config->set('seo_keywords','');
 	$config->set('seo_image','//'.$_SERVER['SERVER_NAME'].'/alphas/96MicroFramework/public/img/icons/Facebook.png');
-	$config->set('base_url','//'.$_SERVER['SERVER_NAME'].'/alphas/96MicroFramework/');
+	$config->set('base_url','//'.$_SERVER['SERVER_NAME'].'/alphas/96MicroFramework/public/');
 	$config->set('base_url_data','//'.$_SERVER['SERVER_NAME'].'/alphas/96MicroFramework/public/data/');
 
 	/* PATHS */

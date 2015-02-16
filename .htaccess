@@ -9,16 +9,20 @@ DirectoryIndex index.php
 #php_value session.use_trans_sid 0
 
 # Redirect non www. to www.yourdomain.com
-RewriteCond %{HTTP_HOST} !^www\.
-RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
-RewriteCond %{HTTP_REFERER} semalt.com [NC]
-RewriteRule .* – [F]
+#UNCOMMENT THIS IN PRODUCTION
+##RewriteCond %{HTTP_HOST} !^www\.
+##RewriteRule ^(.*)$ http://www.%{HTTP_HOST}/$1 [R=301,L]
+
 
 # Turn on URL rewriting
 RewriteEngine On
 
+#SEMALT FUCK YOU
+#RewriteCond %{HTTP_REFERER} semalt.com [NC]
+#RewriteRule .* – [F]
+
 # Installation directory
-RewriteBase /
+RewriteBase /alphas/96MicroFramework/
 
 # Allow any files or directories that exist to be displayed directly
 RewriteCond %{REQUEST_FILENAME} !-f
