@@ -5,25 +5,12 @@ Version 2.0
 
 PHP Micro Framework. MVC Pattern + CRUD solution. Perfect for Creative projects or taylor made small-middle solutions.
 
-
-Readme Version 0.1
-------------------
-
-Previously known as "php ninja backoffice", 96MicroFramework.
-
-
-# Php Ninja BackOffice 
-
-Beto Ayesa,  @php_ninja
-contacto@phpninja.info  
-www.phpninja.info  
-
-NOTE: Don't use this repo, it's little inestable. Currently I'm refactoring it and it could be little inestable.
+NOTE:  Currently I'm refactoring it and could be little inestable.
 
 Introduction
 ------------
-I am using this custom CRUD solution for more than 6 years in tens of projects.  
-I believe in technology independence, I don't want my clients get caught, this is why I made this Git Repo under MIT License.
+I am using this custom CRUD solution for more than 6 years in a lot of projects.  
+I believe in technology independence, I don't want my clients get caught, this is why I wanted to realease it with this Git Repo under MIT License.
 
 This is for you if:
 * You are looking for a "Backoffice" Solution that you can install and customize
@@ -57,7 +44,7 @@ Installation in 1 minute
 
 License
 ----------------
-Php Ninja CRUD
+Standart
 Copyright (C) 2013  Beto Ayesa contacto@phpninja.info
 
     This program is free software: you can redistribute it and/or modify
