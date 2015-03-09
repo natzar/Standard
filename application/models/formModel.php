@@ -104,7 +104,6 @@ class formModel extends ModelBase
    		document_base_url: "'.$config->get('base_url').'",
         mode : "textareas", 
         editor_selector : "mceEditor",
-        theme: "advanced",
 	 forced_root_block : false,
    force_br_newlines : true,
    force_p_newlines : false,
@@ -123,7 +122,7 @@ class formModel extends ModelBase
         theme_advanced_statusbar_location : "bottom",
 
         extended_valid_elements : "div[class]",
-    plugins : "paste,safari,pagebreak,style,layer,table,save,advhr,imagemanager,advlink,iespell,insertdatetime,preview,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,inlinepopups",
+    plugins : "paste,pagebreak,layer,table,save,insertdatetime,preview,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,template",
   content_css: "'.$this->config->get('base_url').'public/views/assets/css/tinymce_content.css"
 
         

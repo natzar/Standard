@@ -27,7 +27,7 @@
 	    <meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">	
-	    <base href="<?= $base_url ?>" content="<?= $base_url ?>">
+	    <base href="<?= $base_url ?>"></base>
 
 		<!-- Favicon -->    
 		<link rel="icon" type="image/png" href="favicon.png" />
