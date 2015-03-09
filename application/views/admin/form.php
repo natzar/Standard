@@ -1,5 +1,5 @@
 <div class="row"><ul class="breadcrumbs">
-  <li><a href="#"><?= ucfirst($table_label)?></a></li>
+  <li><a href="table/<?= $table ?>"><?= ucfirst($table_label)?></a></li>
   <li class="current"><a href="#"><? if ($rid != -1) echo EDIT; else echo ADDNEW; ?></a></li>
 <!--
   <li class="unavailable"><a href="#">Gene Splicing</a></li>

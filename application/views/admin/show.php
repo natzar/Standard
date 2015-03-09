@@ -120,4 +120,12 @@
 	});
 
 })(document);
+
+$('#search_pagination').on('change', function() {
+		if (document.readyState === 'complete') {
+			LightTableFilter.init();
+		}
+	});
+
+//})(document);
 </script>

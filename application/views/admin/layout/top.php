@@ -34,7 +34,8 @@
 <!--		<script src="public/vendor/jQuery-ui-1.8.16/i18n/jquery.ui.datepicker-es.js"></script>
  		<script src="public/vendor/jQuery-ui-1.8.16/jquery.timepicker.js"></script> -->
 		
-		<script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
+		<script src="public/vendor/tinymce/tinymce.min.js"></script> 
+		
 
 		<script>
 		var BASE_URL = '<?= $base_url ?>';
