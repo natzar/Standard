@@ -1,11 +1,10 @@
 Standart 2 
 ================
 
-@Version 2.0
-@Author: Beto López Ayesa
-@Email: betolopezayesa@gmail.com
-@Date: 10/Feb/2009
-@Summary: -
+>Version 2.0 
+<Author: Beto López Ayesa 
+<Email: betolopezayesa@gmail.com 
+>Date: 10/Feb/2009 
 
 
 Summary
@@ -15,14 +14,14 @@ I believe in technology independence, I don't want my clients get caught, this i
 
 Requirements
 ------------
-Php4 >
-MySql
-PDO:: Support
+Php4 > 
+MySql 
+PDO:: Support 
 
 Dependencies
 ------------
 Bootstrap 3.3.2 
->jQuery 1.9.1
+jQuery 1.9.1 
 
 
 
