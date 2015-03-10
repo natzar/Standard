@@ -1,4 +1,3 @@
-
 Standart 2 
 ================
 
@@ -15,23 +14,17 @@ I am using this custom CRUD solution for more than 6 years in a lot of projects.
 I believe in technology independence, I don't want my clients get caught, this is why I wanted to realease it with this Git Repo under MIT License.
 
 Requirements
-===============
+------------
 Php4 >
 MySql
 PDO:: Support
 
 Dependencies
-================
+------------
 Bootstrap 3.3.2 
 >jQuery 1.9.1
 
 
-Thanks To...
-===============
-ASCII generator - http://patorjk.com/software/taag/#p=display&f=Binary&t=Standart
-Jordi Molins
-Alex Lopez
-Intersalus S.A.
 
 
 License
@@ -52,3 +45,10 @@ Copyright (C) 2013-2015  Beto Ayesa betolopezayesa@gmail.com
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 http://opensource.org/licenses/GPL-3.0
+
+Thanks To...
+------------
+ASCII generator - http://patorjk.com/software/taag/#p=display&f=Binary&t=Standart
+Jordi Molins
+Alex Lopez
+Intersalus S.A.
