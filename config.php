@@ -1,6 +1,7 @@
 <?
 /*    
-    Configuration File for 96MicroFramework
+   STANDART
+   Configuration File
     
 */
 	/* Basic */

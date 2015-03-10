@@ -1,7 +1,13 @@
 Standart 2 
 ================
 
-Version 2.0
+@Version 2.0
+@Author: Beto López Ayesa
+@Email: betolopezayesa@gmail.com
+@Date: 10/Feb/2009
+@Summary: -
+
+
 
 PHP Micro Framework. MVC Pattern + CRUD solution. Perfect for Creative projects or taylor made small-middle solutions.
 
@@ -44,8 +50,7 @@ Installation in 1 minute
 
 License
 ----------------
-Standart
-Copyright (C) 2013  Beto Ayesa contacto@phpninja.info
+Copyright (C) 2013-2015  Beto Ayesa betolopezayesa@gmail.com
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

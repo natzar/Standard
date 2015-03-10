@@ -1,4 +1,12 @@
-<? session_start();
+<? 
+/*
+
+	STANDART
+
+*/
+
+
+session_start();
 
 require 'lib/FrontController.php';
 
