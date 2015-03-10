@@ -1,10 +1,10 @@
 Standart 2 
 ================
 
->Version 2.0 
-<Author: Beto López Ayesa 
-<Email: betolopezayesa@gmail.com 
->Date: 10/Feb/2009 
+Version 2.0 
+Author: Beto López Ayesa 
+Email: betolopezayesa@gmail.com 
+Date: 10/Feb/2009 
 
 
 Summary
