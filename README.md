@@ -10,25 +10,28 @@ Standart 2
 Summary
 ------------
 I am using this custom CRUD solution for more than 6 years in a lot of projects.  
-I believe in technology independence, I don't want my clients get caught, this is why I wanted to realease it with this Git Repo under MIT License.
+
+After the CRUD application, came the "Front Office". Just a way to manage the URLS, with different languages, with a MVC structure inside the code.
 
 Requirements
 ------------
-Php4 > 
-MySql 
-PDO:: Support 
+- Php4 > 
+- MySql 
+- PDO:: Support 
 
 Dependencies
 ------------
-Bootstrap 3.3.2 
-jQuery 1.9.1 
+- Bootstrap 3.3.2
+- jQuery 1.9.1
+- jQuery UI (admin)
+- TinyMCE (admin)
 
 
 
-
-License
+License GPL-3.0
 ----------------
-Copyright (C) 2013-2015  Beto Ayesa betolopezayesa@gmail.com
+&copy; 2013-2015  Beto Ayesa  
+betolopezayesa@gmail.com
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -47,7 +50,11 @@ http://opensource.org/licenses/GPL-3.0
 
 Thanks To...
 ------------
-ASCII generator - http://patorjk.com/software/taag/#p=display&f=Binary&t=Standart
-Jordi Molins
-Alex Lopez
-Intersalus S.A.
+ASCII generator - http://patorjk.com/software/taag/#p=display&f=Binary&t=Standart    
+
+And some clients and friends that pushed this resource forward, cause wordpress wasn't enough, to complicated for the problem, or just doesnt fit.
+
+Jordi Molins   
+Alex Lopez   
+
+This work was started while working at Intersalus S.A., and evolved as more projects apeared willing a custom made admin-backoffice aplication.

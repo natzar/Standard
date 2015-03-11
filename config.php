@@ -1,16 +1,32 @@
 <?
-/*    
-   STANDART
-   Configuration File
+/*
+
+	Standart is an alternative to Wordpress. An Enjoyable php framework + crud for Data-driven applications.
+    Copyright (C) 2015 Beto López Ayesa
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <http://www.gnu.org/licenses/>.
     
-*/
+	config.php - Configuration file
+                                                                                                                                                 
+*/             
 	/* Basic */
 	$PATH = dirname(__FILE__);
 	$config = Config::singleton();
 	$config->set('version',2);
-	$config->set('developer_mode',0);
+	$config->set('developer_mode',true);
 	$config->set('base_email','contacto@phpninja.info');
-	$config->set('base_title','Standart 1.0');
+	$config->set('base_title','Standart 2');
 	$config->set('path',$PATH); 
 	/* Languages */	
 	$config->set('default_lang','es');
@@ -21,8 +37,11 @@
 	$config->set('seo_description','Servicios IT para Empresas, Startups, Agencias, Estudios y Freelances. Somos un equipo con más de 15 años de experiencia en desarrollo y puesta en marcha de proyectos y servicios digitales.');	
 	$config->set('seo_keywords','');
 	$config->set('seo_image','//'.$_SERVER['SERVER_NAME'].'/alphas/96MicroFramework/public/img/icons/Facebook.png');
-	$config->set('base_url','//'.$_SERVER['SERVER_NAME'].'/alphas/96MicroFramework/public/');
+	$config->set('base_url','//'.$_SERVER['SERVER_NAME'].'/alphas/96MicroFramework/');
 	$config->set('base_url_data','//'.$_SERVER['SERVER_NAME'].'/alphas/96MicroFramework/public/data/');
+
+
+	$config->set('google_analytics-UA','UA-9999999');
 
 	/* PATHS */
 	$config->set('setup_dir',$PATH.'/setup/');
