@@ -24,10 +24,12 @@
 	$PATH = dirname(__FILE__);
 	$config = Config::singleton();
 	$config->set('version',2);
+	$config->set('updated','12/3/2015');
 	$config->set('developer_mode',true);
 	$config->set('base_email','contacto@phpninja.info');
 	$config->set('base_title','Standart 2');
 	$config->set('path',$PATH); 
+	
 	/* Languages */	
 	$config->set('default_lang','es');
 	$config->set('available_langs',array('es','en'));
@@ -40,7 +42,7 @@
 	$config->set('base_url','//'.$_SERVER['SERVER_NAME'].'/alphas/96MicroFramework/');
 	$config->set('base_url_data','//'.$_SERVER['SERVER_NAME'].'/alphas/96MicroFramework/public/data/');
 
-
+	/* Third Party: Google Analytics */
 	$config->set('google_analytics-UA','UA-9999999');
 
 	/* PATHS */
