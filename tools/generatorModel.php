@@ -3,7 +3,7 @@ class generatorModel extends ModelBase
 {
 	
     public function generateModels($params){
-		echo 'hello '.$params;
+		echo 'Creating controllers and models in /application/controllers and /application/models ... '.$params.'<hr>';
         $config = Config::singleton();
         
         $prefix = $params; //$config->get('db_prefix');
@@ -15,7 +15,17 @@ class generatorModel extends ModelBase
  	
 
 
-        
+        $path = dirname(__FILE__);
+		
+//		$aux = fopen($path.'/../application/controllers/'.$tabla.'Controller.php','w');
+		if (!is_writable($path.'/../application/controllers/')){
+		echo "<strong>Don't have permission to write in /application/controllers and /application/models </strong><br>
+		Give em 777 permission.";
+		return false;
+		}
+		
+
+
         while ($row = $consulta->fetch(PDO::FETCH_NUM)) {
         	$tabla = $row[0];
 			echo '<hr><h2>Creating Models and Controllers '.$tabla.'<br>';

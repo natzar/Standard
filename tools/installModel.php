@@ -5,7 +5,7 @@ class installModel extends ModelBase
 {
 	
     public function makeSetups($table){
-		echo 'Setups for '.$table.'<br>';
+		echo 'Creating all /setup/ files ...<hr>';
         $config = Config::singleton();
         if (!isset($table) or $table =='') die("no table selected");
         $prefix = $table; //$config->get('db_prefix');
@@ -19,14 +19,14 @@ class installModel extends ModelBase
         	$tabla = $row[0];
 
         	if ($prefix == 'all' or strstr($tabla,$prefix)){
-        	echo '<h2>'.$tabla.'</h2>';
+        	echo '<strong>'.$tabla.'</strong>: ';
 			$recordset = $this->db->prepare("DESCRIBE $tabla");
 			$recordset->execute();
 			$campos_a_mostrar = $types = '';
 			$xxx = $recordset->fetchAll(PDO::FETCH_ASSOC);
 
 			foreach ($xxx as $field) {
-				echo "<br>";
+				
 				$nom = $field['Field'];
 				
 				$feature = explode("(",$field['Type']);
@@ -63,10 +63,10 @@ if (strstr($name,"img")) $type = 'file_img';
 if (strstr($name,"file")) $type = 'file_file';
         			if ($name != $tabla."Id") $types .=  '"'.$type.'",';
         			
-        			echo "FIELD: "; 
+        			
         			echo $nom;
-        			echo " - ".$type;
-        			echo "<br>";
+        			echo " (<i>".$type."</i>)";
+        			echo " | ";
         	}
     		$campos_a_mostrar = substr($campos_a_mostrar,0,strlen($campos_a_mostrar)-1);
     		$types = substr($types,0,strlen($types)-1);
@@ -91,7 +91,8 @@ if (strstr($name,"file")) $type = 'file_file';
         	}
         	echo '<hr>';
         }
-        
+        if ($consulta)
+        echo '<strong>Completed Successfully</strong>';
 
 	}	
 	
