@@ -3,63 +3,61 @@
 		<title><?= $base_title ?> | Backoffice</title>
 		<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
 	<!-- Twitter Bootstrap Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="<?= $base_url ?>/public/vendor/bootstrap-3.3.2-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="<?= $base_url ?>/public/vendor/bootstrap-3.3.2-dist/css/bootstrap-theme.min.css">
+	    <base href="<?= $base_url ?>"></base>
+<script language="javascript" type="text/javascript" src="<?= $base_url ?>/public/vendor/jquery-1.11.2/jquery-1.11.2.min.js"></script>
+		<script language="javascript" type="text/javascript" src="<?= $base_url ?>/public/vendor/background-resize.js"></script>
 
-<script language="javascript" type="text/javascript" src="http://www.phpninja.info/labs/resize-jquery-plugin/jquery.js"></script>
-		<script language="javascript" type="text/javascript" src="http://www.phpninja.info/labs/resize-jquery-plugin/smartBackgroundResize-1.0-jquery-plugin.js"></script>
+<style>*{color:white} </style>
 
-
-<script type="text/javascript"> 
-			$(document).ready(function(){
-				$('#background').smartBackgroundResize({
-					image: 'http://www.streetartutopia.com/wp-content/uploads/2011/11/street_art_blu_15-friedrichshain-berlin.jpeg' // relative or absolute path to background image file				
-				});
-			});
-		</script>
 		
 	</head>
-	<body style="text-align:center;background:#fefefe;"> 
+	<body style="text-align:center;"> 
 <div id="background"></div>
 	<div class="container">
 	<BR><BR><br><br>
 	<center>
-<div style="width:300px;">
+<div style="width:320px;">
 	<div style="text-align:left;">
 		<center><h3><?= $base_title ?></h3>
-	<form class="well" action="<?= $base_url ?>admin/do_login" method="post">
+	<form class="" style="padding:40px;border:2px solid white" action="<?= $base_url ?>admin/do_login" method="post">
 
-	<label><strong>Usuario</strong></label>
-	<input class="input span2 form-control" style="height:auto;" type="text" name="user"><BR>
+			
+			<? if (isset($_SESSION['error']) and !empty($_SESSION['error'])) {?>
+					<div class="alert alert-error">
 
-	<label><strong>Contraseña</strong></label>
-	<input type="hidden" name="token" class="" value="">
-	<input type="password" class="input span2 form-control" name="pass"><BR>
+							<strong>Oops...</Strong> <?=$_SESSION['error'] ?>
+
+					</div>
+					<? } ?>
+				
+			
+
+	<input class="input span2 form-control" style="height:auto;" type="text" placeholder="Usuario" name="user">
+<br>
+	<input type="password" placeholder="Contraseña" class="input span2 form-control" name="pass"><BR>
+		<input type="hidden" name="token" class="" value="">
 	<input type="submit" class="btn btn-success" value="Entrar">
 
 
 	</form>
 	</center>
+	Version: <?= $config->get('version') ?> (Update: <?= $config->get('updated') ?>)
 			</div>
 			
-			
-			<? if (gett('c') == 1) {?>
-					<div class="alert alert-error">
-
-							<strong>Oops...</Strong> Usuario / Password incorrectos
-
-					</div>
-					<? } ?>
-				
-				<? if (gett('c') == 2) {?>
-					<div class="alert alert-error">
-
-							<strong>Oops...</Strong> Demasiados intentos. Prueba más tarde
-
-					</div>
-					<? } ?>
 
 	</div>
 	</center>
 	</div>
+
+		
+<script type="text/javascript"> 
+			$(document).ready(function(){
+				$('#background').smartBackgroundResize({
+					image: '<?= $base_url ?>/public/img/admin/background.jpg' // relative or absolute path to background image file				
+				});
+			});
+		</script>		
 	</body>
 </html>
