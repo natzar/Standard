@@ -10,7 +10,7 @@ final class fecha extends field{
 	function bake_field (){
 		$date_value = $this->sql_to_fecha($this->value,"/");
 		if ($date_value == "") $date_value = $this->sql_to_fecha(date("Y-m-d"),"/");
-		return  "<input class=\"input text-input\" type=\"text\" cols=\"120\" id=\"".$this->fieldname."\" name=\"".$this->fieldname."\" value=\"".$date_value."\">";
+		return  "<input class=\"form-control date-picker\" type=\"text\" cols=\"120\" id=\"".$this->fieldname."\" name=\"".$this->fieldname."\" value=\"".$date_value."\">";
 					
 
 	

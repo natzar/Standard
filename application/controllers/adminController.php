@@ -51,15 +51,9 @@
 		include "application/models/showModel.php";
 		$show = new showModel();
 		
-		include "lib/vendor/Google-Analytics-API-PHP-master/examples/basics.php";
-		print_r($visits);
+
 		$data = array(
-			"emails_sent" => count($show->search(array("table" => "ninja_automatic_links","enviado" => "1"))),
-			"visits" => $visits["totalsForAllResults"]["ga:visits"],
-			"leads" => "X",
-			"presupuestos" => count($show->search(array("table" => "ninja_presupuestos"))),
-			"ventas" => count($show->search(array("table" => "ninja_facturas")))
-		
+			"HOOK_JS" => ''
 		);
 		$this->view->show("dashboard.php",$data);
 	
@@ -82,7 +76,7 @@
 		      		          
 		          );
 		
-		 $this->view->show("show.php", $data);	
+		 $this->view->show("table.php", $data);	
     }
     
     
@@ -130,7 +124,7 @@
 		          );
 		          
 		
-				 $this->view->show("show.php", $data);
+				 $this->view->show("table.php", $data);
 	}
 	 public function detail(){
     	$config = Config::singleton();
@@ -218,12 +212,19 @@ $_SESSION['return_url'] =  $_SERVER['REQUEST_URI'] ;
         $raw = ($rid != -1) ? $form->getFormValues($table,$rid) : '';
 				//print_r($raw);
 				
-	
+
+                      
+                      	
     	for ($i=0;$i< count($fields);$i++){
     			if ($fields[$i] != $table.'Id'){	
-    					$form_html.= "<div class='control-group'><label class='control-label'>";
+    					$form_html.= "<div class='form-group'><label class='form-label'>";
     					$form_html .= ucfirst($fields_labels[$i]);
-    					$form_html .= "</label><div class='controls'>";		
+    					$form_html .= "</label>";
+    					// added to provide hints about the field
+    					if (isset($field_hints)  and $field_hints[$i] != ''){
+	    					$form_html .="<span class=\"help\">e.g. \"".$field_hints[$i]."\"</span>";    					
+    					}
+    					$form_html .="<div class='controls'>";		
     					if (!class_exists($fields_types[$i])) die ("La clase ".$fields_types[$i]." no existe");
     					$VALUE = isset($raw[$fields[$i]]) ? $raw[$fields[$i]] : '';
     					$field_aux = new $fields_types[$i]($fields[$i],$fields_labels[$i],$fields_types[$i],$VALUE,$table,$rid);

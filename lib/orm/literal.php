@@ -8,7 +8,11 @@ final class literal extends field{
 		return stripslashes($this->value);
 	}
 	function bake_field (){
-		return "<input  type=\"text\" class='' placeholder=\"".$this->fieldname."\" name=\"".$this->fieldname."\" id=\"".$this->fieldname."\" value=\"".$this->value."\">";
+                        
+		return "<input name=\"".$this->fieldname."\" id=\"".$this->fieldname."\" value=\"".$this->value."\" type=\"text\"  placeholder=\"".$this->fieldname."\" class=\"form-control\">                 ";
+                      
+
+
 
 		
 
