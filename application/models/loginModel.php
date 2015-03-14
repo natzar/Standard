@@ -31,10 +31,11 @@ class loginModel extends ModelBase
         	} else{ 
 				//	echo 'invalid';
         		$_SESSION['login_attemp']++;
+        		$_SESSION['error'] = "Usuario o Password incorrecto";
         		header ("location: ".$config->get('base_url')."admin/?c=1");
         	}				
         } else {
-
+       		$_SESSION['error'] = "Usuario o Password incorrecto";
         	header ("location: ".$config->get('base_url')."admin/?c=2");
         } 
 

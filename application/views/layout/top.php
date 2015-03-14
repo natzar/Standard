@@ -89,5 +89,6 @@
 	    <![endif]-->
     </head>    
   	<body class="<?= get_param('p') ?>">
-  	<!-- Work hard, and be nice to people  -->
-	<? include "top-content.php"; ?>
+		<?php flush(); ?>
+  		<!-- Work hard, and be nice to people  -->
+		<? include "top-content.php"; ?>
