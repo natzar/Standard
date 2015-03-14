@@ -95,6 +95,8 @@ endif;
         <div class="col-lg-6">
             <h4>Road Map</h4>
           <ol>
+          	<li>Manage exceptions and informative fatal errors</li>
+          	<li>MySQL errors. Allow init without mysql setup</li>
           	<li>Documentation</li>
           	<li>Easy installation Script.</li>
           	<li>Easy way to manage more ORM/fields</li>
