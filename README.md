@@ -7,6 +7,8 @@ Standart 2
 	Date: 10/Feb/2009 
 
 
+Standart = Turkish word for Standart. In english, Stand for art, Support Art. This software provides a complete support for taylor made websites. From PSD-art to data driven apps.
+
 Summary
 ------------
 I am using this custom CRUD solution for more than 6 years in a lot of projects.  
@@ -18,6 +20,7 @@ Requirements
 - Php4 > 
 - MySql 
 - PDO:: Support 
+- Apache (htaccess in project's root folder support)
 
 Dependencies
 ------------
