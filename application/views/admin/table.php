@@ -31,10 +31,21 @@
         <div class="span12">
           <div class="grid simple ">
             <div class="grid-title">
-                     <a class="btn btn-primary" href="admin/form/<?= $table ?>">Añadir nuevo</a>
-                                    <!-- <div class="tools"> <a href="C1E5A8A7-5BD0-4C4E-9AD8-32BD94BCEE89.html" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="C1E5A8A7-5BD0-4C4E-9AD8-32BD94BCEE89.html" class="reload"></a> <a href="C1E5A8A7-5BD0-4C4E-9AD8-32BD94BCEE89.html" class="remove"></a> </div> -->
+            
+    
+<!--
+
+<a class="btn btn-warning" style="display:inline-block;"  href="form/import/<?= $table ?>"><i class="icon-search"></i> Importar</a>
+
+
+-->
+
+          <a class="btn btn-cons btn-primary" href="admin/form/<?= $table ?>"><i class="fa fa-cloud-upload"></i> <?=ADDNEW?></a>
+                                       
             </div>
             <div class="grid-body ">
+            
+            <? if (count($items) > 0): ?>
               <table  data-table="<?= $table ?>" class="table table-hover table-condensed" id="example">
                 <thead>
                 
@@ -42,11 +53,13 @@
                   
            
 
+<!--
 
  <th style="width:1%"><div class="checkbox check-default" style="margin-right:auto;margin-left:auto;">
                         <input type="checkbox" value="1" id="checkbox1">
                         <label for="checkbox1"></label>
                       </div></th>
+-->
 
 
                   <?	foreach ($items_head as $item): ?>
@@ -62,10 +75,12 @@
                 for($i=0;$i<$itemsTotal;$i++):   ?>
                    <tr id="recordsArray_<?= $items[$i][$table.'Id']?>">
 <!-- <td><input type="checkbox"></td> -->
-                    <td class="v-align-middle"><div class="checkbox check-default">
+                <!--
+    <td class="v-align-middle"><div class="checkbox check-default">
                         <input type="checkbox" value="3" id="checkbox<?=$i?>">
                         <label for="checkbox<?=$i?>"></label>
                       </div></td>
+-->
 
                 <?    $row = $items[$i]; 
                 $j = 0;
@@ -100,38 +115,7 @@
       </div>
     </div>
    
-
-
-<br>
-
-<a class="button btn-success" style="float:left;clear:both;"  href="admin/form/<?= $table ?>"><i class="icon-plus"></i> <?=ADDNEW?></a>
-<a class="button button [secondary success alert]" style="display:inline-block;"  href="admin/search/<?= $table ?>"><i class="icon-search"></i> <?=SEARCH?></a>
-
-
-
-<!--
-
-<a class="btn btn-warning" style="display:inline-block;"  href="form/import/<?= $table ?>"><i class="icon-search"></i> Importar</a>
--->
-
-
-
-
-<div style="clear:both;">
-<? if (count($items) > 0): ?>
-<input type="search" class="light-table-filter" data-table="order-table"  placeholder="Filtrar" id="search_pagination" style="width:200px;max-width:200px display:inline-block;" value=""><br>
-    <table class='table table-striped tablaMain order-table' data-table="<?= $table ?>" id='tabla_0'  border="0" >
-        <thead>
-            <tr>
-<!-- <th><input type="checkbox"></th> -->
-         	
-        </thead>
-        <tbody>
-        
-	   </tbody>
-    </table>
-    
-   
+     
    
 
 <? else: ?>
@@ -142,52 +126,3 @@
 
 <? if(!empty($HOOK_FOOTER)) echo $HOOK_FOOTER; ?>
 
-<script>
-(function(document) {
-	'use strict';
-
-	var LightTableFilter = (function(Arr) {
-
-		var _input;
-
-		function _onInputEvent(e) {
-			_input = e.target;
-			var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
-			Arr.forEach.call(tables, function(table) {
-				Arr.forEach.call(table.tBodies, function(tbody) {
-					Arr.forEach.call(tbody.rows, _filter);
-				});
-			});
-		}
-
-		function _filter(row) {
-			var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
-			row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
-		}
-
-		return {
-			init: function() {
-				var inputs = document.getElementsByClassName('light-table-filter');
-				Arr.forEach.call(inputs, function(input) {
-					input.oninput = _onInputEvent;
-				});
-			}
-		};
-	})(Array.prototype);
-
-	document.addEventListener('readystatechange', function() {
-		if (document.readyState === 'complete') {
-			LightTableFilter.init();
-		}
-	});
-
-})(document);
-
-$('#search_pagination').on('change', function() {
-		if (document.readyState === 'complete') {
-			LightTableFilter.init();
-		}
-	});
-
-//})(document);
-</script>

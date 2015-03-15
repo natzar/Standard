@@ -108,12 +108,12 @@ if (strstr($name,"file")) $type = 'file_file';
    
         $consulta = $this->db->prepare('SHOW TABLES FROM '.$dbname);
         $consulta->execute();
-        
+        echo '<strong>Filling DB with fake data...</strong><hr>';
 		$STRINGS = array("Lorem ipsum dolor sit amet","dolore eu fugiat","mollit anim id est laborum.");
       
         while ($row = $consulta->fetch(PDO::FETCH_NUM)) {
         	$tabla = $row[0];
-echo '<br>------ '.$tabla.'<br>';
+echo $tabla.': '.$num_recs.' new records<br>';
         	if ($prefix == '' or strstr($tabla,$prefix)){
 				include $config->get('setupFolder').$tabla.".php";
 				$num_entry = 0;
@@ -137,7 +137,7 @@ echo '<br>------ '.$tabla.'<br>';
 	        		$types = substr($types,0,strlen($types)-1);    
 					$updater = $this->db->prepare('INSERT INTO '.$tabla.' ('.implode(",",$fields).') VALUES ('.$types.')');
 					$updater->execute();
-					echo 'INSERT INTO '.$tabla.' ('.implode(",",$fields).') VALUES ('.$types.')';
+				//	echo 'INSERT INTO '.$tabla.' ('.implode(",",$fields).') VALUES ('.$types.')';
 					$num_entry++;
 				}
         	}

@@ -29,8 +29,8 @@
                 </div>
                 <div class="grid-body no-border"> 
                 	<form class='form' id="form21" name="form21" action="admin/update" method="POST" enctype="multipart/form-data">
-		                <a href='javascript: history.back(-1);' class='btn btn-success '><i class='icon-arrow-left'></i> <?= GOBACK?></a>  	&nbsp;&nbsp;
-						<a class='btn btn-primary' onclick="check_form_values(this.form);" href="#"><?= SAVEANDBACK?></a>
+					<button type="button" class='btn btn-success btn-cons'  onclick="history.back(-1);" ><i class="fa fa-arrow-left fa-icon-arrow-left"></i>&nbsp; <?= GOBACK?></button>
+					<button type="button" class='btn btn-primary btn-cons'  onclick="check_form_values(this.form);" ><i class="fa fa-check"></i>&nbsp; <?= SAVEANDBACK?></button>
 						<hr>                
 	                  <div class="row">
     	                <div class="col-md-8 col-sm-8 col-xs-8">                      			
@@ -41,9 +41,8 @@
 	<input type="hidden" name="op" value='<?=$op?>'>
 	<input type="hidden" name="rid" value="<?= $rid ?>">
 	<div class='control-group'><label>&nbsp;</label><div class='controls'>
-        <a href='javascript: history.back(-1);' class='btn btn-success '><i class='icon-arrow-left'></i> <?= GOBACK?></a>
-    	&nbsp;&nbsp;
-	<a class='btn btn-primary' onclick="check_form_values(this.form);" href="#"><?= SAVEANDBACK?></a>
+					<button type="button" class='btn btn-success btn-cons'  onclick="history.back(-1);" ><i class="fa fa-arrow-left fa-icon-arrow-left"></i>&nbsp; <?= GOBACK?></button>
+					<button type="button" class='btn btn-primary btn-cons'  onclick="check_form_values(this.form);" ><i class="fa fa-check"></i>&nbsp; <?= SAVEANDBACK?></button>
 
 	</div>
 

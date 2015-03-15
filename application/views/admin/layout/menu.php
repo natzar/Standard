@@ -20,8 +20,8 @@
  
          <li class=""> <a href="C1E5A8A7-5BD0-4C4E-9AD8-32BD94BCEE89.html"> <i class="icon-custom-portlets"></i> <span class="title">Tablas</span> <span class="arrow"></span> </a>
           <ul class="sub-menu">
-          	<? foreach($SIDEDATA['tables'] as $table): ?>
-	            <li> <a href="admin/table/<?= $table ?>"><?= ucfirst($table) ?></a> </li>          	
+          	<? foreach($SIDEDATA['tables'] as $table_aux): ?>
+	            <li> <a href="admin/table/<?= $table_aux ?>"><?= ucfirst($table_aux) ?></a> </li>          	
           	<? endforeach; ?>
           </ul>
         </li>

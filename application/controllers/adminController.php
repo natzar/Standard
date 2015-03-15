@@ -74,8 +74,8 @@
 					"table_label" =>$items->getTableAttribute($table,'table_label'),
 					"notification" => get_param('i') != -1 ? 'Se ha guardado correctamente' : ''
 		      		          
-		          );
-		
+		        	  );
+
 		 $this->view->show("table.php", $data);	
     }
     

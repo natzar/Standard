@@ -1,5 +1,9 @@
 
-<? if ($config->get('developer_mode')==1): 
+
+<? 
+
+
+if ($config->get('developer_mode')==1): 
 		echo '<div class="well">';
 		echo 'Developer_mode: ON<hr>';
 		echo '<strong>GETT</strong><br>';
@@ -8,7 +12,10 @@
 		print_r($_SESSION);
 		echo '</div>';
 	endif;
+
 	?>
+
+
 		</div>
 </div>
 		<footer>
@@ -59,13 +66,11 @@
 <script src="public/admin/assets/js/form_elements.js" type="text/javascript"></script>
 
 <!-- BEGIN CORE TEMPLATE JS -->
-<!--
 
 <script src="public/admin/assets/js/core.js" type="text/javascript"></script>
 <script src="public/admin/assets/js/chat.js" type="text/javascript"></script>
 <script src="public/admin/assets/js/demo.js" type="text/javascript"></script>
 
--->
 <!-- END CORE TEMPLATE JS -->
 <!-- END JAVASCRIPTS -->
 
@@ -78,7 +83,53 @@
 		var obj = $("a[href='"+cadena+"']");
 		obj.parent().addClass("active");
 
-		
+(function(document) {
+	'use strict';
+
+	var LightTableFilter = (function(Arr) {
+
+		var _input;
+
+		function _onInputEvent(e) {
+			_input = e.target;
+			var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+			Arr.forEach.call(tables, function(table) {
+				Arr.forEach.call(table.tBodies, function(tbody) {
+					Arr.forEach.call(tbody.rows, _filter);
+				});
+			});
+		}
+
+		function _filter(row) {
+			var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+			row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+		}
+
+		return {
+			init: function() {
+				var inputs = document.getElementsByClassName('light-table-filter');
+				Arr.forEach.call(inputs, function(input) {
+					input.oninput = _onInputEvent;
+				});
+			}
+		};
+	})(Array.prototype);
+
+	document.addEventListener('readystatechange', function() {
+		if (document.readyState === 'complete') {
+			LightTableFilter.init();
+		}
+	});
+
+})(document);
+
+$('#search_pagination').on('change', function() {
+		if (document.readyState === 'complete') {
+			LightTableFilter.init();
+		}
+	});
+
+
 	<? 	echo $HOOK_JS; ?>		</script>
 	
 </body>
