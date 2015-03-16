@@ -1,18 +1,24 @@
+	 <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="<?= $base_url ?>"><i class="glyphicon glyphicon-paperclip"></i> <?= $base_title ?></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
 
-
-
-    <div class="container">
-      <div class="header">
-        <nav>
-          <ul class="nav nav-pills pull-right">
-            <li role="presentation" class="active"><a href="#">Home</a></li>
-<!--
-            <li role="presentation"><a href="#">About</a></li>
-            <li role="presentation"><a href="#">Contact</a></li>
--->
+           <li><a href="#">Welcome</a></li>
           </ul>
-        </nav>
-        <h3 class="text-muted"><a href="<?= $base_url ?>">Standart</a></h3>
+
+            
+             
+        </div>
       </div>
-
-
+    </nav>
+    
+    <div class="container">

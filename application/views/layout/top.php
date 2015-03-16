@@ -72,9 +72,6 @@
 		<!-- Bootsrap LOCAL files -->
         <link rel="stylesheet" href="public/vendor/bootstrap-3.3.2-dist/css/bootstrap.min.css">
 
-		<!-- Bootstrap Jumbotron narrow -->
-    	<link href="public/vendor/bootstrap-3.3.2-dist/css/jumbotron-narrow.css" rel="stylesheet">
-
         <!-- Custom styles for this template -->
         <link rel="stylesheet" href="public/vendor/bootstrap-3.3.2-dist/css/bootstrap-theme.min.css">		
         
