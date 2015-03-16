@@ -4,6 +4,11 @@
 class installModel extends ModelBase
 {
 	
+	public function makeDefaultMenu(){
+
+
+	
+	}
     public function makeSetups($table){
 		//$_SESSION['errors'] = 'Creating all /setup/ files ...<hr>';
         $config = Config::singleton();
