@@ -1,1 +1,0 @@
-The installation has been completed. click finish to proceed.
