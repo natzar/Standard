@@ -44,7 +44,7 @@
           <ul class="nav navbar-nav navbar-right">
 
             <li><a href="<?= $base_url ?>../"><i class="glyphicon glyphicon-eye-open"></i> Ir a la página</a></li>
-            <li><a href="admin/login/logout"><i class="glyphicon glyphicon-lamp"></i> Cerrar Sesión</a></li>
+            <li><a href="admin/logout"><i class="glyphicon glyphicon-lamp"></i> Cerrar Sesión</a></li>
 
           </ul>
 
