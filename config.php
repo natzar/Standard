@@ -1,7 +1,7 @@
 <?
 /*
 
-	Standart is an alternative to Wordpress. An Enjoyable php framework + crud for Data-driven applications.
+	Standart is an Enjoyable php framework + crud for Data-driven Web applications.
     Copyright (C) 2015 Beto López Ayesa
 
     This program is free software: you can redistribute it and/or modify
@@ -18,70 +18,78 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
     
 	config.php - Configuration file
-                                                                                                                                                 
-*/             
-	/* Basic */
-	$PATH = dirname(__FILE__);
+	----------------------------------------------------------------------------------------*/	                                                                                                                                              
+
+	/* Init Config file */
 	$config = Config::singleton();
-	$config->set('version',2);
-	$config->set('updated','12/3/2015');
-	$config->set('developer_mode',true);
+	$PATH = dirname(__FILE__);
+	
+	
+	/* Relative path to App-Root - http://www.yourserver.com/RELATIVE_PATH/config.php
+		If you are in root just leave it like "/"
+	----------------------------------------------------------------------------------------*/	   
+	$RELATIVE_PATH = '/alphas/96MicroFramework/';
+		
+	/* Installation Step 1 - DB */
+	$config->set('dbhost', 'localhost');
+	$config->set('dbname', 'magsam');
+	$config->set('dbuser', 'root');
+	$config->set('dbpass', '');
+	$config->set('db_prefix','');
+	$config->set('tabla_default','noticias');
+    $config->set('db_support',true);
+    
+   	/* Installation Step 2 - Admin Passwords */
+    $config->set('validUser','test');
+    $config->set('validPass','test');
+
+    /* Installation Step 3 - Global variables */	
 	$config->set('base_email','contacto@phpninja.info');
 	$config->set('base_title','Standart 2');
-	$config->set('path',$PATH); 
-	
-	/* Languages */	
-	$config->set('default_lang','es');
-	$config->set('available_langs',array('es','en'));
-	
-	/* SEO */
-	$config->set('seo_title','Home');
+
+	$config->set('seo_title','Home'); 
 	$config->set('seo_description','Servicios IT para Empresas, Startups, Agencias, Estudios y Freelances. Somos un equipo con más de 15 años de experiencia en desarrollo y puesta en marcha de proyectos y servicios digitales.');	
 	$config->set('seo_keywords','');
-	$config->set('seo_image','//'.$_SERVER['SERVER_NAME'].'/alphas/96MicroFramework/public/img/icons/Facebook.png');
-	$config->set('base_url','//'.$_SERVER['SERVER_NAME'].'/alphas/96MicroFramework/');
-	$config->set('base_url_data','//'.$_SERVER['SERVER_NAME'].'/alphas/96MicroFramework/public/data/');
+	$config->set('seo_image','//'.$_SERVER['SERVER_NAME'].$RELATIVE_PATH.'public/img/icons/Facebook.png');
+	
+	
+	/* Installtion Step 4 -  Languages */	
+	$config->set('default_lang','esp');
+	$config->set('available_langs',array('esp','cat','eng'));
+	
+	/* Installation Step 5 - Images Sizes */
+	$config->set('big_h',640);// 0 for no resize
+	$config->set('big_w',960); // 0 for no resize
+	$config->set('img_content_w',480);
+	$config->set('img_content_h',320);
+	$config->set('thumb_h',160);
+	$config->set('thumb_w',240);	
 
-	/* Third Party: Google Analytics */
+	/* Installation Step 6 - Third Party: Google Analytics */
 	$config->set('google_analytics-UA','UA-9999999');
 
-	/* PATHS */
-	$config->set('setup_dir',$PATH.'/setup/');
+
+	/* Don't touch anything beyond this point if you are not sure about what are you doing 
+	----------------------------------------------------------------------------------------*/	
+
+	/* Base Urls & Paths */
+	$config->set('path',$PATH); 
+	$config->set('base_url','//'.$_SERVER['SERVER_NAME'].$RELATIVE_PATH);
+	$config->set('base_url_data','//'.$_SERVER['SERVER_NAME'].$RELATIVE_PATH.'public/data/');
+	
+	$config->set('setup_dir',$PATH.'/setup/'); 
 	$config->set('data_dir',$PATH.'/data/');
 	$config->set('controllersFolder', 'application/controllers/');
 	$config->set('modelsFolder', 'application/models/');
 	$config->set('viewsFolder', 'application/views/');
   	$config->set('setupFolder', $PATH.'/setup/');
   	$config->set('languagesFolder', $PATH.'/application/language/');
-  		 
-	/* DB */
-	$config->set('dbhost', 'localhost');
-	$config->set('dbname', '96levels');
-	$config->set('dbuser', 'root');
-	$config->set('dbpass', '');
-	$config->set('db_prefix','');
-	$config->set('tabla_default','ninja_clientes');
-    $config->set('db_support',true);
-    
-    /* Login & Private Urls */
-    $config->set('private',array("admin"));
-	/* Admin */
-    $config->set('validUser','test');
-    $config->set('validPass','test');
+  		
+    $config->set('private',array("admin"));    /* Login & Private Urls */
 
-	/* Toggles */
-	$config->set('combo_add',0);
-	$config->set('delete_permission',1);
+	$config->set('combo_add',0); 	/* Toggle: Plus sign to add new option on Combo field */
+	$config->set('delete_permission',1); /* Toggle: Show delete icon in each table row */
+	$config->set('developer_mode',false); 	/* Toggle: DEVELOPER MODE, show session and params values */
 
-	/* Images Sizes */
-	$config->set('big_h',640);// 0 for no resize
-	$config->set('big_w',960); // 0 for no resize
-	$config->set('img_content_w',480);
-	$config->set('img_content_h',320);
-	$config->set('thumb_h',160);
-	$config->set('thumb_w',240);
-
-
-
-
-
+	$config->set('version',2); 	/* Constants */
+	$config->set('updated','12/3/2015'); 	/* Constants */
