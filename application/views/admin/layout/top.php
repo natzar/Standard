@@ -16,6 +16,8 @@
 	   	<link href="public/admin/admin.css" rel="stylesheet" type="text/css" />
 	<!-- 	<link rel="stylesheet" href="public/vendor/jQuery-ui-1.8.16/themes/base/jquery.ui.all.css"> -->
 
+		<!-- PLUGINS -->
+	   	<link href="public/vendor/bootstrap-datepicker/css/datepicker.css"></script>   	
 
 		<script>
 		var BASE_URL = '<?= $base_url ?>';
@@ -42,7 +44,7 @@
           <ul class="nav navbar-nav navbar-right">
 
             <li><a href="<?= $base_url ?>../"><i class="glyphicon glyphicon-eye-open"></i> Ir a la página</a></li>
-            <li><a href="login/logout"><i class="glyphicon glyphicon-lamp"></i> Cerrar Sesión</a></li>
+            <li><a href="admin/login/logout"><i class="glyphicon glyphicon-lamp"></i> Cerrar Sesión</a></li>
 
           </ul>
 

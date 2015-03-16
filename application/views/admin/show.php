@@ -10,9 +10,9 @@
 
 <div id="errors" class="alert alert-info" style="display:none">         </div>
          
-<a class="btn btn-success" style="display:inline-block"  href="admin/form/build/<?= $table ?>"><i class="glyphicon glyphicon-floppy-open"></i> <?=ADDNEW?></a>
+<a class="btn btn-success" style="display:inline-block"  href="admin/form/<?= $table ?>"><i class="glyphicon glyphicon-floppy-open"></i> <?=ADDNEW?></a>
 
-<a class="btn btn-primary" style="display:inline-block;"  href="admin/form/search/<?= $table ?>"><i class="glyphicon glyphicon-search"></i> <?=SEARCH?></a>
+<a class="btn btn-primary" style="display:inline-block;"  href="admin/search/<?= $table ?>"><i class="glyphicon glyphicon-search"></i> <?=SEARCH?></a>
 
 <br><br>
 
