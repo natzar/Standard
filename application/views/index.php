@@ -38,6 +38,7 @@ endif;
 <div class="jumbotron">
         <h1>Standart</h1>
         <p class="lead">Welcome! Simple and enjoyable PHP Framework + CRUD, for DATA-driven Applications.</p>
+        <p><?= WELCOME ?></p>
 <!--         <p><a class="btn btn-lg btn-success" href="#" role="button">Download</a></p> -->
       </div>
 

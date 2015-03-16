@@ -11,8 +11,14 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-
-           <li><a href="#">Welcome</a></li>
+			<?
+				$langs = $config->get('available_langs');
+				foreach($langs as $lang):
+			?>
+    	       <li><a href="<?= $lang ?>/"><?= ucfirst($lang) ?></a></li>
+           <? 
+	           	endforeach;
+           ?>
           </ul>
 
             
