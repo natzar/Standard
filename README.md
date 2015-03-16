@@ -7,7 +7,7 @@ Standart 2
 	Date: 10/Feb/2009 
 
 
-Standart = Turkish word for Standart. In english, Stand for art, Support Art. This software provides a complete support for taylor made websites. From PSD-art to data driven apps.
+Standart = Turkish word for Standard. In english, Stand for art, Support Art. This software provides a complete support for taylor made websites. From PSD-art to data driven apps.
 
 Summary
 ------------
