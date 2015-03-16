@@ -100,7 +100,7 @@ class formModel extends ModelBase
         $config = Config::singleton();
 		if(in_array('fecha', $fields_types) or in_array('hora',$fields_types) or in_array('combo_child',$fields_types) or in_array('tinymce',$fields_types))
 		
-			/*
+			
 	$output.= 'tinyMCE.init({
    		document_base_url: "'.$config->get('base_url').'",
         mode : "textareas", 
@@ -128,12 +128,18 @@ class formModel extends ModelBase
 
         
     });'; 
-*//* $this->config->get('base_url').'public/views/assets/css/style.css", */
 
-/*    content_css: "'.$this->config->get('base_url').'admin/views/css/tinymce_content.css" */
 				for ($i=0;$i< count($fields);$i++){
 						if ($fields_types[$i] == 'fecha')
-							$output .='$(function() {	$("#'.$fields[$i].'").datepicker(); });';
+							$output .='$(function() {	$("#'.$fields[$i].'").datepicker({
+							 format: "dd/mm/yyyy",
+							 todayHighlight: "true",
+							 todayHighlight: true,
+							 weekStart: 1,
+							 autoclose: true
+
+							}); }
+							);';
 						if ($fields_types[$i] == 'hora'){
 							$output .= "$('#".$fields[$i]."').timepicker({
 									hourGrid: 4,

@@ -55,7 +55,7 @@
 <script type="text/javascript"> 
 			$(document).ready(function(){
 				$('#background').smartBackgroundResize({
-					image: '<?= $base_url ?>/public/img/admin/background.jpg' // relative or absolute path to background image file				
+					image: '<?= $base_url ?>/public/admin/img/background.jpg' // relative or absolute path to background image file				
 				});
 			});
 		</script>		
