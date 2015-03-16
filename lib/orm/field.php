@@ -60,7 +60,6 @@ require_once "percent.php";
 require_once "slug.php";
 require_once "tags.php";
 require_once "text.php";
-require_once "textarea.php";
 require_once "tinymce.php";
 require_once "truefalse.php";
 require_once "url.php";

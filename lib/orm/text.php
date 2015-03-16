@@ -9,7 +9,7 @@ final class text extends field{
 		return '';
 	}
 	function bake_field (){
-		return "<textarea class='span6'  id=\"".$this->fieldname."\" name=\"".$this->fieldname."\"  >".$this->value."</textarea>";
+		return "<textarea class='form-control col-lg-6'  id=\"".$this->fieldname."\" name=\"".$this->fieldname."\"  >".$this->value."</textarea>";
 	}
 		
 	function exec_add () {

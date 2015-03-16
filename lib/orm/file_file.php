@@ -14,7 +14,7 @@ final class file_file extends field{
 			$output .= "<BR>";
 		}
 							
-		$output .= "<input type=\"file\" name=\"".$this->fieldname."\">";
+		$output .= "<input type=\"file\" class=\"form-control\" name=\"".$this->fieldname."\">";
 			return $output;	
 		echo($data_dir);				
 	}
