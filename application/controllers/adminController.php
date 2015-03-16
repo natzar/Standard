@@ -76,7 +76,7 @@
 		      		          
 		        	  );
 
-		 $this->view->show("table.php", $data);	
+		 $this->view->show("show.php", $data);	
     }
     
     

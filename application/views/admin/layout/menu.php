@@ -7,23 +7,13 @@
 	Modify at your own
 
  -->
-   <ul>
-        <li class="start"> <a href="admin/dashboard"> <i class="icon-custom-home"></i> <span class="title">Dashboard</span> <span class="selected"></span> <span class="arrow"></span> </a> 
-  		   <!--
- <ul class="sub-menu">
-              <li > <a href="dashboard_v1.html"> Dashboard v1 </a> </li>
-              <li class="active"> <a href="index.html "> Dashboard v2 <span class=" label label-info pull-right m-r-30">NEW</span></a></li>
-            </ul>
--->
-		    </li>
 
- 
-         <li class=""> <a href="C1E5A8A7-5BD0-4C4E-9AD8-32BD94BCEE89.html"> <i class="icon-custom-portlets"></i> <span class="title">Tablas</span> <span class="arrow"></span> </a>
-          <ul class="sub-menu">
+        <li class="start"> <a href="admin/dashboard"> <i class="glyphicon glyphicon-home"></i> <span class="title">Dashboard</span> <span class="selected"></span> <span class="arrow"></span> </a> 
+
+
           	<? foreach($SIDEDATA['tables'] as $table_aux): ?>
-	            <li> <a href="admin/table/<?= $table_aux ?>"><?= ucfirst($table_aux) ?></a> </li>          	
+	            <li> <a href="admin/table/<?= $table_aux ?>"><i class="glyphicon glyphicon-book"></i> <?= ucfirst($table_aux) ?></a>  </li>          	
           	<? endforeach; ?>
-          </ul>
-        </li>
 
-</ul>
+
+
