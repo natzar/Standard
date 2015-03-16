@@ -7,8 +7,11 @@
 <? endif; ?>
 
           <h1 class="page-header"><?= ucfirst($table_label)?></h1>
-
-<div id="errors" class="alert alert-info" style="display:none">         </div>
+<? if (isset($_SESSION['errors']) and !empty($_SESSION['errors'])): ?>
+<div id="errors" class="alert alert-success">    <?= $_SESSION['errors'] ?>     </div>
+<? 
+unset($_SESSION['errors']);
+endif; ?>
          
 <a class="btn btn-success" style="display:inline-block"  href="admin/form/<?= $table ?>"><i class="glyphicon glyphicon-floppy-open"></i> <?=ADDNEW?></a>
 

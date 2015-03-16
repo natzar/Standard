@@ -55,20 +55,9 @@ endif;
 			
 			
 			<h4>Auto generators</h4>
-			<p>These are required to write the /setup/ files and map Mysql Tables and fields</p>
-			<a href="index.php?action=makesetups&table=all" class="btn btn-primary">MakeSetups</a>
+			<p>These are required to write the /setup/ files and map Mysql Tables and fields.
+			Setup files are created automatically from admin. You can generate also controllers and models</p>
 
- <a href="index.php?action=filldb" class="btn btn-info">Fill db with fake data</a>
-
-<p>		* If you want to change anything, just change your mysql tables, and click again to generate new setup files.</p>
-
-
- <h5>Create Controllers and Models</h5>
- <p>Models to access data, and controllers to manage urls and views </p>
- 
-	<a href="index.php?action=makemodels" class="btn btn-success">Make Models, Controllers, Forms and Views</a>
-		
-		
 
 
           

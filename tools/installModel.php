@@ -5,7 +5,7 @@ class installModel extends ModelBase
 {
 	
     public function makeSetups($table){
-		echo 'Creating all /setup/ files ...<hr>';
+		//$_SESSION['errors'] = 'Creating all /setup/ files ...<hr>';
         $config = Config::singleton();
         if (!isset($table) or $table =='') die("no table selected");
         $prefix = $table; //$config->get('db_prefix');
@@ -19,7 +19,9 @@ class installModel extends ModelBase
         	$tabla = $row[0];
 
         	if ($prefix == 'all' or strstr($tabla,$prefix)){
-        	echo '<strong>'.$tabla.'</strong>: ';
+
+        	$_SESSION['errors'] .= '<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> /setup/';
+        	$_SESSION['errors'] .= '<strong>'.$tabla.'.php</strong> file created:<br> ';
 			$recordset = $this->db->prepare("DESCRIBE $tabla");
 			$recordset->execute();
 			$campos_a_mostrar = $types = '';
@@ -64,9 +66,9 @@ if (strstr($name,"file")) $type = 'file_file';
         			if ($name != $tabla."Id") $types .=  '"'.$type.'",';
         			
         			
-        			echo $nom;
-        			echo " (<i>".$type."</i>)";
-        			echo " | ";
+        			$_SESSION['errors'] .= $nom;
+        			$_SESSION['errors'] .= " (<i>".$type."</i>)";
+        			$_SESSION['errors'] .= " | ";
         	}
     		$campos_a_mostrar = substr($campos_a_mostrar,0,strlen($campos_a_mostrar)-1);
     		$types = substr($types,0,strlen($types)-1);
@@ -88,11 +90,13 @@ if (strstr($name,"file")) $type = 'file_file';
         ';
         		fwrite($aux,$resultx);
         		fclose($aux);
+        		 $_SESSION['errors'] .= '<strong>Completed Successfully</strong>';
         	}
-        	echo '<hr>';
+	       
+
         }
-        if ($consulta)
-        echo '<strong>Completed Successfully</strong>';
+
+
 
 	}	
 	
@@ -108,12 +112,12 @@ if (strstr($name,"file")) $type = 'file_file';
    
         $consulta = $this->db->prepare('SHOW TABLES FROM '.$dbname);
         $consulta->execute();
-        echo '<strong>Filling DB with fake data...</strong><hr>';
+        $_SESSION['errors'] .= '<strong>Filling DB with fake data...</strong><hr>';
 		$STRINGS = array("Lorem ipsum dolor sit amet","dolore eu fugiat","mollit anim id est laborum.");
       
         while ($row = $consulta->fetch(PDO::FETCH_NUM)) {
         	$tabla = $row[0];
-echo $tabla.': '.$num_recs.' new records<br>';
+$_SESSION['errors'] .= $tabla.': '.$num_recs.' new records<br>';
         	if ($prefix == '' or strstr($tabla,$prefix)){
 				include $config->get('setupFolder').$tabla.".php";
 				$num_entry = 0;
@@ -137,7 +141,7 @@ echo $tabla.': '.$num_recs.' new records<br>';
 	        		$types = substr($types,0,strlen($types)-1);    
 					$updater = $this->db->prepare('INSERT INTO '.$tabla.' ('.implode(",",$fields).') VALUES ('.$types.')');
 					$updater->execute();
-				//	echo 'INSERT INTO '.$tabla.' ('.implode(",",$fields).') VALUES ('.$types.')';
+				//	$_SESSION['errors'] = 'INSERT INTO '.$tabla.' ('.implode(",",$fields).') VALUES ('.$types.')';
 					$num_entry++;
 				}
         	}

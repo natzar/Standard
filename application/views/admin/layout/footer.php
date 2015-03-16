@@ -24,13 +24,7 @@
 		obj.parent().addClass("active");
 
 
-		if (window.chrome){
-			$('#errors').html("OK Chrome detectado");
-			
-		}else{
-		
-			$('#errors').html("Mejor si usas Chrome <a href='//google.com/chrome'>Descárgalo</a>");
-		}
+	
 	<? 	echo $HOOK_JS; ?>		</script>
 	
 	</body>
