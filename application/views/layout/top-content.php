@@ -9,7 +9,20 @@
           </button>
           <a class="navbar-brand" href="<?= $base_url ?>"><i class="glyphicon glyphicon-paperclip"></i> <?= $base_title ?></a>
         </div>
+        
         <div id="navbar" class="navbar-collapse collapse">
+         <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+        
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Submenus <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Menu 1</a></li>
+                <li><a href="#">Menu 0</a></li>
+              </ul>
+            </li>
+                        <li><a href="#contact">Last Menu</a></li>
+          </ul>
           <ul class="nav navbar-nav navbar-right">
 			<?
 				$langs = $config->get('available_langs');
