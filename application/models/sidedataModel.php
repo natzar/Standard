@@ -16,14 +16,15 @@ class sidedataModel extends ModelBase
         
         $tableList = Array();
         while ($row = $consulta->fetch(PDO::FETCH_NUM)) {
-        	$tableList[] = $row[0];        	
+        	$tabla_no_prefix = substr($row[0],strlen($config->get('db_prefix')));
+        	$tableList[] = array($tabla_no_prefix,$row[0]);        	
         }
         return $tableList;
 	}
 	function load(){
 		
 		$sidedata = array(
-			"tables" => $this->tableList()		
+			
 		);
 		
 		return $sidedata;

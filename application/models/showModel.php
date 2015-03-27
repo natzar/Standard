@@ -12,7 +12,7 @@ class showModel extends ModelBase
 			include "tools/installModel.php";
 			$install = new installModel();
 			$install->makeSetups($table);
-			echo 'Created Setup file for '.$table;
+
 		}
     	require  "setup/".$table.".php";
     	$fr = $fields_labels;
@@ -107,6 +107,7 @@ class showModel extends ModelBase
         
         $order = (get_param('sorder') != -1) ? get_param('sorder') : $default_order; 
         $table_aux = $table;
+		$table_no_prefix = substr($table,strlen($this->config->get('db_prefix')));
         $params = gett();
       
       
@@ -117,12 +118,12 @@ class showModel extends ModelBase
         
 		while ($r = $consulta->fetch()):
             $row_array = array();
-            $row_array[$table.'Id'] = $r[$table.'Id'];
+            $row_array[$table_no_prefix.'Id'] = $r[$table_no_prefix.'Id'];
             for ($i = 0; $i < count($fields);$i++): 
 	               if (!isset($fields_to_show) or in_array($fields[$i],$fields_to_show) or empty($fields_to_show)   ): 
 						if (!class_exists($fields_types[$i])) 
 						    die ("La clase ".$fields_types[$i]." no existe");
-				        $field_aux = new $fields_types[$i]($fields[$i],$fields_labels[$i],$fields_types[$i],$r[$fields[$i]],$table,$row_array[$table.'Id']);
+				        $field_aux = new $fields_types[$i]($fields[$i],$fields_labels[$i],$fields_types[$i],$r[$fields[$i]],$table,$row_array[$table_no_prefix.'Id']);
 				    	$row_array[] =$field_aux->view();
 				    endif; 
              endfor; 
