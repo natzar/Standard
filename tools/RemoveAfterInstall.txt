@@ -1,7 +1,0 @@
-/***
-
-Don't upload the folder /tools to production FTP
-
-Or remove them if you allready generated all config files
-
-***/
