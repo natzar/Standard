@@ -19,6 +19,12 @@
 
 	}
 	public function index(){
+		if (!is_file($this->config->get('path')."/application/views/admin/layout/menu.php")){
+			require 'application/models/installModel.php';
+			$installModel = new installModel();
+			$installModel->makeDefaultMenu();
+		}
+
 		$this->dashboard();
 	}
 	public function login(){
@@ -157,8 +163,8 @@
 		$items = new showModel();
      	$table = 'courses';
      	$coursesId=get_param('a');
-$_SESSION['coursesId'] =  $coursesId ;
-$_SESSION['return_url'] =  $_SERVER['REQUEST_URI'] ;
+		$_SESSION['coursesId'] =  $coursesId ;
+		$_SESSION['return_url'] =  $_SERVER['REQUEST_URI'] ;
     	require 'application/models/formModel.php'; 	
 
 		$form = new formModel();
@@ -437,5 +443,27 @@ $_SESSION['return_url'] =  $_SERVER['REQUEST_URI'] ;
 	public function presupuesto(){
 		$this->view->show('presupuesto.php',array());
 	}
+
+	public function tools()
+	{
+		$params = gett();
+        require 'application/models/installModel.php';
+    	$tools = new installModel();
+	    $table = $params['table'];
+    	$id = $params['rid'];
+
+		switch($params['a']):
+			case 'makemodels':
+				    	$tools->generateModels($table);
+			break;
+			case 'filldb':
+				    	$tools->fillDb(30);			
+			break;
+			
+		endswitch;	
+
+		echo '1';		
+	}
+	
 
 }
