@@ -9,7 +9,7 @@ class showModel extends ModelBase
 	
 	public function getItemsHead($table){
 		if (!is_file("setup/".$table.".php")){
-			include "tools/installModel.php";
+			include "installModel.php";
 			$install = new installModel();
 			$install->makeSetups($table);
 

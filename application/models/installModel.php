@@ -35,7 +35,7 @@ class installModel extends ModelBase
 	}
 	
     public function makeSetups($table){
-		//$_SESSION['errors'] = 'Creating all /setup/ files ...<hr>';
+
         $config = Config::singleton();
         if (!isset($table) or $table =='') die("no table selected");
         $prefix = $table; //$config->get('db_prefix');
@@ -200,7 +200,7 @@ $_SESSION['errors'] .= $tabla.': '.$num_recs.' new records<br>';
     }
     
   public function generateModels($params){
-		echo 'Creating controllers and models in /application/controllers and /application/models ... '.$params.'<hr>';
+		$_SESSION['errors'] = '';
         $config = Config::singleton();
         
         $prefix = $params; //$config->get('db_prefix');
@@ -215,8 +215,8 @@ $_SESSION['errors'] .= $tabla.': '.$num_recs.' new records<br>';
         $path = dirname(__FILE__);
 		
 //		$aux = fopen($path.'/../application/controllers/'.$tabla.'Controller.php','w');
-		if (!is_writable($path.'/../application/controllers/')){
-		echo "<strong>Don't have permission to write in /application/controllers and /application/models </strong><br>
+		if (!is_writable($path.'/../controllers/')){
+		$_SESSION['errors'] .= "<strong>Don't have permission to write in /application/controllers and /application/models </strong><br>
 		Give em 777 permission.";
 		return false;
 		}
@@ -226,7 +226,7 @@ $_SESSION['errors'] .= $tabla.': '.$num_recs.' new records<br>';
         while ($row = $consulta->fetch(PDO::FETCH_NUM)) {
         	$tabla = $row[0];
 			$tabla_no_prefix = substr($tabla,strlen($config->get('db_prefix')));
-			echo '<hr><h2>Creating Models and Controllers '.$tabla.'<br>';
+			$_SESSION['errors'] .= '<hr><p>  <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Creating Models and Controllers '.$tabla.'</p>';
 
 
         	if ($prefix == '' or $tabla == $prefix){
@@ -235,7 +235,7 @@ $_SESSION['errors'] .= $tabla.': '.$num_recs.' new records<br>';
 				$campos_a_mostrar = $types = '';
 				$xxx = $recordset->fetchAll(PDO::FETCH_ASSOC);
 				foreach ($xxx as $field) {
-					echo "<br>";
+					//$_SESSION['errors'].= "<br>";
 					$name = $field['Field'];
 					if ($name != $tabla."Id") $campos_a_mostrar .=  $name.',';
 	 			}
@@ -537,19 +537,19 @@ class '.$tabla.'Model extends ModelBase
 
 
 $path = dirname(__FILE__);
-@mkdir($path.'/../application/views/forms/');
-$aux = fopen($path.'/../application/controllers/'.$tabla_no_prefix.'Controller.php','w');
+@mkdir($path.'/../views/forms/');
+$aux = fopen($path.'/../controllers/'.$tabla_no_prefix.'Controller.php','w');
 	fwrite($aux,$resultx);
 	fclose($aux);
-	$aux = fopen($path.'/../application/models/'.$tabla_no_prefix.'Model.php','w');
+	$aux = fopen($path.'/../models/'.$tabla_no_prefix.'Model.php','w');
 	fwrite($aux,$result_Models);
 	fclose($aux);
 
-$aux = fopen($path.'/../application/views/forms/add-'.$tabla_no_prefix.'.php','w');
+$aux = fopen($path.'/../views/forms/add-'.$tabla_no_prefix.'.php','w');
 	fwrite($aux,$form_html);
 	fclose($aux);
 	
-	$aux = fopen($path.'/../application/views/forms/edit-'.$tabla_no_prefix.'.php','w');
+	$aux = fopen($path.'/../views/forms/edit-'.$tabla_no_prefix.'.php','w');
 	fwrite($aux,$form_html2);
 	fclose($aux);
 
