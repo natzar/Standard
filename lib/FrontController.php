@@ -6,6 +6,32 @@ date_default_timezone_set('Europe/Madrid');
 setlocale (LC_ALL, 'es_ES.ISO8859-1'); 
 setlocale(LC_TIME, 'spanish'); 
 
+
+$GLOBAL['_logged_php_errors'] = array();
+
+error_reporting(0);
+//error_reporting(1);
+//set_exception_handler('phpLogError');
+
+//set_error_handler('phpLogError');
+
+function phpLogError() {
+    global $_logged_php_errors;
+
+    $error = error_get_last();
+
+    if ($error['type'] == 1) {
+        $_logged_php_errors[] = "<span>$error</span>";
+    } 
+}
+
+function phpGetLoggedErrors() {
+    global $_logged_php_errors;
+
+    return "<ol><li>".implode('</li><li>',$_logged_php_errors)."</li></ol>";
+}
+
+
 include "functions.php";
 include "ControllerBase.php";
 include "ModelBase.php";
@@ -63,7 +89,7 @@ class FrontController
 		$controllerPath = $config->get('controllersFolder') . $controllerName . '.php';
     
 		if(is_file($controllerPath)) require $controllerPath;
-		
+
 		if (!is_callable(array($controllerName, $actionName))){
 			require_once($config->get('controllersFolder').'errorsController.php');
 			$controller = new errorsController();

@@ -62,9 +62,12 @@
 
 
 	<div class="row">
-	  <div class="col-sm-3 col-md-2 sidebar">
+  <div class="col-sm-3 col-md-2 sidebar">
+
+
         		<? include "menu.php"; ?>          
-         </div>
+
+          </div>
 
         </div><!--/span-->
 	

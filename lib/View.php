@@ -25,7 +25,7 @@ class View
 	{	
  		$LANG = $_SESSION['lang'];
  		$config = $this->config; 		
- 		require_once $this->config->get('languagesFolder').$_SESSION['lang'].'.php';
+		include ($this->config->get('languagesFolder').$_SESSION['lang'].'.php');
  		
  		/* SEO */
  		$SEO_TITLE = $this->config->get('seo_title');

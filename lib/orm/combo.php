@@ -32,7 +32,7 @@ final class combo extends field{
 	function giveme($tabla,$campo,$valor_en_indice){
 
         
-        $consulta = $this->db->prepare("SELECT * from ".$this->config->get('db_prefix').$tabla." where ".$tabla."Id='$valor_en_indice' limit 1" );
+        $consulta = $this->db->prepare("SELECT * from ".$tabla." where ".$tabla."Id='$valor_en_indice' limit 1" );
         $consulta->execute();
       	$row = $consulta->fetch(PDO::FETCH_NUM);
 
@@ -48,7 +48,6 @@ final class combo extends field{
 	
 
 function bake_combo($tabla,$select_name,$id_selected){
-	
 	    $consulta = $this->db->prepare("SELECT * from $tabla ORDER BY 2 ASC" );
     	$consulta->execute();
         
