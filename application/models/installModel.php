@@ -203,7 +203,7 @@ $_SESSION['errors'] .= $tabla.': '.$num_recs.' new records<br>';
 		$_SESSION['errors'] = '';
         $config = Config::singleton();
         
-        $prefix = $params; //$config->get('db_prefix');
+        $prefix = $config->get('db_prefix');
         $dbname = $config->get('dbname');
    
         $consulta = $this->db->prepare('SHOW TABLES FROM '.$dbname);
@@ -229,7 +229,7 @@ $_SESSION['errors'] .= $tabla.': '.$num_recs.' new records<br>';
 			$_SESSION['errors'] .= '<hr><p>  <span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span> Creating Models and Controllers '.$tabla.'</p>';
 
 
-        	if ($prefix == '' or $tabla == $prefix){
+        	if ($prefix == '' or strstr($tabla,$prefix) or $tabla == $prefix){
 				$recordset = $this->db->prepare("DESCRIBE $tabla");
 				$recordset->execute();
 				$campos_a_mostrar = $types = '';

@@ -462,7 +462,7 @@
 			
 		endswitch;	
 
-		echo '1';		
+$this->view->show('dashboard.php',array());
 	}
 	
 
