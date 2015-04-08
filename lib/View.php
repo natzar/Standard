@@ -24,8 +24,9 @@ class View
 	public function show($name = 'pagina.php', $vars = array(),$show_top_footer = true)
 	{	
  		$LANG = $_SESSION['lang'];
- 		$config = $this->config; 		
-		include ($this->config->get('languagesFolder').$_SESSION['lang'].'.php');
+ 		$config = $this->config; 	
+	
+		require_once ($this->config->get('languagesFolder').$_SESSION['lang'].'.php');
  		
  		/* SEO */
  		$SEO_TITLE = $this->config->get('seo_title');

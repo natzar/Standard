@@ -48,7 +48,6 @@ final class combo extends field{
 	
 
 function bake_combo($tabla,$select_name,$id_selected){
-	
 	    $consulta = $this->db->prepare("SELECT * from $tabla ORDER BY 2 ASC" );
     	$consulta->execute();
         

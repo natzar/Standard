@@ -9,7 +9,7 @@ setlocale(LC_TIME, 'spanish');
 
 $GLOBAL['_logged_php_errors'] = array();
 
-error_reporting(0);
+//error_reporting(1);
 //error_reporting(1);
 //set_exception_handler('phpLogError');
 
@@ -73,7 +73,7 @@ class FrontController
 			$_SESSION['lang'] = get_param('lang');
 		} 
 		
-		include "application/language/".$_SESSION['lang'].".php";
+		
 
 		/* Current User */
 		if (!isset($_SESSION['usersId'])){

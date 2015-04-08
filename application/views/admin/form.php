@@ -1,7 +1,7 @@
           <h1 class="page-header"><?= ucfirst($table_label)?> <small><? if ($rid != -1) echo 'Editar'; else echo 'Añadir'; ?></small></h1>
           
 
-<form class='form' id="form21" name="form21" action="form/update" method="POST" enctype="multipart/form-data">
+<form class='form' id="form21" name="form21" action="admin/update" method="POST" enctype="multipart/form-data">
 <div class="row-fluid">
 
 

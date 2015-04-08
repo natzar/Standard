@@ -2,7 +2,8 @@
 class formModel extends ModelBase
 {
 	public function getFormValues($table,$rid){    	
-        $consulta = $this->db->prepare("SELECT * FROM ".$table." where ".$table."Id='".$rid."' limit 1");
+		$table_no_prefix = str_replace($this->config->get('db_prefix'),"",$table);
+        $consulta = $this->db->prepare("SELECT * FROM ".$table." where ".$table_no_prefix."Id='".$rid."' limit 1");
         $consulta->execute();
         return $consulta->fetch();
 	}
@@ -69,7 +70,8 @@ class formModel extends ModelBase
         	}
         			
         	$info = substr($edit_info_form,0,strlen($edit_info_form) - 1);
-       		$consulta = $this->db->prepare("UPDATE ".$table." set  $info   where ".$table."Id='".$rid."'");
+        	$table_no_prefix = str_replace($this->config->get('db_prefix'),"",$table);
+       		$consulta = $this->db->prepare("UPDATE ".$table." set  $info   where ".$table_no_prefix."Id='".$rid."'");
       	//	echo "UPDATE ".$table." set  $info   where id='".$rid."'";
             $consulta->execute();
       

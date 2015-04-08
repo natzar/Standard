@@ -14,7 +14,7 @@ final class slug extends field{
 			$out .= '<script>$(document).ready(function(){ $("#title").change(function(){ $("#'.$this->fieldname.'").val($("#title").val()); validateSlug("'.$this->fieldname.'");}); });</script>';
 		
 		$label = $this->table == 'courses' ? 'programs':$this->table;	
-		return "<input  type=\"text\"  onChange=\"validateSlug('".$this->fieldname."');\" class='span3' name=\"".$this->fieldname."\" id=\"".$this->fieldname."\" value=\"".trim($this->value)."\">".$out;
+		return "<input  type=\"text\"  onChange=\"validateSlug('".$this->fieldname."');\" name=\"".$this->fieldname."\" id=\"".$this->fieldname."\" class=\"form-control\" value=\"".trim($this->value)."\">".$out;
 
 		
 	}

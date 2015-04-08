@@ -48,9 +48,9 @@ endif; ?>
                     $j++;
                     endforeach; ?>
                     <td class="actions" align="center" nowrap>
-				<a alt='edit' title='edit' href='admin/form/<?= $table ?>/<?= $items[$i][$table.'Id']?>'><img src='public/admin/img/pen_12x12.png'></a> &nbsp;&nbsp;
+				<a alt='edit' title='edit' href='admin/form/<?= $table ?>/<?= $items[$i][str_replace($config->get('db_prefix'),"",$table).'Id']?>'><img src='public/admin/img/pen_12x12.png'></a> &nbsp;&nbsp;
 				<? if ($table != 'home_modules'): ?>
-				<a alt='delete' title='delete' href="javascript: DeleteRegistro('recordsArray_<?= $items[$i][$table.'Id']?>','<?= $items[$i][$table.'Id']?>','','<?= $table ?>');"><img src='public/admin/img/x_11x11.png'></a><? endif; ?></td>
+				<a alt='delete' title='delete' href="javascript: DeleteRegistro('recordsArray_<?= $items[$i][str_replace($config->get('db_prefix'),"",$table).'Id']?>','<?= $items[$i][str_replace($config->get('db_prefix'),"",$table).'Id']?>','','<?= $table ?>');"><img src='public/admin/img/x_11x11.png'></a><? endif; ?></td>
                     </tr>
             
             <? endfor; ?>
