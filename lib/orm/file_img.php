@@ -20,7 +20,7 @@ final class file_img extends field{
 		if ($this->value != "")	{				
 			$output .= "<div id='".$this->fieldname."'>";
 			$output .= "<img  style='width:200px' src=\"".$this->config->get('base_url_data')."img/thumbs/".$this->value."\">";
-			$output .= "&nbsp;&nbsp;<a  href=\"javascript:DeleteFile('".$this->fieldname."','".$this->table."','".$this->rid."','".$this->value."');\"><img src='public/img/admin/close.jpg'></a></div>"; 
+			$output .= "&nbsp;&nbsp;<a  href=\"javascript:DeleteFile('".$this->fieldname."','".$this->table."','".$this->rid."','".$this->value."');\"><img src='public/admin/img/close.jpg'></a></div>"; 
 		}// else $output .= "No hay ninguna imagen cargada.<BR>";					
 		$output.= "<input type=\"file\" accept=\"image/*\" id=\"".$this->fieldname."\" name=\"".$this->fieldname."\">";
 		return $output;

@@ -1,19 +1,26 @@
 	<? include "footer-content.php";?>
 	
-	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="public/vendor/ie10-viewport-bug-workaround.js"></script>
-    
-	<!-- jQuery CDN-->
-	<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
-
-	<!-- Bootstrap 3.3.2 js CDN -->
-	<!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script> -->
-
-	<!-- jQuery local file -->
-	<script type="text/javascript" src="public/vendor/jquery-1.11.2/jquery-1.11.2.min.js"></script>
-	
-	<!-- Bootstrap Local File -->
-	<script type="text/javascript" src="public/vendor/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
+   <script src="public/assets/js/jquery-1.9.1.min.js"></script>
+<script src="public/assets/js/jquery-ui-1.10.2.custom.min.js"></script>
+<script src="public/assets/js/foundation.min.js"></script>
+<script src="http://maps.google.com/maps/api/js?sensor=false&v=3.5"></script>
+<script src="public/assets/js/jquery.backstretch.min.js"></script>
+<script src="public/assets/js/superfish.js"></script>
+<script src="public/assets/js/supersubs.js"></script>
+<script src="public/assets/js/jquery.hoverIntent.minified.js"></script>
+<script src="public/assets/js/jquery.fancybox-1.3.4.js"></script>
+<script src="public/assets/js/jquery.transit.min.js"></script>
+<script src="public/assets/js/jquery.touchSwipe.min.js"></script>
+<script src="public/assets/js/jquery.carouFredSel-6.1.0-packed.js"></script>
+<script src="public/assets/js/jquery.easing.1.3.js"></script>
+<script src="public/assets/js/jquery.isotope.min.js"></script>
+<script src="public/assets/js/jquery.hoverdir.js"></script>
+<script src="public/assets/js/jquery.validationEngine-en.js"></script>
+<script src="public/assets/js/jquery.validationEngine.js"></script>
+<script src="public/assets/js/jquery.scrollUp.min.js"></script>
+<script src="public/assets/js/archtek-v=2.js"></script>
+    </body>
+</html>
 
 	<!-- Some Php Variables to JS -->
 	<script type="text/javascript">

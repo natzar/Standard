@@ -157,15 +157,7 @@ class showModel extends ModelBase
 			//$output .="$('#tablaMain').pagination();";
 
 			
-		
-			/*
-$output .='$(".tablaMain tbody > tr > td").click(function(){
-				var p = $(this).parent();
-				var x = $("td:last-child a:first-child",p).attr("href");
-				if (!$(this).hasClass("actions"))
-				location.href= x;
-			});';
-			*/
+			$output .="         $('.tablaMain').bdt();";
 			
 			if (isset($table_order_on) and $table_order_on){
 			$output .='$(".tablaMain tbody > tr").mouseover(function(){
@@ -195,11 +187,11 @@ $output .='$(".tablaMain tbody > tr > td").click(function(){
 
 				});';
 			
-				
+				}
 				
 
-			$output .= '});';
-}
+			
+
 
 			$output .="});"; // End $(document).ready();
 

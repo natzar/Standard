@@ -33,8 +33,9 @@ endif; ?>
         </thead>
         <tbody>
             <? $itemsTotal =count($items);
+            $table_no_prefix = str_replace($config->get('db_prefix'),"",$table);
                 for($i=0;$i<$itemsTotal;$i++):   ?>
-                   <tr id="recordsArray_<?= $items[$i][$table.'Id']?>">
+                   <tr id="recordsArray_<?= $items[$i][$table_no_prefix.'Id']?>">
 
                 <?    $row = $items[$i]; 
                 $j = 0;

@@ -106,6 +106,7 @@ class formModel extends ModelBase
 	$output.= 'tinyMCE.init({
    		document_base_url: "'.$config->get('base_url').'",
         mode : "textareas", 
+ theme: "advanced",
         editor_selector : "mceEditor",
 	 forced_root_block : false,
    force_br_newlines : true,
@@ -125,7 +126,7 @@ class formModel extends ModelBase
         theme_advanced_statusbar_location : "bottom",
 
         extended_valid_elements : "div[class]",
-    plugins : "paste,pagebreak,layer,table,save,insertdatetime,preview,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,template",
+    plugins : "paste,pagebreak,layer,imagemanager,table,save,insertdatetime,preview,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,template",
   content_css: "'.$this->config->get('base_url').'public/views/assets/css/tinymce_content.css"
 
         
@@ -151,6 +152,11 @@ class formModel extends ModelBase
 						}
 						if ($fields_types[$i] == 'combo_child'){
 								$output .= "$('#".$fields[$i]."').filterOn('#".$fields[$i-1]."') ;";
+						}
+						
+						if ($fields_types[$i] == "slug"){
+							$output .= '$(document).ready(function(){ $("#title").change(function(){ $("#'.$this->fieldname.'").val($("#title").val()); validateSlug("'.$this->fieldname.'");}); });';
+							
 						}
 				}
 
@@ -206,6 +212,7 @@ class formModel extends ModelBase
 		function updateOrder(){
 echo '0';
 			$tabla = $_POST['tabla'];
+			$table_no_prefix = str_replace($this->config->get('db_prefix'),"",$tabla);
 			$action 				= $_POST['action']; 
 			$updateRecordsArray 	= $_POST['recordsArray'];
 			$field = $_POST['field'];
@@ -218,7 +225,7 @@ echo '0';
 						$consulta = $this->db->prepare("UPDATE ".$tabla." SET orden = " . $listingCounter . " WHERE ".$field."='".$id."' and id = " . $recordIDValue);		
 						$consulta->execute();
 				}else{
-						$consulta = $this->db->prepare("UPDATE ".$tabla." SET orden = " . $listingCounter . " WHERE  ".$tabla."Id = " . $recordIDValue);		
+						$consulta = $this->db->prepare("UPDATE ".$tabla." SET orden = " . $listingCounter . " WHERE  ".$table_no_prefix."Id = " . $recordIDValue);		
 						$consulta->execute();
 					}					
 					$listingCounter = $listingCounter + 1;	
@@ -265,9 +272,10 @@ echo '0';
        include $this->config->get('setupFolder') .$table.".php";
         include_once "lib/orm/field.php";
     	$config = Config::singleton();
+    	$table_no_prefix = str_replace($config->get('db_prefix'),"",$table);
         if (in_array('file_img',$fields) or in_array('file',$fields)){	
             
-            $consulta = $this->db->prepare("SELECT * from ".$table." where ".$table."Id='".$id."' limit 1");
+            $consulta = $this->db->prepare("SELECT * from ".$table." where ".$table_no_prefix."Id='".$id."' limit 1");
             $consulta->execute();
             $row2 = $consulta->fetch();
             
@@ -286,7 +294,7 @@ echo '0';
     		}	
 		}		
 		
-		$consulta = $this->db->prepare("DELETE FROM ".$table." where ".$table."Id = '".$id."'");
+		$consulta = $this->db->prepare("DELETE FROM ".$table." where ".$table_no_prefix."Id = '".$id."'");
         $consulta->execute();
         return true;
     }
@@ -294,13 +302,13 @@ echo '0';
 	public function deleteImage($table,$field,$id)
 	{   
     	$config = Config::singleton();   
-              
-		$consulta = $this->db->prepare("SELECT $field FROM $table where ".$table."Id='$id' limit 1");
+    	$table_no_prefix = str_replace($config->get('db_prefix'),"",$table);              
+		$consulta = $this->db->prepare("SELECT $field FROM $table where ".$table_no_prefix."Id='$id' limit 1");
 		$consulta->execute();
 		$r = $consulta->fetch();
         @unlink($config->get('data_dir')."img/".$r[$f]);					
 
-       	$consulta = $this->db->prepare("UPDATE $table set $field='' where ".$table."Id='$id'");
+       	$consulta = $this->db->prepare("UPDATE $table set $field='' where ".$table_no_prefix."Id='$id'");
         $consulta->execute();
         return true;
 

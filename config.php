@@ -54,8 +54,8 @@
 	
 	
 	/* Installtion Step 4 -  Languages */	
-	$config->set('default_lang','esp');
-	$config->set('available_langs',array('esp','cat','eng'));
+	$config->set('default_lang','es');
+	$config->set('available_langs',array('es','ca','en'));
 	
 	/* Installation Step 5 - Images Sizes */
 	$config->set('big_h',640);// 0 for no resize
@@ -75,7 +75,7 @@
 	/* Base Urls & Paths */
 	$config->set('path',$PATH); 
 	$config->set('base_url','//'.$_SERVER['SERVER_NAME'].$RELATIVE_PATH);
-	$config->set('base_url_data','//'.$_SERVER['SERVER_NAME'].$RELATIVE_PATH.'public/data/');
+	$config->set('base_url_data','//'.$_SERVER['SERVER_NAME'].$RELATIVE_PATH.'data/');
 	
 	$config->set('setup_dir',$PATH.'/setup/'); 
 	$config->set('data_dir',$PATH.'/data/');

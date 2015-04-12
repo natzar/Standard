@@ -42,7 +42,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^robots.txt$ public/robots.txt
 RewriteRule ^humans.txt$ public/humans.txt
 RewriteRule ^admin/?([a-zA-Z0-9_]*)?/?([a-zA-Z0-9_-]*)?/?([a-zA-Z0-9-]*)?/?([a-zA-Z0-9-]*)?/?([a-zA-Z0-9-]*)?/?$ index.php?p=admin&m=$1&a=$2&i=$3&z=$4&w=$5
-RewriteRule ^([a-zA-Z_]*)/?([a-zA-Z]*)?/?([a-zA-Z0-9_-]*)?/?([a-zA-Z0-9-]*)?/?([a-zA-Z0-9-]*)?/?([a-zA-Z0-9-]*)?/?$ index.php?lang=$1&p=$2&m=$3&a=$4&i=$5&z=$6&w=$7
+RewriteRule ^([a-zA-Z_]*)/([a-zA-Z]*)?/?([a-zA-Z0-9_-]*)?/?([a-zA-Z0-9-]*)?/?([a-zA-Z0-9-]*)?/?([a-zA-Z0-9-]*)?/?$ index.php?lang=$1&p=$2&m=$3&a=$4&i=$5&z=$6&w=$7
 
 # Activate compression
 AddOutputFilterByType DEFLATE text/html text/css application/x-javascript text/plain text/javascript application/javascript application/json

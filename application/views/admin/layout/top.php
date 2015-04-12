@@ -12,7 +12,9 @@
 		<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 	   	<link href="public/vendor/bootstrap-3.3.2-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 	   	<link href="public/vendor/bootstrap-3.3.2-dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css" />
-	 
+	  <link href="public/vendor/fonts/font-awesome.min.css" type="text/css" rel="stylesheet">
+    <link href="public/vendor/datatables/jquery.bdt.css" type="text/css" rel="stylesheet">
+    
 	   	<link href="public/admin/admin.css" rel="stylesheet" type="text/css" />
 	<!-- 	<link rel="stylesheet" href="public/vendor/jQuery-ui-1.8.16/themes/base/jquery.ui.all.css"> -->
 

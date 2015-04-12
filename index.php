@@ -21,29 +21,6 @@
                                                                                                                                                  
 */                                                                                                                                              
 
-$GLOBAL['_logged_php_errors'] = array();
-
-error_reporting(0);
-
-set_error_handler('phpLogError');
-
-function phpLogError() {
-    global $_logged_php_errors;
-
-    $error = error_get_last();
-
-    if ($error['type'] == 1) {
-        $_logged_php_errors[] = "<span>$error</span>";
-    } 
-}
-
-function phpGetLoggedErrors() {
-    global $_logged_php_errors;
-
-    return "<ol><li>".implode('</li><li>',$_logged_php_errors)."</li></ol>";
-}
-
-
 session_start();
 
 require 'lib/FrontController.php';
