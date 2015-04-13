@@ -9,7 +9,7 @@ final class literal extends field{
 	}
 	function bake_field (){
                         
-		return "<input name=\"".$this->fieldname."\" id=\"".$this->fieldname."\" value=\"".$this->value."\" type=\"text\"  placeholder=\"".$this->fieldname."\" class=\"form-control\">                 ";
+		return "<input name=\"".$this->fieldname."\" id=\"".$this->fieldname."\" value=\"".$this->value."\" type=\"text\"  placeholder=\"".$this->label."\" class=\"form-control\">                 ";
                       
 
 

@@ -7,10 +7,7 @@ final class slug extends field{
 	}
 	function bake_field (){
 		$out = '';
-		if ($this->value == ''){
-			$out = '<script>$(document).ready(function(){ $("#'.$this->fieldname.'").val($("#title").val()); validateSlug("'.$this->fieldname.'");});</script>';
-		
-		} 
+
 
 		
 		$label = $this->table == 'courses' ? 'programs':$this->table;	

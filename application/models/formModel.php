@@ -127,7 +127,7 @@ class formModel extends ModelBase
 
         extended_valid_elements : "div[class]",
     plugins : "paste,pagebreak,layer,imagemanager,table,save,insertdatetime,preview,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,template",
-  content_css: "'.$this->config->get('base_url').'public/views/assets/css/tinymce_content.css"
+  content_css: "'.$this->config->get('base_url').'public/admin/tinymce_content.css"
 
         
     });'; 
@@ -155,7 +155,8 @@ class formModel extends ModelBase
 						}
 						
 						if ($fields_types[$i] == "slug"){
-							$output .= '$(document).ready(function(){ $("#title").change(function(){ $("#'.$this->fieldname.'").val($("#title").val()); validateSlug("'.$this->fieldname.'");}); });';
+							$lang = substr($fields[$i],-2);
+							$output .= '$(document).ready(function(){ $("#title_'.$lang.'").change(function(){ $("#'.$fields[$i].'").val($("#title_'.$lang.'").val()); validateSlug("'.$fields[$i].'");}); });';
 							
 						}
 				}

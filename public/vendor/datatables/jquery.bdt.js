@@ -81,7 +81,7 @@
                                 $('<input/>')
                                     .addClass('form-control')
                                     .attr('id', 'search')
-                                    .attr('placeholder', 'Search...')
+                                    .attr('placeholder', 'Buscar...')
                             )
                     )
             );

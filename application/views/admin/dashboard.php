@@ -5,13 +5,76 @@
 <? 
 unset($_SESSION['errors']);
 endif; ?>
+
+
+
+
+<?	if (!$config->get('developer_mode') and is_dir($config->get('path')."/tools")): 	$nothing_to_show = false;?>
+
+  <div class="alert alert-info" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Atención:</span>
+Mejor eliminar la carpeta /tools si ya has terminado instalacion
+</div>
+
+ <? endif; ?>
+
+<?	if (!is_writable($config->get('path')."/data")): 	$nothing_to_show = false;?>
+  <div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Error:</span>
+  /data/ debe teener permisos 777 
+	</div>	
+<? endif; ?>
+
+<?	if (!is_writable($config->get('path')."/data/img")): 	$nothing_to_show = false;?>
+  <div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Error:</span>
+  /data/img debe teener permisos 777 
+	</div>	
+<? endif; ?>
+
+<?	if (!is_writable($config->get('path')."/data/img/thumbs")): 	$nothing_to_show = false;?>
+  <div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Error:</span>
+  /data/img/thumbs debe teener permisos 777 
+	</div>	
+<? endif; ?>
+
+<?	if (!is_writable($config->get('path')."/data/img/raw")): 	$nothing_to_show = false;?>
+  <div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Error:</span>
+  /data/img/raw debe teener permisos 777 
+	</div>	
+<? endif; ?>
+
+<?	if (!is_writable($config->get('path')."/data/img/mids")): 	$nothing_to_show = false;?>
+  <div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Error:</span>
+  /data/img/mids debe teener permisos 777 
+	</div>	
+<? endif; ?>
+
+	
+	
+
 <? if ($config->get('developer_mode')): 
 	$nothing_to_show = false;
 ?>
   
+  <div class="alert alert-success" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Atención:</span>
+Developer mode está activado en config.php
+</div>
+
 <div class="panel panel-info">
 <div class="panel-heading">
-Información del sistema <i class="glyphicon glyphicon-time"></i> <?= Date("H:i\h d/m/Y") ?>
+Developer Mode. A sus pies Sr. Programador
 </div>
 
 <div class="panel-body">
@@ -24,61 +87,56 @@ Developer mode está activado en config.php
 
 
 
+<div class="row">
+<div class="col-lg-6">
+	Standart Version: <?= $config->get('version') ?> @ <?= $config->get('updated'); ?><br>
 	Php Version: <?= phpversion() ?><br>
 	POST_MAX: <?= ini_get('post_max_size')  ?><br>
 	Memory Limit: <?= ini_get('memory_limit')  ?><br>
-	<hr>
-	
-	Standart Version: <?= $config->get('version') ?> @ <?= $config->get('updated'); ?>
-	
-	<hr>
-	Permisos de escritura
-	
-	/setup/: <? if (is_writable($config->get('path')."/setup")) echo "YES";else echo "NO"; ?><br>
-	/data/: <? if (is_writable($config->get('path')."/data")) echo "YES";else echo "NO"; ?><br>
-	/data/img: <? if (is_writable($config->get('path')."/data/img")) echo "YES";else echo "NO"; ?><br>
-	/data/img/thumbs: <? if (is_writable($config->get('path')."/data/img/thumbs")) echo "YES";else echo "NO"; ?><br>
-	/application/: <? if (is_writable($config->get('path')."/application/controllers")) echo "YES";else echo "NO"; ?><br>
-<?	if (is_dir($config->get('path')."/tools")) echo 'Mejor eliminar la carpeta /tools si ya has terminado instalacion'; ?>
-<h2>Herramientas</h2>
-
+</div>
+<div class="col-lg-6">
+<strong>Herramientas</strong><br>
+Make Setups se hace automático<br>
 	 <a href="admin/tools/filldb" class="btn btn-info">Fill db with fake data</a>
 	<a href="admin/tools/makemodels" class="btn btn-success">Make Models, Controllers, Forms and Views</a>
 		
 </div>
+	</div>
+
+	
+<? if (!is_writable($config->get('path')."/setup")): ?>	  
+  <div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Error:</span>
+  /setup/ debe teener permisos 777 para que funcione Make Setups
+	</div>
+  <? endif; ?>
+  
+	
+	
+	
+
+</div>
 </div>
 <? endif; ?>
 
+  <? if ($config->get('validUser') == 'test' and $config->get('validPass') == 'test'): 
+  $nothing_to_show = false;
+  ?>
   
-<div class="panel panel-info">
-<div class="panel-heading">
-<i class="glyphicon glyphicon-time"></i> <?= Date("H:i\h d/m/Y") ?>
-</div>
-
-<div class="panel-body">
-<? if ($nothing_to_show): ?>
+  <div class="alert alert-danger" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Error:</span>
+  Por favor, cambia el password en config.php
+	</div>
+  <? endif; ?>
+  <? if ($nothing_to_show): ?>
     <div class="alert alert-success" role="alert">
   <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
   <span class="sr-only">¡Genial!:</span>
 	Todo al día, bien configurado y funcionando
 </div>
 <? endif; ?>
- <div class="alert alert-info" role="alert">
-  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-  <span class="sr-only">Info:</span>
-  Enter a valid email address
-</div>
 
 
- 
-<div class="alert alert-danger" role="alert">
-  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-  <span class="sr-only">Error:</span>
-  Enter a valid email address
-</div>
-
-
-
-</div>
-</div>
 
