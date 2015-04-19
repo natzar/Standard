@@ -43,7 +43,7 @@ class View
 		$page = $name;
 		$base_url = $this->config->get('base_url');
 		$base_title =  $this->config->get('base_title');
-		
+		$HOOK_JS = '';
 		/* Template Data */
 		if(is_array($vars))
            foreach ($vars as $key => $value)           
