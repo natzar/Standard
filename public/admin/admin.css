@@ -82,6 +82,8 @@ body {
  * Main content
  */
 
+textarea{
+min-height: 150px !important}
 .main {
   padding: 20px;
 }
