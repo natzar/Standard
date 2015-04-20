@@ -58,6 +58,7 @@ class View
 		$template = $this->path.$name;
 		
 		if (file_exists($template) == false) {
+			echo 'Template no existe';
 			require_once($config->get('controllersFolder').'errorsController.php');
 			$controller = new errorsController();
 	    	$controller->e404();
