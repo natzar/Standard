@@ -111,33 +111,33 @@
                                                     .addClass('form-control')
                                                     .append(
                                                         $('<option>', {
-                                                            value: 5,
-                                                            text: 5
-                                                        })
-                                                    )
-                                                    .append(
-                                                        $('<option>', {
-                                                            value: 10,
-                                                            text: 10,
-                                                            selected: 'selected'
-                                                        })
-                                                    )
-                                                    .append(
-                                                        $('<option>', {
                                                             value: 15,
                                                             text: 15
                                                         })
                                                     )
                                                     .append(
                                                         $('<option>', {
-                                                            value: 20,
-                                                            text: 20
+                                                            value: 30,
+                                                            text: 30,
+                                                            selected: 'selected'
                                                         })
                                                     )
                                                     .append(
                                                         $('<option>', {
-                                                            value: 25,
-                                                            text: 25
+                                                            value: 50,
+                                                            text: 50
+                                                        })
+                                                    )
+                                                    .append(
+                                                        $('<option>', {
+                                                            value: 75,
+                                                            text: 75
+                                                        })
+                                                    )
+                                                    .append(
+                                                        $('<option>', {
+                                                            value: 100,
+                                                            text: 100
                                                         })
                                                     )
                                             )
