@@ -57,10 +57,10 @@
 		<meta property="og:type" content="article" />
 		<meta property="article:section" content="Uncategorized" />
 		<meta property="og:title" content="<?= $base_title ?>" />
-		<meta property="og:description" content="<?= $seo_description ?>" />
+		<meta property="og:description" content="<?= $SEO_DESCRIPTION ?>" />
 		<meta property="og:url" content="<?= $base_url ?>" />
 		<meta property="og:site_name" content="<?= $base_title ?>" />
-		<meta property="og:image" content="<?= $seo_image ?>" />
+		<meta property="og:image" content="<?= $SEO_IMAGE ?>" />
 
 	    <!-- Fonts -->
 	    <!-- <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,400italic' rel='stylesheet' type='text/css'> -->	

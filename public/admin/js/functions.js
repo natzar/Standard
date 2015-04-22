@@ -159,7 +159,7 @@ function DeleteRegistro(div_id,id_registro,cat,tabla){
 	$('#'+div_id).remove();
 //	document.getElementById(div_id).style.display = 'none';	
 		ajax=objetoAjax();
-		url = BASE_URL + '?p=admin&m=deleteRow&rid='+id_registro+'&table='+tabla+'&f='+div_id;
+		url = BASE_URL + 'index.php?p=admin&m=deleteRow&rid='+id_registro+'&table='+tabla+'&f='+div_id;
 		ajax.open("GET", url);
 		ajax.onreadystatechange=function() {
 			if (ajax.readyState==4) {
@@ -175,7 +175,7 @@ function DeleteRegistro(div_id,id_registro,cat,tabla){
 function DeleteFile(div_id,tabla,id_registro,file){
 	if(confirm("Are you sure?") != false){
 		ajax=objetoAjax();
-		url = BASE_URL + '?p=admin&m=deleteFile&table='+tabla+'&rid='+id_registro+'&f='+div_id;
+		url = BASE_URL + 'index.php?p=admin&m=deleteFile&table='+tabla+'&rid='+id_registro+'&f='+div_id;
 		ajax.open("GET", url);
 		ajax.onreadystatechange=function() {
 			if (ajax.readyState==4) {
