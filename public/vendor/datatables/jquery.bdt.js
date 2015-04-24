@@ -50,7 +50,7 @@
     $.fn.bdt = function (options, callback) {
 
         var settings = $.extend({
-            pageRowCount: 10,
+            pageRowCount: 75,
             arrowDown: 'fa-angle-down',
             arrowUp: 'fa-angle-up'
         }, options);
@@ -119,7 +119,7 @@
                                                         $('<option>', {
                                                             value: 30,
                                                             text: 30,
-                                                            selected: 'selected'
+                                                           
                                                         })
                                                     )
                                                     .append(
@@ -131,7 +131,8 @@
                                                     .append(
                                                         $('<option>', {
                                                             value: 75,
-                                                            text: 75
+                                                            text: 75,
+                                                             selected: 'selected'
                                                         })
                                                     )
                                                     .append(

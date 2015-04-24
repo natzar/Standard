@@ -5,17 +5,14 @@ session_start();
 global $RUTA_UPLOADS;
 //include "../../../../bd_monster.inc.php";
 
-
-include "../../../../lib/class/ninja.config.php";
-include_once "../../../../lib/hermosa_lib.php";
-$config = new ninjaConfig();
-$link = $config->conectar();
+include "../../../../../lib/Config.php";
+include "../../../../../config.php";
 
 
 $web = $config;
 
-$RUTA_UPLOADS =  $web->base_dir_img;
-$RUTA_HTTP = $web->http_img_dir;
+$RUTA_UPLOADS =  $config->get('data_dir')."img/";
+$RUTA_HTTP = $config->get('base_url_data')."img/";
 
 function quitaCaracteresExtranyosNombreFichero($nombre){
   	$replaced = strtolower($nombre);
@@ -91,7 +88,7 @@ function quitaCaracteresExtranyosNombreFichero($nombre){
 				if (copy($_FILES[$fileElementName]['tmp_name'],$RUTA_UPLOADS.$nombre_final)){
 					//chmod( $RUTA_UPLOADS.$nombre_final, 0777);
 					
-					@resize_image(get_extension($nombre_final),$web->base_dir_img.$nombre_final,$web->base_dir_img.$nombre_final,$web->img_content_w,$web->img_content_h) ;
+					@resize_image(get_extension($nombre_final),$config->get('data_dir')."img/".$nombre_final,$config->get('data_dir')."img/".$nombre_final,$config->get('img_content_w'),$config->get('img_content_h') ;
 					
 					$_SESSION[$fileElementName] =  $RUTA_HTTP.$nombre_final;
 

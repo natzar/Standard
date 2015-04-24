@@ -1,17 +1,17 @@
 <?php
-include "../../../../lib/class/ninja.config.php";
-include "../../../../lib/hermosa_lib.php";
-$config = new ninjaConfig("../../../../config.php");
-$link = $config->conectar();
+include "../../../../../lib/Config.php";
+include "../../../../../config.php";
+
+
 
 
 
 $web = $config;
-$DIRI = $web->http_img_dir;
+$DIRI = $config->get('data_dir');
 
-$directorio=opendir($web->base_dir_img);
+$directorio=opendir($config->get('data_dir')."img/mids/");
 
-$UBICACIO_PROJECTE = $DIRI;
+$UBICACIO_PROJECTE = $config->get("base_url_data")."img/mids/";
 
 $text="";
 while ($archivo = readdir($directorio)){

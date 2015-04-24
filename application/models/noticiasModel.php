@@ -9,7 +9,7 @@ class noticiasModel extends ModelBase
 {
 		public function getAll(){
 
-				$consulta = $this->db->prepare("SELECT * FROM maheco_noticias where title_".$_SESSION['lang']." <> '' AND content_".$_SESSION['lang']." <> ''");
+				$consulta = $this->db->prepare("SELECT * FROM maheco_noticias where title_".$_SESSION['lang']." <> '' AND content_".$_SESSION['lang']." <> '' order by fecha DESC");
 				$consulta->execute();
 				$aux2 = $consulta->fetchAll();
 

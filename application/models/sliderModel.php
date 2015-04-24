@@ -11,7 +11,7 @@ class sliderModel extends ModelBase
 		public function getAll(){
 
 
-				$consulta = $this->db->prepare("SELECT * FROM maheco_slider ");
+				$consulta = $this->db->prepare("SELECT * FROM maheco_slider order by orden ASC");
 				$consulta->execute();
 				$aux2 = $consulta->fetchAll();
 
