@@ -3,6 +3,31 @@
 class toolsModel extends ModelBase
 {
 
+public function extraBigs(){
+
+		$dir = "data/img/raw/";
+			
+			// Open a directory, and read its contents
+			if (is_dir($dir)){
+			  if ($dh = opendir($dir)){
+			    while (($file = readdir($dh)) !== false){
+			      echo "filename:" . $file . " - ";
+			      if ($file != '.' and $file != '..'):
+			      $filename_new = $file; // generar_nombre_archivo($file);
+			      $image =  $filename_new;
+				$aux = explode("-",$file);
+				$title = utf8_encode(trim($aux[0]));	
+				$position = utf8_encode(trim($aux[1]));
+				$position = substr($position,0,-4);
+				//copy($dir.$file,$this->config->get('data_dir').'img/raw/'.$filename_new);
+			    //copy($this->config->get('data_dir').'img/raw/'.$filename_new,$this->config->get('data_dir').'img/'.$filename_new);			      	
+  		$this->resize_image($this->get_extension($filename_new),$dir.$file,$this->config->get('data_dir').'img/extrabig/'.$filename_new,1500,960) ;
+		endif;
+}
+}
+}
+}
+
 		public function uploadImages(){
 
 		$dir = "Personal/";
