@@ -372,7 +372,8 @@ var normalize = (function() {
 })();
 
 
-function seoLink(text) {       
+function seoLink(text) {   
+	text = text.trim();    
     var characters = [' ','"',':','“','\'','·', '!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '+', '=', '_', '{', '}', '[', ']', '|', '/', '<', '>', ',', '.', '?', '--',"'"]; 
 
     for (var i = 0; i < characters.length; i++) {
