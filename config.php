@@ -68,7 +68,8 @@
 	/* Installation Step 6 - Third Party: Google Analytics */
 	$config->set('google_analytics-UA','UA-9999999');
 
-
+    $config->set('googlePlus','https://plus.google.com/+BetoLopezAyesa/posts');
+    
 	/* Don't touch anything beyond this point if you are not sure about what are you doing 
 	----------------------------------------------------------------------------------------*/	
 

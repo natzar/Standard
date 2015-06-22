@@ -14,7 +14,7 @@
 		<!-- Basic Metas -->
 	    <meta name="title" content="<?= $SEO_TITLE ?> &raquo; <?= $base_title ?>">
 	    <meta name="description" content='<?= ($SEO_DESCRIPTION )?>'>
-	    <meta name="author" content="Beto López Ayesa">
+	    <meta name="author" content="<?= $base_title ?>">
    		<meta name="generator" content="Standart">
    			    
    		<!-- Content type & charset -->	    
@@ -47,13 +47,13 @@
 		<link rel="icon" type="image/png" href="/public/favicon.png" />     
 		
 		<!-- Feed RSS for the actual URL/Model -->
-		<link rel="alternate" type="application/rss+xml" title="Legal Nomads &raquo; Feed" href="<?= $base_url ?>/feed" />
+		<link rel="alternate" type="application/rss+xml" title="<?= $base_title ?> &raquo; Feed" href="<?= $base_url ?>/rss" />
 		
 		<!-- Google Plus Author Account -->
-		<link rel="author" href="https://plus.google.com/+BetoLopezAyesa/posts" />
+		<link rel="author" href="<?= $config->get('googlePlus') ?>" />
 	
 		<!-- Facebook -->
-		<meta property="og:locale" content="en_US" />
+		<meta property="og:locale" content="<?= $_SESSION['lang'] ?>" />
 		<meta property="og:type" content="article" />
 		<meta property="article:section" content="Uncategorized" />
 		<meta property="og:title" content="<?= $base_title ?>" />
