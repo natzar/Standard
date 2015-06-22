@@ -77,7 +77,7 @@
         
     
         <!-- Le custom Css, en française c'est milleur -->
-	    <link rel="stylesheet" type="text/css" media="all" href="public/css/style.css" />
+	    <link rel="stylesheet" type="text/css" media="all" href="public/application.css" />
 
 	    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 	    <!--[if lt IE 9]>

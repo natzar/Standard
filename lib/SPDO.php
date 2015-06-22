@@ -6,17 +6,17 @@ class SPDO extends PDO
 	public function __construct()
 	{
 		$config = Config::singleton();
-		parent::__construct('mysql:host=' . $config->get('dbhost') . ';dbname=' . $config->get('dbname'),$config->get('dbuser'), $config->get('dbpass'));
-		parent::exec("SET NAMES utf-8");
+		
 		
 		try  
             {  
-                $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
+                parent::__construct('mysql:host=' . $config->get('dbhost') . ';dbname=' . $config->get('dbname'),$config->get('dbuser'), $config->get('dbpass'));
+		parent::exec("SET NAMES utf-8");//$this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
             } 
             catch (PDOException $e)  
             { 
-
-                die($e->getMessage()); 
+header("location: ".$config->get('base_url')."errors/mysql");
+                die("Error: ".$e->getMessage()); 
             } 
 	}
  

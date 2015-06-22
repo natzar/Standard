@@ -24,16 +24,9 @@ class sidedataModel extends ModelBase
         }
         return $tableList;
 	}
-	function load(){
-	   $unread_mail = 0;
-		if (isset($_SESSION['usersId']) and $_SESSION['usersId'] > 0){
-		  include_once "application/models/mailModel.php";
-		  $mail = new mailModel();
-		  $unread_mail = $mail->getNumberUnread();
-		
-		}
+	function load(){	  
 		$sidedata = array(
-			"notification" => $unread_mail
+			
 		);
 		
 		return $sidedata;

@@ -40,4 +40,7 @@
       </div>
     </nav>
     
-    <div class="container">
+    <div class="container" style="padding-top:50px">
+    <? if (isset($_SESSION['errors'])): ?>
+        <div class="alert"><?= $_SESSION['errors'] ?></div>
+    <? endif; ?>

@@ -1,11 +1,11 @@
 <?
 class homeController extends ControllerBase{
 	function index(){
-		
-		if (file_exists($this->config->get('viewsFolder').'index.php'))
-			$this->view->show('index.php',$data);
-		else if(file_exists('public/'.$this->config->get('viewsFolder').$this->config->get('tabla_default').'.php'))
-			$this->view->show($this->config->get('tabla_default').'.php',$data);
-		else	$this->view->show('test.php',$data);
+		$data = array();
+		if ($this->config->get('developer_mode')){
+	       $this->view->show('admin/dashboard.php',$data);
+		}else if (file_exists($this->config->get('viewsFolder').'index.php')){
+			$this->view->show('index.php',$data);		
+        }	
 	}
 }
