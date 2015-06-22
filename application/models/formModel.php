@@ -160,7 +160,7 @@ class formModel extends ModelBase
 							$lang = substr($fields[$i],-2);
 							$output .= '$(document).ready(function(){ $("#title_'.$lang.'").change(function(){ $("#'.$fields[$i].'").val($("#title_'.$lang.'").val()); validateSlug("'.$fields[$i].'");}); });';
 
-							$lang = "title";
+							$lang = $fields[$i];
 							$output .= '$(document).ready(function(){ $("#'.$lang.'").change(function(){ $("#'.$fields[$i].'").val($("#'.$lang.'").val()); validateSlug("'.$fields[$i].'");}); });';
 							
 						}
