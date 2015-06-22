@@ -2,7 +2,6 @@
 
  class adminController extends ControllerBase{
 
-
 	/* 	Admin Login
 	---------------------------------------*/
 	public function __construct(){
@@ -11,12 +10,11 @@
 	 	$_SESSION['lang'] = $this->config->get('default_lang');			
 	 	$fingerprint = md5($_SERVER['HTTP_USER_AGENT'].$this->config->get('base_title'));
     	if (!isset($_SESSION['initiated_admin']) or !$_SESSION['initiated_admin'] or !isset($_SESSION['HTTP_USER_AGENT']) or  $_SESSION['HTTP_USER_AGENT'] != $fingerprint ){
-			if (get_param('user') != -1)
+			if (get_param('email') != -1)
 				$this->do_login();
 			else $this->login();
 			die();
 		}
-
 	}
 	public function index(){
 		if (!is_file($this->config->get('path')."/application/views/admin/layout/menu.php")){
@@ -24,23 +22,18 @@
 			$installModel = new installModel();
 			$installModel->makeDefaultMenu();
 		}
-
 		$this->dashboard();
 	}
 	public function login(){
-	
+        $_SESSION['return_url'] = '/admin/login';
 		$this->view->show("login.php", array(),false);
-
     }
 	 
 	public function do_login()
 	{
-
     	require 'application/models/loginModel.php';
-    	$loginModel = new loginModel();
-    	
-
-    	$loginModel->login(get_param('user'),get_param('pass'));
+    	$loginModel = new loginModel();	
+    	$loginModel->login(get_param('email'),get_param('pass'));
 	}
  
 	public function logout()

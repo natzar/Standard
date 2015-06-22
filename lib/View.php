@@ -107,7 +107,7 @@ class View
 		} elseif ($show_top_footer) {
 			include $this->config->get('viewsFolder').'layout/footer.php';
 		}
-		
+		unset($_SESSION['errors']);
 	}
 }
 

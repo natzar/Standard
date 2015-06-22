@@ -10,8 +10,13 @@
 		</div>
 		</div>
 <? endif; ?>		
+<div class="container">
+<hr>
   <footer class="footer">
+  <center>
+  <a href="">Privacy Policy</a> ·   <a href="">Legal notice</a> · Powered by <a href="http://www.96levels.com" target="_blank">96Levels</a><br>
         <p><?= Date("Y") ?> &copy; <?= $base_title ?> </p>
+        </center>
       </footer>
 
     </div> <!-- /container -->

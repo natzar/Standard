@@ -16,17 +16,24 @@ class sidedataModel extends ModelBase
         
         $tableList = Array();
         while ($row = $consulta->fetch(PDO::FETCH_NUM)) {
-        	if (strstr($row[0],$dbprefix) or $dbprefix = ""){
+        	if ($dbprefix = "" OR strstr($row[0],$dbprefix)){
 	        	$tabla_no_prefix = substr($row[0],strlen($config->get('db_prefix')));
+	        	if ($tabla_no_prefix == "") $tabla_no_prefix = $row[0];
     	    	$tableList[] = array($tabla_no_prefix,$row[0]);        	
     	    }
         }
         return $tableList;
 	}
 	function load(){
+	   $unread_mail = 0;
+		if (isset($_SESSION['usersId']) and $_SESSION['usersId'] > 0){
+		  include_once "application/models/mailModel.php";
+		  $mail = new mailModel();
+		  $unread_mail = $mail->getNumberUnread();
 		
+		}
 		$sidedata = array(
-			
+			"notification" => $unread_mail
 		);
 		
 		return $sidedata;

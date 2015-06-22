@@ -1,52 +1,32 @@
-<?php
-class loginController extends ControllerBase
-{
-
-    public function index(){
-      
-		$this->login();
-		
-    }
-	
-
-	public function lostpassword(){
-		$data = Array( "title" => "Iniciar Sesión");         
-			$this->view->show("lostpassword.php", $data);
+<?
+class loginController extends ControllerBase{
+	function index(){
+		$_SESSION['return_url'] = '/'.$_SESSION['lang'].'/'."login";
+		$data = array();
+		$this->view->show('login/login.php',$data);
 	}
-
-	public function login() {
-    	$config = Config::singleton();
-      	require 'models/loginModel.php';
-    	$loginModel = new loginModel();
-    	if (!isset($_SESSION['login_attemp'])) $_SESSION['login_attemp'] = 1;
-		$_SESSION['login_attemp'] = 0;
-		$params = gett();
-
-    	if ($_SESSION['login_attemp'] < 4) {
-        	if ($loginModel->isValidUser($params['email'],$params['password'])){       	    	
-    	       $loginModel->setupNewSession($params['email'],$params['password']);
-    	        if (!isset($params['remember'])){
-	    	      $_SESSION['LAST_ACTIVITY'] = time(); 
-    	       } 
-   				echo 1;
-        	}else{ 
-        		$_SESSION['login_attemp']++;
-        		//header ("location: ".$_SERVER['HTTP_REFERER']."?c=1");
-        		echo 0;
-        	}				
-        } else {
-        echo 0;
-        	header ("location: ".$_SERVER['HTTP_REFERER']."?c=2");
-        }     	
-    }
+	function recover(){
+        $_SESSION['return_url'] = '/'.$_SESSION['lang'].'/'."recover";
+	    $data = array();
+		$this->view->show('login/recover.php',$data);
+	}
+    
+    public function doLogin()
+	{
+    	require 'application/models/loginModel.php';
+    	$loginModel = new loginModel();	
+    	$loginModel->login(get_param('email'),get_param('password'));
+	}
  
-	public function logout() {
-		$config = Config::singleton();
-		require 'models/loginModel.php';
+	public function logout()
+	{
+		require 'application/models/loginModel.php';
     	$loginModel = new loginModel();
     	$loginModel->logout();
-
-		header("location: ".$config->get('base_url'));
+	}
+	
+	function doRecover(){
+	
+	
 	}
 }
-?>

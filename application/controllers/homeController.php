@@ -1,9 +1,6 @@
 <?
 class homeController extends ControllerBase{
 	function index(){
-		require "application/models/sliderModel.php"; 	
-			$slider = new sliderModel();	
-		$data = array("slider" => $slider->getAll());
 		
 		if (file_exists($this->config->get('viewsFolder').'index.php'))
 			$this->view->show('index.php',$data);

@@ -34,7 +34,7 @@
 				
 			
 
-	<input class="input span2 form-control" style="height:auto;" type="text" placeholder="Usuario" name="user">
+	<input class="input span2 form-control" style="height:auto;" type="text" placeholder="Usuario" name="email">
 <br>
 	<input type="password" placeholder="Contraseña" class="input span2 form-control" name="pass"><BR>
 		<input type="hidden" name="token" class="" value="">
