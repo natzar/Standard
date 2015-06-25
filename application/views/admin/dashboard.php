@@ -8,6 +8,21 @@ endif; ?>
 
 
 
+<?	if (!is_writable($config->get('path')."/application/views/admin/layout") and !is_file($config->get('path')."/application/views/admin/layout/menu.php")): 	$nothing_to_show = false;?>
+
+ <div class="alert alert-info" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Error:</span>
+       No se puede crear archivo menu.php para admin automáticamente. Permisos 777 en carpeta /application/views/admin/layout. 
+    </div>
+<? elseif (is_writable($config->get('path')."/application/views/admin/layout") and is_file($config->get('path')."/application/views/admin/layout/menu.php")): ?>
+
+     <div class="alert alert-danger alert-error" role="alert">
+  <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+  <span class="sr-only">Error:</span>
+      Sacar permisos de escritura en la carpeta /application/views/admin/layout. El archivo menu.php ya existe.
+    </div>
+<? endif; ?>
 
 <?	if (!$config->get('developer_mode') and is_dir($config->get('path')."/tools")): 	$nothing_to_show = false;?>
 

@@ -16,7 +16,8 @@ class sidedataModel extends ModelBase
         
         $tableList = Array();
         while ($row = $consulta->fetch(PDO::FETCH_NUM)) {
-        	if ($dbprefix = "" OR strstr($row[0],$dbprefix)){
+
+        	if ($dbprefix == "" OR strstr($row[0],$dbprefix)){
 	        	$tabla_no_prefix = substr($row[0],strlen($config->get('db_prefix')));
 	        	if ($tabla_no_prefix == "") $tabla_no_prefix = $row[0];
     	    	$tableList[] = array($tabla_no_prefix,$row[0]);        	

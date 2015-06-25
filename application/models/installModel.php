@@ -27,10 +27,14 @@ class installModel extends ModelBase
 		   	endforeach;        	
          	$menu_output .= '</ul>';
          	$path = dirname(__FILE__);
-			$aux = fopen($path.'/../views/admin/layout/menu.php','w');
+            if ($aux = fopen($path.'/../views/admin/layout/menu.php','w')){
+                $_SESSION['errors'] = 'Created menu.php inside /application/views/admin/layout/'; 
+            }else{
+                $_SESSION['errors'] = 'Permission denied, trying to create menu.php /application/views/admin/layout/';
+            }
 			fwrite($aux,$menu_output);
 			fclose($aux);
-			$_SESSION['errors'] .= 'Created menu.php inside /application/views/admin/layout/';
+			
 	
 	}
 	
