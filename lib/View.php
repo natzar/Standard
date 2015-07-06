@@ -90,6 +90,7 @@ class View
 		if (file_exists($template) == false) {
 			require_once($config->get('controllersFolder').'errorsController.php');
 			$controller = new errorsController();
+			header('HTTP/1.0 404 Not Found');
 	    	$controller->e404();
 			return false;
 		}
