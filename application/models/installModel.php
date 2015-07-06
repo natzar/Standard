@@ -27,13 +27,13 @@ class installModel extends ModelBase
 		   	endforeach;        	
          	$menu_output .= '</ul>';
          	$path = dirname(__FILE__);
-            if ($aux = fopen($path.'/../views/admin/layout/menu.php','w')){
-                $_SESSION['errors'] = 'Created menu.php inside /application/views/admin/layout/'; 
-            }else{
-                $_SESSION['errors'] = 'Permission denied, trying to create menu.php /application/views/admin/layout/';
-            }
+			if ($aux = @fopen($path.'/../views/admin/layout/menu.php','w')){
 			fwrite($aux,$menu_output);
 			fclose($aux);
+			$_SESSION['errors'] .= 'Created menu.php inside /application/views/admin/layout/';
+			}else{
+			$_SESSION['errors'] .= 'No write permissions in /application/views/admin/layout/';			 
+			}
 			
 	
 	}
@@ -135,7 +135,11 @@ if (strstr($name,"file")) $type = 'file_file';
 
 	}	
 	
-
+    public function sqlTables($name){
+        $data = array();
+        
+        
+    }
 	
 	      
     public function fillDb($num_recs){
