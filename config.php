@@ -31,9 +31,9 @@
 	$RELATIVE_PATH = '/Standart/';
 		
 	/* Installation Step 1 - DB */
-	$config->set('dbhost', 'localhost');
-	$config->set('dbname', 'standart');
-	$config->set('dbuser', 'root');
+	$config->set('dbhost', '');
+	$config->set('dbname', '');
+	$config->set('dbuser', '');
 	$config->set('dbpass', '');
 	$config->set('db_prefix','');
 	$config->set('tabla_default','noticias');

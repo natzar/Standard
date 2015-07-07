@@ -41,7 +41,7 @@ class View
 		
 	
 		
-
+        
 		
 		$SEO_TITLE  =ucfirst($SEO_TITLE);
 		if ($SEO_TITLE == "") $SEO_TITLE = 'Home';
@@ -49,7 +49,7 @@ class View
 		$page = $name;
 		$base_url = $this->config->get('base_url');
 		$base_title =  $this->config->get('base_title');
-		
+		$HOOK_JS = '';
 		/* Template Data */
 		if(is_array($vars))
            foreach ($vars as $key => $value)           
@@ -90,6 +90,7 @@ class View
 		if (file_exists($template) == false) {
 			require_once($config->get('controllersFolder').'errorsController.php');
 			$controller = new errorsController();
+			header('HTTP/1.0 404 Not Found');
 	    	$controller->e404();
 			return false;
 		}

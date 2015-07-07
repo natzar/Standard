@@ -44,6 +44,8 @@
 	<script type="text/javascript">
 		var BASE_URL = '<?= $base_url ?>';
 		var LANG = '<?= $_SESSION['lang'] ?>';
+		
+		<?= $HOOK_JS ?>
 	</script>
 	
 	<!-- Custom Js -->
