@@ -117,3 +117,13 @@ min-height: 150px !important}
   display: inline-block;
   border-radius: 50%;
 }
+
+
+
+ul.list-group.nav.nav-sidebar > li.nav-header  {
+    cursor: default;
+    font-size: 12px;
+    font-weight: bold;
+   background: #e7e7e7;
+    text-transform: uppercase;
+}

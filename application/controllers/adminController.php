@@ -118,12 +118,12 @@
 		          "HOOK_JS" => $items->js($table),
                   "table" => $table,
 					"table_label" =>$items->getTableAttribute($table,'table_label'),
-					"notification" => get_param('i') != -1 ? 'Se ha guardado correctamente' : ''
+					"notification" => "Resultados de búsqueda"
 		      		          
 		          );
 		          
 		
-				 $this->view->show("table.php", $data);
+				 $this->view->show("show.php", $data);
 	}
 	 public function detail(){
     	$config = Config::singleton();

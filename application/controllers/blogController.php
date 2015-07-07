@@ -8,21 +8,21 @@
 class blogController extends ControllerBase
 {
 		public function index(){
-			require "public/models/blogModel.php"; 	
-			require "public/models/personajesModel.php"; 	
-			$personajes = new personajesModel();
-			$blog = new blogModel();			
+			require "public/models/noticiasModel.php"; 	
+
+
+			$blog = new noticiasModel();			
 			$data = Array(
 				  "items" => $blog->getAll(),
-				  "personajes" => $personajes->getAll(),
+
 				  "hots" => $blog->getHots(),
 				  "SEO_TITLE" => "Blog",
-"CATEGORY_TITLE" => 'Blog',
 
 
-				  "SEO_DESCRIPTION" => "Juegos Gratis, Actividades para niños y Actualidad.El Blog de Pekeninos para mamás"
+
+
 		          );         
-			$this->view->show("blog.php", $data);
+			$this->view->show("blogpost.php", $data);
 		}
 		
 		public function post(){

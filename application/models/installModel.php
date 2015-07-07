@@ -96,8 +96,9 @@ class installModel extends ModelBase
 					if ($type == 'tinyint') $type = 'truefalse';
         			if ($type == 'datetime') $type = 'fecha';
 					if ($name == 'password') $type ='password';
-if (strstr($name,"img")) $type = 'file_img';
+if (strstr($name,"image")) $type = 'file_img';
 if (strstr($name,"file")) $type = 'file_file';
+if (strstr($name,"content")) $type="tinymce";
         			if ($name != $tabla_no_prefix."Id") $types .=  '"'.$type.'",';
         			
         			
@@ -107,7 +108,7 @@ if (strstr($name,"file")) $type = 'file_file';
         	}
     		$campos_a_mostrar = substr($campos_a_mostrar,0,strlen($campos_a_mostrar)-1);
     		$types = substr($types,0,strlen($types)-1);
-    		$labels = $campos_a_mostrar;
+    		$labels = str_replace("_"," ", $campos_a_mostrar);
     
     
     		$aux = fopen($config->get('setupFolder').$tabla.'.php','w');
@@ -261,7 +262,7 @@ class '.$tabla_no_prefix.'Controller extends ControllerBase
 			require "application/models/'.$tabla_no_prefix.'Model.php"; 	
 			$'.$tabla_no_prefix.' = new '.$tabla_no_prefix.'Model();			
 			$data = Array(
-				  "items" => $'.$tabla_no_prefix.'->GET(array("table" => "'.$tabla.'"))
+				  "items" => $'.$tabla_no_prefix.'->getAll()
 		          );         
 			$this->view->show("templates/table.php", $data);
 		}
