@@ -1,5 +1,5 @@
  <h1 class="page-header"><?= ucfirst($table_label)?> <small>Buscar</small></h1>
-<form class='form' id="form21" name="form21" action="show/search" method="POST" enctype="multipart/form-data">
+<form class='form' id="form21" name="form21" action="admin/searchResults" method="POST" enctype="multipart/form-data">
 <div class="row-fluid">
 
 
