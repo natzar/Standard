@@ -30,9 +30,9 @@ class installModel extends ModelBase
 			if ($aux = @fopen($path.'/../views/admin/layout/menu.php','w')){
 			fwrite($aux,$menu_output);
 			fclose($aux);
-			$_SESSION['errors'] .= 'Created menu.php inside /application/views/admin/layout/';
+			$_SESSION['errors'] = 'Created menu.php inside /application/views/admin/layout/';
 			}else{
-			$_SESSION['errors'] .= 'No write permissions in /application/views/admin/layout/';			 
+			$_SESSION['errors'] = 'No write permissions in /application/views/admin/layout/';			 
 			}
 			
 	

@@ -3,9 +3,6 @@
 
 $x = dirname(__FILE__);
 
-include_once $x."/../JSON.php";
-
-
 
 class shopping_cart {
     var $n_p;

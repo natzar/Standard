@@ -25,7 +25,7 @@
 		$this->dashboard();
 	}
 	public function login(){
-        $_SESSION['return_url'] = '/admin/login';
+        $_SESSION['return_url'] = 'admin';
 		$this->view->show("login.php", array(),false);
     }
 	 
