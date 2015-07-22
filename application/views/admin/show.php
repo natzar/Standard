@@ -17,41 +17,43 @@ endif; ?>
 
 <a class="btn btn-primary" style="display:inline-block;"  href="admin/search/<?= $table ?>"><i class="glyphicon glyphicon-search"></i> <?=SEARCH?></a>
 
+<a class="" style="display:inline-block;"  href="javascript: deleteRegistros();"><i class="glyphicon glyphicon-remove"></i> Delete Selected</a>
 <br><br>
 
 
 <div style="clear:both;">
 <? if (count($items) > 0): ?>
-    <table class='table table-bordered table-hover table-striped tablaMain' data-table="<?= $table ?>" id='tabla_0'  border="0" >
+    <table class='table  table-hover table-striped tablaMain' data-table="<?= $table ?>" id='tabla_0'  border="0" >
         <thead>
             <tr>
-
+            <th></th>
          	<?	foreach ($items_head as $item): ?>
             	<th nowrap><?= ucfirst($item) ?>	</th>		 
             <? endforeach; ?>
-            <th class="nover" nowrap=nowrap width="60"><?=ACTIONS ?></th></tr>
+            </tr>
         </thead>
         <tbody>
             <? $itemsTotal =count($items);
             $table_no_prefix = str_replace($config->get('db_prefix'),"",$table);
                 for($i=0;$i<$itemsTotal;$i++):   ?>
                    <tr id="recordsArray_<?= $items[$i][$table_no_prefix.'Id']?>">
+<td width="10"><input type="checkbox" name="selected_rows[]" value="recordsArray_<?= $items[$i][str_replace($config->get('db_prefix'),"",$table).'Id']?>"></td>
+
 
                 <?    $row = $items[$i]; 
                 $j = 0;
                 		foreach ($row as  $cell): 
-                		if ($j > 0):?>
-
+                		if ($j > 0):
+                                if ($j == 1):?>
+                                <td><a href="admin/form/<?= $table ?>/<?= $items[$i][str_replace($config->get('db_prefix'),"",$table).'Id']?>"><?= $cell ?></a> </td>
+                                <? else: ?>
                         <td>  <?= $cell;?></td>
-
+                        <? endif; ?>
                     <? 
                     endif;
                     $j++;
                     endforeach; ?>
-                    <td class="actions" align="center" nowrap>
-				<a alt='edit' title='edit' href='admin/form/<?= $table ?>/<?= $items[$i][str_replace($config->get('db_prefix'),"",$table).'Id']?>'><img src='public/admin/img/pen_12x12.png'></a> &nbsp;&nbsp;
-				<? if ($table != 'home_modules'): ?>
-				<a alt='delete' title='delete' href="javascript: DeleteRegistro('recordsArray_<?= $items[$i][str_replace($config->get('db_prefix'),"",$table).'Id']?>','<?= $items[$i][str_replace($config->get('db_prefix'),"",$table).'Id']?>','','<?= $table ?>');"><img src='public/admin/img/x_11x11.png'></a><? endif; ?></td>
+
                     </tr>
             
             <? endfor; ?>
