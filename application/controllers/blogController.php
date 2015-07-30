@@ -8,26 +8,45 @@
 class blogController extends ControllerBase
 {
 		public function index(){
-			require "public/models/noticiasModel.php"; 	
+			require "application/models/blogModel.php"; 	
 
 
-			$blog = new noticiasModel();			
+			$blog = new blogModel();			
 			$data = Array(
 				  "items" => $blog->getAll(),
 
-				  "hots" => $blog->getHots(),
+
 				  "SEO_TITLE" => "Blog",
 
 
 
 
 		          );         
-			$this->view->show("blogpost.php", $data);
+			$this->view->show("blog.php", $data);
 		}
 		
-		public function post(){
-			require "public/models/blogModel.php"; 	
-			require "public/models/personajesModel.php"; 	
+		public function detail(){
+			require "application/models/blogModel.php"; 	
+
+            $params = gett();
+            $a = $params['a'];
+            
+			$blog = new blogModel();			
+			$data = Array(
+				  "items" => $blog->getByField('slug_'.$_SESSION['lang'],$a),
+
+
+				  "SEO_TITLE" => "Blog",
+
+
+
+
+		          );         
+			$this->view->show("blog.php", $data);
+		}
+			public function post(){
+			require "application/models/blogModel.php"; 	
+			require "application/models/personajesModel.php"; 	
 			$personajes = new personajesModel();
 			$blog = new blogModel();	
 			
@@ -52,8 +71,8 @@ class blogController extends ControllerBase
 
 		public function category(){
 			$params = gett();
-			require "public/models/blogModel.php"; 	
-			require "public/models/personajesModel.php"; 	
+			require "application/models/blogModel.php"; 	
+			require "application/models/personajesModel.php"; 	
 			$personajes = new personajesModel();
 			$blog = new blogModel();
 
@@ -76,8 +95,8 @@ class blogController extends ControllerBase
 		
 		public function tag(){
 			$params = gett();
-			require "public/models/blogModel.php"; 	
-			require "public/models/personajesModel.php"; 	
+			require "application/models/blogModel.php"; 	
+			require "application/models/personajesModel.php"; 	
 			$personajes = new personajesModel();
 			$blog = new blogModel();
 
@@ -98,7 +117,7 @@ class blogController extends ControllerBase
 		}	
 		
 		public function add(){
-			require "public/models/blogModel.php";          
+			require "application/models/blogModel.php";          
 			$blog = new blogModel();
 			$params = gett();
 			$params['table'] = "blog";
@@ -108,7 +127,7 @@ class blogController extends ControllerBase
 		}
 		
 		public function edit(){
-			require "public/models/blogModel.php";          
+			require "application/models/blogModel.php";          
 			$blog = new blogModel();
 			$params = gett();
 			$params = gett();
@@ -118,7 +137,7 @@ class blogController extends ControllerBase
 		}
 		
 		public function delete(){
-			require "public/models/blogModel.php";          
+			require "application/models/blogModel.php";          
 			$blog = new blogModel();
 			$params = gett();
 			if ($blog->delete($params)) echo 1;
@@ -127,7 +146,7 @@ class blogController extends ControllerBase
 		
 		public function search(){
 			$params = gett();
-			require "public/models/blogModel.php"; 	
+			require "application/models/blogModel.php"; 	
 			$blog = new blogModel();
 	
 			$json = new Services_JSON();	

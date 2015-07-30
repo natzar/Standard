@@ -150,6 +150,15 @@ class formModel extends ModelBase
 									timeFormat: 'hh:mm:ss'
 									});";
 						}
+						if ($fields_types[$i] == 'horario'){
+							$output .= "$('#".$fields[$i]."_hora').timepicker({
+									showMeridian: false,
+									template: false,
+                showInputs: false,
+                defaultTime: '00:00'
+									});";
+						}
+						
 						if ($fields_types[$i] == 'combo_child'){
 								$output .= "$('#".$fields[$i]."').filterOn('#".$fields[$i-1]."') ;";
 						}

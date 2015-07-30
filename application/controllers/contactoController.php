@@ -4,7 +4,7 @@
 class contactoController extends ControllerBase
 {
 		public function index(){
-			$this->view->show('contacto.php',array());				  
+			$this->view->show('contact/contact.php',array());				  
 		}
 		  
 		 public function sendEmail(){		

@@ -4,6 +4,9 @@
 $x = dirname(__FILE__);
 
 
+
+
+
 class shopping_cart {
     var $n_p;
     var $total_productos;

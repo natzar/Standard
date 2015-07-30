@@ -40,6 +40,7 @@ require_once "combo.php";
 require_once "combo_child.php";
 require_once "dias_semana.php";
 require_once "disabled.php";
+require_once "horario.php";
 require_once "email.php";
 require_once "featured.php";
 require_once "fecha.php";

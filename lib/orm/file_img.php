@@ -22,7 +22,7 @@ final class file_img extends field{
 			$output .= "<img  style='width:200px' src=\"".$this->config->get('base_url_data')."img/thumbs/".$this->value."\">";
 			$output .= "&nbsp;&nbsp;<a  href=\"javascript:DeleteFile('".$this->fieldname."','".$this->table."','".$this->rid."','".$this->value."');\"><img src='public/admin/img/close.jpg'></a></div>"; 
 		}// else $output .= "No hay ninguna imagen cargada.<BR>";					
-		$output.= "<input type=\"file\" accept=\"image/*\" id=\"".$this->fieldname."\" name=\"".$this->fieldname."\">";
+		$output.= "<input type=\"file\" class='form-control' accept=\"image/*\" id=\"".$this->fieldname."\" name=\"".$this->fieldname."\">";
 		return $output;
 	}
 		

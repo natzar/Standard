@@ -1,8 +1,8 @@
 <?
 
-// Dive Traders 1.0
+// Distrito Dance 1.0
 // users Model
-// 06-2015
+// 07-2015
 // Beto Ayesa contacto@phpninja.info
 
 class usersModel extends ModelBase
@@ -68,14 +68,14 @@ class usersModel extends ModelBase
 		
 		
 		public function add($params){
-			$consulta = $this->db->prepare("INSERT INTO users (email,password,area) VALUES ('".$params['email']."','".$params['password']."','".$params['area']."')");
+			$consulta = $this->db->prepare("INSERT INTO users (id,user_name,session_id,bot_id,chatlines,ip,referer,browser,date_logged_on,last_update,state) VALUES ('".$params['id']."','".$params['user_name']."','".$params['session_id']."','".$params['bot_id']."','".$params['chatlines']."','".$params['ip']."','".$params['referer']."','".$params['browser']."','".$params['date_logged_on']."','".$params['last_update']."','".$params['state']."')");
 			$consulta->execute();
 			if ($consulta->rowCount() > 0) return true;
 			else return false;
 		}
 
 		public function edit($params){
-			$consulta = $this->db->prepare("UPDATE users SET email = '".$params['email']."',password = '".$params['password']."',area = '".$params['area']."'  where usersId='".$params['id']."'");
+			$consulta = $this->db->prepare("UPDATE users SET id = '".$params['id']."',user_name = '".$params['user_name']."',session_id = '".$params['session_id']."',bot_id = '".$params['bot_id']."',chatlines = '".$params['chatlines']."',ip = '".$params['ip']."',referer = '".$params['referer']."',browser = '".$params['browser']."',date_logged_on = '".$params['date_logged_on']."',last_update = '".$params['last_update']."',state = '".$params['state']."'  where usersId='".$params['id']."'");
 			$consulta->execute();
 			if ($consulta->rowCount() > 0) return true;
 			else return false;

@@ -12,7 +12,7 @@ class blogModel extends ModelBase
 
 				$params = gett();
 
-				$consulta = $this->db->prepare("SELECT * FROM blog  JOIN blogcategorys ON (blog.blogcategorysId = blogcategorys.blogcategorysId) where fecha < NOW() order by fecha DESC limit ".$params['offset'].",".$params['perpage']);
+				$consulta = $this->db->prepare("SELECT * FROM blog   where fecha < NOW() order by fecha DESC limit ".$params['offset'].",".$params['perpage']);
 				$consulta->execute();
 				$aux2 = $consulta->fetchAll();
 
@@ -43,10 +43,10 @@ class blogModel extends ModelBase
 		public function getByField($field,$val){
 
 
-				$consulta = $this->db->prepare("SELECT * FROM blog LEFT JOIN blogcategorys ON (blog.blogcategorysId = blogcategorys.blogcategorysId) where blog.".$field." ='".$val."' ");
+				$consulta = $this->db->prepare("SELECT * FROM blog where blog.".$field." ='".$val."' ");
 				$consulta->execute();
 				$aux2 = $consulta->fetchAll();
-				$this->cache->set("blog_".$field."_".$val,$aux2,600);
+
 				return $aux2;
 		}
 	

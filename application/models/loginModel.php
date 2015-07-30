@@ -44,13 +44,8 @@ class loginModel extends ModelBase
 
 		$_SESSION['usersId'] = $usersId; 
         $_SESSION['HTTP_USER_AGENT'] = md5($_SERVER['HTTP_USER_AGENT'].$config->get('base_title'));	
-        $redirect = '';
-        if (isset($_SESSION['return_url'])){
-            $redirect = $config->get('base_url').$_SESSION['return_url'];
-        }else{
-            $redirect = $config->get('base_url');
-        }
-       header ("location: ".$redirect);
+
+       header ("location: ".$config->get('base_url').'admin');
     }
     function loginError(){
         	$config = Config::singleton();

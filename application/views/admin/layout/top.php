@@ -44,8 +44,8 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-			<li><a href="<?= $base_url ?>/admin"><i class="glyphicon glyphicon-time"></i> Importar</a></li>
-            <li><a href="<?= $base_url ?>"><i class="glyphicon glyphicon-new"></i> Nueva Factura</a></li>
+			<li><a href="<?= $base_url ?>/admin"><i class="glyphicon glyphicon-time"></i> <?= Date("H:i\h d/m/Y") ?></a></li>
+            <li><a href="<?= $base_url ?>"><i class="glyphicon glyphicon-eye-open"></i> Ir a la página</a></li>
             <li><a href="<?= $base_url ?>/admin/logout"><i class="glyphicon glyphicon-lamp"></i> Cerrar Sesión</a></li>
 
           </ul>
@@ -59,8 +59,11 @@
     
       
 	<div class="container-fluid">
-	
+		
+   
 
+
+	<div class="row">
   <div class="col-sm-3 col-md-2 sidebar">
 
 
@@ -68,14 +71,9 @@
 
           </div>
 
-
-    
-	
-	
+        </div><!--/span-->
 	
 	<div  class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
-
-    
           
 	

@@ -9,6 +9,7 @@
 	<script src="public/vendor/jquery-ui.min.js" type="text/javascript"></script>
    	<script src="public/vendor/bootstrap-3.3.2-dist/js/bootstrap.min.js"></script>
    	<script src="public/vendor/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>   	
+   	<script src="public/vendor/bootstrap-timepicker.min.js"></script>   	
 <script src="public/vendor/datatables/jquery.sortelements.js" type="text/javascript"></script>
 <script src="public/vendor/datatables/jquery.bdt.js" type="text/javascript"></script>
 
