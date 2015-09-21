@@ -1,0 +1,1 @@
+<h1>Pago Error</h1>
