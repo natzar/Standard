@@ -1,78 +1,67 @@
-<? include "layout/menu.php" ?>
-
-
-<div class="container">
-<div class="row ">
-	<div class="col-lg-12"><h1 class="post-title">Contacto</h1>
-	<small>&nbsp;</small>
+<!--End Header--><section class="page-heading">
+	<div class="title-slide">
+		<div class="container">
+				<div class="banner-content slide-container">									
+					<div class="page-title">
+                                                    <h3><?= $_CONTACTO ?></h3>                        					</div>
+				</div>
+		</div>
 	</div>
-</div>
-<div class="row ">
-<div class="col-lg-4 col-md-4">
-<p>
-<strong>Horario (GMT +1)</strong><br>
-De 9:00h - 14:00h<br>
-de 15:00h - 17:00h<br>
-<br>
-
-<strong>BARCELONA</strong><br> Padilla 174, at 1. <br>08017 Barcelona, Spain. <br><br>
-
-<br>
-</p>
-
-
-
-<br>
-
-
-</div>
-<div class="col-lg-8 col-md-8">
-
-<? if (!isset($_POST['submit'])): ?>
-
-<div class="alert alert-error">
-<strong>Ha ocurrido un error</strong><br>
-Por favor, vuelve a intentarlo. <a href="/<?= $_SESSION['lang']?>/contact">Click aquí</a>
+</section>
+<div class="page-content inner-page-full">
+    <div class="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ul>
+                    <li class="home"><a href="<?= $base_url ?>"><i class="fa fa-home"></i> Home</a></li><li><span>//</span></li><li class="category-2"><?= $_CONTACTO ?></li>                </ul>
+            </div>
+        </div>
+    </div>
 </div>
 
-<? else: ?>
+            
+<article id="post-567" class="post-567 page type-page status-publish hentry">
+	<div class="entry-content">
+		<div  class="vc_row wpb_row vc_row-fluid our-team-page vc_custom_1427878376319"><div class="container"><div class="row">
+	<div class="vc_col-sm-4 wpb_column vc_column_container ">
+		<div class="wpb_wrapper">
+			<div class="headding-title "><h4><?= $_DIRECCION ?></h4><div class="headding-bottom"></div></div><ul class="headding-content "><li class=""><div class="icon-headding"><i class="fa fa-home"></i></div><div class="cont-headding"><h5> Distrito Dance</h5><p>Ronda Ponent, 24. Sabadell, Barcelona.<br> +34 937 68 52 52</p></div></li></ul>
+		</div> 
+	</div> 
 
-<div class="alert alert-success">
-<h4><?= ucfirst($_POST['nombre'])?>, gracias por contactarnos </h4>
-<strong>Hemos recibido tu Mensaje</strong><br>
-No tardaremos mucho en responderte.
-</div>
-
-<? 
-	$msg = '';
-	
-	foreach($_POST as $a => $v)
-		$msg .= $a.": ".$v."<br>";
-		include "lib/vendor/class.phpmailer.php";
-			$mail = new PHPMailer();
-			//$mail->isSMTP();
-			$mail->SetFrom('web@96levels.com');
-		//	$mail->AddReplyTo('noreply@96levels.com');
-			$mail->IsHTML(true);
-			$mail->CharSet = "UTF-8";
-//			$mail->AddAddress('work@96levels.com');
-			$mail->AddAddress('hello@96levels.com');
-			//$mail->AddBCC("hello@iguana.io");
-			$mail->Subject = 'CONTACTO WEB';
-			$mail->AltBody = "To view the message, please use an HTML compatible email viewer!";
-			$mail->MsgHTML("<body>".$msg."</body>");	
-			$mail->Send();
+	<div class="vc_col-sm-8 wpb_column vc_column_container ">
+		<div class="wpb_wrapper">
+			<div class="headding-title "><h4><?= $_CONTACTO_TITLE ?></h4><div class="headding-bottom"></div></div>
+	<div class="wpb_text_column wpb_content_element  headding-content">
+		<div class="wpb_wrapper">
+		
+		<div class="alert alert-success"><?= $_FORM_THANKYOU  ?></div>
+		
+			<p><?= $_CONTACTO_DESC ?></p>
 
 
-	
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2986.107472361396!2d2.0999073!3d41.54527019999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a494f93cac7023%3A0xbafdd926419e8774!2sDistrito+Dance%2C+Ronda+de+Ponent%2C+24%2C+08201+Sabadell%2C+Barcelona!5e0!3m2!1ses!2ses!4v1441896095896" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
 
-
-endif; ?>
-
-</div>
-
-</div>
-</div>
-
-
-
+              
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="contact">
+                               
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+		</div> 
+	</div> 
+</div></div>
+</div></div></div>
+			</div><!-- .entry-content -->
+	<footer class="entry-footer ">
+			</footer><!-- .entry-footer -->
+</article><!-- #post-## -->
+    </div>
+</div> <!--end .content-wrapper -->
+</section><!--end section.page -->

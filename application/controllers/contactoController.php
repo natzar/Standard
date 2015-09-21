@@ -23,6 +23,6 @@ class contactoController extends ControllerBase
 				$mail->MsgHTML("<body>".$msg."</body>");	
 				$mail->Send();
 	
-			$this->view->show('contact-ok.php',array("msg" => $msg));				  
+			$this->view->show('contact/contact-ok.php',array("msg" => $msg));				  
 		 }
  }

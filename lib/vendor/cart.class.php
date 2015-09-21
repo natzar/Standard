@@ -61,7 +61,7 @@ class shopping_cart {
     	   $_SESSION['qty'.$b] += $a[4] ;
     	endif;
     	$this->calcular_totales();
-    	        	echo $this->total_productos;    
+    	        	//echo $this->total_productos;    
     }
     
     
@@ -80,10 +80,28 @@ class shopping_cart {
             }   
         
         }
+        $this->calcular_totales();
 		return false;
         
     }
-    
+   
+    function decrease_p($a){
+    $n_p = $_SESSION['num_prod'];
+//    	$_SESSION['num_prod'] = $_SESSION['num_prod'] - 1;
+    	
+    	   for ($i = 0; $i < $n_p;$i++){
+            if (isset($_SESSION['producto'.$i]) and $_SESSION['producto'.$i] != 0){
+                if ($_SESSION['producto'.$i] == $a){
+                
+                           $_SESSION['qty'.$i] =  $_SESSION['qty'.$i]  -1;
+    if ($_SESSION['qty'.$i] < 1) $_SESSION['qty'.$i] = 1;
+                return true;
+                }
+            }   
+        
+        }
+    }
+     
     function update_p($a,$b){
     $n_p = $_SESSION['num_prod'];
 //    	$_SESSION['num_prod'] = $_SESSION['num_prod'] - 1;
@@ -129,6 +147,10 @@ class shopping_cart {
         $this->subtotal = $subtotal;
         $this->tax = $subtotal * $tax_rate;
         $this->total = $this->subtotal + $this->tax;
+        
+        $_SESSION['subtotal'] = $subtotal;
+        $_SESSION['total'] = $this->total;
+        $_SESSION['tax'] = $this->tax;
     
     }
     

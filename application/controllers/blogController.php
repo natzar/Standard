@@ -14,7 +14,7 @@ class blogController extends ControllerBase
 			$blog = new blogModel();			
 			$data = Array(
 				  "items" => $blog->getAll(),
-
+                  "ultimosposts" => $blog->getUltimos(), 
 
 				  "SEO_TITLE" => "Blog",
 
@@ -33,8 +33,8 @@ class blogController extends ControllerBase
             
 			$blog = new blogModel();			
 			$data = Array(
-				  "items" => $blog->getByField('slug_'.$_SESSION['lang'],$a),
-
+				  "items" => $blog->getByField('slug_es',$a),
+                "ultimosposts" => $blog->getUltimos(),
 
 				  "SEO_TITLE" => "Blog",
 

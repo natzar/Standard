@@ -37,7 +37,7 @@ include "ControllerBase.php";
 include "ModelBase.php";
 
 
-header ('Content-type: text/html; charset=utf-8');
+//header ('Content-type: text/html; charset=utf-8');
 
 
 class FrontController
@@ -91,6 +91,7 @@ class FrontController
 		if(is_file($controllerPath)) require $controllerPath;
 
 		if (!is_callable(array($controllerName, $actionName))){
+		header("HTTP/1.0 404 Not Found");
 			require_once($config->get('controllersFolder').'errorsController.php');
 			$controller = new errorsController();
 	    	$controller->e404();

@@ -380,6 +380,7 @@ function seoLink(text) {
          text = text.replace(new RegExp("\\" + char, "g"), '-');
     }
     text = normalize(text);
+    text = text.trim();
     text = text.toLowerCase();
     text = text.replace(/\W/g, '-');
       text = text.replace(new RegExp("\\--", "g"), '-');

@@ -183,8 +183,10 @@ class showModel extends ModelBase
 					$.post("admin/updateOrder", order, function(theResponse){
 						console.log(theResponse);
 					});
-					}
+				}
 
+				});
+				
 				});';
 			
 				}

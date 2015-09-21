@@ -9,34 +9,37 @@ final class horario extends field{
 	}
 	function bake_field (){		
 //	   $this->value = 
+        $aux = array(-1,"");
+    if ($this->value != ''){
         $aux = explode("|",$this->value);
+        }
 	   $field = "
 <hr>
 	   	      <div class='input-group'>
 	   	      <label>Día de la semana</label>
 	       <select class='form-control' id='".$this->fieldname."_dia' name='".$this->fieldname."[]'>
 	       <option value='-1'>---</option>
-	       <option value='Lunes' "; 
-	       if ($aux[0] == "Lunes") $field .= "selected";
+	       <option value='1' "; 
+	       if ($aux[0] == "1") $field .= "selected";
 	       $field .= ">Lunes</option>
-	       <option value='Martes' "; if ($aux[0] == "Martes" ) $field .= "selected";
+	       <option value='2' "; if ($aux[0] == "2" ) $field .= "selected";
 	       $field .= ">Martes</option>
-	       <option value='Miércoles' "; if ($aux[0] == "Miércoles") $field .= "selected";
+	       <option value='3' "; if ($aux[0] == "3") $field .= "selected";
 	       $field .= ">Miércoles</option>
-	       <option value='Jueves' "; if ($aux[0] == "Jueves" ) $field .= "selected";
+	       <option value='4' "; if ($aux[0] == "4" ) $field .= "selected";
 	       $field .=">Jueves</option>
-	       <option value='Viernes' ";if ( $aux[0] == "Viernes") $field .= "selected";
+	       <option value='5' ";if ( $aux[0] == "5") $field .= "selected";
 	       $field .=">Viernes</option>
-	       <option value='Sábado' "; if ($aux[0] == "Sábado") $field .= "selected";
+	       <option value='6' "; if ($aux[0] == "6") $field .= "selected";
 	       $field .=">Sábado</option>
-	       <option value='Domingo' "; if ($aux[0] == "Domingo") $field .= "selected";
+	       <option value='7' "; if ($aux[0] == "7") $field .= "selected";
 	       $field .=">Domingo</option>
 	       </select>
 	       
 
 	       <div class=\"input-append bootstrap-timepicker\">
 	       <label>Hora del día (24h)</label>
-            <input class='form-control' id=\"".$this->fieldname."_hora\" name='".$this->fieldname."[]' type=\"text\" class=\"input-small\" value=\"".$this->value."\">
+            <input class='form-control' id=\"".$this->fieldname."_hora\" name='".$this->fieldname."[]' type=\"text\" class=\"input-small\" value=\"".$aux[1]."\">
             <span class=\"add-on\"><i class=\"icon-time\"></i></span>
         </div>
         </div>

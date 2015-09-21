@@ -1,7 +1,7 @@
 <?
-// DIVE TRADERS
+// DISTRITO DANCE
 // users Controller
-// 06-2015
+// 07-2015
 // Beto Ayesa @ 96levels 
 // www.96levels.com / hello@96levels.com
 
@@ -11,9 +11,7 @@ class usersController extends ControllerBase
 		public function index(){
 			require "application/models/usersModel.php"; 	
 			$users = new usersModel();			
-			print_r(gett());
 			$data = Array(
-			
 				  "items" => $users->getAll()
 		          );         
 			$this->view->show("templates/table.php", $data);
@@ -24,22 +22,10 @@ class usersController extends ControllerBase
 			$users = new usersModel();	
 			$params = gett();
 			$id = $params["a"];		
-			
-			$items = $users->getByusersId($id);
-			 
-			if ($items['area'] == 2){
-                require "application/models/divecentersModel.php"; 	
-                $dc = new divecentersModel();
-                $items =	array_merge($items,$dc->getByUsersId($id));
-			}else if ($items['area'] == 3){
-                require "application/models/diversModel.php"; 	
-                $dc = new diversModel();
-                $items =	array_merge($items,$dc->getByUsersId($id));
-			}
 			$data = Array(
-				  "items" => $items
+				  "items" => $users->getByusersId($id)
 		          );         
-			$this->view->show("profile/public-profile.php", $data);
+			$this->view->show("templates/detail.php", $data);
 		}
 		
 

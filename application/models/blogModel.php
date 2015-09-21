@@ -19,6 +19,19 @@ class blogModel extends ModelBase
 				return $aux2;
 		}
 
+		public function getUltimos($howmany = 5){
+
+				$params = gett();
+
+				$consulta = $this->db->prepare("SELECT * FROM blog order by fecha DESC limit ".$howmany);
+				$consulta->execute();
+				$aux2 = $consulta->fetchAll();
+
+				return $aux2;
+		}
+
+
+
 		public function getHots(){
 
 

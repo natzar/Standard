@@ -13,6 +13,7 @@ class loginModel extends ModelBase
         $config = Config::singleton();
         if ($usersId == -1){
             $_SESSION['initiated_admin'] = 1;
+
         }else{
             
             $_SESSION['initiated'] = true;
@@ -56,13 +57,14 @@ class loginModel extends ModelBase
     }
 	public function login($user,$pass)
 	{   
-	    	$config = Config::singleton();
+	    	
     	$config = Config::singleton();
         if (!isset($_SESSION['login_attemp'])) $_SESSION['login_attemp'] = 1;
 		// Uncheck security
 		$_SESSION['login_attemp'] = 1;
         if ($_SESSION['login_attemp'] < 4){        	
         	if ($user == $config->get('validUser') and $pass== $config->get('validPass')){
+
   		        $this->loginSuccess();				
         	} else{         	
         	   $c = $this->db->prepare('SELECT usersId,email,password FROM '.$config->get('db_prefix').'users where email = :user and password = :password limit 1');

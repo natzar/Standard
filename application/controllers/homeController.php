@@ -1,10 +1,14 @@
 <?
 class homeController extends ControllerBase{
 	function index(){
-		$data = array();
-		if ($this->config->get('developer_mode')){
-	       $this->view->show('admin/dashboard.php',$data);
-		}else if (file_exists($this->config->get('viewsFolder').'index.php')){
+        include "application/models/sliderModel.php";
+        $slider = new sliderModel();
+    	$sliderItems = $slider->getAll();
+    	include "application/models/cursosModel.php";
+    	$cursos= new cursosModel();
+    	
+		$data = array("slider" => $sliderItems,"cursos" => $cursos->getAll(),"cursos_destacados" => $cursos->getDestacados(),"proximos" => $cursos->getProximos());
+		if (file_exists($this->config->get('viewsFolder').'index.php')){
 			$this->view->show('index.php',$data);		
         }	
 	}

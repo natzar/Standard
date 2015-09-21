@@ -43,9 +43,10 @@ final class multiselect extends field{
 	function bake_multicombo($tablax2,$select_name,$ids_selected){
 		$this->db = SPDO::singleton();			
 		$data = $this->db->prepare("SELECT id, ".$select_name." from $tablax2 order by ".$select_name." ASC");	
+		echo "SELECT id, ".$select_name." from $tablax2 order by ".$select_name." ASC";
 		$data->execute();
 		$arg = $data->fetchAll();
-	$output = "<select name=\"".$this->fieldname."[]\" id=\"".$this->fieldname."\" MULTIPLE='multiple' size='6' width='100' ".">";
+	$output = "<select class='form-control' name=\"".$this->fieldname."[]\" id=\"".$this->fieldname."\" MULTIPLE='multiple' size='6' width='100' ".">";
 
 	//$this->toError("SELECT id, ".$select_name." from $tablax2 order by ".$select_name." ASC");
 	$ids_selected = explode(",",$ids_selected);

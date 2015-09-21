@@ -50,17 +50,8 @@ class View
 		$base_url = $this->config->get('base_url');
 		$base_title =  $this->config->get('base_title');
 		$HOOK_JS = '';
-		/* Template Data */
-		if(is_array($vars))
-           foreach ($vars as $key => $value)           
-                	$$key = $value;
-                	
-        include_once "application/models/sidedataModel.php";
-		$SIDEDATA = new sidedataModel();
-		$SIDEDATA = $SIDEDATA->load();
-		$aux = "content_".$LANG;
+			$aux = "content_".$LANG;
 		$aux2 = "description_".$LANG;
-
 		$SEO_TITLE = $params['p'];
 		if (isset($params['i']) and $params['i'] !=""){
 			$SEO_TITLE = $params['i'];
@@ -79,6 +70,18 @@ class View
 		}else if(isset($items[$aux2])){
 			$SEO_DESCRIPTION = substr($items[$aux2],0,190);
 		}
+		
+		/* Template Data */
+		if(is_array($vars))
+           foreach ($vars as $key => $value)           
+                	$$key = $value;
+                	
+        include_once "application/models/sidedataModel.php";
+		$SIDEDATA = new sidedataModel();
+		$SIDEDATA = $SIDEDATA->load();
+	
+
+		
 		if ($SEO_TITLE == '') $SEO_TITLE = 'Home';
 		
 		$SEO_TITLE = strip_tags($SEO_TITLE);		
