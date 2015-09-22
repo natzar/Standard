@@ -142,9 +142,9 @@ class showModel extends ModelBase
         $order = (get_param('sorder') != -1) ? get_param('sorder') : $default_order; 
         $table_aux = $table;
       
+		$table_no_prefix = substr($table,strlen($this->config->get('db_prefix')));
       
-      
-        $consulta = $this->db->prepare('SELECT * FROM '.$table_aux.' where '.$table.'Id ="'.$id.'" order by '.$order);
+        $consulta = $this->db->prepare('SELECT * FROM '.$table_aux.' where '.$table_no_prefix.'Id ="'.$id.'" order by '.$order);
         $consulta->execute();
         
         return $consulta->fetch();
