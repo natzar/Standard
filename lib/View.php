@@ -26,7 +26,7 @@ class View
  		$LANG = $_SESSION['lang'];
  		$config = $this->config; 	
 	
-		require_once ($this->config->get('languagesFolder').$_SESSION['lang'].'.php');
+		include_once ($this->config->get('languagesFolder').$_SESSION['lang'].'.php');
  		
  		/* SEO */
  		$SEO_TITLE = $this->config->get('seo_title');
@@ -43,8 +43,6 @@ class View
 		
         
 		
-		$SEO_TITLE  =ucfirst($SEO_TITLE);
-		if ($SEO_TITLE == "") $SEO_TITLE = 'Home';
 		/* Template meta data */
 		$page = $name;
 		$base_url = $this->config->get('base_url');
@@ -63,26 +61,26 @@ class View
 			$SEO_TITLE = ucfirst($items['title_'.$LANG]);
 		}
 		$SEO_TITLE = ucfirst($SEO_TITLE);
-		
-		if (isset($items[$aux])){
-			$SEO_DESCRIPTION = substr($items[$aux],0,190);
-			
-		}else if(isset($items[$aux2])){
-			$SEO_DESCRIPTION = substr($items[$aux2],0,190);
-		}
+		if ($SEO_TITLE == "") $SEO_TITLE = 'Escuela de Danza en Sabadell';
+
+	
 		
 		/* Template Data */
 		if(is_array($vars))
            foreach ($vars as $key => $value)           
                 	$$key = $value;
-                	
+          
+          	if (isset($items[$aux])){
+			$SEO_DESCRIPTION = truncate($items[$aux],200);
+			
+		}else if(isset($items[$aux2])){
+			$SEO_DESCRIPTION = truncate($items[$aux2],200);
+        }
+		      	
         include_once "application/models/sidedataModel.php";
 		$SIDEDATA = new sidedataModel();
 		$SIDEDATA = $SIDEDATA->load();
 	
-
-		
-		if ($SEO_TITLE == '') $SEO_TITLE = 'Home';
 		
 		$SEO_TITLE = strip_tags($SEO_TITLE);		
 		$SEO_DESCRIPTION = strip_tags($SEO_DESCRIPTION);

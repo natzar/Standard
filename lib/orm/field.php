@@ -69,3 +69,4 @@ require_once "visible.php";
 require_once "youtube-real.php";
 require_once "youtube.php";
 require_once "profesores.php";
+require_once "pedido.php";

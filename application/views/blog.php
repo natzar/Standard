@@ -1,4 +1,4 @@
-<? $LANG = 'es' ?>
+
 <section class="page-heading">
     <div class="title-slide">
         <div class="container">
@@ -48,17 +48,17 @@
                                                 <div class="blog-title-top">
                             <?= Date("d/m/Y",strtotime($item['fecha'])) ?></div>
                                                 <div class="blog-title">
-                            <a href="<?= $LANG ?>/blog/<?= $item['slug_'.$LANG] ?>"><?= $item['title_'.$LANG] ?></a>
+                            <a href="<?= $LANG ?>/blog/<?= $item['slug_es'] ?>"><?= $item['title_es'] ?></a>
                         </div>
 						                        </div>
                         <div class="blog-text">
-                          <!--   <p><?= substr(stripslashes(strip_tags($item['content_'.$LANG])),0,300) ?>...</p> -->
+
                             <? if (count($items) < 2): ?>
-                            <p><?= stripslashes($item['content_'.$LANG]) ?></p>  
+                            <p><?= stripslashes($item['content_es']) ?></p>  
                             <? else: ?>
-                            <p><?= substr(stripslashes(strip_tags($item['content_'.$LANG])),0,300) ?>...</p>
+                            <p><?= truncate(stripslashes(strip_tags($item['content_es'])),300) ?>...</p>
                             <? endif; ?>
-<!--                      <p>       <a href="<?= $LANG ?>/blog/<?= $item['slug_'.$LANG] ?>"><?= $_READMORE ?></a></p> -->
+<!--                      <p>       <a href="<?= $LANG ?>/blog/<?= $item['slug_es'] ?>"><?= $_READMORE ?></a></p> -->
 
                         </div>
 

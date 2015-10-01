@@ -40,6 +40,15 @@ $(document).ready(function()
 	
 	language_link = cadena.substr(0,cadena.indexOf('/'));
 	$('a[href="'+language_link+'"]').addClass("active list-group-item-active current-menu-item");			
+	
+	   var height = $(window).scrollTop();
+
+    if(height  > 30) {
+            $('#header').css("background","#242424");     // do something
+    } else {
+            $('#header').css("background","transparent");     // do something
+    }
+    
 });
 
 

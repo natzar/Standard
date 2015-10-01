@@ -17,6 +17,9 @@ final class youtubeReal extends field{
 	}
 		
 	function exec_add () {
+	if ($this->value =="" or $this->value == -1){
+	   return "";
+	}
 	   $pattern = 
         '%^# Match any youtube URL
         (?:https?://)?  # Optional scheme. Either http or https
@@ -44,7 +47,9 @@ final class youtubeReal extends field{
 
 	}
 	function exec_edit () {
-
+	if ($this->value =="" or $this->value == -1){
+	   return "";
+	}
 	   $pattern = 
         '%^# Match any youtube URL
         (?:https?://)?  # Optional scheme. Either http or https

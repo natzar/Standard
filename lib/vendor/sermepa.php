@@ -62,7 +62,7 @@ class Sermepa{
     {
         if(trim($entorno) == 'real'){
             //real
-            $this->_setEntorno='https://sis.sermepa.es/sis/realizarPago';
+            $this->_setEntorno='https://sis.redsys.es/sis/realizarPago';
         }
         else{
             //pruebas
@@ -335,7 +335,7 @@ class Sermepa{
 
 /* <a href="http://distritodance.com/wordpress/athlete/home/checkout/" class="checkout-button button alt wc-forward"><em class="fa-icon"><i class="fa fa-arrow-right"></i></em>Proceed to Checkout</a> */
 
-        $btnsubmit = '<input type="submit" class="checkout-button button alt wc-forward" name="'.$nombre.'" id="'.$nombre.'" value="'.$texto.'" />';
+        $btnsubmit = '<input type="button"  class="checkout-button button alt wc-forward" name="'.$nombre.'" id="'.$nombre.'" value="'.$texto.'" />';
         $this->_setSubmit = $btnsubmit;
     }
 

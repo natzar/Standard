@@ -34,7 +34,7 @@ $_FORM_TELEFONO = "Teléfono";
 $_FORM_ASUNTO ="Asunto";
 $_FORM_MENSAJE = "Mensaje";
 
-$_FORM_THANKYOU = "Gracias. Hemos recibido su mensaje. Nos pondremos en contacto en breves.";
+$_FORM_THANKYOU = "Gracias. Hemos recibido su mensaje. Nos pondremos en contacto tan pronto como nos sea posible.";
 $_FORM_ERROR = "Ha ocurrido un error"; 
 $_CONTACTFORM = "Formulario de Contacto";
 $_CONTACTO_CON_NOSOTROS = "<strong>Contacta</strong> con nosotros";
@@ -57,8 +57,7 @@ $_ESCUELA_FEATURE3 ='Una amplia oferta horaria para que puedas amoldar la danza 
 
 
 $_CONTACTO_TITLE = "Acércate al Distrito. Estaremos encantados de atenderte...";
-$_CONTACTO_DESC = "Distrito Dance es mas que una escuela. Distrito Dance es una comunidad de Danza.
-En Distrito Dance podrás practicar una gran variedad de disciplinas, formarte, divertirte, y conocer a un sin fin de personas. Ven a visitarnos y a conocernos!";
+$_CONTACTO_DESC = "Distrito Dance es más que una escuela. Distrito Dance es una comunidad de Danza. En Distrito Dance podrás practicar una gran variedad de disciplinas, formarte, divertirte, y conocer a un sinfín de personas. ¡Ven a visitarnos!";
 
 
 $_ESCUELA_DE_DANZA = "ESCUELA DE DANZA";
@@ -111,3 +110,28 @@ $_TIENDA = "Tienda";
 $_ADD_TO_CART = "Añadir al carrito";
 $_CATEGORIES = "Categorias";
 $_PRODUCTOS_RELACIONADOS = "Productos Relacionados";
+$_CARRITO = "Carrito";
+$_SEGUIR_COMPRANDO = "Seguir comprando";
+$_PRODUCTO = "Producto";
+$_PRECIO = "Precio";
+$_CANTIDAD = "Cantidad";
+$_TAX = "Iva 21%";
+$_DATOS_ENVIO = "DATOS DE ENVÍO";
+$_PAGO_ERROR = "Se ha cancelado el pago";
+$_PAGO_ERROR_MSG = "No hemos procesado tu pedido. Si has tenido problemas, por favor contacta con nosotros.";
+$_PAGO_COMPLETADO = "Pedido Completado";
+$_PAGO_COMPLETADO_MSG = "Tu pedido está confirmado y hemos recibido el pago. Gracias.";
+$_COMPARTE_ESTA_CLASE = "Comparte esta clase";
+
+$_CONTACTANOS_POR_TELF = "Contáctanos por teléfono<br> en el 937 68 52 52";
+
+$_EDAD = "Edad";
+$_ESPECIALIDAD = "Especialidad";
+
+$_NUESTROS_PRODUCTOS = "Nuestros Productos";
+
+$_SHOP_INTRO_1 = "ENCUENTRA TODA LA ROPA Y LOS MEJORES ACCESORIOS DE DANZA";
+
+$_NEXT_MONTH = "Próximo Mes";
+$_CONSULTAR_HORARIOS = "Consultar horarios aquí";
+$_WEBDESIGN = "Diseño Web";

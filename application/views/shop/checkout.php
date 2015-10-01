@@ -14,7 +14,7 @@
         <div class="row">
             <div class="col-md-12">
                 <ul>
-                    <li class="home"><a href="<?= $base_url ?> "><i class="fa fa-home"></i> Home</a></li><li><span>//</span></li><li class="category-2"><a href="<?= $LANG ?>/shop"><?= $_TIENDA ?></a></li>    <li><span>//</span></li><li class="category-2">Carrito</li>                </ul>
+                    <li class="home"><a href="<?= $base_url ?> "><i class="fa fa-home"></i> Home</a></li><li><span>//</span></li><li class="category-2"><a href="<?= $LANG ?>/shop"><?= $_TIENDA ?></a></li>    <li><span>//</span></li><li class="category-2"><?= $_CARRITO ?></li>                </ul>
                     
 
             </div>
@@ -24,7 +24,7 @@
 <div class="container">
 <div class="row">
 <div class="col-lg-12 align-center center-align">
-                    <a class="open-btn" href="<?= $LANG ?>/shop">Seguir comprando</a>
+                    <a class="open-btn" href="<?= $LANG ?>/shop"><?= $_SEGUIR_COMPRANDO ?></a>
                     <br><br>
                     </div>
                     </div>
@@ -41,9 +41,9 @@
             <div class="cart-table">
                 <div class="row-title">
 
-                    <div class="col-md-5"><span>Product</span></div>
-                    <div class="col-md-2"><span>Price</span></div>
-                    <div class="col-md-2"><span>Quantity</span></div>
+                    <div class="col-md-5"><span><?= $_PRODUCTO ?></span></div>
+                    <div class="col-md-2"><span><?= $_PRECIO ?></span></div>
+                    <div class="col-md-2"><span><?= $_CANTIDAD ?></span></div>
                     <div class="col-md-2"><span>Total</span></div>
                                     </div>
 
@@ -105,7 +105,7 @@
 
 <div class="cart_totals ">
 <div class="cart-total col-md-12">
-    <div class="title">Cart Totals</div>
+    <div class="title">Total</div>
 	
     <div class="box">
 
@@ -121,38 +121,38 @@
 					
 						
 		<tr class="order-total">
-			<th>Taxes</th>
-			<td><strong><span class="amount"><?= $_SESSION['tax'] ?></span></strong> </td>
+			<th><?= $_TAX ?></th>
+			<td><strong><span class="amount"><?= $_SESSION['tax'] ?> &euro;</span></strong> </td>
 		</tr>
 														
 		
 		<tr class="order-total">
 			<th>Total</th>
-			<td><strong><span class="amount"><?= $_SESSION['total'] ?></span></strong> </td>
+			<td><strong><span class="amount"><?= $_SESSION['total'] ?> &euro;</span></strong> </td>
 		</tr>
 
 	<tr class="order-total">
 			<td colspan="4">
-			    <div class="title">DATOS DE ENVÍO</div>
+			    <div class="title"><?= $_DATOS_ENVIO ?></div>
 			</td>
 		</tr>
 
 	<tr class="order-total">
-			<th>Nombre y apellidos</th>
-			<td><input class="form-control" type="text" name="name"> </td>
+			<th><?= $_FORM_NOMBRE_APELLIDOS ?></th>
+			<td><input class="form-control" type="text" id="name" name="name"> </td>
 		</tr>
 	<tr class="order-total">
-			<th>Dirección</th>
-			<td><textarea class="form-control" name="dirección"></textarea> </td>
+			<th><?= $_DIRECCION ?></th>
+			<td><textarea class="form-control" name="direccion" id="direccion"></textarea> </td>
 		</tr>
 		<tr class="order-total">
 			<th>E-mail</th>
-			<td><input type="text" class="form-control" name="email"></td>
+			<td><input type="text" class="form-control" id="email" name="email"></td>
 		</tr>
 		
 		<tr class="order-total">
-			<th>Teléfono</th>
-			<td><input type="text" class="form-control" name="telf"> </td>
+			<th><?= $_PHONE ?></th>
+			<td><input type="text" class="form-control" id="telf" name="telf"> </td>
 		</tr>
 	</tbody>
 	<tfoot>

@@ -20,25 +20,25 @@
 			<div id="MS5587b03dba47c" class="master-slider ms-skin-default" >
 				 				 
 				<div  class="ms-slide" data-delay="5" data-fill-mode="fill"  >
-					<img src="public/assets/plugins/masterslider/public/assets/css/blank.gif" alt="" title="" data-src="http://inwavethemes.com/wordpress/athlete/wp-content/uploads/2015/03/banner-shop.png" />
+					<img src="public/assets/plugins/masterslider/public/assets/css/blank.gif" alt="" title="" data-src="public/assets/uploads/2015/03/banner-shop.png" />
 
 					
 
 					<div  class="ms-layer  msp-cn-9-3" style=""  data-effect="t(true,n,200,n,n,n,n,n,n,n,n,n,n,n,n)" data-duration="600" data-delay="800" data-ease="linear"                data-offset-x="0" data-offset-y="10" data-origin="mc" data-position="normal" >
-ENCUENTRA TODA LA ROPA Y LOS MEJORES ACCESORIOS DE DANZA
+<?= $_SHOP_INTRO_1 ?>
 </div>
 
 					<div  class="ms-layer  msp-cn-9-2" style=""  data-effect="t(true,n,200,n,n,n,n,n,n,n,n,n,n,n,n)" data-duration="600" data-delay="400" data-ease="linear"                data-offset-x="0" data-offset-y="-60" data-origin="mc" data-position="normal" >
 DISTRITO SHOP</div>
 
 					<div  class="ms-layer  msp-cn-9-1" style=""  data-effect="t(true,n,200,n,n,n,n,n,n,n,n,n,n,n,n)" data-duration="600"  data-ease="linear"                data-offset-x="0" data-offset-y="-140" data-origin="mc" data-position="normal" >
-TIENDA ONLINE</div>
+<?= $_TIENDA ?> ONLINE</div>
 
 
 
 				</div>
 				<div  class="ms-slide" data-delay="5" data-fill-mode="fill"  >
-					<img src="public/assets/plugins/masterslider/public/assets/css/blank.gif" alt="" title="" data-src="http://inwavethemes.com/wordpress/athlete/wp-content/uploads/2015/03/banner-shop-1.jpg" />
+					<img src="public/assets/plugins/masterslider/public/assets/css/blank.gif" alt="" title="" data-src="public/assets/uploads/2015/03/banner-shop-1.jpg" />
 
 					
 
@@ -53,7 +53,7 @@ Athlete</div>
 
 				</div>
 				<div  class="ms-slide" data-delay="5" data-fill-mode="fill"  >
-					<img src="public/assets/plugins/masterslider/public/assets/css/blank.gif" alt="" title="" data-src="http://inwavethemes.com/wordpress/athlete/wp-content/uploads/2015/03/banner-shop-2.jpg" />
+					<img src="public/assets/plugins/masterslider/public/assets/css/blank.gif" alt="" title="" data-src="public/assets/uploads/2015/03/banner-shop-2.jpg" />
 
 					<div  class="ms-layer  msp-cn-9-14" style=""  data-effect="t(true,n,200,n,n,n,n,n,n,n,n,n,n,n,n)" data-duration="600" data-delay="1200" data-ease="linear"                data-offset-x="0" data-offset-y="95" data-origin="mc" data-position="normal" >
 <div class="link-to athlete-store"><div class="watch-video btn-store"><a href="index.html#">Watch video </a></div><div class="shop-now btn-store"><a href="index.html#">Shop now</a></div></div></div>
@@ -143,7 +143,7 @@ Athlete</div>
 	<div class="vc_col-sm-12 wpb_column vc_column_container ">
 		<div class="wpb_wrapper">
 			                    <div class="title-page title-about">
-                        <h4>Nuestros Productos</h4>
+                        <h4><?= $_NUESTROS_PRODUCTOS ?></h4>
                     </div>
                     <div class="row product-row-grid">
                     <div class="col-lg-12 col-md-12">
@@ -152,24 +152,21 @@ Athlete</div>
 
                 <button class="filter is-checked" data-filter="*"><?= $_TODOS ?></button>
                 
+                <? foreach($cats as $item): ?>
                 
-                
-                <button class="filter" data-filter=".czapatos">Zapatos femeninos</button>  
-                <button class="filter" data-filter=".czapatos">Zapatos masculinos</button>                  
-                <button class="filter" data-filter=".czapatos">Ropa femenina</button>                  
-                <button class="filter" data-filter=".czapatos">Ropa masculina</button>                  
-                <button class="filter" data-filter=".czapatos">Accesorios</button>  
-                <button class="filter" data-filter=".czapatos">Otros</button>                  
+                <button class="filter" data-filter=".c<?= $item['productoscategoriasId'] ?>"><?= $item['productoscategorias_'.$LANG] ?></button>  
+                <? endforeach; ?>
                           </div>
         </div>
 
                     </div>
+                    <section class="isotope">
                     <br><br>
 
                     <? foreach ($items as $item): ?>
                                          
-                                             <div class="col-md-3 col-sm-6 col-xs-12">
-                                <div class="product-image-wrapper">
+                                             <div class="col-md-3 col-sm-6 col-xs-12 product-element c<?= $item['productoscategoriasId'] ?>" data-category="c<?= $item['productoscategoriasId'] ?>">
+                                <div class="product-image-wrapper" style="height:259px">
     <div class="product-content">
         <div class="product-image">
             <a href="<?= $LANG ?>/shop/detail/<?= $item['productosId'] ?>"><img width="230" height="230" src="data/img/thumbs/<?= $item['featuredImagen'] ?>" class="attachment-shop_thumbnail wp-post-image" alt="<?= $item['title_'.$LANG] ?>" /></a>

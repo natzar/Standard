@@ -82,6 +82,10 @@ class FrontController
 		}
 		
 		/* Get Controller->action */
+        if (get_param('p') == -1 and get_param('m') == -1){
+            header("location: /".$_SESSION['lang']."/home");
+            exit();
+        }
 		if(get_param('p') != -1) $controllerName = get_param('p')."Controller";
 		if(get_param('m') != -1) $actionName = get_param('m');
 		

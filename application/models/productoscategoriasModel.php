@@ -11,7 +11,7 @@ class productoscategoriasModel extends ModelBase
 		public function getAll(){
 
 
-				$consulta = $this->db->prepare("SELECT * FROM productoscategorias ");
+				$consulta = $this->db->prepare("SELECT * FROM productoscategorias order by orden ASC");
 				$consulta->execute();
 				$aux2 = $consulta->fetchAll();
 

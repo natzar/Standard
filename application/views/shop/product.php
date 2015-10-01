@@ -28,7 +28,7 @@
             
                 <ul>
                     <li class="home"><a href="<?= $base_url ?>"><i class="fa fa-home"></i> Home</a></li><li><span>//</span></li><li class="category-1"><a href="<?= $LANG ?>/shop"><?= $_TIENDA ?></a></li><li><span>//</span></li><li class="category-2"><?= $items['title_'.$LANG] ?></li> 
-                    <li style="float:right"><a href="<?= $LANG ?>/shop/checkout"><i class="fa fa-shopping-cart"></i> Ir al carrito</li>
+                    <li style="float:right"><a href="<?= $LANG ?>/shop/checkout"><i class="fa fa-shopping-cart"></i> Ir al carrito</a></li>
                                    </ul>
                     
                     
@@ -45,15 +45,17 @@
                                         <div class="product-view">
                                             <div class="product-essential col-md-12">
                                                 <div class="product-img-box col-md-6">
-                                                    <a href="#"><img alt="" src="data/img/<?= $items['featuredImagen'] ?>" pagespeed_url_hash="2356165598" ></a>
+                                                    <img alt="" src="data/img/<?= $items['featuredImagen'] ?>" pagespeed_url_hash="2356165598" >
                                                     <div class="more-views">
                                                         <div id="owl-demo" class="owl-carousel owl-theme">
-                                                            <div class="item"><img alt="" src="data/img/<?= $items['imagen1'] ?>" pagespeed_url_hash="2119797334" ></div>
-                                                           
+                                                    <!-- <? for($i=1;$i<4;$i++): ?>
+                                                    <? if ($items['imagen'.$i] != ""): ?>
+                                                            <div class="item"><a href="#"><img alt="" src="data/img/<?= $items['imagen'.$i] ?>"  ></a></div>
+                                                            <? endif; ?>
+                                                            <? endfor; ?>
+                                                            -->
                                                         </div>
-                                                        <!--  <a class="jcarousel-control-prev" href="#"><i class="fa fa-caret-left"></i></a>
-                                                         <a class="jcarousel-control-next" href="#"><i class="fa fa-caret-right"></i></a> -->
-                                                        <div class="customNavigation">
+                                                                                                                <div class="customNavigation">
                                                             <a class="btn prev"><i class="fa fa-caret-left"></i></a>
                                                             <a class="btn next"><i class="fa fa-caret-right"></i></a>
                                                         </div>

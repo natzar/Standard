@@ -4,7 +4,18 @@
 class contactoController extends ControllerBase
 {
 		public function index(){
-			$this->view->show('contact/contact.php',array());				  
+		  $title = "";
+		  
+		  if ($_SESSION['lang'] == 'es'):
+		  $title = 'Contacto';
+		  elseif ($_SESSION['lang'] == 'ca'):
+		  $title = 'Contacte';
+		  else:
+		  $title = 'Contact';
+		  endif;
+		  
+		  
+			$this->view->show('contact/contact.php',array("SEO_TITLE" => $title));				  
 		}
 		  
 		 public function sendEmail(){		

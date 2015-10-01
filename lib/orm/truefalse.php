@@ -3,7 +3,7 @@
 final class truefalse extends field{
 
 	function view(){
-		if ($this->value == 1) return "Yes"; 
+		if ($this->value == 1) return "Sí"; 
 		else return "No";
 	}
 	function bake_field (){

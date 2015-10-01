@@ -27,16 +27,17 @@ class blogController extends ControllerBase
 		
 		public function detail(){
 			require "application/models/blogModel.php"; 	
-
+	$blog = new blogModel();			
             $params = gett();
             $a = $params['a'];
-            
-			$blog = new blogModel();			
+            $items = $blog->getByField('slug_es',$a);
+
 			$data = Array(
-				  "items" => $blog->getByField('slug_es',$a),
+				  "items" => $items,
                 "ultimosposts" => $blog->getUltimos(),
-
-				  "SEO_TITLE" => "Blog",
+"LANG" => $_SESSION['lang'],
+				  "SEO_TITLE" => $items[0]['title_es'],
+				  "SEO_DESCRIPTION" => truncate($items[0]['content_es'],200)
 
 
 
@@ -44,106 +45,7 @@ class blogController extends ControllerBase
 		          );         
 			$this->view->show("blog.php", $data);
 		}
-			public function post(){
-			require "application/models/blogModel.php"; 	
-			require "application/models/personajesModel.php"; 	
-			$personajes = new personajesModel();
-			$blog = new blogModel();	
-			
-			$params = gett();
-			$id = $params["a"];	
-			$post = $blog->getByblogId($id);
-			$related = $blog->getRelatedPosts($post['blogcategorysId']);
-				
-			$data = Array(
-				  "items" => $post,
- 				  "hots" => $blog->getHots(),
-				  "SEO_TITLE" => $post['title'],				  
-				  "SEO_DESCRIPTION" => substr(strip_tags($post['content']),0,130)."...",
- 				  "SEO_IMAGE" => $post['blogImg'],
-				  "personajes" => $personajes->getAll(),
-				  "related" => $related
-		          );         
-			$this->view->show("blogDetail.php", $data);
-		}
-		
-
-
-		public function category(){
-			$params = gett();
-			require "application/models/blogModel.php"; 	
-			require "application/models/personajesModel.php"; 	
-			$personajes = new personajesModel();
-			$blog = new blogModel();
-
-			$categoryId = $this->urlHelper->translate("blogcategorys",$params["a"]);
-			$items = $blog->getByBlogcategorysId($categoryId);
-			$CATEGORY_TITLE = count($items) > 0 ? $items[0]['categorys'] : '';
-			$data = Array(
-				  "items" => $items,
-  				  "hots" => $blog->getHots(),
-/* 				  "personajes" => $personajes->getAll(), */
-				  "CATEGORY_TITLE" => $CATEGORY_TITLE,
-				  "SEO_TITLE" => $CATEGORY_TITLE,
-				  "SEO_DESCRIPTION" => "Artículos, Posts, Juegos y Activades de ".$CATEGORY_TITLE
-			      );	          
-			      
-
-			$this->view->show("blog.php", $data);
-		}		
-
-		
-		public function tag(){
-			$params = gett();
-			require "application/models/blogModel.php"; 	
-			require "application/models/personajesModel.php"; 	
-			$personajes = new personajesModel();
-			$blog = new blogModel();
-
-			
-			$items = $blog->search(array("query" => $params['a']));
-			$CATEGORY_TITLE = ucfirst($params['a']);
-			$data = Array(
-				  "items" => $items,
-  				  "hots" => $blog->getHots(),
-				  /* "personajes" => $personajes->getAll(), */
-				  "CATEGORY_TITLE" => $CATEGORY_TITLE,
-				  "SEO_TITLE" => $CATEGORY_TITLE,
-				  "SEO_DESCRIPTION" => "Todos los Artículos con el tag ".$CATEGORY_TITLE
-			      );	          
-			      
-
-			$this->view->show("blog.php", $data);
-		}	
-		
-		public function add(){
-			require "application/models/blogModel.php";          
-			$blog = new blogModel();
-			$params = gett();
-			$params['table'] = "blog";
-			if ($blog->POST($params)) echo 1;
-			else echo 0;
-
-		}
-		
-		public function edit(){
-			require "application/models/blogModel.php";          
-			$blog = new blogModel();
-			$params = gett();
-			$params = gett();
-			$params['table'] = "blog";
-			if ($blog->PUT($params)) echo 1;
-			else echo 0;
-		}
-		
-		public function delete(){
-			require "application/models/blogModel.php";          
-			$blog = new blogModel();
-			$params = gett();
-			if ($blog->delete($params)) echo 1;
-			else echo 0;
-		}
-		
+					
 		public function search(){
 			$params = gett();
 			require "application/models/blogModel.php"; 	
