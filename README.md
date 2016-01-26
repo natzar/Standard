@@ -53,11 +53,4 @@ http://opensource.org/licenses/GPL-3.0
 
 Thanks To...
 ------------
-ASCII generator - http://patorjk.com/software/taag/#p=display&f=Binary&t=Standart    
-
-And some clients and friends that pushed this resource forward, cause wordpress wasn't enough, to complicated for the problem, or just doesnt fit.
-
-Jordi Molins   
-Alex Lopez   
-
-This work was started while working at Intersalus S.A., and evolved as more projects apeared willing a custom made admin-backoffice aplication.
+Clients and friends that pushed this resource forward, cause wordpress wasn't enough, to complicated for the problem, or just doesnt fitted in. This work was started while working at Intersalus S.A., and evolved as more clients wanted to use it, adding new features that remained available for next small/medium data-driven websites.
