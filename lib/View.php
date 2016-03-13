@@ -26,7 +26,7 @@ class View
  		$LANG = $_SESSION['lang'];
  		$config = $this->config; 	
 	
-		include_once ($this->config->get('languagesFolder').$_SESSION['lang'].'.php');
+
  		
  		/* SEO */
  		$SEO_TITLE = $this->config->get('seo_title');
@@ -39,6 +39,7 @@ class View
 		$OFFSET = $params['offset'];
 		$PERPAGE = $params['perpage'];
 		
+	
 	
 		
         
@@ -61,7 +62,7 @@ class View
 			$SEO_TITLE = ucfirst($items['title_'.$LANG]);
 		}
 		$SEO_TITLE = ucfirst($SEO_TITLE);
-		if ($SEO_TITLE == "") $SEO_TITLE = 'Escuela de Danza en Sabadell';
+		
 
 	
 		
@@ -101,7 +102,7 @@ class View
 		} elseif ($show_top_footer) {
 			include $this->config->get('viewsFolder').'layout/top.php';
 		}
-
+		include_once ($this->config->get('languagesFolder').'i18n.php');
     	include($template);
     	
     	if ($show_top_footer and file_exists($this->path.'layout/footer.php')){
