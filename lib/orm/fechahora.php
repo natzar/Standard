@@ -49,12 +49,14 @@ function fecha_to_sql($cadena,$separador_o){
 
 function sql_to_fecha($cadena,$separador_o){
 	if ($cadena != ""){
-	$fech = explode("-", $cadena);
+	$todo = explode(" ",$cadena);
+	
+	$fech = explode("-", $todo[0]);
 	$dia = $fech[2];
 	$mes = $fech[1];
 	$anno = $fech[0];
 	
-	$fecha1 = $dia.$separador_o.$mes.$separador_o.$anno;
+	$fecha1 = $dia.$separador_o.$mes.$separador_o.$anno." ".$todo[1];
 	return $fecha1;
 	}
 }

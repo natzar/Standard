@@ -1,0 +1,330 @@
+/*
+The MIT License (MIT)
+
+@Name: Lazy CSS
+@Description: CSS for lazy programmers, the perfect addon for bootstrap builders. All CSS properties as class names. http://www.w3.org/TR/CSS21/propidx.html
+@Version: 1
+@Repo: github.com/natzar/lazycss. You are welcome to collaborate.
+@Author: Beto López Ayesa
+@Email:betolopezayesa@gmail.com
+@Twitter: @betoayesa
+@Copyright (c) 2015 Beto López Ayesa
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+
+*/
+.background-attachment-scroll { background-attachment:scroll; }
+.background-attachment-fixed { background-attachment:fixed; }
+.background-color-#000 { background-color:#000; } /* example */
+.background-color-transparent { background-color:transparent; }
+.background-image-google.com { background-image:url(http://google.com); }  /* example */
+.background-image-none { background-image:none; }
+.background-position-left { background-position:left; }
+.background-position-center { background-position:center; }
+.background-position-right { background-position:right; }
+.background-position-top { background-position:top; }
+.background-position-bottom { background-position:bottom; }
+.background-position-left { background-position:left; }
+.background-position-right { background-position:right; }
+.background-position-top { background-position:top; }
+.background-position-inherit { background-position:inherit; }
+.background-repeat-repeat { background-repeat:repeat; }
+.background-repeat-repeat-x { background-repeat:repeat-x; }
+.background-repeat-repeat-y { background-repeat:repeat-y; }
+.background-repeat-no-repeat { background-repeat:no-repeat; }
+.background-background-repeat { background:background-repeat; }
+.background-background-attachment { background:background-attachment; }
+.background-background-position { background:background-position; }
+.border-collapse-collapse { border-collapse:collapse; }
+.border-collapse-separate { border-collapse:separate; }
+.border-color-#000 { border-color:#000; } /* example */
+.border-1px-solid-black { border:1px solid #000; } /* example */
+.border-top-1px { border-top:1px; }
+.border-top-solid { border-top:solid; }
+.border-right-1px { border-right:1px; }
+.border-right-solid { border-right:solid; }
+.border-bottom-1px { border-bottom:1px; }
+.border-bottom-solid { border-bottom:solid; }
+.border-left-1px { border-left:1px; }
+.border-left-solid { border-left:solid; }
+.border-top-color-#000 { border-top-color:#000; }
+.border-top-color-transparent { border-top-color:transparent; }
+.border-right-color-#000 { border-right-color:#000; }
+.border-right-color-transparent { border-right-color:transparent; }
+.border-bottom-color-#000 { border-bottom-color:#000; }
+.border-bottom-color-transparent { border-bottom-color:transparent; }
+.border-left-color-#000 { border-left-color:#000; }
+.border-left-color-transparent { border-left-color:transparent; }
+.border-top-style-solid { border-top-style:solid; }
+.border-right-style-solid { border-right-style:solid; }
+.border-bottom-style-solid { border-bottom-style:solid; }
+.border-left-style-solid { border-left-style:solid; }
+.border-top-width-1px { border-top-width:1px; }
+.border-right-width-1px { border-right-width:1px; }
+.border-bottom-width-1px { border-bottom-width:1px; }
+.border-left-width-1px { border-left-width:1px; }
+.bottom-auto { bottom:auto; }
+.caption-side-top { caption-side:top; }
+.caption-side-bottom { caption-side:bottom; }
+.clear-none { clear:none; }
+.clear-left { clear:left; }
+.clear-right { clear:right; }
+.clear-both { clear:both; }
+.clip-auto { clip:auto; }
+.color-#000 { color:#000; }
+.content-normal { content:normal; }
+.content-none { content:none; }
+.content-open-quote { content:open-quote; }
+.content-close-quote { content:close-quote; }
+.content-no-open-quote { content:no-open-quote; }
+.counter-increment-none { counter-increment:none; }
+.counter-reset-none { counter-reset:none; }
+.cue-after-none { cue-after:none; }
+.cue-before-none { cue-before:none; }
+.cue-cue-before { cue:cue-before; }
+.cue-cue-after { cue:cue-after; }
+.cursor-crosshair { cursor:crosshair; }
+.cursor-default { cursor:default; }
+.cursor-pointer { cursor:pointer; }
+.cursor-move { cursor:move; }
+.cursor-e-resize { cursor:e-resize; }
+.cursor-ne-resize { cursor:ne-resize; }
+.cursor-nw-resize { cursor:nw-resize; }
+.cursor-n-resize { cursor:n-resize; }
+.cursor-se-resize { cursor:se-resize; }
+.cursor-sw-resize { cursor:sw-resize; }
+.cursor-s-resize { cursor:s-resize; }
+.cursor-w-resize { cursor:w-resize; }
+.cursor-text { cursor:text; }
+.cursor-wait { cursor:wait; }
+.cursor-help { cursor:help; }
+.cursor-progress { cursor:progress; }
+.direction-ltr { direction:ltr; }
+.direction-rtl { direction:rtl; }
+.display-inline { display:inline; }
+.display-block { display:block; }
+.display-list-item { display:list-item; }
+.display-inline-block { display:inline-block; }
+.display-table { display:table; }
+.display-inline-table { display:inline-table; }
+.display-table-row-group { display:table-row-group; }
+.display-table-header-group { display:table-header-group; }
+.display-table-footer-group { display:table-footer-group; }
+.display-table-row { display:table-row; }
+.display-table-column-group { display:table-column-group; }
+.display-table-column { display:table-column; }
+.display-table-cell { display:table-cell; }
+.display-table-caption { display:table-caption; }
+.display-none { display:none; }
+.elevation-below { elevation:below; }
+.elevation-level { elevation:level; }
+.elevation-above { elevation:above; }
+.elevation-higher { elevation:higher; }
+.elevation-lower { elevation:lower; }
+.empty-cells-show { empty-cells:show; }
+.empty-cells-hide { empty-cells:hide; }
+.float-left { float:left; }
+.float-right { float:right; }
+.float-none { float:none; }
+.font-family-Arial { font-family:Arial; }
+.font-size-12px { font-size:12px; }
+.font-size-14px { font-size:14px; }
+.font-size-16px { font-size:16px; }
+.font-size-18px { font-size:18px; }
+.font-size-20px { font-size:20px; }
+.font-size-22px { font-size:22px; }
+.font-size-25px { font-size:25px; }
+.font-size-28px { font-size:28px; }
+.font-size-30px { font-size:30px; }
+.font-style-normal { font-style:normal; }
+.font-style-italic { font-style:italic; }
+.font-style-oblique { font-style:oblique; }
+.font-variant-normal { font-variant:normal; }
+.font-variant-small-caps { font-variant:small-caps; }
+.font-weight-normal { font-weight:normal; }
+.font-weight-bold { font-weight:bold; }
+.font-weight-bolder { font-weight:bolder; }
+.font-weight-lighter { font-weight:lighter; }
+.font-weight-100 { font-weight:100; }
+.font-weight-200 { font-weight:200; }
+.font-weight-300 { font-weight:300; }
+.font-weight-400 { font-weight:400; }
+.font-weight-500 { font-weight:500; }
+.font-weight-600 { font-weight:600; }
+.font-weight-700 { font-weight:700; }
+.font-weight-800 { font-weight:800; }
+.font-weight-900 { font-weight:900; }
+.font-caption { font:caption; }
+.font-icon { font:icon; }
+.font-menu { font:menu; }
+.font-message-box { font:message-box; }
+.font-small-caption { font:small-caption; }
+.font-status-bar { font:status-bar; }
+.height-auto { height:auto; }
+.left-auto { left:auto; }
+.letter-spacing-normal { letter-spacing:normal; }
+.line-height-normal { line-height:normal; }
+.line-height-10px{ line-height:10px; }
+.line-height-15px{ line-height:15px; }
+.line-height-20px{ line-height:20px; }
+.line-height-25px{ line-height:25px; }
+.line-height-30px{ line-height:30px; }
+.list-style-image-none { list-style-image:none; }
+.list-style-position-inside { list-style-position:inside; }
+.list-style-position-outside { list-style-position:outside; }
+.list-style-type-disc { list-style-type:disc; }
+.list-style-type-circle { list-style-type:circle; }
+.list-style-type-square { list-style-type:square; }
+.list-style-type-decimal { list-style-type:decimal; }
+.list-style-type-decimal-leading-zero { list-style-type:decimal-leading-zero; }
+.list-style-type-lower-roman { list-style-type:lower-roman; }
+.list-style-type-upper-roman { list-style-type:upper-roman; }
+.list-style-type-lower-greek { list-style-type:lower-greek; }
+.list-style-type-lower-latin { list-style-type:lower-latin; }
+.list-style-type-upper-latin { list-style-type:upper-latin; }
+.list-style-type-armenian { list-style-type:armenian; }
+.list-style-type-georgian { list-style-type:georgian; }
+.list-style-type-lower-alpha { list-style-type:lower-alpha; }
+.list-style-type-upper-alpha { list-style-type:upper-alpha; }
+.list-style-type-none { list-style-type:none; }
+.margin-right-5px { margin-right:5px; }
+.margin-right-10px { margin-right:10px; }
+.margin-right-15px { margin-right:15px; }
+.margin-right-20px { margin-right:20px; }
+.margin-left-5px { margin-left:5px; }
+.margin-left-10px { margin-left:10px; }
+.margin-left-15px { margin-left:15px; }
+.margin-left-20px { margin-left:20px; }
+.margin-top-5px { margin-top:5px; }
+.margin-top-10px { margin-top:10px; }
+.margin-top-15px { margin-top:15px; }
+.margin-top-20px { margin-top:20px; }
+.margin-bottom-5px { margin-bottom:5px; }
+.margin-bottom-10px { margin-bottom:10px; }
+.margin-bottom-15px { margin-bottom:15px; }
+.margin-bottom-20px { margin-bottom:20px; }
+.outline-color-#000 { outline-color:#000; }
+.outline-color-invert { outline-color:invert; }
+.outline-style-solid { outline-style:solid; }
+.outline-width-1px { outline-width:1px; }
+.overflow-visible { overflow:visible; }
+.overflow-hidden { overflow:hidden; }
+.overflow-scroll { overflow:scroll; }
+.overflow-auto { overflow:auto; }
+.padding-top-5px { padding-top:5px; }
+.padding-right-5px { padding-right:5px; }
+.padding-bottom-5px { padding-bottom:5px; }
+.padding-left-5px { padding-left:5px; }
+.page-break-after-auto { page-break-after:auto; }
+.page-break-after-always { page-break-after:always; }
+.page-break-after-avoid { page-break-after:avoid; }
+.page-break-after-left { page-break-after:left; }
+.page-break-after-right { page-break-after:right; }
+.page-break-before-auto { page-break-before:auto; }
+.page-break-before-always { page-break-before:always; }
+.page-break-before-avoid { page-break-before:avoid; }
+.page-break-before-left { page-break-before:left; }
+.page-break-before-right { page-break-before:right; }
+.page-break-inside-avoid { page-break-inside:avoid; }
+.page-break-inside-auto { page-break-inside:auto; }
+.pause-after-2s { pause-after:2s; }
+.pause-before-2s { pause-before:2s; }
+.pause-2s { pause:2s; }
+.pause-1-2 { pause: 1s 2s; }
+.position-static { position:static; }
+.position-relative { position:relative; }
+.position-absolute { position:absolute; }
+.position-fixed { position:fixed; }
+.quotes-none { quotes:none; }
+.right-auto { right:auto; }
+.speak-header-once { speak-header:once; }
+.speak-header-always { speak-header:always; }
+.speak-numeral-digits { speak-numeral:digits; }
+.speak-numeral-continuous { speak-numeral:continuous; }
+.speak-punctuation-code { speak-punctuation:code; }
+.speak-punctuation-none { speak-punctuation:none; }
+.speak-normal { speak:normal; }
+.speak-none { speak:none; }
+.speak-spell-out { speak:spell-out; }
+.speech-rate-5 { speech-rate:5; }
+.speech-rate-x-slow { speech-rate:x-slow; }
+.speech-rate-slow { speech-rate:slow; }
+.speech-rate-medium { speech-rate:medium; }
+.speech-rate-fast { speech-rate:fast; }
+.speech-rate-x-fast { speech-rate:x-fast; }
+.speech-rate-faster { speech-rate:faster; }
+.speech-rate-slower { speech-rate:slower; }
+.stress-5 { stress:5; }
+.table-layout-auto { table-layout:auto; }
+.table-layout-fixed { table-layout:fixed; }
+.text-align-left { text-align:left; }
+.text-align-right { text-align:right; }
+.text-align-center { text-align:center; }
+.text-align-justify { text-align:justify; }
+.text-decoration-none { text-decoration:none; }
+.text-decoration-underline { text-decoration:underline; }
+.text-decoration-overline { text-decoration:overline; }
+.text-decoration-line-through { text-decoration:line-through; }
+.text-decoration-blink { text-decoration:blink; }
+.text-transform-capitalize { text-transform:capitalize; }
+.text-transform-uppercase { text-transform:uppercase; }
+.text-transform-lowercase { text-transform:lowercase; }
+.text-transform-none { text-transform:none; }
+.top-auto { top:auto; }
+.unicode-bidi-normal { unicode-bidi:normal; }
+.unicode-bidi-embed { unicode-bidi:embed; }
+.unicode-bidi-bidi-override { unicode-bidi:bidi-override; }
+.vertical-align-baseline { vertical-align:baseline; }
+.vertical-align-sub { vertical-align:sub; }
+.vertical-align-super { vertical-align:super; }
+.vertical-align-top { vertical-align:top; }
+.vertical-align-text-top { vertical-align:text-top; }
+.vertical-align-middle { vertical-align:middle; }
+.vertical-align-bottom { vertical-align:bottom; }
+.vertical-align-text-bottom { vertical-align:text-bottom; }
+.visibility-visible { visibility:visible; }
+.visibility-hidden { visibility:hidden; }
+.visibility-collapse { visibility:collapse; }
+.volume-5 { volume:5; }
+.volume-silent { volume:silent; }
+.volume-x-soft { volume:x-soft; }
+.volume-soft { volume:soft; }
+.volume-medium { volume:medium; }
+.volume-loud { volume:loud; }
+.volume-x-loud { volume:x-loud; }
+.white-space-normal { white-space:normal; }
+.white-space-pre { white-space:pre; }
+.white-space-nowrap { white-space:nowrap; }
+.white-space-pre-wrap { white-space:pre-wrap; }
+.white-space-pre-line { white-space:pre-line; }
+.width-auto { width:auto; }
+.width-0% { width:0%}
+.width-25% { width:25%}
+.width-50% { width:50%}
+.width-75% { width:75%}
+.width-100% { width:100%}
+.word-spacing-normal { word-spacing:normal; }
+.z-index-auto { z-index:auto; }
+.z-index-10 { z-index:10 };
+.z-index-50 { z-index:50 };
+.z-index-100 { z-index:100 };
+.z-index-200 { z-index:200 };
+.z-index-500 { z-index:500 };
+.z-index-600 { z-index:600 };
+.z-index-1000 { z-index:1000 };

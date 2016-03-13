@@ -37,11 +37,15 @@ final class combo extends field{
       	$row = $consulta->fetch(PDO::FETCH_NUM);
 
 
-		if (is_string($row[1]) and $row[1] != '' and $row[1] != '0' and intval($row[1]) == 0 and substr($row[1],-3) != 'jpg' ) return $row[1];
-		else if (is_string($row[2]) and $row[2] != '' and $row[2] != '0' and intval($row[2]) == 0  and substr($row[2],-3) != 'jpg') return $row[2];
-		else if (is_string($row[3]) and $row[3] != '' and $row[3] != '0' and intval($row[3]) == 0 and substr($row[3],-3) != 'jpg') return $row[3];
+        if ($tabla == 'clientes'){
+            return $row[3];
+        }else{
+
+		if (is_string($row[1]) and $row[1] != ''  and substr($row[1],-3) != 'jpg' or (is_int($row[1]) and intval( $row[1] > 1) ) or !isset($row[2])) return $row[1];
+		else if (is_string($row[2]) and $row[2] != '' and (is_int($row[2]) and $row[2] > 1)  and substr($row[2],-3) != 'jpg') return $row[2];
+		else if (is_string($row[3]) and $row[3] != '' and is_string($row[3]) and substr($row[3],-3) != 'jpg') return $row[3];
 		else return  $row[4];
-		
+		}
 
 
 	}
@@ -60,7 +64,7 @@ function bake_combo($tabla,$select_name,$id_selected){
 		if ($row[0] == $id_selected) $output .= " selected";
 		$output .=">";
 
-		if (is_string($row[1]) and $row[1] != '' and $row[1] != '0' and intval($row[1]) == 0 and substr($row[1],-3) != 'jpg') $output .= $row[1]."</option>";
+		if (is_string($row[1]) and $row[1] != '' and $row[1] != '0' and intval($row[1]) == 0 and substr($row[1],-3) != 'jpg' or !isset($row[2])) $output .= $row[1]."</option>";
 		else if (is_string($row[2]) and $row[2] != '' and $row[2] != '0' and intval($row[2]) == 0 and substr($row[2],-3) != 'jpg') $output .= $row[2]."</option>";
 		else if (is_string($row[3]) and $row[3] != '' and $row[3] != '0' and intval($row[3]) == 0 and substr($row[3],-3) != 'jpg') $output .= $row[3]."</option>";
 		else $output .= $row[4]."</option>";
