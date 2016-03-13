@@ -1,3 +1,25 @@
+	
+<div class="container">
+
+        <footer>
+            <div class="row">
+                            <div class="col-md-4">
+<p>
+</p>
+
+                </div>
+                <div class="col-md-8">
+<p>            <strong class="lead">About <?= $SEO_TITLE ?></strong><br>
+           <?= $SEO_DESCRIPTION ?>
+            </p>
+            
+            
+            </div>
+
+            </div>
+        </footer>
+</div>
+
 <!-- Developer Mode = Debug Mode -->
 <? if ($config->get('developer_mode')): ?>
 	<div class="alert">
@@ -9,14 +31,4 @@
 		<?= print_r($_SESSION); ?>
 		</div>
 		</div>
-<? endif; ?>		
-    </div> <!-- /container -->
-
-  <footer class="footer">
-  <center>
-  <a href="">Privacy Policy</a> ·   <a href="">Legal notice</a> · Powered by <a href="http://www.96levels.com" target="_blank">96Levels</a><br>
-        <p><?= Date("Y") ?> &copy; <?= $base_title ?> </p>
-        </center>
-      </footer>
-
-
+<? endif; ?>	

@@ -32,7 +32,7 @@ RewriteEngine On
 #RewriteRule .* – [F]
 
 # Installation directory
-RewriteBase /barcenas/
+RewriteBase /Standart/
 
 # Allow any files or directories that exist to be displayed directly
 RewriteCond %{REQUEST_FILENAME} !-f
