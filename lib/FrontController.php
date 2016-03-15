@@ -6,38 +6,12 @@ date_default_timezone_set('Europe/Madrid');
 setlocale (LC_ALL, 'es_ES.ISO8859-1'); 
 setlocale(LC_TIME, 'spanish'); 
 
-
-$GLOBAL['_logged_php_errors'] = array();
-
-//error_reporting(1);
-//error_reporting(1);
-//set_exception_handler('phpLogError');
-
-//set_error_handler('phpLogError');
-
-function phpLogError() {
-    global $_logged_php_errors;
-
-    $error = error_get_last();
-
-    if ($error['type'] == 1) {
-        $_logged_php_errors[] = "<span>$error</span>";
-    } 
-}
-
-function phpGetLoggedErrors() {
-    global $_logged_php_errors;
-
-    return "<ol><li>".implode('</li><li>',$_logged_php_errors)."</li></ol>";
-}
-
-
 include "functions.php";
 include "ControllerBase.php";
 include "ModelBase.php";
+include_once dirname(__FILE__)."/orm/field.php";
 
 
-//header ('Content-type: text/html; charset=utf-8');
 
 
 class FrontController
