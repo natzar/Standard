@@ -1,19 +1,14 @@
-Standart 2 
+Standart
 ================
 
-	Version 2.0 
 	Author: Beto López Ayesa 
 	Email: betolopezayesa@gmail.com 
 	Date: 10/Feb/2009 
 
 
-Standart = Turkish word for Standard. In english, Stand for art, Support Art. This software provides a complete support for taylor made websites. From PSD-art to data driven apps.
-
 Summary
 ------------
-I am using this custom CRUD solution for more than 6 years in a lot of projects.  
-
-After the CRUD application, came the "Front Office". Just a way to manage the URLS, with different languages, with a MVC structure inside the code.
+Standart is a simple MVC php framework, with basic capabilities: Languages, SEO routes, and a beautiful CRUD. I am using this custom CRUD solution for more than 6 years in a lot of projects. After the CRUD application, came the "Front Office". Just a way to manage the URLS, with different languages, database resources and views.
 
 Requirements
 ------------
