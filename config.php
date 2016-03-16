@@ -76,10 +76,10 @@
 	/* Base Urls & Paths */
 	$config->set('path',$PATH); 
 	$config->set('base_url','//'.$_SERVER['SERVER_NAME'].$RELATIVE_PATH);
-	$config->set('base_url_data','//'.$_SERVER['SERVER_NAME'].$RELATIVE_PATH.'data/');
+	$config->set('base_url_data','//'.$_SERVER['SERVER_NAME'].$RELATIVE_PATH.'uploads/');
 	
 	$config->set('setup_dir',$PATH.'/setup/'); 
-	$config->set('data_dir',$PATH.'/data/');
+	$config->set('data_dir',$PATH.'/uploads/');
 	$config->set('controllersFolder', 'application/controllers/');
 	$config->set('modelsFolder', 'application/models/');
 	$config->set('viewsFolder', 'application/views/');
