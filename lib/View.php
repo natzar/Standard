@@ -21,12 +21,10 @@ class View
 		}
 	}
 	
-	public function show($name = 'pagina.php', $vars = array(),$show_top_footer = true)
+	public function show($name = 'page.php', $vars = array(),$show_top_footer = true)
 	{	
  		$LANG = $_SESSION['lang'];
  		$config = $this->config; 	
-	
-
  		
  		/* SEO */
  		$SEO_TITLE = $this->config->get('seo_title');
@@ -38,11 +36,6 @@ class View
 		$params = gett();
 		$OFFSET = $params['offset'];
 		$PERPAGE = $params['perpage'];
-		
-	
-	
-		
-        
 		
 		/* Template meta data */
 		$page = $name;
@@ -65,6 +58,7 @@ class View
 	***********************/	
 		$template = $this->path.$name;
 		
+		
 		if (file_exists($template) == false) {
 			require_once($config->get('controllersFolder').'errorsController.php');
 			$controller = new errorsController();
@@ -72,6 +66,8 @@ class View
 	    	$controller->e404();
 			return false;
 		}
+		
+		header ('Content-type: text/html; charset=utf-8');
 		
 		if ($show_top_footer and file_exists($this->path.'layout/top.php')){
 			include $this->path.'layout/top.php';
