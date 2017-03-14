@@ -3,12 +3,17 @@
 class errorsController extends ControllerBase{
 
 	function e404(){
-		$this->view->show('errors/404.php',array());
+		$this->view->show('errors/404.php',array("SEO_TITLE" => "Not found","SEO_DESCRIPTION" => "Not found 404"));
 		
 	}
 	function e0(){
 		$this->view->show('errors/100.php',array());
 		
+	}
+	function test(){
+            	include dirname(__FILE__)."/../models/meetupModel.php";
+    	        $meetup = new meetupModel();
+                $meetup->getEventos();
 	}
 	function mysql(){
         echo '<h1>Welcome to Standart</h1>';

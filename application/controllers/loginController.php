@@ -20,9 +20,9 @@ class loginController extends ControllerBase{
  
 	public function logout()
 	{
-		require 'application/models/loginModel.php';
-    	$loginModel = new loginModel();
-    	$loginModel->logout();
+
+
+    	$this->model->logout();
 	}
 	
 	function doRecover(){

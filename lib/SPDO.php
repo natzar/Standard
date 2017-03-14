@@ -11,12 +11,16 @@ class SPDO extends PDO
 		try  
             {  
                 parent::__construct('mysql:host=' . $config->get('dbhost') . ';dbname=' . $config->get('dbname'),$config->get('dbuser'), $config->get('dbpass'));
-		parent::exec("SET NAMES utf-8");//$this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
+		parent::exec("SET NAMES utf8;");//$this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);  
+		 $this->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $this->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
             } 
             catch (PDOException $e)  
             { 
+
+                echo("Error: ".$e->getMessage()); 
 header("location: ".$config->get('base_url')."errors/mysql");
-                die("Error: ".$e->getMessage()); 
+                die();
             } 
 	}
  

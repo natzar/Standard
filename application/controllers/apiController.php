@@ -4,22 +4,12 @@
 class apiController extends ControllerBase
 {
 
-	public function divecenters(){
-			require "application/models/divecentersModel.php"; 	
-			$divecenters = new divecentersModel();
-			$items = array();
-			if (!isset($_GET['filter'])){
-				$items = $divecenters->getAll();
-			}else{
-				$items = $divecenters->search($_GET['filter']);
-			}
+	public function index(){
 
-			$data = Array(
-				  "divecenters" => $items,
-		          );         
-			echo json_encode($data);
-		}
-		
+	}
+    public function settings(){
+    
+    }
 		
    		
 }

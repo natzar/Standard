@@ -1,5 +1,33 @@
 <?
+function saveTranslations($json){
+    $ar = fopen('/usr/share/nginx/html/application/language/translations.php',"w");
+    $content = '<? $';
+    $content .= 'translation = ';
+    $content .= json_encode($json).';';
+    fwrite($ar,$content);
+    fclose($ar);
+}
 
+function __($token,$lang = null){        
+if (!isset($token) or $token == "") return "";
+$lang = $_SESSION['lang'];
+        require ('/usr/share/nginx/html/application/language/translations.php');
+//        echo $translation;
+        $json = stripslashes($translation);
+        $json = json_decode($translation); 
+
+        if (!isset($json->$token)){   
+            $json->$token = array("fr" => "","en" => $token, "es" => "","ca" => "","de" => ""); 
+           // saveTranslations(json_encode($json));    
+            return $token;
+        }else if (!isset($json->$token->$lang) or $json->$token->$lang == ""){        
+            return $token;
+        }else{
+            return $json->$token->$lang;
+        }
+    }
+    
+    
 
 function cleanInput($input) {
 
@@ -497,4 +525,91 @@ function truncate($text, $length = 100, $ending = '...', $exact = true, $conside
 return $truncate;
 
 }
+
+function mostrar_fecha_completa($fecha)
+{
+$subfecha=explode("-",$fecha); 
+   for($i=0;$i<count($subfecha);$i++); 
+$año=$subfecha[0];
+$mes=$subfecha[1];
+$dia=$subfecha[2];
+
+$dia2=date( "d", mktime(0,0,0,$mes,$dia,$año));
+$mes2=date( "m", mktime(0,0,0,$mes,$dia,$año));
+$año2=date( "Y", mktime(0,0,0,$mes,$dia,$año));
+$dia_sem=date( "w", mktime(0,0,0,$mes,$dia,$año));
+
+   switch($dia_sem) { 
+      case "0":   // Bloque 1 
+         $dia_sem3='Domingo'; 
+               break; 
+      case "1":   // Bloque 1 
+         $dia_sem3='Lunes'; 
+               break; 
+        case "2":   // Bloque 1 
+         $dia_sem3='Martes'; 
+               break; 
+        case "3":   // Bloque 1 
+         $dia_sem3='Miercoles'; 
+               break; 
+        case "4":   // Bloque 1 
+         $dia_sem3='Jueves'; 
+               break; 
+        case "5":   // Bloque 1 
+         $dia_sem3='Viernes'; 
+               break; 
+        case "6":   // Bloque 1 
+         $dia_sem3='Sabado'; 
+               break; 
+      default:   // Bloque 3 
+         };
+   
+    switch($mes2) { 
+      case "1":   // Bloque 1 
+         $mes3='Enero'; 
+               break; 
+      case "2":   // Bloque 1 
+         $mes3='Febrero';
+     break; 
+      case "3":   // Bloque 1 
+         $mes3='Marzo';
+     break; 
+ case "4":   // Bloque 1 
+         $mes3='Abril'; 
+     break;  
+ case "5":   // Bloque 1 
+         $mes3='Mayo';
+     break;   
+ case "6":   // Bloque 1 
+         $mes3='Junio';    
+               break; 
+ case "7":   // Bloque 1 
+         $mes3='Julio';
+     break; 
+ case "8":   // Bloque 1 
+         $mes3='Agosto';
+     break; 
+ case "9":   // Bloque 1 
+         $mes3='Septiembre';
+     break; 
+ case "10":   // Bloque 1 
+         $mes3='Octubre';
+     break; 
+ case "11":   // Bloque 1 
+         $mes3='Noviembre';
+     break;           
+ case "12":   // Bloque 1 
+         $mes3='Diciembre';  
+     break; 
+      default:   // Bloque 3 
+     break; 
+         }; 
+   
+   
+$fecha_texto=$dia_sem3.' '.$dia2.' '.'de'.' '.$mes3.' '.'de'.' '.$año2;
+
+return $fecha_texto;
+};
+
+ 
 ?>

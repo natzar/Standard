@@ -25,7 +25,9 @@ class View
 	{	
  		$LANG = $_SESSION['lang'];
  		$config = $this->config; 	
- 		
+	
+		include_once ($this->config->get('languagesFolder').$_SESSION['lang'].'.php');
+
  		/* SEO */
  		$SEO_TITLE = $this->config->get('seo_title');
 		$SEO_DESCRIPTION = strip_tags($this->config->get('seo_description'));
@@ -54,10 +56,12 @@ class View
 		$SIDEDATA = new sidedataModel();
 		$SIDEDATA = $SIDEDATA->load();
 
+        
+		$SEO_TITLE = utf8_encode(strip_tags($SEO_TITLE));		
+		$SEO_DESCRIPTION = utf8_encode(strip_tags($SEO_DESCRIPTION));
 	/* TEMPLATE
 	***********************/	
 		$template = $this->path.$name;
-		
 		
 		if (file_exists($template) == false) {
 			require_once($config->get('controllersFolder').'errorsController.php');
@@ -67,14 +71,12 @@ class View
 			return false;
 		}
 		
-		header ('Content-type: text/html; charset=utf-8');
-		
 		if ($show_top_footer and file_exists($this->path.'layout/top.php')){
 			include $this->path.'layout/top.php';
 		} elseif ($show_top_footer) {
 			include $this->config->get('viewsFolder').'layout/top.php';
 		}
-		include_once ($this->config->get('languagesFolder').'i18n.php');
+
     	include($template);
     	
     	if ($show_top_footer and file_exists($this->path.'layout/footer.php')){

@@ -9,16 +9,12 @@ setlocale(LC_TIME, 'spanish');
 include "functions.php";
 include "ControllerBase.php";
 include "ModelBase.php";
-include_once dirname(__FILE__)."/orm/field.php";
-
-
 
 
 class FrontController
 {
 	static function main()
 	{
-		mb_internal_encoding("UTF-8");
 		require 'lib/Config.php'; //de configuracion
 		require 'lib/SPDO.php'; //PDO con singleton
 		require 'lib/View.php'; //Mini motor de plantillas         
@@ -47,7 +43,14 @@ class FrontController
 			$_SESSION['lang'] = get_param('lang');
 		} 
 		
-		
+        if (!isset($_SESSION['user'])):
+            $_SESSION['user'] = array();            
+        endif;
+        
+        if (!isset($_SESSION['user']['firstime'])){
+            $_SESSION['user']['firstime'] = true;
+        }
+
 
 		/* Current User */
 		if (!isset($_SESSION['usersId'])){
