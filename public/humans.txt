@@ -1,6 +1,7 @@
 STANDART
-www.betolopezayesa.com
-www.96levels.com
+www.phpninja.info
+twitter.com/betoayesa
+github.com/natzar
 
                       .-.
                      (   )
