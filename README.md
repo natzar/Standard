@@ -27,9 +27,7 @@ Dependencies
 
 
 License GPL-3.0
-----------------
-&copy; 2013-2015  Beto Ayesa  
-betolopezayesa@gmail.com
+---------------- 
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -42,9 +40,9 @@ betolopezayesa@gmail.com
     GNU General Public License for more details.
 
     You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+    along with this program.  If not, see http://opensource.org/licenses/GPL-3.0.
 
-http://opensource.org/licenses/GPL-3.0
+
 
 Thanks To...
 ------------
