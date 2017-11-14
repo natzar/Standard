@@ -1,4 +1,4 @@
-Standart
+Standard
 ================
 
 	Author: Beto López Ayesa 
@@ -8,7 +8,7 @@ Standart
 
 Summary
 ------------
-Standart is a simple MVC php framework, with basic capabilities: Languages, SEO routes, and a beautiful CRUD. I am using this custom CRUD solution for more than 6 years in a lot of projects. After the CRUD application, came the "Front Office". Just a way to manage the URLS, with different languages, database resources and views.
+Standard is a simple MVC php framework, with basic capabilities: Languages, SEO routes, and a beautiful CRUD. I am using this custom CRUD solution for more than 6 years in a lot of projects. After the CRUD application, came the "Front Office". Just a way to manage the URLS, with different languages, database resources and views.
 
 Requirements
 ------------
